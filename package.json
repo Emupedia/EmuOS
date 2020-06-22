@@ -55,6 +55,6 @@
     "dev:livereload": "cross-env LIVERELOAD=1 rollup -c -w",
     "dev:nollup": "cross-env NOLLUP=1 nollup -c --hot --port 5000 --content-base ./docs",
     "dev": "npm run dev:rollup",
-    "start": "npm run build && sirv docs"
+    "start": "sirv docs"
   }
 }

@@ -60,7 +60,7 @@
 
 -->
 <!DOCTYPE html>
-<html class="emuos" lang="en-us" prefix="og: http://ogp.me/ns/website#">
+<html lang="en-us" prefix="og: http://ogp.me/ns/website#">
 	<head>
 		<title>EmuOS</title>
 
@@ -181,7 +181,7 @@
 				overflow: hidden;
 			}
 
-			.emuos body {
+			.emuos {
 				background-color: #333;
 				color: #fff;
 			}
@@ -192,7 +192,8 @@
 				display: none;
 			}
 
-			.emuos.startup body {
+			/*noinspection CssUnusedSymbol*/
+			.emuos.startup  {
 				text-align: center;
 			}
 
@@ -387,7 +388,8 @@
 
 			/* region Windows 3 */
 
-			.emuos.boot.theme-windows-3 body {
+			/*noinspection CssUnusedSymbol*/
+			.emuos.boot.theme-windows-3 {
 				background-color: #000;
 				color: #fff;
 			}
@@ -408,7 +410,8 @@
 
 			/* region Windows 95 */
 
-			.emuos.boot.theme-windows-95 body {
+			/*noinspection CssUnusedSymbol*/
+			.emuos.boot.theme-windows-95 {
 				background-color: #76abd5;
 				color: #000;
 			}
@@ -462,7 +465,8 @@
 
 			/* region Windows 98 */
 
-			.emuos.boot.theme-windows-98 body {
+			/*noinspection CssUnusedSymbol*/
+			.emuos.boot.theme-windows-98  {
 				background-color: #76abd5;
 				color: #000;
 			}
@@ -516,7 +520,8 @@
 
 			/* region Windows Me */
 
-			.emuos.boot.theme-windows-me body {
+			/*noinspection CssUnusedSymbol*/
+			.emuos.boot.theme-windows-me {
 				background-color: #fff;
 				color: #000;
 			}
@@ -559,7 +564,8 @@
 
 			/* region Windows 7 */
 
-			.emuos.boot.theme-windows-7 body {
+			/*noinspection CssUnusedSymbol*/
+			.emuos.boot.theme-windows-7 {
 				background-color: #000;
 				color: #fff;
 			}
@@ -1028,7 +1034,7 @@
 
 		<!-- endregion -->
 	</head>
-	<body>
+	<body class="emuos">
 		<div class="emuos-startup">
 			<h1>Choose theme:</h1>
 			<table class="emuos-startup-container">
@@ -1064,23 +1070,23 @@
 			// noinspection ThisExpressionReferencesGlobalObjectJS
 			(function(global) {
 				global.$sys.setTheme = function(theme) {
-					var simpleStorage = null;
+					var storage = null;
 
 					if (typeof global.localStorage.getItem === 'function') {
 						try {
-							simpleStorage = global.JSON.parse(global.localStorage.getItem('simpleStorage'));
-							simpleStorage.theme = theme;
+							storage = global.JSON.parse(global.localStorage.getItem('EmuOS'));
+							storage.theme = theme;
 						} catch (e) {
-							simpleStorage = {};
-							simpleStorage.theme = theme;
+							storage = {};
+							storage.theme = theme;
 						}
 
-						var htmlElement = global.document.getElementsByTagName('html')[0];
+						var htmlElement = global.document.getElementsByTagName('body')[0];
 						htmlElement.className = 'emuos post';
 
 						if (typeof global.localStorage.setItem === 'function') {
 							try {
-								global.localStorage.setItem('simpleStorage', global.JSON.stringify(simpleStorage));
+								global.localStorage.setItem('EmuOS', global.JSON.stringify(storage));
 							} catch (e) {}
 						}
 
@@ -1089,7 +1095,7 @@
 				}
 
 				function boot(theme, first) {
-					var htmlElement = global.document.getElementsByTagName('html')[0];
+					var htmlElement = global.document.getElementsByTagName('body')[0];
 
 					if (first) {
 						global.document.getElementsByTagName('audio')[0].play();
@@ -1250,19 +1256,19 @@
 
 				(function start() {
 					if (typeof global.localStorage !== 'undefined') {
-						var htmlElement = global.document.getElementsByTagName('html')[0];
-						var simpleStorage = null;
+						var htmlElement = global.document.getElementsByTagName('body')[0];
+						var storage = null;
 
 						if (typeof global.localStorage.getItem === 'function') {
 							try {
-								simpleStorage = global.JSON.parse(global.localStorage.getItem('simpleStorage'));
+								storage = global.JSON.parse(global.localStorage.getItem('EmuOS'));
 
-								if (simpleStorage !== null) {
-									if (typeof simpleStorage === 'object') {
-										if (typeof simpleStorage.theme !== 'undefined') {
-											if (simpleStorage.theme !== '') {
+								if (storage !== null) {
+									if (typeof storage === 'object') {
+										if (typeof storage.theme !== 'undefined') {
+											if (storage.theme !== '') {
 												htmlElement.className = 'emuos post';
-												boot(simpleStorage.theme, false);
+												boot(storage.theme, false);
 											} else {
 												htmlElement.className = 'emuos startup';
 											}
