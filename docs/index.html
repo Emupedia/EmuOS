@@ -1081,8 +1081,7 @@
 							storage.theme = theme;
 						}
 
-						var htmlElement = global.document.getElementsByTagName('body')[0];
-						htmlElement.className = 'emuos post';
+						global.document.getElementsByTagName('body')[0].className = 'emuos post';
 
 						if (typeof global.localStorage.setItem === 'function') {
 							try {
@@ -1095,14 +1094,14 @@
 				}
 
 				function boot(theme, first) {
-					var htmlElement = global.document.getElementsByTagName('body')[0];
+					var body = global.document.getElementsByTagName('body')[0];
 
 					if (first) {
 						global.document.getElementsByTagName('audio')[0].play();
 
 						setTimeout(function() {
 							bootProgress(function() {
-								htmlElement.className = 'emuos boot theme-' + theme;
+								body.className = 'emuos boot theme-' + theme;
 
 								var el = global.document.createElement('script');
 								el.type = 'text/javascript';
@@ -1111,7 +1110,7 @@
 							});
 						}, 1000);
 					} else {
-						htmlElement.className = 'emuos boot theme-' + theme;
+						body.className = 'emuos boot theme-' + theme;
 
 						var el = global.document.createElement('script');
 						el.type = 'text/javascript';
@@ -1256,7 +1255,7 @@
 
 				(function start() {
 					if (typeof global.localStorage !== 'undefined') {
-						var htmlElement = global.document.getElementsByTagName('body')[0];
+						var body = global.document.getElementsByTagName('body')[0];
 						var storage = null;
 
 						if (typeof global.localStorage.getItem === 'function') {
@@ -1267,22 +1266,22 @@
 									if (typeof storage === 'object') {
 										if (typeof storage.theme !== 'undefined') {
 											if (storage.theme !== '') {
-												htmlElement.className = 'emuos post';
+												body.className = 'emuos post';
 												boot(storage.theme, false);
 											} else {
-												htmlElement.className = 'emuos startup';
+												body.className = 'emuos startup';
 											}
 										} else {
-											htmlElement.className = 'emuos startup';
+											body.className = 'emuos startup';
 										}
 									} else {
-										htmlElement.className = 'emuos startup';
+										body.className = 'emuos startup';
 									}
 								} else {
-									htmlElement.className = 'emuos startup';
+									body.className = 'emuos startup';
 								}
 							} catch (e) {
-								htmlElement.className = 'emuos startup';
+								body.className = 'emuos startup';
 							}
 						}
 					}
