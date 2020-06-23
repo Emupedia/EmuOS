@@ -46,7 +46,7 @@
 
 <Route path="/emuos/"><h1>It is main page</h1></Route>
 <Route path="/emuos/portfolio/*">
-    <Route path="/emuos/">
+    <Route path="/">
         <h1>Portfolio introduction</h1>
         <nav>
             <a href="/emuos/portfolio/sites">Sites</a>
