@@ -44,17 +44,20 @@
     <a href="/emuos/contacts">Contacts</a>
 </nav>
 
-<Route path="/emuos/"><h1>It is main page</h1></Route>
-<Route path="/emuos/portfolio/*">
-    <Route path="/">
-        <h1>Portfolio introduction</h1>
-        <nav>
-            <a href="/emuos/portfolio/sites">Sites</a>
-            <a href="/emuos/portfolio/photos">Photos</a>
-        </nav>
-    </Route>
-    <Route path="/sites"><h1>Portfolio: Sites</h1></Route>
-    <Route path="/photos"><h1>Portfolio: Photos</h1></Route>
+<Route path="/emuos/*">
+	<Route path="/"><h1>It is main page</h1></Route>
+	<Route path="/portfolio/*">
+		<Route path="/">
+			<h1>Portfolio introduction</h1>
+			<nav>
+				<a href="/emuos/portfolio/sites">Sites</a>
+				<a href="/emuos/portfolio/photos">Photos</a>
+			</nav>
+		</Route>
+		<Route path="/sites"><h1>Portfolio: Sites</h1></Route>
+		<Route path="/photos"><h1>Portfolio: Photos</h1></Route>
+	</Route>
+	<Route fallback>No page found</Route>
 </Route>
 
 <svelte:head>
