@@ -19,16 +19,16 @@
 	let index = 0
 
 	function changeTheme() {
-		let previousTheme = themes[index];
-		index = (index + 1) % themes.length;
-		let currentTheme = themes[index];
+		let previousTheme = themes[index]
+		index = (index + 1) % themes.length
+		let currentTheme = themes[index]
 
 		if (previousTheme !== '') {
-			document.getElementsByTagName('body')[0].classList.remove(previousTheme);
+			document.getElementsByTagName('body')[0].classList.remove(previousTheme)
 		}
 
 		if (currentTheme !== '') {
-			document.getElementsByTagName('body')[0].classList.add(currentTheme);
+			document.getElementsByTagName('body')[0].classList.add(currentTheme)
 		}
 	}
 </script>

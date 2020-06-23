@@ -1,19 +1,15 @@
-import svelte from 'rollup-plugin-svelte-hot'
-import babel from '@rollup/plugin-babel'
+import sirv from 'sirv'
+import polka from 'polka'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
+import babel  from 'rollup-plugin-babel'
+import svelte from 'rollup-plugin-svelte-hot'
 import hmr from 'rollup-plugin-hot'
 import autoPreprocess from 'svelte-preprocess'
 
-const spa = true;
-const nollup = !!process.env.NOLLUP
-const watch = !!process.env.ROLLUP_WATCH
-const useLiveReload = !!process.env.LIVERELOAD
-const dev = watch || useLiveReload
+const dev = !!process.env.ROLLUP_WATCH
 const production = !dev
-const hot = watch && !useLiveReload
 
 export default {
 	input: 'src/main.js',
@@ -31,7 +27,7 @@ export default {
 			css: css => {
 				css.write('docs/assets/css/main.min.css')
 			},
-			hot: hot && {
+			hot: dev && {
 				optimistic: true,
 				noPreserveState: true
 			}
@@ -48,7 +44,8 @@ export default {
 				}
 			},
 			extensions: ['.js', '.mjs', '.html', '.svelte'],
-			babelHelpers: 'runtime',
+			//babelHelpers: 'runtime',
+			runtimeHelpers: true,
 			exclude: ['node_modules/@babel/**'],
 			presets: [
 				['@babel/preset-env', {
@@ -64,38 +61,23 @@ export default {
 				}]
 			]
 		}),
-		dev && !nollup && serve(),
-		useLiveReload && livereload('docs'),
-		production && terser(),
-		hot && hmr({
+		dev && (() => {
+			polka().use(sirv('docs', {
+				dev: true,
+				single: true
+			})).listen(5000, err => {
+				if (err) throw err
+				console.log('[HTTP] Listening on localhost:5000')
+			})
+		})(),
+		dev && hmr({
 			public: 'docs',
 			inMemory: true,
-			compatModuleHot: !hot
+			compatModuleHot: false
 		}),
+		production && terser()
 	],
 	watch: {
 		clearScreen: false
-	}
-};
-
-function serve() {
-	let started = false
-	return {
-		name: 'svelte/template:serve',
-		writeBundle() {
-			if (!started) {
-				started = true
-				const flags = ['run', 'start', '--', '--dev']
-
-				if (spa) {
-					flags.push('--single')
-				}
-
-				require('child_process').spawn('npm', flags, {
-					stdio: ['ignore', 'inherit', 'inherit'],
-					shell: true
-				})
-			}
-		}
 	}
 }
