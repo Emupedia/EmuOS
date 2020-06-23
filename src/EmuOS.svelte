@@ -39,22 +39,22 @@
 <button on:click="{changeTheme}">{icons[index]}</button>
 
 <nav>
-    <a href="/">Home</a>
-    <a href="/portfolio">Portfolio</a>
-    <a href="/contacts">Contacts</a>
+    <a href="/emuos/">Home</a>
+    <a href="/emuos/portfolio">Portfolio</a>
+    <a href="/emuos/contacts">Contacts</a>
 </nav>
 
-<Route path="/"><h1>It is main page</h1></Route>
-<Route path="/portfolio/*">
-    <Route path="/">
+<Route path="/emuos/"><h1>It is main page</h1></Route>
+<Route path="/emuos/portfolio/*">
+    <Route path="/emuos/">
         <h1>Portfolio introduction</h1>
         <nav>
-            <a href="/portfolio/sites">Sites</a>
-            <a href="/portfolio/photos">Photos</a>
+            <a href="/emuos/portfolio/sites">Sites</a>
+            <a href="/emuos/portfolio/photos">Photos</a>
         </nav>
     </Route>
-    <Route path="/sites"><h1>Portfolio: Sites</h1></Route>
-    <Route path="/photos"><h1>Portfolio: Photos</h1></Route>
+    <Route path="/emuos/sites"><h1>Portfolio: Sites</h1></Route>
+    <Route path="/emuos/photos"><h1>Portfolio: Photos</h1></Route>
 </Route>
 
 <svelte:head>
