@@ -53,8 +53,8 @@
             <a href="/emuos/portfolio/photos">Photos</a>
         </nav>
     </Route>
-    <Route path="/emuos/sites"><h1>Portfolio: Sites</h1></Route>
-    <Route path="/emuos/photos"><h1>Portfolio: Photos</h1></Route>
+    <Route path="/sites"><h1>Portfolio: Sites</h1></Route>
+    <Route path="/photos"><h1>Portfolio: Photos</h1></Route>
 </Route>
 
 <svelte:head>
