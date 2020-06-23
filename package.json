@@ -26,15 +26,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/runtime": "^7.10.3",
     "@rollup/plugin-babel": "^5.0.4",
     "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
-    "dimport": "^1.0.0",
+    "core-js": "^3.6.5",
     "node-sass": "^4.14.1",
     "polka": "^0.5.2",
     "rollup": "^2.18.0",
@@ -46,7 +46,8 @@
     "sirv-cli": "^1.0.1",
     "svelte": "^3.23.2",
     "svelte-css-vars": "0.0.1",
-    "svelte-preprocess": "^3.9.10"
+    "svelte-preprocess": "^3.9.10",
+    "tinro": "^0.2.10"
   },
   "scripts": {
     "build": "rollup -c",

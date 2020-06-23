@@ -64,7 +64,7 @@
 	<head>
 		<title>EmuOS</title>
 
-		<!--<base href="/emuos/">-->
+		<base href="/emuos/">
 
 		<!-- region Meta -->
 
@@ -1042,9 +1042,9 @@
 			<table class="emuos-startup-container">
 				<tbody>
 					<tr>
-						<td><a class="emuos-theme" href="javascript:" onclick="$sys.setTheme('windows-95')"><img src="assets/images/themes/boot/windows-95/windows-95-remastered.png" alt="" /></a></td>
-						<td><a class="emuos-theme" href="javascript:" onclick="$sys.setTheme('windows-98')"><img src="assets/images/themes/boot/windows-98/windows-98-remastered.png" alt="" /></a></td>
-						<td><a class="emuos-theme" href="javascript:" onclick="$sys.setTheme('windows-me')"><img src="assets/images/themes/boot/windows-me/windows-me-remastered.png" alt="" /></a></td>
+						<td><a class="emuos-theme" href="javascript:" onclick="setTheme('windows-95')"><img src="assets/images/themes/boot/windows-95/windows-95-remastered.png" alt="" /></a></td>
+						<td><a class="emuos-theme" href="javascript:" onclick="setTheme('windows-98')"><img src="assets/images/themes/boot/windows-98/windows-98-remastered.png" alt="" /></a></td>
+						<td><a class="emuos-theme" href="javascript:" onclick="setTheme('windows-me')"><img src="assets/images/themes/boot/windows-me/windows-me-remastered.png" alt="" /></a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -1060,18 +1060,14 @@
 		</div>
 
 		<script type="text/javascript" src="assets/js/polyfills.js"></script>
-		<script type="text/javascript" src="assets/js/libraries/promise-auto-4.2.8.min.js"></script>
-		<script type="text/javascript" src="assets/js/libraries/babel-polyfill-7.10.1.min.js"></script>
-		<script type="text/javascript" src="assets/js/libraries/fetch-3.0.0.js"></script>
 		<script type="text/javascript" src="assets/js/libraries/css-vars-4.0.1.js"></script>
-		<script type="text/javascript" src="assets/js/system.js"></script>
 
 		<audio src="assets/sounds/post.mp3"></audio>
 
 		<script type="text/javascript">
 			// noinspection ThisExpressionReferencesGlobalObjectJS
 			(function(global) {
-				global.$sys.setTheme = function(theme) {
+				global.setTheme = function(theme) {
 					var storage = null;
 
 					if (typeof global.localStorage.getItem === 'function') {

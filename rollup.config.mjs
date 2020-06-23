@@ -1,5 +1,6 @@
 import sirv from 'sirv'
 import polka from 'polka'
+import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
@@ -23,10 +24,10 @@ export default {
 	plugins: [
 		svelte({
 			dev: !production,
-			preprocess: autoPreprocess(),
 			css: css => {
 				css.write('docs/assets/css/main.min.css')
 			},
+			preprocess: autoPreprocess(),
 			hot: dev && {
 				optimistic: true,
 				noPreserveState: true
@@ -43,15 +44,16 @@ export default {
 					compact: false
 				}
 			},
-			extensions: ['.js', '.mjs', '.html', '.svelte'],
-			//babelHelpers: 'runtime',
 			runtimeHelpers: true,
-			exclude: ['node_modules/@babel/**'],
+			extensions: ['.js', '.mjs', '.html', '.svelte'],
+			exclude: ['node_modules/@babel/**', /\/core-js\//],
 			presets: [
 				['@babel/preset-env', {
 					targets: {
 						ie: '11'
 					},
+					useBuiltIns: 'usage',
+					corejs: 3
 				}]
 			],
 			plugins: [
