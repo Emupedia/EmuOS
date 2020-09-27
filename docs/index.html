@@ -64,7 +64,7 @@
 	<head>
 		<title>EmuOS</title>
 
-		<base href="/emuos/">
+		<base href="/">
 
 		<!-- region Meta -->
 
@@ -1030,264 +1030,21 @@
 		<!-- region Libraries -->
 
 		<link type="text/css" rel="stylesheet" href="assets/css/libraries/normalize-8.0.1.css" />
+		<link type="text/css" rel="stylesheet" href="assets/css/libraries/bootstrap-4.5.0.min.css" />
 		<link type="text/css" rel="stylesheet" href="assets/css/fonts.css" />
 
 		<!-- endregion -->
 
 		<!-- endregion -->
 	</head>
-	<body class="emuos">
-		<div class="emuos-startup">
-			<h1>Choose theme:</h1>
-			<table class="emuos-startup-container">
-				<tbody>
-					<tr>
-						<td><a class="emuos-theme" href="javascript:" onclick="setTheme('windows-95')"><img src="assets/images/themes/boot/windows-95/windows-95-remastered.png" alt="" /></a></td>
-						<td><a class="emuos-theme" href="javascript:" onclick="setTheme('windows-98')"><img src="assets/images/themes/boot/windows-98/windows-98-remastered.png" alt="" /></a></td>
-						<td><a class="emuos-theme" href="javascript:" onclick="setTheme('windows-me')"><img src="assets/images/themes/boot/windows-me/windows-me-remastered.png" alt="" /></a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
-		<div class="emuos-boot">
-			<div class="emuos-boot-container">
-				<div class="emuos-boot-screen">
-					<div id="emuos-boot-screen-bg"><img style="float: left; margin-right: 5px;" alt="" src="assets/images/themes/bios/award-logo.png" /><img class="epa" style="float: right;" alt="" src="assets/images/themes/bios/epa-logo.png" /><span>Award Modular BIOS v4.51PG, An Energy Star Ally</span><br /><span>Copyright (C) 1984-97, Award Software, Inc.</span><br /><br />#4010A0-0105<br /><br />PENTIUM PRO-S CPU at 200MHz<br />Memory Test :  <span class="memory">   640K</span> O<span class="cursor">K</span><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><span>Press <span class="white">DEL</span> to enter SETUP</span><br /><span>12/10/97-i440FX-PI-P6NP5C-00</span></div>
-					<div id="emuos-boot-screen-text"></div>
-				</div>
-			</div>
-		</div>
-
-		<script type="text/javascript" src="assets/js/polyfills.js"></script>
+	<body>
+		<script type="text/javascript" src="assets/js/libraries/system.js"></script>
+		<script type="text/javascript" src="assets/js/libraries/remove.js"></script>
+		<script type="text/javascript" src="assets/js/libraries/closest.js"></script>
+		<script type="text/javascript" src="assets/js/libraries/smoothscroll.js"></script>
+		<script type="text/javascript" src="assets/js/libraries/fetch-3.0.0.js"></script>
 		<script type="text/javascript" src="assets/js/libraries/css-vars-4.0.1.js"></script>
 		<script type="text/javascript" src="assets/js/main.min.js"></script>
-
-		<audio src="assets/sounds/post.mp3"></audio>
-
-		<!-- <script type="text/javascript">
-			// noinspection ThisExpressionReferencesGlobalObjectJS
-			(function(global) {
-				global.setTheme = function(theme) {
-					var storage = null;
-
-					if (typeof global.localStorage.getItem === 'function') {
-						try {
-							storage = global.JSON.parse(global.localStorage.getItem('EmuOS'));
-							storage.theme = theme;
-						} catch (e) {
-							storage = {};
-							storage.theme = theme;
-						}
-
-						global.document.getElementsByTagName('body')[0].className = 'emuos post';
-
-						if (typeof global.localStorage.setItem === 'function') {
-							try {
-								global.localStorage.setItem('EmuOS', global.JSON.stringify(storage));
-							} catch (e) {}
-						}
-
-						boot(theme, true);
-					}
-				}
-
-				function boot(theme, first) {
-					var body = global.document.getElementsByTagName('body')[0];
-
-					if (first) {
-						global.document.getElementsByTagName('audio')[0].play();
-
-						setTimeout(function() {
-							bootProgress(function() {
-								body.className = 'emuos boot theme-' + theme;
-
-								var el = global.document.createElement('script');
-								el.type = 'text/javascript';
-								el.src = 'assets/js/main.min.js';
-								global.document.body.appendChild(el);
-							});
-						}, 1000);
-					} else {
-						body.className = 'emuos boot theme-' + theme;
-
-						var el = global.document.createElement('script');
-						el.type = 'text/javascript';
-						el.src = 'assets/js/main.min.js';
-						global.document.body.appendChild(el);
-					}
-				}
-
-				function bootRender(text, i, delay, cb) {
-					var screen = global.document.getElementById('emuos-boot-screen-text');
-
-					setTimeout(function() {
-						if (i === text.length) {
-							screen.innerHTML = '';
-						}
-
-						screen.innerHTML += text[text.length - i];
-
-						if (--i) {
-							bootRender(text, i, delay, cb);
-						} else {
-							if (typeof cb === 'function') {
-								cb();
-							}
-						}
-					}, delay);
-				}
-
-				function bootProgress(cb) {
-					var post1 = [
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'Award Plug and Play BIOS Extension  v1.0A<br />',
-						'Copyright (C) 1997, Award Software, Inc.<br />',
-						'  Detecting IDE Primary Master   ... EmuDisk<br />',
-						'  Detecting IDE Primary Slave    ... [Press <span class="white">F4</span> to skip]<br />',
-						'  Detecting IDE Secondary Master ... None<br />',
-						'  Detecting IDE Secondary Slave  ... None<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />'
-					];
-
-					var post2 = [
-						'                                         Award Software, Inc.<br />',
-						'                                        System Configurations<br />',
-						'╔══════════════════════════════════════════════════════════════════════════════════════════════════╗<br />',
-						'║ CPU Type           : PENTIUM PRO-S                          Base Memory        :    640K         ║<br />',
-						'║ Co-Processor       : Installed                              Extended Memory    :  15368K         ║<br />',
-						'║ CPU Clock          : 200Mhz                                 Cache Memory       :   1024K         ║<br />',
-						'║──────────────────────────────────────────────────────────────────────────────────────────────────║<br />',
-						'║ Diskette Drive   A : 1.44M, 3.5in                           Display Type       : EGA/VGA         ║<br />',
-						'║ Diskette Drive   B : 1.2M, 5.25in                           Serial Port(s)     : 3F8             ║<br />',
-						'║ Pri. Master   Disk : LBA ,Mode 4,  2112MB                   Parallel Port(s)   : 378             ║<br />',
-						'║ Pri. Slave    Disk : CDROM, Mode 4                          SDRAM at Row(s)    : 2 3             ║<br />',
-						'║ Sec. Master   Disk : None                                                                        ║<br />',
-						'║ Sec. Slave    Disk : None                                                                        ║<br />',
-						'╚══════════════════════════════════════════════════════════════════════════════════════════════════╝<br />',
-						'<br />',
-						'<br />',
-						'PCI device listing ...<br />',
-						'Bus No. Device No. Func No. Vendor ID    Device ID   Device Class                                IRQ<br />',
-						'────────────────────────────────────────────────────────────────────────────────────────────────────<br />',
-						'   0        0         5        1106         5327     I/O(X) APIC Cntrlr                           NA<br />',
-						'   0       15         0        1106         5337     IDE Cntrlr                                   11<br />',
-						'   0       15         1        1106         0571     IDE Cntrlr                                   14<br />',
-						'   0       16         0        1106         303B     USB 1.0/1.1 UHCI Cntrlr                      10<br />',
-						'   0       16         1        1106         303B     USB 1.0/1.1 UHCI Cntrlr                      11<br />',
-						'   0       16         2        1106         303B     USB 1.0/1.1 UHCI Cntrlr                      10<br />',
-						'   0       16         3        1106         303B     USB 1.0/1.1 UHCI Cntrlr                      11<br />',
-						'   0       16         4        1106         3104     USB 2.0 EHCI Cntrlr                          10<br />',
-						'   0       18         0        1106         3065     Network Cntrlr                               10<br />',
-						'   2        0         0        10DE         0A65     Display Cntrlr                                5<br />',
-						'   2        0         1        10DE         0BE3     Multimedia Device                             5<br />',
-						'   4        1         0        1106         3288     Multimedia Device                            11<br />',
-						'   5        6         0        1106         3044     Serial Bus Cntrlr                            11<br />',
-						'                                                     ACPI Controller                               9<br />',
-						'<br />',
-						'Verifying DMI Pool Data ............<br />',
-						'Boot from CD :<br />',
-						'DISK BOOT FAILURE, INSERT SYSTEM DISK AND PRESS ENTER<span class="cursor">&nbsp;</span><br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />',
-						'<br />'
-					];
-
-					bootRender(post1, post1.length, 50, function() {
-						global.document.getElementsByClassName('epa')[0].className = 'epa fade-out';
-						setTimeout(function() {
-							global.document.getElementById('emuos-boot-screen-bg').style.visibility = 'hidden';
-							bootRender(post2, post2.length, 20, function() {
-								setTimeout(function() {
-									if (typeof cb === 'function') {
-										cb();
-									}
-								}, 3000);
-							});
-						}, 1500);
-					});
-				}
-
-				(function start() {
-					if (typeof global.localStorage !== 'undefined') {
-						var body = global.document.getElementsByTagName('body')[0];
-						var storage = null;
-
-						if (typeof global.localStorage.getItem === 'function') {
-							try {
-								storage = global.JSON.parse(global.localStorage.getItem('EmuOS'));
-
-								if (storage !== null) {
-									if (typeof storage === 'object') {
-										if (typeof storage.theme !== 'undefined') {
-											if (storage.theme !== '') {
-												body.className = 'emuos post';
-												boot(storage.theme, false);
-											} else {
-												body.className = 'emuos startup';
-											}
-										} else {
-											body.className = 'emuos startup';
-										}
-									} else {
-										body.className = 'emuos startup';
-									}
-								} else {
-									body.className = 'emuos startup';
-								}
-							} catch (e) {
-								body.className = 'emuos startup';
-							}
-						}
-					}
-				})();
-			})(this);
-		</script> -->
-
 		<noscript>Your browser does not support JavaScript!</noscript>
 	</body>
 </html>

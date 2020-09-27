@@ -1,16 +1,16 @@
 import sirv from 'sirv'
 import polka from 'polka'
-import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import commonjs from '@rollup/plugin-commonjs'
+import json from 'rollup-plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import babel  from 'rollup-plugin-babel'
 import svelte from 'rollup-plugin-svelte-hot'
 import hmr from 'rollup-plugin-hot'
-import autoPreprocess from 'svelte-preprocess'
+// import autoPreprocess from 'svelte-preprocess'
 
 const dev = !!process.env.ROLLUP_WATCH
-const production = !dev
 
 export default {
 	input: 'src/main.js',
@@ -18,16 +18,16 @@ export default {
 		sourcemap: true,
 		exports: 'named',
 		format: 'iife',
-		name: 'app',
+		name: 'App',
 		file: 'docs/assets/js/main.min.js'
 	},
 	plugins: [
 		svelte({
-			dev: !production,
+			dev: dev,
 			css: css => {
 				css.write('docs/assets/css/main.min.css')
 			},
-			preprocess: autoPreprocess(),
+			// preprocess: autoPreprocess(),
 			hot: dev && {
 				optimistic: true,
 				noPreserveState: true
@@ -38,7 +38,15 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-		babel({
+		json({
+			preferConst: true,
+			compact: true,
+			namedExports: true
+		}),
+		dev && replace({
+			dev: dev,
+		}),
+		!dev && babel({
 			env: {
 				development : {
 					compact: false
@@ -77,7 +85,7 @@ export default {
 			inMemory: true,
 			compatModuleHot: false
 		}),
-		production && terser()
+		!dev && terser()
 	],
 	watch: {
 		clearScreen: false

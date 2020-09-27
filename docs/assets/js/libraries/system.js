@@ -15,7 +15,12 @@
 		browser: {},
 		feature: {},
 		lib: global.$sys ? global.$sys.lib || {} : {},
-		info: {}
+		info: {},
+		apps: {
+			emuchat: {
+				channels: []
+			}
+		}
 	};
 
 	// region Platform
@@ -24,6 +29,7 @@
 	var browser											= typeof global.navigator.userAgent !== 'undefined' ? global.navigator.userAgent : '';
 	var version											= typeof global.navigator.appVersion !== 'undefined' ? global.navigator.appVersion : '';
 	var vendor											= typeof global.navigator.vendor !== 'undefined' ? global.navigator.vendor : '';
+	// noinspection JSUnresolvedVariable
 	var oscpu											= typeof global.navigator.oscpu !== 'undefined' ? global.navigator.oscpu : '';
 
 	$sys.platform.is64									= browser.indexOf('WOW64') !== -1 || browser.indexOf('Win64') !== -1 || browser.indexOf('amd64') !== -1 || browser.indexOf('x86_64') !== -1;
@@ -99,11 +105,14 @@
 	$sys.browser.isNetscape								= browser.indexOf('Navigator') !== -1;
 	$sys.browser.isKMeleon								= browser.indexOf('K-Meleon') !== -1;
 	$sys.browser.isPaleMoon								= browser.indexOf('PaleMoon') !== -1;
-	$sys.browser.isFirefox								= !$sys.browser.isNetscape && !$sys.browser.isPaleMoon && browser.indexOf('Firefox') !== -1;
-	$sys.browser.isChrome								= browser.indexOf('Chrome') !== -1 || vendor === 'Google Inc.' || !!$sys.browser.chrome;
+	$sys.browser.isBasilisk								= browser.indexOf('Basilisk') !== -1;
+	$sys.browser.isFirefox								= !$sys.browser.isNetscape && !$sys.browser.isPaleMoon && !$sys.browser.isBasilisk && browser.indexOf('Firefox') !== -1;
+	// noinspection JSUnresolvedVariable
+	$sys.browser.isChrome								= browser.indexOf('Chrome') !== -1 || vendor === 'Google Inc.' || !!global.chrome;
 	$sys.browser.isEdgeHTML								= browser.indexOf('Edge') !== -1;
 	$sys.browser.isEdgeBlink							= $sys.browser.isChrome && browser.indexOf('Edg/') !== -1;
 	$sys.browser.isEdge									= $sys.browser.isEdgeHTML || $sys.browser.isEdgeBlink;
+	// noinspection JSUnresolvedVariable
 	$sys.browser.isChromium								= $sys.browser.isChrome && !global.chrome;
 	$sys.browser.isVivaldi								= $sys.browser.isChrome && browser.indexOf('Vivaldi') !== -1;
 	$sys.browser.isElectron								= $sys.browser.isChrome && browser.indexOf('Electron') !== -1;
@@ -114,7 +123,7 @@
 	$sys.browser.isOther								= !($sys.browser.isIE || $sys.browser.isEdge || $sys.browser.isFirefox || $sys.browser.isChrome || $sys.browser.isOpera || $sys.browser.isSafari);
 	$sys.browser.isMobile								= browser.indexOf('Mobi') !== -1;
 	$sys.browser.isDesktop								= !$sys.browser.isMobile;
-	$sys.browser.name									= $sys.browser.isEdge ? 'Microsoft Edge' : ($sys.browser.isIE ? 'Microsoft Internet Explorer' : ($sys.browser.isNetscape ? 'Netscape Navigator' : ($sys.browser.isKMeleon ? 'K-Meleon' : ($sys.browser.isPaleMoon ? 'PaleMoon' : ($sys.browser.isFirefox ? 'Mozilla Firefox' : ($sys.browser.isOpera ? 'Opera' : ($sys.browser.isElectron ? 'Electron' : ($sys.browser.isVivaldi ? 'Vivaldi' : ($sys.browser.isChromium ? 'Chromium' : ($sys.browser.isChrome ? 'Google Chrome' : ($sys.browser.isSafari ? 'Apple Safari' : undefined)))))))))));
+	$sys.browser.name									= $sys.browser.isEdge ? 'Microsoft Edge' : ($sys.browser.isIE ? 'Microsoft Internet Explorer' : ($sys.browser.isNetscape ? 'Netscape Navigator' : ($sys.browser.isKMeleon ? 'K-Meleon' : ($sys.browser.isPaleMoon ? 'PaleMoon' : ($sys.browser.isBasilisk ? 'Basilisk' : ($sys.browser.isFirefox ? 'Mozilla Firefox' : ($sys.browser.isOpera ? 'Opera' : ($sys.browser.isElectron ? 'Electron' : ($sys.browser.isVivaldi ? 'Vivaldi' : ($sys.browser.isChromium ? 'Chromium' : ($sys.browser.isChrome ? 'Google Chrome' : ($sys.browser.isSafari ? 'Apple Safari' : undefined))))))))))));
 	// noinspection DuplicatedCode
 	$sys.browser.version								= (function() {
 		var offset, version = undefined;
@@ -170,6 +179,9 @@
 		} else if ((offset = browser.indexOf('PaleMoon')) !== -1) {
 			// noinspection JSValidateTypes
 			version = browser.substring(offset + 9);
+		} else if ((offset = browser.indexOf('Basilisk')) !== -1) {
+			// noinspection JSValidateTypes
+			version = browser.substring(offset + 9);
 		} else if ((offset = browser.indexOf('Firefox')) !== -1) {
 			// noinspection JSValidateTypes
 			version = browser.substring(offset + 8);
@@ -200,10 +212,11 @@
 	oscpu ? $sys.browser.oscpu							= oscpu : '';
 
 	$sys.environment.isBrowser							= !!(typeof global === 'object' && typeof global.navigator === 'object' && global.document);
+	$sys.environment.isFrame							= $sys.environment.isBrowser && global.top !== global;
 	$sys.environment.isWorker							= typeof importScripts === 'function' && typeof postMessage === 'function' && !$sys.isBrowser;
 	$sys.environment.isNode								= typeof process === 'object' && typeof require === 'function' && !$sys.isBrowser && !$sys.isWorker;
 	$sys.environment.isShell							= !($sys.environment.isBrowser || $sys.environment.isWorker || $sys.environment.isNode);
-	$sys.environment.name								= $sys.environment.isBrowser ? 'Browser' : ($sys.environment.isWorker ? 'Worker' : ($sys.environment.isNode ? 'Node' : 'Shell'));
+	$sys.environment.name								= $sys.environment.isBrowser ? 'Browser' : ($sys.environment.isFrame ? 'Browser Frame' : ($sys.environment.isWorker ? 'Worker' : ($sys.environment.isNode ? 'Node' : 'Shell')));
 
 	// endregion
 
@@ -643,9 +656,9 @@
 	// region API
 
 	$sys.api.banner = function() {
-		global.console.log('╔═╗╔╦╗╦ ╦╔═╗╔═╗╔╦═╗╦╔═╗\n' +
-						   '╠═ ║║║║ ║╠═╝╠═  ║ ║║╠═╣\n' +
-						   '╚═╝╩ ╩╚═╝╩  ╚═╝═╩═╝╩╩ ╩');
+		global.console.log('%c  ╔═╗╔╦╗╦ ╦╔═╗╔═╗╔╦═╗╦╔═╗  \n' +
+							 '  ╠═ ║║║║ ║╠═╝╠═  ║ ║║╠═╣  \n' +
+							 '  ╚═╝╩ ╩╚═╝╩  ╚═╝═╩═╝╩╩ ╩  ', 'font-size: 20px; line-height: 1.12; color: #bada55; text-shadow: 2px 2px #f00, 2px 2px 25px #fff');
 		return this;
 	};
 
@@ -1076,6 +1089,7 @@
 		if (onprogress && xhr.upload && 'onprogress' in xhr.upload) {
 			if (data) {
 				xhr.upload.onprogress = function(e) {
+					// noinspection JSDeprecatedSymbols
 					onprogress.call(xhr, e, event.loaded / event.total);
 				};
 			} else {
@@ -1105,6 +1119,7 @@
 
 		xhr.onreadystatechange = function(e) {
 			if (xhr.readyState === 4) { // The request is complete
+				// noinspection JSUnresolvedVariable
 				if (xhr.status === 200 || // Response OK
 					xhr.status === 304 || // Not Modified
 					xhr.status === 308 || // Permanent Redirect
@@ -1185,7 +1200,7 @@
 
 	$sys.api.banner();
 
-	if (global.location.hostname === 'localhost') {
+	if (global.location.hostname === 'localhost' || global.location.hostname === '127.0.0.1') {
 		$sys.api.dumpsystem();
 	}
 
