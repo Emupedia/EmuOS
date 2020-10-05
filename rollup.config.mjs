@@ -12,6 +12,7 @@ import hmr from 'rollup-plugin-hot'
 
 const dev = !!process.env.ROLLUP_WATCH
 
+// noinspection JSUnusedGlobalSymbols,JSCheckFunctionSignatures
 export default {
 	input: 'src/main.js',
 	output: {
@@ -25,6 +26,7 @@ export default {
 		svelte({
 			dev: dev,
 			css: css => {
+				// noinspection JSCheckFunctionSignatures
 				css.write('docs/assets/css/main.min.css')
 			},
 			// preprocess: autoPreprocess(),
