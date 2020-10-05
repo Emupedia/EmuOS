@@ -11,7 +11,7 @@
 </script>
 
 <Route path="/*">
-	<Route path="/" redirect="/emuos/" />
+	<Route path="/"><EmuOS development={development} route={route} /></Route>
 	<Route path="/emuos/"><EmuOS development={development} route={route} /></Route>
 	<Route fallback>No page found</Route>
 </Route>
