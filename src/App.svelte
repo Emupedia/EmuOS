@@ -42,7 +42,7 @@
 							<video muted autoplay loop controls>
 								<source src="assets/videos/monkey.mp4" type="video/mp4">
 								<source src="assets/videos/monkey.ogg" type="video/ogg">
-								<img src="assets/videos/monkeys.jpg" alt="" />
+								<img src="assets/videos/monkey.jpg" alt="" />
 							</video>
 						</div>
 						<div class="error-caption">A team of highly trained monkeys has been dispatched to deal with this situation.</div>
