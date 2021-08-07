@@ -8,6 +8,7 @@ import { terser } from 'rollup-plugin-terser'
 import babel  from 'rollup-plugin-babel'
 import svelte from 'rollup-plugin-svelte-hot'
 import hmr from 'rollup-plugin-hot'
+// import css from 'rollup-plugin-css-only'
 // import autoPreprocess from 'svelte-preprocess'
 
 const dev = !!process.env.ROLLUP_WATCH
@@ -25,16 +26,19 @@ export default {
 	plugins: [
 		svelte({
 			dev: dev,
-			css: css => {
+			emitCss: false,
+			//emitCss: !dev,
+			/*css: css => {
 				// noinspection JSCheckFunctionSignatures
 				css.write('docs/assets/css/main.min.css')
-			},
+			},*/
 			// preprocess: autoPreprocess(),
 			hot: dev && {
 				optimistic: true,
 				noPreserveState: true
 			}
 		}),
+		//css({ output: 'docs/assets/css/main.min.css' }),
 		resolve({
 			browser: true,
 			dedupe: ['svelte']

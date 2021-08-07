@@ -43,6 +43,7 @@
     "polka": "^0.5.2",
     "rollup": "^2.56.0",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-hot": "^0.1.1",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-svelte-hot": "^0.14.1",
