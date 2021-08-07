@@ -47,6 +47,7 @@ export default {
 		}),
 		dev && replace({
 			dev: dev,
+			preventAssignment: true
 		}),
 		!dev && babel({
 			env: {
@@ -79,7 +80,7 @@ export default {
 				single: true
 			})).listen(5000, err => {
 				if (err) throw err
-				console.log('[HTTP] Listening on localhost:5000')
+				console.log('[HTTP] Listening on http://localhost:5000')
 			})
 		})(),
 		dev && hmr({

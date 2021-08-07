@@ -17,16 +17,14 @@
 		document.documentElement.className += ' engine-other'
 	}
 
-	let development = typeof dev === 'undefined' ? undefined : dev
-	let route = typeof $router === 'undefined' ? undefined : $router
-
-	console.log($router)
-	console.log(development)
+	let development = typeof dev === 'undefined' ? false : dev
+	let route = typeof $router === 'undefined' ? {} : $router
 </script>
 
 <Route path="/*">
 	<Route path="/"><EmuOS development={development} route={route} /></Route>
 	<Route path="/emuos/"><EmuOS development={development} route={route} /></Route>
+	<Route path="/EmuOS.git/docs/*"><EmuOS development={development} route={route} /></Route>
 	<Route fallback>
 		<table class="error">
 			<tr>
