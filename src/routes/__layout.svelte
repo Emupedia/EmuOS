@@ -8,10 +8,10 @@
 			'     ╔═╗╔╦╗╦ ╦╔═╗╔═╗╔╦═╗╦╔═╗     \n' +
 			'     ╠═ ║║║║ ║╠═╝╠═  ║ ║║╠═╣     \n' +
 			'     ╚═╝╩ ╩╚═╝╩  ╚═╝═╩═╝╩╩ ╩     \n' +
-			'          ╔═╗╔╦╗╦ ╦╔═╗╔═╗        \n' +
-			'          ╠═ ║║║║ ║║ ║╚═╗        \n' +
-			'          ╚═╝╩ ╩╚═╝╚═╝╚═╝        \n' +
-			'               v2.0              \n' +
+			'         ╔═╗╔╦╗╦ ╦╔═╗╔═╗         \n' +
+			'         ╠═ ║║║║ ║║ ║╚═╗         \n' +
+			'         ╚═╝╩ ╩╚═╝╚═╝╚═╝         \n' +
+			'              v2.0               \n' +
 			'                                 \n', 'background: radial-gradient(circle, #1a2049 0%, #13162f 100%); font-size: 20px; line-height: 1; color: yellow; text-shadow: 1px 1px #5B4FFF;')
 		console.log('%cHold Up!', 'background: linear-gradient(#D33106, #571402); color: #5865f2; -webkit-text-stroke: 2px black; font-size: 72px; font-weight: bold;')
 		console.log('%cIf someone told you to enter or copy/paste something here it\'s very likely you\'re being scammed.', 'font-size: 16px;')
