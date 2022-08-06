@@ -18,7 +18,7 @@ const config = {
 		})
 	],
 	kit: {
-		appDir: 'emuos',
+		appDir: 'kernel',
 		adapter: adapter({
 			pages: 'docs',
 			assets: 'docs',

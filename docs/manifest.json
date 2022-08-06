@@ -1,10 +1,10 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "emuos/immutable/start-04e5774f.js",
+    "file": "kernel/immutable/start-1a601081.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-0b20d084.js"
+      "_index-64b23a0f.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -13,33 +13,33 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "emuos/immutable/pages/__layout.svelte-f46883ba.js",
+    "file": "kernel/immutable/pages/__layout.svelte-7a400450.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-0b20d084.js"
+      "_index-64b23a0f.js"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "emuos/immutable/error.svelte-5ace1672.js",
+    "file": "kernel/immutable/error.svelte-7a8b9553.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-0b20d084.js"
+      "_index-64b23a0f.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "emuos/immutable/pages/index.svelte-3b0a20c5.js",
+    "file": "kernel/immutable/pages/index.svelte-32402e2a.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-0b20d084.js"
+      "_index-64b23a0f.js"
     ]
   },
-  "_index-0b20d084.js": {
-    "file": "emuos/immutable/chunks/index-0b20d084.js"
+  "_index-64b23a0f.js": {
+    "file": "kernel/immutable/chunks/index-64b23a0f.js"
   }
 }
