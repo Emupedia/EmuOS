@@ -11,7 +11,7 @@
 	"theme_color": "#3b6ea5",
 	"background_color": "#008080",
 	"scope": "/",
- 	"start_url": "index.html",
+ 	"start_url": "/",
 	"icons": [{
 		"src": "assets/images/logos/emupedia/emupedia-logo-16.png",
 		"sizes": "16x16",
