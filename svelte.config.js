@@ -25,6 +25,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		files: {
+			// assets: 'assets',
 			template: 'src/index.html'
 		},
 		methodOverride: {
