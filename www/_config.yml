@@ -6,8 +6,8 @@ url: "https://emuos.emupedia.net"
 markdown: kramdown
 exclude:
   - assets/**
+  - emuos/**
   - 404.html
-  - .gitignore
   - apple-touch-icon.png
   - favicon.ico
   - icons.html
