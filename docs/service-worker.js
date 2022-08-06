@@ -1,8 +1,9 @@
 const n = [
-  "/emuos/immutable/start-eda78410.js",
+  "/emuos/immutable/start-9f1a3ab2.js",
   "/emuos/immutable/pages/__layout.svelte-184a391e.js",
   "/emuos/immutable/pages/__error.svelte-abcbbac7.js",
-  "/emuos/immutable/pages/index.svelte-3b0a20c5.js",
+  "/emuos/immutable/pages/index.svelte-9f0b3b91.js",
+  "/emuos/immutable/pages/test.svelte-842467ae.js",
   "/emuos/immutable/chunks/index-0b20d084.js"
 ], l = [
   "/.nojekyll",
@@ -112,7 +113,7 @@ const n = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1659827039644", m = `cache${i}`, g = n.concat(l), d = new Set(g);
+], i = "1659827223348", m = `cache${i}`, g = n.concat(l), d = new Set(g);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(m).then((e) => e.addAll(g)).then(() => {
