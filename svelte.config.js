@@ -8,8 +8,13 @@ const plugins = []
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
-
+	preprocess: [
+		preprocess({
+			scss: {
+				prependData: '@use "src/variables.scss" as *;'
+			}
+		})
+	],
 	kit: {
 		appDir: 'docs',
 		/*paths: {
@@ -29,6 +34,9 @@ const config = {
 			routes: 'src/routes',
 			serviceWorker: 'src/service-worker',*/
 			template: 'src/index.html'
+		},
+		methodOverride: {
+			allowed: ['PUT', 'PATCH', 'DELETE', 'OPTIONS']
 		},
 		/*prerender: {
 			default: false
