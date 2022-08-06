@@ -2,34 +2,39 @@
 	"name": "emuos",
 	"productName": "EmuOS",
 	"version": "2.0.0",
+	"author": {
+		"name": "Emupedia",
+		"email": "contact@emupedia.net",
+		"url": "https://emupedia.net"
+	},
+	"license": "UNLICENSED",
+	"private": true,
+	"description": "Simulated Operating System used as frontend for Emupedia projects.",
+	"homepage": "https://emuos.emupedia.net",
+	"bugs": {
+		"url": "https://github.com/Emupedia/emuos/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Emupedia/emuos.git"
+	},
+	"type": "module",
+	"engines": {
+		"node": "^16.14.1",
+		"npm": "^8.5.0"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"package": "svelte-kit package",
-		"preview": "vite preview",
-		"test": "playwright test",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.22.2",
-		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
-		"@typescript-eslint/eslint-plugin": "^5.27.0",
-		"@typescript-eslint/parser": "^5.27.0",
-		"eslint": "^8.16.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-svelte3": "^4.0.0",
-		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.6",
-		"tslib": "^2.3.1",
-		"typescript": "^4.7.4",
 		"vite": "^3.0.0"
-	},
-	"type": "module"
+	}
 }
