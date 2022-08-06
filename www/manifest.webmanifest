@@ -113,9 +113,9 @@
 		"description": "Simulated Operating System used as frontend for Emupedia projects.",
 		"url": "/",
 		"icons": [{
-			"src": "assets/images/logos/emupedia/emupedia-logo.svg",
-			"sizes": "any",
-			"type": "image/svg+xml",
+			"src": "assets/images/logos/emupedia/emupedia-logo-256.png",
+			"sizes": "256x256",
+			"type": "image/png",
 			"purpose": "any"
 		}]
 	}]
