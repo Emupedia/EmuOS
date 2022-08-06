@@ -98,6 +98,11 @@
 		"type": "image/png",
 		"purpose": "any"
 	} , {
+		"src": "assets/images/logos/emupedia/emupedia-logo-1024.png",
+		"sizes": "1024x1024",
+		"type": "image/png",
+		"purpose": "any"
+	} , {
 		"src": "assets/images/logos/emupedia/emupedia-logo.svg",
 		"sizes": "any",
 		"type": "image/svg+xml",
@@ -108,9 +113,9 @@
 		"description": "Simulated Operating System used as frontend for Emupedia projects.",
 		"url": "/",
 		"icons": [{
-			"src": "assets/images/logos/emupedia/emupedia-logo-192.png",
-			"sizes": "192x192",
-			"type": "image/png",
+			"src": "assets/images/logos/emupedia/emupedia-logo.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
 			"purpose": "any"
 		}]
 	}]
