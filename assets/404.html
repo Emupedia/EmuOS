@@ -30,10 +30,10 @@
 ╔═╗╔╦╗╦ ╦╔═╗╔═╗╔╦═╗╦╔═╗
 ╠═ ║║║║ ║╠═╝╠═  ║ ║║╠═╣
 ╚═╝╩ ╩╚═╝╩  ╚═╝═╩═╝╩╩ ╩
-    ╔═╗╔╦╗╦ ╦╔═╗╔═╗
-    ╠═ ║║║║ ║║ ║╚═╗
-    ╚═╝╩ ╩╚═╝╚═╝╚═╝
-         v2.0
+
+
+
+
 
 
 
@@ -59,9 +59,8 @@
 
 
 -->
-
 <!DOCTYPE html>
-<html lang="en-us" prefix="og: https://ogp.me/ns/website#">
+<html lang="en-us" prefix="og: http://ogp.me/ns/website#">
 	<head>
 		<meta charset="utf-8" />
 
@@ -110,7 +109,7 @@
 
 		<link rel="manifest" href="manifest.webmanifest" />
 
-		<title>EmuOS v2.0</title>
+		<title>EmuOS v2.0 - Error!</title>
 
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -124,28 +123,95 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="assets/images/logos/emupedia/emupedia-logo-180.png" />
 		<link rel="apple-touch-startup-image" href="assets/images/logos/emupedia/emupedia-logo-256.png" />
 
-		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv="content-security-policy" content="">
-	<link rel="modulepreload" href="/emuos/immutable/start-430fd0c0.js">
-	<link rel="modulepreload" href="/emuos/immutable/chunks/index-0b20d084.js">
+		<style>
+			html {
+				height: 100%;
+			}
+
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			table.error {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				background-image: url(assets/images/clouds.png);
+				background-repeat: repeat-x;
+				margin: auto;
+				border: none;
+				border-collapse: collapse;
+				border-spacing: 0;
+				text-align: center;
+				text-rendering: optimizelegibility;
+			}
+
+			table.error h1 {
+				color: #ee465a;
+				text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
+			}
+
+			table.error h2 {
+				color: #777;
+				font-size: 16px;
+				font-weight: normal;
+			}
+
+			table.error video {
+				display: block;
+				width: 800px;
+				height: auto;
+				outline: none;
+			}
+
+			table.error div.error-wrapper {
+				width: 804px;
+				margin: auto;
+			}
+
+			table.error div.error-container {
+				background-color: #000;
+				border: 2px solid #000;
+			}
+
+			table.error div.error-caption {
+				width: auto;
+				height: 22px;
+				margin: auto;
+				background-color: #000;
+				font-size: 18px;
+				line-height: 18px;
+				color: #fff;
+			}
+		</style>
 	</head>
 	<body>
-		
-		<script type="module" data-sveltekit-hydrate="45h">
-		import { set_public_env, start } from "/emuos/immutable/start-430fd0c0.js";
-
-		set_public_env({});
-
-		start({
-			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
-			paths: {"base":"","assets":""},
-			session: {},
-			route: true,
-			spa: true,
-			trailing_slash: "never",
-			hydrate: null
-		});
-	</script>
-		<noscript>Your browser is too old or it does not support JavaScript!</noscript>
+		<table class="error">
+			<tbody>
+				<tr>
+					<td>
+						<div class="error-wrapper">
+							<h1>The page you are looking for is temporarily unavailable!</h1>
+							<h2>
+								Sorry, the page you are looking for is currently unavailable, please try again later.<br />
+								These errors are monitored and will be fixed as soon as posible.<br />
+								Thank you for understanding!
+							</h2>
+							<div class="error-container">
+								<video muted autoplay loop controls>
+									<source src="assets/videos/monkey.mp4" type="video/mp4">
+									<source src="assets/videos/monkey.ogg" type="video/ogg">
+									<img src="assets/videos/monkey.jpg" alt="" />
+								</video>
+							</div>
+							<div class="error-caption">A team of highly trained monkeys has been dispatched to deal with this situation.</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</body>
 </html>
