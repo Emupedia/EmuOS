@@ -6,24 +6,13 @@ const plugins = []
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: [
-		preprocess({
-			preserve: ['ld+json'],
-			postcss: true,
-			scss: {
-				prependData: '@use "src/variables.scss" as *;'
-			}
-		})
-	],
 	kit: {
-		appDir: 'emuos',
 		adapter: adapter({
 			pages: 'docs',
 			assets: 'docs',
 			fallback: 'index.html'
 		}),
+		appDir: 'emuos',
 		files: {
 			assets: 'www',
 			template: 'src/index.html'
@@ -37,7 +26,26 @@ const config = {
 		serviceWorker: {
 			register: isProd
 		}
-	}
+	},
+	onwarn: (warning, handler) => {
+		const { code } = warning
+
+		if (code === 'css-unused-selector')
+			return
+
+		handler(warning)
+	},
+	// Consult https://github.com/sveltejs/svelte-preprocess
+	// for more information about preprocessors
+	preprocess: [
+		preprocess({
+			preserve: ['ld+json'],
+			postcss: true,
+			scss: {
+				prependData: '@use "src/variables.scss" as *;'
+			}
+		})
+	]
 }
 
 export default config
