@@ -1,5 +1,5 @@
 const p = [
-  "/emuos/immutable/start-a47bac43.js",
+  "/emuos/immutable/start-0ace523f.js",
   "/emuos/immutable/pages/__layout.svelte-afe4daf8.js",
   "/emuos/immutable/assets/__layout-4da514f1.css",
   "/emuos/immutable/pages/__error.svelte-e1bff648.js",
@@ -118,18 +118,24 @@ const p = [
   "/assets/images/logos/emupedia/emupedia-logo.ai",
   "/assets/images/logos/emupedia/emupedia-logo.png",
   "/assets/images/logos/emupedia/emupedia-logo.svg",
-  "/assets/js/libraries/babel-polyfill-7.10.1.js",
-  "/assets/js/libraries/babel-polyfill-7.10.1.min.js",
+  "/assets/js/libraries/babel-polyfill-7.12.1.js",
+  "/assets/js/libraries/babel-polyfill-7.12.1.min.js",
   "/assets/js/libraries/closest.js",
-  "/assets/js/libraries/css-vars-4.0.1.js",
-  "/assets/js/libraries/fetch-3.0.0.js",
+  "/assets/js/libraries/css-vars-4.1.0.js",
+  "/assets/js/libraries/fetch-3.6.2.js",
+  "/assets/js/libraries/polyfill.js",
   "/assets/js/libraries/promise-auto-4.2.8.js",
   "/assets/js/libraries/promise-auto-4.2.8.js.map",
   "/assets/js/libraries/promise-auto-4.2.8.min.js",
   "/assets/js/libraries/promise-auto-4.2.8.min.js.map",
   "/assets/js/libraries/remove.js",
+  "/assets/js/libraries/shimport-2.0.5.min.js",
+  "/assets/js/libraries/shimport@2.0.5.dev.js",
+  "/assets/js/libraries/shimport@2.0.5.min.js",
   "/assets/js/libraries/smoothscroll.js",
   "/assets/js/libraries/system.js",
+  "/assets/js/libraries/url-polyfill-v1.1.12.js",
+  "/assets/js/libraries/url-polyfill-v1.1.12.min.js",
   "/assets/js/main.min.js",
   "/assets/js/main.min.js.map",
   "/assets/sounds/error.mp3",
@@ -191,10 +197,10 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1659875532244", m = `cache${i}`, r = p.concat(l), d = new Set(r);
+], i = "1659914134274", r = `cache${i}`, m = p.concat(l), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
-    caches.open(m).then((e) => e.addAll(r)).then(() => {
+    caches.open(r).then((e) => e.addAll(m)).then(() => {
       self.skipWaiting();
     })
   );
@@ -203,7 +209,7 @@ self.addEventListener("activate", (s) => {
   s.waitUntil(
     caches.keys().then(async (e) => {
       for (const a of e)
-        a !== m && await caches.delete(a);
+        a !== r && await caches.delete(a);
       await self.clients.claim();
     })
   );

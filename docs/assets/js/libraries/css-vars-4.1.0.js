@@ -1,4 +1,4 @@
-/*! ie11CustomProperties.js v4.0.1 | MIT License | https://git.io/fjXMN */
+/*! ie11CustomProperties.js v4.1.0 | MIT License | https://git.io/fjXMN */
 !function () {
 	
 
@@ -113,28 +113,25 @@
 	//var regHasVar = /var\(/;
 	var regPseudos = /:(hover|active|focus|target|visited|link|:before|:after|:first-letter|:first-line)/;
 
-	onElement('link[rel="stylesheet"]', function (el) {
-		fetchCss(el.href, function (css) {
-			var newCss = rewriteCss(css);
-			if (css === newCss) return;
-			newCss = relToAbs(el.href, newCss);
-			el.disabled = true;
-			var style = document.createElement('style');
-			if (el.media) style.setAttribute('media', el.media);
-			el.parentNode.insertBefore(style, el);
-			activateStyleElement(style, newCss);
-		});
-	});
-
 	function foundStyle(el){
 		if (el.ieCP_polyfilled) return;
 		if (el.ieCP_elementSheet) return;
+		if (!el.sheet) return;
+		if (el.href) {
+			return fetchCss(el.href, function (css) {
+				var newCss = rewriteCss(css);
+				if (css === newCss) return;
+				activateStyleElement(el, newCss);
+			});
+		}
+
 		var css = el.innerHTML;
 		var newCss = rewriteCss(css);
 		if (css === newCss) return;
 		activateStyleElement(el, newCss);
 	}
 	onElement('style', foundStyle);
+	onElement('link[rel="stylesheet"]', foundStyle);
 	// immediate, to pass w3c-tests, bud its a bad idea
 	// addEventListener('DOMNodeInserted',function(e){ e.target.tagName === 'STYLE' && foundStyle(e.target); });
 
@@ -147,15 +144,6 @@
 		if (found.getters) addGetterElement(el, found.getters, '%styleAttr');
 		if (found.setters) addSetterElement(el, found.setters);
 	});
-
-	function relToAbs(base, css) {
-		return css.replace(/url\(([^)]+)\)/g, function($0, $1){
-			$1 = $1.trim().replace(/(^['"]|['"]$)/g,'');
-			if ($1.match(/^([a-z]+:|\/)/)) return $0;
-			base = base.replace(/\?.*/,'');
-			return 'url('+ base + './../' + $1 +')';
-		});
-	}
 
 	// ie has a bug, where unknown properties at pseudo-selectors are computed at the element
 	// #el::after { -content:'x'; } => getComputedStyle(el)['-content'] == 'x'
@@ -203,7 +191,6 @@
 				if (propName[0] === '❗') propName = propName.substr(1);
 				getters.push(propName);
 
-				// beta
 				if (!styles_of_getter_properties[propName]) styles_of_getter_properties[propName] = [];
 				styles_of_getter_properties[propName].push(style);
 			}
@@ -222,7 +209,7 @@
 		return {getters:getters, setters:setters};
 	}
 	function activateStyleElement(style, css) {
-		style.innerHTML = css;
+		style.sheet.cssText = css;
 		style.ieCP_polyfilled = true;
 		var rules = style.sheet.rules, i=0, rule; // cssRules = CSSRuleList, rules = MSCSSRuleList
 		while (rule = rules[i++]) {
@@ -279,7 +266,6 @@
 		drawTree(el);
 	}
 
-	//beta
 	function redrawStyleSheets() {
 		for (var prop in styles_of_getter_properties) {
 			var styles = styles_of_getter_properties[prop];
@@ -391,18 +377,12 @@
 			//if (value==='initial') value = initials[prop];
 			if (important) value += ' !important';
 			for (var i=0, item; item=el.ieCPSelectors[prop][i++];) { // todo: split and use requestAnimationFrame?
-				if (item.selector === '%styleAttr') {
-					el.style[prop] = value;
+				if (item.selector === '%styleAttr') el.style[prop] = value; // i dont know why but i initial have to set style also (seen in demo)
+				if (!important && details.allByRoot !== false) continue; // dont have to draw root-properties
+				if (item.pseudo) {
+					css += item.selector + '.iecp-u' + el.ieCP_unique + item.pseudo + '{' + prop + ':' + value + '}\n';
 				} else {
-
-					// beta
-					if (!important && details.allByRoot !== false) continue; // dont have to draw root-properties
-
-					if (item.pseudo) {
-						css += item.selector + '.iecp-u' + el.ieCP_unique + item.pseudo + '{' + prop + ':' + value + '}\n';
-					} else {
-						el.runtimeStyle[prop] = value;  // new
-					}
+					el.runtimeStyle[prop] = value;  // new
 				}
 			}
 		}

@@ -17,6 +17,10 @@ const config = {
 			assets: 'www',
 			template: 'src/index.html'
 		},
+		/*alias: {
+			src: 'src',
+			'~': '.'
+		},*/
 		methodOverride: {
 			allowed: ['PUT', 'PATCH', 'DELETE', 'OPTIONS']
 		},

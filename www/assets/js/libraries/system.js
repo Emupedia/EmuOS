@@ -1,10 +1,15 @@
+// noinspection DuplicatedCode, JSAnnotator
+
 // noinspection ThisExpressionReferencesGlobalObjectJS
 (function(global) {
 	// Error Handling
 	global.onerror = function(message, url, lineNumber) {
-		//alert('Error: ' + message + ' in ' + url + ' at line ' + lineNumber);
-		console.log('Error: ' + message + ' in ' + url + ' at line ' + lineNumber);
+		console.error('Error: ' + message + ' in ' + url + ' at line ' + lineNumber);
 	};
+
+	global.onunhandledrejection = function(e) {
+		console.error('UNHANDLED PROMISE REJECTION:' + e.reason);
+	}
 
 	var $sys = {
 		api: {
