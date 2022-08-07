@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "emuos/immutable/start-ef4d67bb.js",
+    "file": "emuos/immutable/start-8b200944.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [

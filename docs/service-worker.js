@@ -1,5 +1,5 @@
-const n = [
-  "/emuos/immutable/start-ef4d67bb.js",
+const p = [
+  "/emuos/immutable/start-8b200944.js",
   "/emuos/immutable/pages/__layout.svelte-e7bbee4e.js",
   "/emuos/immutable/assets/__layout-d1358c78.css",
   "/emuos/immutable/pages/__error.svelte-085b4f8f.js",
@@ -18,6 +18,53 @@ const n = [
   "/assets/css/libraries/bootstrap-4.5.0.min.css",
   "/assets/css/libraries/bootstrap-4.5.0.min.css.map",
   "/assets/css/libraries/normalize-8.0.1.css",
+  "/assets/cursors/windows-3x/crosshair.cur",
+  "/assets/cursors/windows-3x/default.cur",
+  "/assets/cursors/windows-3x/diagonal1.ani",
+  "/assets/cursors/windows-3x/diagonal1.cur",
+  "/assets/cursors/windows-3x/diagonal2.ani",
+  "/assets/cursors/windows-3x/diagonal2.cur",
+  "/assets/cursors/windows-3x/horizontal.ani",
+  "/assets/cursors/windows-3x/horizontal.cur",
+  "/assets/cursors/windows-3x/move.cur",
+  "/assets/cursors/windows-3x/not-allowed.cur",
+  "/assets/cursors/windows-3x/other/BANANA.ANI",
+  "/assets/cursors/windows-3x/other/BARBER.ANI",
+  "/assets/cursors/windows-3x/other/COIN.ANI",
+  "/assets/cursors/windows-3x/other/COUNTER.ANI",
+  "/assets/cursors/windows-3x/other/DRUM.ANI",
+  "/assets/cursors/windows-3x/other/FILLITUP.ANI",
+  "/assets/cursors/windows-3x/other/HAND.ANI",
+  "/assets/cursors/windows-3x/other/HORSE.ANI",
+  "/assets/cursors/windows-3x/other/METRONOM.ANI",
+  "/assets/cursors/windows-3x/other/PIANO.ANI",
+  "/assets/cursors/windows-3x/other/RAINBOW.ANI",
+  "/assets/cursors/windows-3x/other/RAINDROP.ANI",
+  "/assets/cursors/windows-3x/other/VANISHER.ANI",
+  "/assets/cursors/windows-3x/other/WAGTAIL.ANI",
+  "/assets/cursors/windows-3x/pointer.cur",
+  "/assets/cursors/windows-3x/progress.ani",
+  "/assets/cursors/windows-3x/progress.cur",
+  "/assets/cursors/windows-3x/text.cur",
+  "/assets/cursors/windows-3x/vertical.ani",
+  "/assets/cursors/windows-3x/vertical.cur",
+  "/assets/cursors/windows-3x/wait.ani",
+  "/assets/cursors/windows-3x/wait.cur",
+  "/assets/cursors/windows-9x/alternate.cur",
+  "/assets/cursors/windows-9x/busy.cur",
+  "/assets/cursors/windows-9x/crosshair.cur",
+  "/assets/cursors/windows-9x/default.cur",
+  "/assets/cursors/windows-9x/diagonal1.cur",
+  "/assets/cursors/windows-9x/diagonal2.cur",
+  "/assets/cursors/windows-9x/handwriting.cur",
+  "/assets/cursors/windows-9x/help.cur",
+  "/assets/cursors/windows-9x/horizontal.cur",
+  "/assets/cursors/windows-9x/move.cur",
+  "/assets/cursors/windows-9x/not-allowed.cur",
+  "/assets/cursors/windows-9x/pointer.cur",
+  "/assets/cursors/windows-9x/progress.cur",
+  "/assets/cursors/windows-9x/text.cur",
+  "/assets/cursors/windows-9x/vertical.cur",
   "/assets/fonts/dosvga.eot",
   "/assets/fonts/dosvga.svg",
   "/assets/fonts/dosvga.ttf",
@@ -108,6 +155,35 @@ const n = [
   "/assets/themes/boot/windows-98/windows-98-transparent.png",
   "/assets/themes/boot/windows-me/windows-me-remastered.png",
   "/assets/themes/boot/windows-me/windows-me-transparent.png",
+  "/assets/themes/wallpapers/seasonal/easter.jpg",
+  "/assets/themes/wallpapers/seasonal/emulators.png",
+  "/assets/themes/wallpapers/seasonal/valentines.jpg",
+  "/assets/themes/wallpapers/windows-3x/256color.bmp",
+  "/assets/themes/wallpapers/windows-3x/arcade.bmp",
+  "/assets/themes/wallpapers/windows-3x/arches.bmp",
+  "/assets/themes/wallpapers/windows-3x/argyle.bmp",
+  "/assets/themes/wallpapers/windows-3x/ball.bmp",
+  "/assets/themes/wallpapers/windows-3x/cars.bmp",
+  "/assets/themes/wallpapers/windows-3x/castle.bmp",
+  "/assets/themes/wallpapers/windows-3x/chitz.bmp",
+  "/assets/themes/wallpapers/windows-3x/egypt.bmp",
+  "/assets/themes/wallpapers/windows-3x/honey.bmp",
+  "/assets/themes/wallpapers/windows-3x/leaves.bmp",
+  "/assets/themes/wallpapers/windows-3x/marble.bmp",
+  "/assets/themes/wallpapers/windows-3x/redbrick.bmp",
+  "/assets/themes/wallpapers/windows-3x/rivets.bmp",
+  "/assets/themes/wallpapers/windows-3x/squares.bmp",
+  "/assets/themes/wallpapers/windows-3x/tartan.bmp",
+  "/assets/themes/wallpapers/windows-3x/thatch.bmp",
+  "/assets/themes/wallpapers/windows-3x/winlogo.svg",
+  "/assets/themes/wallpapers/windows-3x/zigzag.bmp",
+  "/assets/themes/wallpapers/windows-95/windows-95-remastered-1680x1050.png",
+  "/assets/themes/wallpapers/windows-98/windows-98-remastered-1920x1080.png",
+  "/assets/themes/wallpapers/windows-me/emuos-me-remastered-1920x1080.png",
+  "/assets/themes/wallpapers/windows-me/emuos-me-remastered-3840x2880.png",
+  "/assets/themes/wallpapers/windows-me/windows-me-remastered-1920x1080.jpg",
+  "/assets/themes/wallpapers/windows-me/windows-me-remastered-1920x1080.png",
+  "/assets/themes/wallpapers/windows-me/windows-me-remastered-3840x2880.png",
   "/assets/videos/monkey.jpg",
   "/assets/videos/monkey.mp4",
   "/assets/videos/monkey.ogg",
@@ -115,10 +191,10 @@ const n = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1659848768783", m = `cache${i}`, g = n.concat(l), d = new Set(g);
+], i = "1659849762273", m = `cache${i}`, r = p.concat(l), d = new Set(r);
 self.addEventListener("install", (s) => {
   s.waitUntil(
-    caches.open(m).then((e) => e.addAll(g)).then(() => {
+    caches.open(m).then((e) => e.addAll(r)).then(() => {
       self.skipWaiting();
     })
   );
@@ -132,7 +208,7 @@ self.addEventListener("activate", (s) => {
     })
   );
 });
-async function u(s) {
+async function w(s) {
   const e = await caches.open(`offline${i}`);
   try {
     const a = await fetch(s);
@@ -147,6 +223,6 @@ async function u(s) {
 self.addEventListener("fetch", (s) => {
   if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
-  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && d.has(e.pathname), p = s.request.cache === "only-if-cached" && !t;
-  a && !o && !p && s.respondWith((async () => t && await caches.match(s.request) || u(s.request))());
+  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && d.has(e.pathname), n = s.request.cache === "only-if-cached" && !t;
+  a && !o && !n && s.respondWith((async () => t && await caches.match(s.request) || w(s.request))());
 });
