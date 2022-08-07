@@ -1,5 +1,109 @@
 :root {
+	--color-black: #000;
+	--color-white: #fff;
+	--color-gray: #c0c0c0;
+	--color-cyan: #0c5460;
+	--color-blue: #000080;
 
+	--color-debug: #adff2f44;
+	--color-debug-muted: #80808044;
+
+	--color-background-desktop: var(--color-cyan);
+	--color-background-taskbar: var(--color-gray);
+
+	--color-background-panel: var(--color-gray);
+	--color-background-window-panel: var(--color-background-panel);
+	--color-background-window-panel-3d-border1: var(--color-black);
+	--color-background-window-panel-3d-border2: var(--color-white);
+	--color-background-window-panel-3d-border3: #808080;
+	--color-background-window-panel-3d-border4: #dfdfdf;
+}
+
+::selection {
+	background: var(--color-blue);
+	color: var(--color-white);
+}
+
+::-moz-selection {
+	background: var(--color-blue);
+	color: var(--color-white);
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-button {
+	width: 16px;
+	height: 16px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-button {
+	background: var(--color-background-panel);
+	border-top: 1px solid var(--color-background-panel);
+	border-left: 1px solid var(--color-background-panel);
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	box-shadow: 1px 1px 0 var(--color-white) inset, -1px -1px 0 #707070 inset;
+}
+
+::-webkit-scrollbar-button:hover:active {
+	border: 1px solid #7b7b7b;
+	box-shadow: none;
+}
+
+::-webkit-scrollbar-corner {
+	background: var(--color-background-panel);
+}
+
+::-webkit-scrollbar-button {
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAYCAYAAAC8/X7cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTM0A1t6AAAAxUlEQVRYR+3T0QrDIBBEUT/dP2/ZMAODyZrZQINQDyy05irmIW37V733D35Oud2r4lIxAUsptvibY3g1SFJOQ3pu5QVisJTTmENITrTFUkrbmNm5NO7Bck5jwqMTbTl4lNJ2djaNfcCjnBPrweMgSbGbnU/aBizfc+LjxASSVOUFCEvrcC+15OW3bWvuh7nkBxyXqryA1TK8mjtOQ5VzQ6nX2N30tHX6UN5TibV9ssdR7Q9OrAePc8ftQqV9VeUFtu03WvsCS61PICoBlBoAAAAASUVORK5CYII=);
+	image-rendering: pixelated;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement:disabled {
+	background-position: calc(-24px + 1px) 1px; /* left */
+}
+
+::-webkit-scrollbar-button:horizontal:increment:disabled {
+	background-position: calc(-36px + 1px) 1px; /* right */
+}
+
+::-webkit-scrollbar-button:vertical:decrement:disabled {
+	background-position: calc(-12px + 1px) 1px; /* up */
+}
+
+::-webkit-scrollbar-button:vertical:increment:disabled {
+	background-position: calc(-0px + 1px) 1px; /* down */
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+	background-position: calc(-24px + 1px) calc(-12px + 1px); /* left */
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+	background-position: calc(-36px + 1px) calc(-12px + 1px); /* right */
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+	background-position: calc(-12px + 1px) calc(-12px + 1px); /* up */
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+	background-position: calc(-0px + 1px) calc(-12px + 1px); /* down */
+}
+
+::-webkit-scrollbar {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEW9vb3///8EwsWUAAAADElEQVQI12NoYHAAAAHEAMFJRSpJAAAAAElFTkSuQmCC) repeat;
+	image-rendering: pixelated;
+}
+
+::-webkit-scrollbar-track-piece:active {
+	background: var(--color-black);
 }
 
 * , *::before, *::after {
