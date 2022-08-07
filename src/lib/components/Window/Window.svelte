@@ -80,6 +80,11 @@
 				height: calc(100% - 36px);
 			}
 
+			-webkit-user-select: text;
+			-moz-user-select: text;
+			-ms-user-select: text;
+			user-select: text;
+
 			overflow: auto;
 		}
 

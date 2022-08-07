@@ -2,7 +2,7 @@
 	export let debug = false
 </script>
 
-<footer class="status-bar {$$props.class || ''}" {...$$restProps}><slot>StatusBar</slot></footer>
+<footer class="status-bar {$$props.class || ''}" class:debug {...$$restProps}><slot>StatusBar</slot></footer>
 
 <style lang="scss">
 	.status-bar {

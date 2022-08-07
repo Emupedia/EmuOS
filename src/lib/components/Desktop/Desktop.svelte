@@ -1,5 +1,5 @@
 <script>
-	export let debug = !false
+	export let debug = false
 </script>
 
 <main class="desktop" class:debug>
