@@ -1,10 +1,10 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "emuos/immutable/start-3c52e73d.js",
+    "file": "emuos/immutable/start-711ce127.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-acebff96.js"
+      "_index-a21ced09.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -14,49 +14,56 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "emuos/immutable/pages/__layout.svelte-be314b76.js",
+    "file": "emuos/immutable/pages/__layout.svelte-61af8521.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-acebff96.js"
+      "_index-a21ced09.js"
+    ],
+    "css": [
+      "emuos/immutable/assets/__layout-630df563.css"
     ]
   },
   "src/routes/__error.svelte": {
-    "file": "emuos/immutable/pages/__error.svelte-c184b506.js",
+    "file": "emuos/immutable/pages/__error.svelte-23e4fdfa.js",
     "src": "src/routes/__error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-acebff96.js"
-    ],
-    "css": [
-      "emuos/immutable/assets/__error-78148c25.css"
+      "_index-a21ced09.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "emuos/immutable/pages/index.svelte-34cdf0ff.js",
+    "file": "emuos/immutable/pages/index.svelte-a2fa0150.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-acebff96.js"
+      "_index-a21ced09.js"
+    ],
+    "css": [
+      "emuos/immutable/assets/index-e30d4977.css"
     ]
   },
   "src/routes/test.svelte": {
-    "file": "emuos/immutable/pages/test.svelte-359ffdb4.js",
+    "file": "emuos/immutable/pages/test.svelte-8bf635a9.js",
     "src": "src/routes/test.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-acebff96.js"
+      "_index-a21ced09.js"
     ]
   },
-  "_index-acebff96.js": {
-    "file": "emuos/immutable/chunks/index-acebff96.js"
+  "_index-a21ced09.js": {
+    "file": "emuos/immutable/chunks/index-a21ced09.js"
   },
-  "src/routes/__error.css": {
-    "file": "emuos/immutable/assets/__error-78148c25.css",
-    "src": "src/routes/__error.css"
+  "src/routes/__layout.css": {
+    "file": "emuos/immutable/assets/__layout-630df563.css",
+    "src": "src/routes/__layout.css"
+  },
+  "src/routes/index.css": {
+    "file": "emuos/immutable/assets/index-e30d4977.css",
+    "src": "src/routes/index.css"
   }
 }

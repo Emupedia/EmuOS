@@ -27,10 +27,4 @@
 	<title>EmuOS v2.0</title>
 </svelte:head>
 
-<header></header>
-
-<main>
-	<slot />
-</main>
-
-<footer></footer>
+<slot />
