@@ -14,6 +14,7 @@
 	export let showStatus = false
 	export let status = 'Idle'
 	export let content = 'No Content'
+	export let buttons = ['minimize', 'maximize', 'close']
 	export let transform = false
 	export let debug = false
 
@@ -41,7 +42,7 @@
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
 <section class="window {$$props.class || ''}" class:debug class:dragging class:transform style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
-	<TitleBar class="title-bar {dragging ? 'dragging' : ''} {debug ? 'debug' : ''}" onMouseDown={onMouseDown}>{#if title}{title}{/if}</TitleBar>
+	<TitleBar class="title-bar {dragging ? 'dragging' : ''} {debug ? 'debug' : ''}" {buttons} onMouseDown={onMouseDown}>{#if title}{title}{/if}</TitleBar>
 	<article class="content" class:show-status={showStatus}><slot>{#if content}{content}{/if}</slot></article>
 	{#if showStatus}<StatusBar class="status-bar {dragging ? 'dragging' : ''} {debug ? 'debug' : ''}">{#if status}{status}{/if}</StatusBar>{/if}
 	<ResizeHandles class="resize-handles {debug ? 'debug' : ''}" />

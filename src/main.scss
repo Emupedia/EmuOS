@@ -1,10 +1,10 @@
 :root {
-	color-scheme: dark;
+	//color-scheme: dark;
 
 	--color-black: #000;
 	--color-white: #fff;
 	--color-gray: #c0c0c0;
-	--color-cyan: #0c5460;
+	--color-cyan: #008080;
 	--color-blue: #000080;
 
 	--color-debug: #adff2f44;
@@ -133,8 +133,13 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+
+	font-family: 'DOSVGA', 'EmuOS', 'Microsoft Sans Serif', 'Arial', sans-serif;
+
 	-webkit-text-size-adjust: none;
 	text-size-adjust: none;
+	-webkit-font-smoothing: none;
+	font-smooth: never;
 }
 
 table {
