@@ -49,6 +49,13 @@
 		"vite": "^3.0.4"
 	},
 	"dependencies": {
+		"browser-cookies": "^1.2.0",
+		"colorette": "^2.0.16",
+		"colorize-template": "^1.0.0",
+		"cookie": "^0.5.0",
+		"idb-keyval": "^6.2.0"
+	},
+	"reference": {
 		"@babel/core": "7.18.5",
 		"@babel/plugin-syntax-dynamic-import": "7.8.3",
 		"@babel/plugin-transform-classes": "7.18.4",
@@ -56,14 +63,6 @@
 		"@babel/preset-env": "7.18.2",
 		"@babel/runtime-corejs3": "7.18.3",
 		"@rollup/plugin-babel": "5.3.1",
-		"browser-cookies": "^1.2.0",
-		"colorette": "^2.0.16",
-		"colorize-template": "^1.0.0",
-		"cookie": "^0.5.0",
-		"idb-keyval": "^6.2.0",
-		"rollup": "2.77.0"
-	},
-	"reference": {
 		"@tailwindcss/forms": "^0.5.2",
 		"@tailwindcss/typography": "^0.5.4",
 		"@vitejs/plugin-legacy": "^2.0.0",
@@ -77,6 +76,7 @@
 		"idb-keyval": "^6.1.0",
 		"pdfjs-dist": "2.3.200",
 		"replace-in-files-cli": "^2.0.0",
-		"rimraf": "^3.0.2"
+		"rimraf": "^3.0.2",
+		"rollup": "2.77.0"
 	}
 }
