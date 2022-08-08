@@ -6,20 +6,19 @@
 
 <style lang="scss">
 	.status-bar {
-		color: #fff;
+		position: absolute;
+		bottom: 2px;
+		width: calc(100% - 6px);
+
+		height: 16px;
+
+		color: #000;
+
+		-moz-box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #7b7b7b;
+		-webkit-box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #7b7b7b;
+		box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #7b7b7b;
 
 		overflow: hidden;
-
-		&.dragging {
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-
-			&.debug {
-				border-top: 1px solid var(--color-debug-muted);
-			}
-		}
 
 		&.debug {
 			border-top: 1px solid var(--color-debug);

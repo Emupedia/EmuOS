@@ -12,6 +12,10 @@
 
 <style lang="scss">
 	.title-bar {
+		position: absolute;
+		width: calc(100% - 6px);
+		height: 16px;
+
 		background-color: #0a246a;
 		background: -webkit-gradient(linear, left top, right top, color-stop(0, #0a246a), color-stop(100%, #a6caf0)) !important;
 		background: -webkit-linear-gradient(left, #0a246a, #a6caf0) !important;
@@ -21,11 +25,14 @@
 
 		overflow: hidden;
 
+		z-index: 1;
 
 		nav {
 			position: absolute;
-			top: 4px;
-			right: 4px;
+			//top: 4px;
+			top: 1px;
+			//right: 4px;
+			right: 1px;
 		}
 
 		&.dragging {

@@ -19,7 +19,7 @@ export const resizable = (el, options) => {
 	interact(el).resizable({
 		// edges: { top: options.handles.top, left: options.handles.left, right: options.handles.right, bottom: options.handles.bottom },
 		edges: { top: true, left: true, right: true, bottom: true },
-		margin: 3,
+		margin: options.margin,
 		listeners: {
 			move: e => {
 				const { target } = e
