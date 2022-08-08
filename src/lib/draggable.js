@@ -10,12 +10,22 @@ export const draggable = (el, options) => {
 		target.style.setProperty('--y', y + 'px')
 	}
 
+	// noinspection JSCheckFunctionSignatures
 	interact(el).draggable({
-		// manualStart : true,
 		allowFrom: options.handle,
+		ignoreFrom: options.ignore,
+		listeners: {
+			move: e => {
+				const { target, dx, dy } = e
+				const x = (parseAxis(target)('x') || 0) + dx
+				const y = (parseAxis(target)('y') || 0) + dy
+
+				move(target)(x, y)
+			}
+		},
 		modifiers: [
 			interact.modifiers.restrict({
-				restriction: el.parentNode,
+				restriction: 'parent',
 				elementRect: {
 					top: 0,
 					left: 0,
@@ -26,12 +36,7 @@ export const draggable = (el, options) => {
 			})
 		],
 		inertia: false,
-		onmove: e => {
-			const { target, dx, dy } = e
-			const x = (parseAxis(target)('x') || 0) + dx
-			const y = (parseAxis(target)('y') || 0) + dy
-
-			move(target)(x, y)
-		},
 	})
+
+	return el
 }
