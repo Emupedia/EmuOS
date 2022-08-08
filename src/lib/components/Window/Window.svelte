@@ -1,7 +1,11 @@
 <script>
+	import { onMount } from 'svelte'
+
 	import TitleBar from '$lib/components/Window/TitleBar.svelte'
 	import StatusBar from '$lib/components/Window/StatusBar.svelte'
 	import ResizeHandles from '$lib/components/Window/ResizeHandles.svelte'
+
+	import { draggable } from '$lib/draggable'
 
 	const minWidth = 166
 	const minHeight = 30
@@ -10,41 +14,26 @@
 	export let y = 0
 	export let width = 166
 	export let height = 30
+
 	export let title = 'Untitled Window'
 	export let showStatus = false
 	export let status = 'Idle'
 	export let content = 'No Content'
 	export let buttons = ['minimize', 'maximize', 'close']
-	export let transform = false
+
+	export let useTransform = false
+	export let useTransform3D = true
 	export let debug = false
 
-	let dragging = false
+	let window
 
-	function onMouseDown() {
-		dragging = true
-	}
-
-	function onMouseMove(e) {
-		if (dragging) {
-			x = parseInt(x)
-			y = parseInt(y)
-
-			x += e.movementX
-			y += e.movementY
-		}
-	}
-
-	function onMouseUp() {
-		dragging = false
-	}
+	onMount(() => draggable(window, { handle: '.title-bar' }))
 </script>
 
-<svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
-
-<section class="window {$$props.class || ''}" class:debug class:dragging class:transform style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
-	<TitleBar class="title-bar {dragging ? 'dragging' : ''} {debug ? 'debug' : ''}" {buttons} onMouseDown={onMouseDown}>{#if title}{title}{/if}</TitleBar>
+<section bind:this={window} class="window {$$props.class || ''}" class:debug class:transform={useTransform} class:trasform3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+	<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{#if title}{title}{/if}</TitleBar>
 	<article class="content" class:show-status={showStatus}><slot>{#if content}{content}{/if}</slot></article>
-	{#if showStatus}<StatusBar class="status-bar {dragging ? 'dragging' : ''} {debug ? 'debug' : ''}">{#if status}{status}{/if}</StatusBar>{/if}
+	{#if showStatus}<StatusBar class="status-bar {debug ? 'debug' : ''}">{#if status}{status}{/if}</StatusBar>{/if}
 	<ResizeHandles class="resize-handles {debug ? 'debug' : ''}" />
 </section>
 
@@ -92,7 +81,13 @@
 		&.transform {
 			left: unset;
 			top: unset;
-			transform: translateX(var(--x)) translateY(var(--y));
+			transform: translate(var(--x), var(--y));
+		}
+
+		&.transform3d {
+			left: unset;
+			top: unset;
+			transform: translate3d(var(--x), var(--y), 0);
 		}
 
 		&.dragging {

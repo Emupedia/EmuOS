@@ -48,7 +48,7 @@
 	}
 </script>
 
-<button class={cls} class:icon={type === 'icon'} {style} type="button" {title}><slot /></button>
+<button class={cls} class:icon={type === 'icon'} {style} type="button" {title} {...$$restProps}><slot /></button>
 
 <style lang="scss">
 	button {
@@ -63,6 +63,10 @@
 
 		//padding: 1px;
 		border: none;
+
+		user-select: none;
+		appearance: none;
+		-webkit-tap-highlight-color: transparent;
 
 		overflow: hidden;
 
@@ -88,6 +92,10 @@
 
 		&.close {
 			margin-left: 2px;
+		}
+
+		&:not(:disabled) {
+			cursor: pointer;
 		}
 	}
 </style>

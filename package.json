@@ -53,7 +53,8 @@
 		"colorette": "^2.0.16",
 		"colorize-template": "^1.0.0",
 		"cookie": "^0.5.0",
-		"idb-keyval": "^6.2.0"
+		"idb-keyval": "^6.2.0",
+		"interactjs": "^1.10.17"
 	},
 	"reference": {
 		"@babel/core": "7.18.5",
@@ -62,6 +63,7 @@
 		"@babel/plugin-transform-runtime": "7.18.5",
 		"@babel/preset-env": "7.18.2",
 		"@babel/runtime-corejs3": "7.18.3",
+		"@neodrag/svelte": "^1.2.3",
 		"@rollup/plugin-babel": "5.3.1",
 		"@tailwindcss/forms": "^0.5.2",
 		"@tailwindcss/typography": "^0.5.4",

@@ -1,12 +1,12 @@
 const p = [
-  "/emuos/immutable/start-d292d7a2.js",
-  "/emuos/immutable/pages/__layout.svelte-afe4daf8.js",
+  "/emuos/immutable/start-ffc747f7.js",
+  "/emuos/immutable/pages/__layout.svelte-23ca9293.js",
   "/emuos/immutable/assets/__layout-4da514f1.css",
-  "/emuos/immutable/pages/__error.svelte-e1bff648.js",
-  "/emuos/immutable/pages/index.svelte-65cf2c56.js",
-  "/emuos/immutable/assets/index-3b4800ce.css",
-  "/emuos/immutable/pages/test.svelte-5eff6b31.js",
-  "/emuos/immutable/chunks/index-ae4b0998.js"
+  "/emuos/immutable/pages/__error.svelte-7a0caa1c.js",
+  "/emuos/immutable/pages/index.svelte-328e666a.js",
+  "/emuos/immutable/assets/index-c28cec4d.css",
+  "/emuos/immutable/pages/test.svelte-92024603.js",
+  "/emuos/immutable/chunks/index-6883ab13.js"
 ], l = [
   "/.nojekyll",
   "/404error.html",
@@ -197,7 +197,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1659916696508", r = `cache${i}`, m = p.concat(l), d = new Set(m);
+], i = "1659973859527", r = `cache${i}`, m = p.concat(l), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {
