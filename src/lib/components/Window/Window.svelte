@@ -3,7 +3,7 @@
 
 	import TitleBar from '$lib/components/Window/TitleBar.svelte'
 	import StatusBar from '$lib/components/Window/StatusBar.svelte'
-	import Panel from '$lib/components/Panel'
+	import Panel from '$lib/components/Panel/Panel.svelte'
 	// import ResizeHandles from '$lib/components/Window/ResizeHandles.svelte'
 
 	import { draggable } from '$lib/draggable'
