@@ -32,7 +32,7 @@ export const resizable = (el, options) => {
 		},
 		modifiers: [
 			interact.modifiers.restrictEdges({ outer: 'parent' }),
-			interact.modifiers.restrictSize({ min: { width: options.minWidth, height: options.minHeight } })
+			interact.modifiers.restrictSize({ min: { width: options.minWidth, height: options.minHeight }, max: 'parent' })
 		],
 		inertia: false
 	})

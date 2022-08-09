@@ -37,8 +37,6 @@
 
 			element = document.createElement('div')
 			element.className = 'selection'
-			// element.style.border = '1px dashed #ffff7f'
-			// element.style.position = 'absolute'
 			element.style.left = mouse.x + 'px'
 			element.style.top = mouse.y + 'px'
 
@@ -82,14 +80,12 @@
 				if (isInBounds(rect, box)) {
 					inBounds.push(box)
 				} else {
-					box.style.boxShadow = 'none'
 					box.classList.remove('selected')
 				}
 			}
 
 			if (inBounds.length > 0) {
 				for (const box of inBounds) {
-					box.style.boxShadow = '0 0 3pt 3pt hsl(141, 53%, 53%)'
 					box.classList.add('selected')
 				}
 			}

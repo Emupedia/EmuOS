@@ -11,9 +11,7 @@
 		<div class="desktop-icon" data-x="0" data-y="0"><span>Icon 3</span></div>
 		<div class="desktop-icon" data-x="0" data-y="0"><span>Icon 4</span></div>
 	</Icons>
-	<Window title="Notepad" status="Idle" x="50" y="50" width="170" height="100" buttons={['help', 'fullscreen', 'newtab', 'minimize', 'maximize', 'close']}>
-		<br />Some content<br />is<br />here<br /><br /><br /><br />
-	</Window>
+	<Window title="Notepad" status="Idle" x="50" y="50" width="170" height="100"><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
 	<TaskBar />
 </Desktop>
 
@@ -32,12 +30,20 @@
 				border-radius: 10px;
 				padding: 1em;
 				touch-action: none;
-				transition: box-shadow 0.5s;
+				box-shadow: none;
+				transition: box-shadow 0.2s;
 
 				&:hover {
-					-webkit-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
-					-moz-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
-					box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+					-webkit-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+					-moz-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+					box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+				}
+
+				&.selected {
+					//box-shadow: rgb(72 199 116) 0 0 3pt 3pt;
+					-webkit-filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+					filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+					color: #fff;
 				}
 
 				&:nth-child(1) {

@@ -41,7 +41,7 @@ export const interactable = el => {
 		},
 		modifiers: [
 			interact.modifiers.restrict({
-				restriction: el.parentNode,
+				restriction: 'parent',
 				elementRect: {
 					top: 0,
 					left: 0,
