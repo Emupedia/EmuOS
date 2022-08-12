@@ -12,6 +12,9 @@
 	let menu
 	let show = false
 
+	const minWidth = 118
+	const minHeight = 22
+
 	const dispatch = createEventDispatcher()
 
 	$: (() => {
@@ -19,11 +22,12 @@
 
 		const rect = menu.getBoundingClientRect()
 
-		x = Math.min(window.innerWidth - rect.width, x)
-
-		if (y > window.innerHeight - rect.height) {
-			y -= rect.height
+		// x = Math.min(window.innerWidth - rect.width, x)
+		if (x > window.innerWidth - rect.width) {
+			x -= rect.width
 		}
+
+		y = Math.min(window.innerHeight - rect.height, y)
 	})(x, y)
 
 	function onMenu(e) {
@@ -46,8 +50,8 @@
 
 <svelte:window on:contextmenu={onMenu} on:click={onPageClick} />
 
-<nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}px; --y: {y}px;" {...$$restProps}>
-	<slot>{content}</slot>
+<nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}px; --y: {y}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+	<ul><slot>{content}</slot></ul>
 </nav>
 
 <style lang="scss">
@@ -57,6 +61,17 @@
 
 		left: (var(--x));
 		top: (var(--y));
+		min-width: var(--min-width);
+		min-height: var(--min-height);
+
+		background-color: var(--color-background-window-panel);
+
+		-moz-box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #c0c0c0, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
+		-webkit-box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #c0c0c0, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
+		box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #c0c0c0, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
+
+		padding: 3px;
+		//text-align: center;
 
 		overflow: hidden;
 

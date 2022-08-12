@@ -2,7 +2,7 @@
 	import { Desktop, Icons } from '$lib/components/Desktop'
 	import { TaskBar } from '$lib/components/TaskBar'
 	import { Window } from '$lib/components/Window'
-	import { Menu } from '$lib/components/Menu'
+	import { Menu, MenuItem, MenuSeparator } from '$lib/components/Menu'
 </script>
 
 <Desktop>
@@ -20,14 +20,15 @@
 	<TaskBar />
 
 	<Menu>
-		<ul>
-			<li>Refresh</li>
-			<li>Refresh</li>
-			<li>Refresh</li>
-			<li>Refresh</li>
-			<li>Refresh</li>
-			<li>Refresh</li>
-		</ul>
+		<MenuItem>Arrange Icons</MenuItem>
+		<MenuItem>Line up Icons</MenuItem>
+		<MenuSeparator />
+		<MenuItem disabled>Paste</MenuItem>
+		<MenuItem disabled>Paste Shortcut</MenuItem>
+		<MenuSeparator />
+		<MenuItem>New</MenuItem>
+		<MenuSeparator />
+		<MenuItem>Properties</MenuItem>
 	</Menu>
 </Desktop>
 
