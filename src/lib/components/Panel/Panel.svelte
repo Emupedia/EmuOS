@@ -3,7 +3,7 @@
 </script>
 
 <article class="panel {$$props.class || ''}" class:debug {...$$restProps}>
-	<section class="content" contenteditable><slot>Panel</slot></section>
+	<section class="content"><slot>Panel</slot></section>
 </article>
 
 <style lang="scss">

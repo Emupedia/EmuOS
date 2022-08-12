@@ -37,7 +37,7 @@
 	})
 </script>
 
-<section bind:this={window} class="window {$$props.class || ''}" class:debug class:transform={useTransform} class:trasform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+<section bind:this={window} class="window {$$props.class || ''}" class:debug class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
 	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
 	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}"><slot>{content}</slot></Panel>
 	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
@@ -66,14 +66,14 @@
 		overflow: hidden;
 
 		&.transform {
-			left: unset;
-			top: unset;
+			left: 0;
+			top: 0;
 			transform: translate(var(--x), var(--y));
 		}
 
 		&.transform-3d {
-			left: unset;
-			top: unset;
+			left: 0;
+			top: 0;
 			transform: translate3d(var(--x), var(--y), 0);
 		}
 

@@ -2,17 +2,33 @@
 	import { Desktop, Icons } from '$lib/components/Desktop'
 	import { TaskBar } from '$lib/components/TaskBar'
 	import { Window } from '$lib/components/Window'
+	import { Menu } from '$lib/components/Menu'
 </script>
 
 <Desktop>
 	<Icons>
-		<div class="desktop-icon" data-x="0" data-y="0"><span>Icon 1</span></div>
-		<div class="desktop-icon" data-x="0" data-y="0"><span>Icon 2</span></div>
-		<div class="desktop-icon" data-x="0" data-y="0"><span>Icon 3</span></div>
-		<div class="desktop-icon" data-x="0" data-y="0"><span>Icon 4</span></div>
+		<ul>
+			<li class="desktop-icon" data-x="0" data-y="0"><span>Icon 1</span></li>
+			<li class="desktop-icon" data-x="0" data-y="0"><span>Icon 2</span></li>
+			<li class="desktop-icon" data-x="0" data-y="0"><span>Icon 3</span></li>
+			<li class="desktop-icon" data-x="0" data-y="0"><span>Icon 4</span></li>
+		</ul>
 	</Icons>
+
 	<Window title="Notepad" status="Idle" x="50" y="50" width="170" height="100"><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
+
 	<TaskBar />
+
+	<Menu>
+		<ul>
+			<li>Refresh</li>
+			<li>Refresh</li>
+			<li>Refresh</li>
+			<li>Refresh</li>
+			<li>Refresh</li>
+			<li>Refresh</li>
+		</ul>
+	</Menu>
 </Desktop>
 
 <style global lang="scss">
@@ -32,6 +48,7 @@
 				touch-action: none;
 				box-shadow: none;
 				transition: box-shadow 0.2s;
+				pointer-events: auto;
 
 				&:hover {
 					-webkit-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
@@ -69,9 +86,12 @@
 
 			.selection {
 				position: absolute;
+
 				border-width: 1px;
 				border-style: dotted;
 				border-color: #ffff7f;
+
+				pointer-events: none;
 			}
 		}
 	}

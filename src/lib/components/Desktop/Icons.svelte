@@ -102,7 +102,7 @@
 	}
 </script>
 
-<div bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></div>
+<nav bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></nav>
 
 <style lang="scss">
 	.icons {
