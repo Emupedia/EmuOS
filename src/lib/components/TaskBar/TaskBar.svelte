@@ -16,7 +16,7 @@
 			overflow: hidden;
 
 			&.top {
-				height: 28px;
+				height: 27px;
 
 				top: 0;
 				left: 0;

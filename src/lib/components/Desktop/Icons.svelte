@@ -32,6 +32,8 @@
 				}
 			}
 
+			setMousePosition(e)
+
 			mouse.startX = mouse.x
 			mouse.startY = mouse.y
 
@@ -48,11 +50,32 @@
 		const ev = e || window.event
 
 		if (ev.pageX) {
-			mouse.x = ev.pageX + window.pageXOffset
-			mouse.y = ev.pageY + window.pageYOffset
+			mouse.x = ev.pageX + window.pageXOffset + icons.scrollLeft
+			mouse.y = ev.pageY + window.pageYOffset + icons.scrollTop
 		} else if (ev.clientX) {
-			mouse.x = ev.clientX + document.body.scrollLeft
-			mouse.y = ev.clientY + document.body.scrollTop
+			mouse.x = ev.clientX + document.body.scrollLeft + icons.scrollLeft
+			mouse.y = ev.clientY + document.body.scrollTop + icons.scrollTop
+		}
+
+		const rect = icons.querySelector('.selection')
+		const boxes = [...icons.querySelectorAll('.desktop-icon')]
+
+		if (rect) {
+			const inBounds = []
+
+			for (const box of boxes) {
+				if (isInBounds(rect, box)) {
+					inBounds.push(box)
+				} else {
+					box.classList.remove('selected')
+				}
+			}
+
+			if (inBounds.length > 0) {
+				for (const box of inBounds) {
+					box.classList.add('selected')
+				}
+			}
 		}
 	}
 
@@ -102,10 +125,34 @@
 	}
 </script>
 
-<nav bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></nav>
+<nav>
+	<ul bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></ul>
+</nav>
 
 <style lang="scss">
-	.icons {
-		height: 100vh;
+	nav {
+		height: 100%;
+
+		//noinspection CssOverwrittenProperties
+		.icons {
+			position: relative;
+			display: block;
+			height: 100%;
+			overflow: hidden;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		:global(.selection) {
+			position: absolute;
+
+			border-width: 1px;
+			border-style: dotted;
+			border-color: #ffff7f;
+
+			pointer-events: none;
+
+			z-index: 1;
+		}
 	}
 </style>

@@ -1,10 +1,10 @@
 const p = [
-  "/emuos/immutable/start-dcbcb8fb.js",
+  "/emuos/immutable/start-3ec8691d.js",
   "/emuos/immutable/pages/__layout.svelte-31f15b8c.js",
   "/emuos/immutable/assets/__layout-d9650759.css",
   "/emuos/immutable/pages/__error.svelte-9ef0de69.js",
-  "/emuos/immutable/pages/index.svelte-e38f8fd8.js",
-  "/emuos/immutable/assets/index-b04af350.css",
+  "/emuos/immutable/pages/index.svelte-8f1917d7.js",
+  "/emuos/immutable/assets/index-2273cc1e.css",
   "/emuos/immutable/pages/test.svelte-988ed218.js",
   "/emuos/immutable/chunks/index-42dcaaa2.js"
 ], l = [
@@ -76,6 +76,7 @@ const p = [
   "/assets/fonts/emuos.woff",
   "/assets/fonts/emuos.woff2",
   "/assets/images/clouds.png",
+  "/assets/images/icons/overlay/shortcut.png",
   "/assets/images/logos/emupedia/empuedia-360-transparent.gif",
   "/assets/images/logos/emupedia/emupedia-360-gray.gif",
   "/assets/images/logos/emupedia/emupedia-logo-1024.png",
@@ -197,7 +198,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1660347480630", r = `cache${i}`, m = p.concat(l), d = new Set(m);
+], i = "1660358451910", r = `cache${i}`, m = p.concat(l), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {

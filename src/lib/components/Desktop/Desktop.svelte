@@ -8,7 +8,7 @@
 
 <style lang="scss">
 	.desktop {
-		height: 100%;
+		height: calc(100% - 28px);
 
 		background-color: var(--color-background-desktop);
 
