@@ -137,7 +137,6 @@
 					span {
 						position: relative;
 						display: block;
-						line-height: 17px;
 						padding-left: 3px;
 						padding-right: 2px;
 					}

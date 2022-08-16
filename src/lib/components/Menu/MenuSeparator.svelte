@@ -1,10 +1,13 @@
-<hr class="menu-separator {$$props.class || ''}" {...$$restProps} />
+<li class="menu-separator {$$props.class || ''}" {...$$restProps}><hr /></li>
 
 <style lang="scss">
 	.menu-separator {
-		border-top: 1px solid #808080;
-		border-bottom: 1px solid #fff;
 		margin-top: 3px;
 		margin-bottom: 3px;
+
+		hr {
+			border-top: 1px solid #808080;
+			border-bottom: 1px solid #fff;
+		}
 	}
 </style>

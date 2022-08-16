@@ -11,6 +11,9 @@
 		width: calc(100% - 6px);
 
 		height: 16px;
+		line-height: 13px;
+
+		padding: 2px;
 
 		color: #000;
 

@@ -130,6 +130,16 @@
 	<body>
 		%sveltekit.body%
 
+		<svg class="offscreen" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<filter id="crispify">
+					<feComponentTransfer>
+						<feFuncA type="discrete" tableValues="0 1" />
+					</feComponentTransfer>
+				</filter>
+			</defs>
+		</svg>
+
 		<script type="text/javascript" src="assets/js/libraries/system.js"></script>
 		<!--suppress JSUnresolvedLibraryURL -->
 		<!--<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default,JSON,Blob,atob,Uint8ClampedArray,Uint8Array,Uint32Array,Uint16Array,Promise,Promise.any,fetch,URL,Map,MutationObserver,requestAnimationFrame,smoothscroll,~html5-elements,console.table,es5,es6,es7&flags=gated"></script>-->

@@ -51,7 +51,7 @@
 <svelte:window on:contextmenu={onMenu} on:click={onPageClick} />
 
 <nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}px; --y: {y}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
-	<ul><slot>{content}</slot></ul>
+	<menu><slot>{content}</slot></menu>
 </nav>
 
 <style lang="scss">
@@ -74,6 +74,10 @@
 		//text-align: center;
 
 		overflow: hidden;
+
+		menu, ul, ol {
+			list-style-type: none;
+		}
 
 		&.show {
 			display: block;

@@ -7,20 +7,26 @@
 
 <style lang="scss">
 	.menu-item {
-		height: 17px;
+		height: 16px;
+		line-height: 16px;
 
 		padding-left: 20px;
 		padding-right: 20px;
 
 		color: #000;
 
-		&.disabled {
-			color: #808080;
-		}
-
 		&:hover {
 			background-color: #000080;
 			color: #fff;
+		}
+
+		&.disabled {
+			color: #808080;
+
+			&:hover {
+				background-color: #000080;
+				color: #808080;
+			}
 		}
 
 		&.debug {

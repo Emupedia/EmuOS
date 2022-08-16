@@ -15,6 +15,7 @@
 		position: absolute;
 		width: calc(100% - 6px);
 		height: 16px;
+		line-height: 16px;
 
 		background-color: #0a246a;
 		background: -webkit-gradient(linear, left top, right top, color-stop(0, #0a246a), color-stop(100%, #a6caf0)) !important;

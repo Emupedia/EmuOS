@@ -133,14 +133,22 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+}
 
-	font-family: 'EmuOS', 'Microsoft Sans Serif', 'Arial', sans-serif;
-	font-size: 13px;
+body, button, label, input, textarea, select, option {
+	font-family: 'EmuOS Pixelated', 'Microsoft Sans Serif', 'Arial', sans-serif;
+	font-size: 11px;
+
 
 	-webkit-text-size-adjust: none;
 	text-size-adjust: none;
 	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: grayscale;
 	font-smooth: never;
+}
+
+span {
+	//filter: url(#crispify);
 }
 
 table {

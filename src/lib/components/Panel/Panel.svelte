@@ -31,6 +31,8 @@
 					border-top-color: #7b7b7b;
 					border-left-color: #7b7b7b;
 
+					padding: 1px;
+
 					overflow: auto;
 				}
 			}
