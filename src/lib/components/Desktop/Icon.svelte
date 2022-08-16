@@ -58,7 +58,7 @@
 			figcaption {
 				span {
 					background-color: #000080;
-					color: #fff;
+					//color: #fff;
 
 					&:after {
 						position: absolute;
@@ -86,7 +86,7 @@
 			figcaption {
 				span {
 					background-color: #000080;
-					color: #fff;
+					//color: #fff;
 
 					&:after {
 						position: absolute;

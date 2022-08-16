@@ -3,8 +3,6 @@
 import interact from 'interactjs'
 import { addClassName } from '$lib/dom'
 
-const position = { x: 0, y: 0 }
-
 export const draggable = (el, options) => {
 	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
 
