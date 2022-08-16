@@ -22,6 +22,8 @@
 	export let content = 'No Content'
 	export let buttons = ['minimize', 'maximize', 'close']
 
+	export let showContentsWhileDragging = false
+	export let showContentsWhileResizing = true
 	export let showTitleBar = true
 	export let showStatusBar = true
 	export let useTransform = false
@@ -32,12 +34,12 @@
 	let statusContent = status
 
 	onMount(() => {
-		draggable(window, { handle: '.title-bar', ignore: '.title-bar button, .resize-handles' })
-		resizable(window, { handles: { top: '.resize-handles .top', left: '.resize-handles .left', right: '.resize-handles .right', bottom: '.resize-handles .bottom'}, margin: 3, minWidth, minHeight})
+		draggable(window, { handle: '.title-bar', ignore: '.title-bar button, .resize-handles', showContentsWhileDragging })
+		resizable(window, { handles: { top: '.resize-handles .top', left: '.resize-handles .left', right: '.resize-handles .right', bottom: '.resize-handles .bottom'}, margin: 3, minWidth, minHeight, showContentsWhileResizing})
 	})
 </script>
 
-<section bind:this={window} class="window {$$props.class || ''}" class:debug class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+<section bind:this={window} class="window {$$props.class || ''}" class:debug class:move={!showContentsWhileDragging && !useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
 	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
 	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}"><slot>{content}</slot></Panel>
 	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
@@ -48,8 +50,8 @@
 	.window {
 		position: absolute;
 
-		left: (var(--x));
-		top: (var(--y));
+		left: 0;
+		top: 0;
 		width: var(--width);
 		height: var(--height);
 		min-width: var(--min-width);
@@ -65,15 +67,27 @@
 
 		overflow: hidden;
 
+		&.ghost {
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		&.move {
+			left: (var(--x));
+			top: (var(--y));
+		}
+
 		&.transform {
 			left: 0;
 			top: 0;
+			-webkit-transform: translate(var(--x), var(--y));
 			transform: translate(var(--x), var(--y));
 		}
 
 		&.transform-3d {
 			left: 0;
 			top: 0;
+			-webkit-transform: translate3d(var(--x), var(--y), 0);
 			transform: translate3d(var(--x), var(--y), 0);
 		}
 

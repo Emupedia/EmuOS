@@ -1,11 +1,11 @@
 <script>
-	import Minimize from '$lib/assets/icons/win9x-window-button-minimize.svg?raw'
-	import Maximize from '$lib/assets/icons/win9x-window-button-maximize.svg?raw'
-	import Restore from '$lib/assets/icons/win9x-window-button-restore.svg?raw'
-	import Close from '$lib/assets/icons/win9x-window-button-close.svg?raw'
-	import Help from '$lib/assets/icons/win9x-window-button-help.svg?raw'
-	import Fullscreen from '$lib/assets/icons/emuos-fullscreen.svg?raw'
-	import NewTab from '$lib/assets/icons/emuos-new-tab.svg?raw'
+	import Minimize from '$lib/assets/images/icons/win9x-window-button-minimize.svg?raw'
+	import Maximize from '$lib/assets/images/icons/win9x-window-button-maximize.svg?raw'
+	import Restore from '$lib/assets/images/icons/win9x-window-button-restore.svg?raw'
+	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
+	import Help from '$lib/assets/images/icons/win9x-window-button-help.svg?raw'
+	import Fullscreen from '$lib/assets/images/icons/emuos-fullscreen.svg?raw'
+	import NewTab from '$lib/assets/images/icons/emuos-new-tab.svg?raw'
 
 	export let title = false
 	export let icon = false
