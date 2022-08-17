@@ -1,2 +1,3 @@
-import { default as TaskBar } from '$lib/components/TaskBar/TaskBar.svelte'
-export { TaskBar }
+// noinspection JSUnusedGlobalSymbols
+
+export { default as TaskBar } from '$lib/components/TaskBar/TaskBar.svelte'

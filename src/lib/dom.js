@@ -15,3 +15,10 @@ export function removeClassName(el, className) {
 		el.className = el.className.replace(new RegExp(`(?:^|\\s)${className}(?!\\S)`, 'g'), '')
 	}
 }
+
+export function isInBounds(obj1, obj2) {
+	const a = obj1.getBoundingClientRect()
+	const b = obj2.getBoundingClientRect()
+
+	return (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y)
+}

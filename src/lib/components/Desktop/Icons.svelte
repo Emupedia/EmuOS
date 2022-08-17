@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte'
 	import { interactable } from '$lib/interactable'
+	import { isInBounds } from '$lib/dom'
 
 	onMount(() => {
 		const elements = [...document.querySelectorAll('.desktop-icon')]
@@ -46,39 +47,6 @@
 		}
 	}
 
-	function setMousePosition(e) {
-		const ev = e || window.event
-
-		if (ev.pageX) {
-			mouse.x = ev.pageX + window.pageXOffset + icons.scrollLeft
-			mouse.y = ev.pageY + window.pageYOffset + icons.scrollTop
-		} else if (ev.clientX) {
-			mouse.x = ev.clientX + document.body.scrollLeft + icons.scrollLeft
-			mouse.y = ev.clientY + document.body.scrollTop + icons.scrollTop
-		}
-
-		const rect = icons.querySelector('.selection')
-		const boxes = [...icons.querySelectorAll('.desktop-icon')]
-
-		if (rect) {
-			const inBounds = []
-
-			for (const box of boxes) {
-				if (isInBounds(rect, box)) {
-					inBounds.push(box)
-				} else {
-					box.classList.remove('selected')
-				}
-			}
-
-			if (inBounds.length > 0) {
-				for (const box of inBounds) {
-					box.classList.add('selected')
-				}
-			}
-		}
-	}
-
 	function mouseMove(e) {
 		setMousePosition(e)
 
@@ -117,11 +85,37 @@
 		}
 	}
 
-	function isInBounds(obj1, obj2) {
-		const a = obj1.getBoundingClientRect()
-		const b = obj2.getBoundingClientRect()
+	function setMousePosition(e) {
+		const ev = e || window.event
 
-		return (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y)
+		if (ev.pageX) {
+			mouse.x = ev.pageX + window.pageXOffset + icons.scrollLeft
+			mouse.y = ev.pageY + window.pageYOffset + icons.scrollTop
+		} else if (ev.clientX) {
+			mouse.x = ev.clientX + document.body.scrollLeft + icons.scrollLeft
+			mouse.y = ev.clientY + document.body.scrollTop + icons.scrollTop
+		}
+
+		const rect = icons.querySelector('.selection')
+		const boxes = [...icons.querySelectorAll('.desktop-icon')]
+
+		if (rect) {
+			const inBounds = []
+
+			for (const box of boxes) {
+				if (isInBounds(rect, box)) {
+					inBounds.push(box)
+				} else {
+					box.classList.remove('selected')
+				}
+			}
+
+			if (inBounds.length > 0) {
+				for (const box of inBounds) {
+					box.classList.add('selected')
+				}
+			}
+		}
 	}
 </script>
 

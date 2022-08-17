@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 // import ESSerializer from 'esserializer'
 import { get as getCookie, set as setCookie, erase as removeCookie } from 'browser-cookies'
 import { get, set, createStore, del } from 'idb-keyval'
