@@ -7,8 +7,15 @@
 <style lang="scss">
 	.status-bar {
 		position: absolute;
-		bottom: 2px;
-		width: calc(100% - 6px);
+		bottom: 5px;
+		width: calc(100% - 8px);
+
+		background-image: url(/assets/images/corner-resize.svg);
+		background-repeat: no-repeat;
+		background-position: right bottom;
+		background-size: 12px;
+
+		image-rendering: pixelated;
 
 		height: 16px;
 		line-height: 13px;

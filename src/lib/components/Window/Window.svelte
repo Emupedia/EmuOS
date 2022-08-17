@@ -9,8 +9,8 @@
 	import { draggable } from '$lib/draggable'
 	import { resizable } from '$lib/resizable'
 
-	const minWidth = 150
-	const minHeight = 22
+	const minWidth = 112
+	const minHeight = 27
 
 	export let x = 0
 	export let y = 0
@@ -57,7 +57,7 @@
 		min-width: var(--min-width);
 		min-height: var(--min-height);
 
-		padding: 3px;
+		padding: 4px;
 
 		background-color: var(--color-background-window-panel);
 

@@ -13,13 +13,14 @@
 <style lang="scss">
 	.title-bar {
 		position: absolute;
-		width: calc(100% - 6px);
-		height: 16px;
-		line-height: 16px;
+		width: calc(100% - 8px);
+		height: 18px;
+		line-height: 18px;
 
-		background-color: #0a246a;
-		background: -webkit-gradient(linear, left top, right top, color-stop(0, #0a246a), color-stop(100%, #a6caf0)) !important;
-		background: -webkit-linear-gradient(left, #0a246a, #a6caf0) !important;
+		background-color: #000080;
+		//background-color: #0a246a;
+		//background: -webkit-gradient(linear, left top, right top, color-stop(0, #0a246a), color-stop(100%, #a6caf0)) !important;
+		//background: -webkit-linear-gradient(left, #0a246a, #a6caf0) !important;
 
 		text-indent: 4px;
 		color: #fff;
