@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "emuos/immutable/start-3ec8691d.js",
+    "file": "emuos/immutable/start-63d03580.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -22,7 +22,7 @@
       "_index-42dcaaa2.js"
     ],
     "css": [
-      "emuos/immutable/assets/__layout-d9650759.css"
+      "emuos/immutable/assets/__layout-cc12f557.css"
     ]
   },
   "src/routes/__error.svelte": {
@@ -35,7 +35,7 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "emuos/immutable/pages/index.svelte-8f1917d7.js",
+    "file": "emuos/immutable/pages/index.svelte-dfc21014.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -43,7 +43,7 @@
       "_index-42dcaaa2.js"
     ],
     "css": [
-      "emuos/immutable/assets/index-2273cc1e.css"
+      "emuos/immutable/assets/index-a460d2de.css"
     ]
   },
   "src/routes/test.svelte": {
@@ -59,11 +59,11 @@
     "file": "emuos/immutable/chunks/index-42dcaaa2.js"
   },
   "src/routes/__layout.css": {
-    "file": "emuos/immutable/assets/__layout-d9650759.css",
+    "file": "emuos/immutable/assets/__layout-cc12f557.css",
     "src": "src/routes/__layout.css"
   },
   "src/routes/index.css": {
-    "file": "emuos/immutable/assets/index-2273cc1e.css",
+    "file": "emuos/immutable/assets/index-a460d2de.css",
     "src": "src/routes/index.css"
   }
 }

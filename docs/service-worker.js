@@ -1,10 +1,10 @@
 const p = [
-  "/emuos/immutable/start-3ec8691d.js",
+  "/emuos/immutable/start-63d03580.js",
   "/emuos/immutable/pages/__layout.svelte-31f15b8c.js",
-  "/emuos/immutable/assets/__layout-d9650759.css",
+  "/emuos/immutable/assets/__layout-cc12f557.css",
   "/emuos/immutable/pages/__error.svelte-9ef0de69.js",
-  "/emuos/immutable/pages/index.svelte-8f1917d7.js",
-  "/emuos/immutable/assets/index-2273cc1e.css",
+  "/emuos/immutable/pages/index.svelte-dfc21014.js",
+  "/emuos/immutable/assets/index-a460d2de.css",
   "/emuos/immutable/pages/test.svelte-988ed218.js",
   "/emuos/immutable/chunks/index-42dcaaa2.js"
 ], l = [
@@ -70,12 +70,32 @@ const p = [
   "/assets/fonts/dosvga.ttf",
   "/assets/fonts/dosvga.woff",
   "/assets/fonts/dosvga.woff2",
+  "/assets/fonts/emuos-pixelated-bold.eot",
+  "/assets/fonts/emuos-pixelated-bold.svg",
+  "/assets/fonts/emuos-pixelated-bold.ttf",
+  "/assets/fonts/emuos-pixelated-bold.woff",
+  "/assets/fonts/emuos-pixelated-bold.woff2",
+  "/assets/fonts/emuos-pixelated.eot",
+  "/assets/fonts/emuos-pixelated.svg",
+  "/assets/fonts/emuos-pixelated.ttf",
+  "/assets/fonts/emuos-pixelated.woff",
+  "/assets/fonts/emuos-pixelated.woff2",
   "/assets/fonts/emuos.eot",
   "/assets/fonts/emuos.svg",
   "/assets/fonts/emuos.ttf",
   "/assets/fonts/emuos.woff",
   "/assets/fonts/emuos.woff2",
+  "/assets/fonts/px_sans_nouveaux.eot",
+  "/assets/fonts/px_sans_nouveaux.svg",
+  "/assets/fonts/px_sans_nouveaux.ttf",
+  "/assets/fonts/px_sans_nouveaux.woff",
+  "/assets/fonts/px_sans_nouveaux.woff2",
+  "/assets/images/border-ghost.png",
+  "/assets/images/border-ghost.svg",
   "/assets/images/clouds.png",
+  "/assets/images/corner-resize.gif",
+  "/assets/images/corner-resize.png",
+  "/assets/images/corner-resize.svg",
   "/assets/images/icons/overlay/shortcut.png",
   "/assets/images/logos/emupedia/empuedia-360-transparent.gif",
   "/assets/images/logos/emupedia/emupedia-360-gray.gif",
@@ -198,7 +218,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1660358451910", r = `cache${i}`, m = p.concat(l), d = new Set(m);
+], i = "1660699621146", r = `cache${i}`, m = p.concat(l), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {
@@ -215,7 +235,7 @@ self.addEventListener("activate", (s) => {
     })
   );
 });
-async function w(s) {
+async function g(s) {
   const e = await caches.open(`offline${i}`);
   try {
     const a = await fetch(s);
@@ -231,5 +251,5 @@ self.addEventListener("fetch", (s) => {
   if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
   const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && d.has(e.pathname), n = s.request.cache === "only-if-cached" && !t;
-  a && !o && !n && s.respondWith((async () => t && await caches.match(s.request) || w(s.request))());
+  a && !o && !n && s.respondWith((async () => t && await caches.match(s.request) || g(s.request))());
 });
