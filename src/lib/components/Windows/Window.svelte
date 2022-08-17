@@ -1,13 +1,8 @@
 <script>
-	import { onMount } from 'svelte'
-
-	import TitleBar from '$lib/components/Window/TitleBar.svelte'
-	import StatusBar from '$lib/components/Window/StatusBar.svelte'
 	import Panel from '$lib/components/Panel/Panel.svelte'
-	// import ResizeHandles from '$lib/components/Window/ResizeHandles.svelte'
-
-	import { draggable } from '$lib/draggable'
-	import { resizable } from '$lib/resizable'
+	// import ResizeHandles from '$lib/components/Windows/ResizeHandles.svelte'
+	import TitleBar from '$lib/components/Windows/TitleBar.svelte'
+	import StatusBar from '$lib/components/Windows/StatusBar.svelte'
 
 	const minWidth = 112
 	const minHeight = 27
@@ -30,16 +25,10 @@
 	export let useTransform3D = true
 	export let debug = false
 
-	let window
 	let statusContent = status
-
-	onMount(() => {
-		draggable(window, { handle: '.title-bar', ignore: '.title-bar button, .resize-handles', showContentsWhileDragging })
-		resizable(window, { handles: { top: '.resize-handles .top', left: '.resize-handles .left', right: '.resize-handles .right', bottom: '.resize-handles .bottom'}, margin: 5, minWidth, minHeight, showContentsWhileResizing})
-	})
 </script>
 
-<section bind:this={window} class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+<section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
 	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
 	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}"><slot>{content}</slot></Panel>
 	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
@@ -49,9 +38,9 @@
 <style lang="scss">
 	.window {
 		position: absolute;
-
 		left: 0;
 		top: 0;
+
 		width: var(--width);
 		height: var(--height);
 		min-width: var(--min-width);
@@ -66,6 +55,8 @@
 		box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
 
 		overflow: hidden;
+
+		pointer-events: auto;
 
 		&.ghost {
 			background-color: transparent;

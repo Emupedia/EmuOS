@@ -7,7 +7,7 @@
 	export let shortcut = false
 </script>
 
-<li class="desktop-icon" data-x={x} data-y={y}>
+<li class="icon" data-x={x} data-y={y}>
 	<button type="button" {title}>
 		<figure>
 			<picture>
@@ -30,8 +30,8 @@
 </li>
 
 <style lang="scss">
-	.desktop-icon {
-		position: absolute;
+	.icon {
+		position: relative;
 
 		max-width: 90px;
 

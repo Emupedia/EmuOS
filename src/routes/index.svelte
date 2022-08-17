@@ -1,8 +1,9 @@
 <script>
-	import { Desktop, Icons, Icon } from '$lib/components/Desktop'
+	import { Desktop } from '$lib/components/Desktop'
+	import { Icons, Icon } from '$lib/components/Icons'
 	import { TaskBar } from '$lib/components/TaskBar'
-	import { Window } from '$lib/components/Window'
-	import { Menu, MenuItem, MenuSeparator } from '$lib/components/Menu'
+	import { Windows, Window } from '$lib/components/Windows'
+	import { Menu, MenuItem, MenuSeparator } from '$lib/components/ContextMenu'
 </script>
 
 <Desktop>
@@ -15,7 +16,10 @@
 		<Icon title="Test 6" shortcut>System</Icon>
 	</Icons>
 
-	<Window title="Notepad" status="Idle" x="50" y="50" width="170" height="100"><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
+	<Windows>
+		<Window title="Notepad" status="Idle" x="50" y="50" width="170" height="100"><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
+		<Window title="Notepad2" status="Idle" x="150" y="150" width="170" height="100"><br />Some more content<br />is<br />here<br /><br /><br /><br /></Window>
+	</Windows>
 
 	<Menu>
 		<MenuItem>Arrange Icons</MenuItem>

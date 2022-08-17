@@ -4,7 +4,7 @@
 	import { isInBounds } from '$lib/dom'
 
 	onMount(() => {
-		const elements = [...document.querySelectorAll('.desktop-icon')]
+		const elements = [...document.querySelectorAll('.icon')]
 
 		if (elements) {
 			for (const el of elements) {
@@ -62,7 +62,7 @@
 		element = null
 
 		const rect = icons.querySelector('.selection')
-		const boxes = [...icons.querySelectorAll('.desktop-icon')]
+		const boxes = [...icons.querySelectorAll('.icon')]
 
 		if (rect) {
 			const inBounds = []
@@ -97,7 +97,7 @@
 		}
 
 		const rect = icons.querySelector('.selection')
-		const boxes = [...icons.querySelectorAll('.desktop-icon')]
+		const boxes = [...icons.querySelectorAll('.icon')]
 
 		if (rect) {
 			const inBounds = []
@@ -119,34 +119,33 @@
 	}
 </script>
 
-<nav>
-	<ul bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></ul>
-</nav>
+<ul bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></ul>
 
 <style lang="scss">
-	nav {
-		height: 100%;
+	//noinspection CssOverwrittenProperties
+	.icons {
+		display: block;
 
-		//noinspection CssOverwrittenProperties
-		.icons {
-			position: relative;
-			display: block;
-			height: 100%;
-			overflow: hidden;
-			overflow-x: hidden;
-			overflow-y: auto;
-		}
+		position: absolute;
 
-		:global(.selection) {
-			position: absolute;
+		width: 100%;
+		//height: 100%;
+		height: calc(100% - 28px);
 
-			border-width: 1px;
-			border-style: dotted;
-			border-color: #ffff7f;
+		overflow: hidden;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
 
-			pointer-events: none;
+	:global(.selection) {
+		position: absolute;
 
-			z-index: 1;
-		}
+		border-width: 1px;
+		border-style: dotted;
+		border-color: #ffff7f;
+
+		pointer-events: none;
+
+		z-index: 1;
 	}
 </style>

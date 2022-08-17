@@ -2,9 +2,7 @@
 	export let debug = false
 </script>
 
-<main class="desktop" class:debug>
-	<slot />
-</main>
+<main class="desktop" class:debug><slot /></main>
 
 <style lang="scss">
 	.desktop {
