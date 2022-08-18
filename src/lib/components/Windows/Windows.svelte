@@ -32,6 +32,8 @@
 		//height: 100%;
 		height: calc(100% - 28px);
 
+		contain: strict;
+
 		pointer-events: none;
 	}
 </style>

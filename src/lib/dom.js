@@ -1,3 +1,17 @@
+export function hasClassName(el, className) {
+	if (el.classList) {
+		if (el.classList.contains(className)) {
+			return true
+		}
+	} else {
+		if (el.className.match(new RegExp(`(?:^|\\s)${className}(?!\\S)`))) {
+			return true
+		}
+	}
+
+	return false
+}
+
 export function addClassName(el, className) {
 	if (el.classList) {
 		el.classList.add(className)

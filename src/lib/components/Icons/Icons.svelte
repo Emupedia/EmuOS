@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte'
 	import { interactable } from '$lib/interactable'
-	import { isInBounds } from '$lib/dom'
+	import { hasClassName, addClassName, removeClassName, isInBounds } from '$lib/dom'
 
 	onMount(() => {
 		const elements = [...document.querySelectorAll('.icon')]
@@ -24,7 +24,7 @@
 	}
 
 	function mouseDown(e) {
-		if (e.target.classList.contains('icons')) {
+		if (hasClassName(e.target, 'icons')) {
 			const rects = [...icons.querySelectorAll('.selection')]
 
 			if (rects) {
@@ -71,13 +71,13 @@
 				if (isInBounds(rect, box)) {
 					inBounds.push(box)
 				} else {
-					box.classList.remove('selected')
+					removeClassName(box, 'selected')
 				}
 			}
 
 			if (inBounds.length > 0) {
 				for (const box of inBounds) {
-					box.classList.add('selected')
+					addClassName(box, 'selected')
 				}
 			}
 
@@ -86,14 +86,14 @@
 	}
 
 	function setMousePosition(e) {
-		const ev = e || window.event
+		e = e || window.event
 
-		if (ev.pageX) {
-			mouse.x = ev.pageX + window.pageXOffset + icons.scrollLeft
-			mouse.y = ev.pageY + window.pageYOffset + icons.scrollTop
-		} else if (ev.clientX) {
-			mouse.x = ev.clientX + document.body.scrollLeft + icons.scrollLeft
-			mouse.y = ev.clientY + document.body.scrollTop + icons.scrollTop
+		if (e.pageX) {
+			mouse.x = e.pageX + window.pageXOffset + icons.scrollLeft
+			mouse.y = e.pageY + window.pageYOffset + icons.scrollTop
+		} else if (e.clientX) {
+			mouse.x = e.clientX + document.body.scrollLeft + icons.scrollLeft
+			mouse.y = e.clientY + document.body.scrollTop + icons.scrollTop
 		}
 
 		const rect = icons.querySelector('.selection')
@@ -106,20 +106,22 @@
 				if (isInBounds(rect, box)) {
 					inBounds.push(box)
 				} else {
-					box.classList.remove('selected')
+					removeClassName(box, 'selected')
 				}
 			}
 
 			if (inBounds.length > 0) {
 				for (const box of inBounds) {
-					box.classList.add('selected')
+					addClassName(box, 'selected')
 				}
 			}
 		}
 	}
 </script>
 
-<ul bind:this={icons} class="icons" on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove}><slot /></ul>
+<svelte:window on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove} />
+
+<ul bind:this={icons} class="icons"><slot /></ul>
 
 <style lang="scss">
 	//noinspection CssOverwrittenProperties
@@ -153,6 +155,6 @@
 
 		pointer-events: none;
 
-		//z-index: 1;
+		z-index: 1;
 	}
 </style>
