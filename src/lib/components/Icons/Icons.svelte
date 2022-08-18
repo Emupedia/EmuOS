@@ -1,14 +1,16 @@
 <script>
 	import { onMount } from 'svelte'
 	import { interactable } from '$lib/interactable'
-	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
+	import { getAll, hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
+
+	const useGhost = true
 
 	onMount(() => {
-		const elements = [...document.querySelectorAll('.icon')]
+		const elements = [...getAll('.icon')]
 
 		if (elements) {
 			for (const el of elements) {
-				interactable(el)
+				interactable(el, { useGhost })
 			}
 		}
 	})
@@ -62,7 +64,7 @@
 		element = null
 
 		const rect = icons.querySelector('.selection')
-		const boxes = [...icons.querySelectorAll('.icon')]
+		const boxes = [...icons.querySelectorAll('.icon:not(.ghost)')]
 
 		if (rect) {
 			const inBounds = []
@@ -98,7 +100,7 @@
 		}
 
 		const rect = icons.querySelector('.selection')
-		const boxes = [...icons.querySelectorAll('.icon')]
+		const boxes = [...icons.querySelectorAll('.icon:not(.ghost)')]
 
 		if (rect) {
 			const inBounds = []

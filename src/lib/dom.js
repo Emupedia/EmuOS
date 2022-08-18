@@ -1,14 +1,18 @@
 // noinspection JSUnusedGlobalSymbols
 
-export function get(selector) {
-	if (document.querySelectorAll) {
-		return document.querySelectorAll(selector)
-	} else if (document.querySelector) {
+export function getFirst(selector) {
+	if (document.querySelector) {
 		return document.querySelector(selector)
 	} else {
 		if (selector.charAt(0) === '.') {
 			if (document.getElementsByClassName) {
 				return document.getElementsByClassName(selector.substr(1))[0]
+			}
+		}
+
+		if (selector.charAt(0) !== '.' && selector.charAt(0) !== '#') {
+			if (document.getElementsByTagName) {
+				return document.getElementsByTagName(selector)[0]
 			}
 		}
 
@@ -18,9 +22,29 @@ export function get(selector) {
 			}
 		}
 
+		return null
+	}
+}
+
+export function getAll(selector) {
+	if (document.querySelectorAll) {
+		return document.querySelectorAll(selector)
+	} else {
+		if (selector.charAt(0) === '.') {
+			if (document.getElementsByClassName) {
+				return document.getElementsByClassName(selector.substr(1))
+			}
+		}
+
 		if (selector.charAt(0) !== '.' && selector.charAt(0) !== '#') {
 			if (document.getElementsByTagName) {
-				return document.getElementsByTagName(selector)[0]
+				return document.getElementsByTagName(selector)
+			}
+		}
+
+		if (selector.charAt(0) === '#') {
+			if (document.getElementById) {
+				return document.getElementById(selector.substr(1))
 			}
 		}
 

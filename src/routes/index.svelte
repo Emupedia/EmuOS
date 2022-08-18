@@ -10,12 +10,12 @@
 
 <Desktop>
 	<Icons>
-		<Icon x="50" y="50" title="Test 1">My Computer</Icon>
-		<Icon title="Test 2">Network Neighborhood</Icon>
-		<Icon title="Test 3">Recycle Bin</Icon>
-		<Icon title="Test 4" shortcut>(C)</Icon>
-		<Icon title="Test 5" shortcut>Control Panel</Icon>
-		<Icon title="Test 6" shortcut>System</Icon>
+		<Icon>My Computer</Icon>
+		<Icon>Network Neighborhood</Icon>
+		<Icon>Recycle Bin</Icon>
+		<Icon shortcut>(C)</Icon>
+		<Icon shortcut>Control Panel</Icon>
+		<Icon shortcut>System</Icon>
 	</Icons>
 
 	<Windows>

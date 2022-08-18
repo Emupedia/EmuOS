@@ -3,8 +3,8 @@
 	import { draggable } from '$lib/draggable'
 	import { resizable } from '$lib/resizable'
 
-	const showContentsWhileDragging = false
-	const showContentsWhileResizing = false
+	const useGhostWhileDragging = true
+	const useGhostWhileResizing = true
 	const minWidth = 112
 	const minHeight = 27
 
@@ -13,8 +13,8 @@
 
 		if (elements) {
 			for (const el of elements) {
-				draggable(el, { handle: '.title-bar', ignore: '.title-bar button, .resize-handles', showContentsWhileDragging })
-				resizable(el, { handles: { top: '.resize-handles .top', left: '.resize-handles .left', right: '.resize-handles .right', bottom: '.resize-handles .bottom'}, margin: 5, minWidth, minHeight, showContentsWhileResizing})
+				draggable(el, { handle: '.title-bar', ignore: '.title-bar button, .resize-handles', useGhostWhileDragging })
+				resizable(el, { handles: { top: '.resize-handles .top', left: '.resize-handles .left', right: '.resize-handles .right', bottom: '.resize-handles .bottom'}, margin: 5, minWidth, minHeight, useGhostWhileResizing})
 			}
 		}
 	})

@@ -1,7 +1,7 @@
 // noinspection DuplicatedCode
 
 import interact from 'interactjs'
-import { addClass } from '$lib/dom'
+import { getFirst, addClass } from '$lib/dom'
 
 export const draggable = (el, options) => {
 	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
@@ -21,7 +21,7 @@ export const draggable = (el, options) => {
 		ignoreFrom: options.ignore,
 		listeners: {
 			start: e => {
-				if (!options.showContentsWhileDragging) {
+				if (options.useGhostWhileDragging) {
 					ghostElement = e.target.cloneNode(true)
 					addClass(ghostElement, 'ghost')
 					const container = document.querySelector('.desktop')
@@ -31,7 +31,7 @@ export const draggable = (el, options) => {
 			move: e => {
 				let target = e.target
 
-				if (!options.showContentsWhileDragging && ghostElement) {
+				if (options.useGhostWhileDragging && ghostElement) {
 					target = ghostElement
 				}
 
@@ -41,7 +41,7 @@ export const draggable = (el, options) => {
 				move(target)(x, y)
 			},
 			end: e => {
-				if (!options.showContentsWhileDragging && ghostElement) {
+				if (options.useGhostWhileDragging && ghostElement) {
 					move(e.target)(parseAxis(ghostElement)('x') || 0, parseAxis(ghostElement)('y') || 0)
 					ghostElement.remove()
 				}

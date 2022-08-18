@@ -17,8 +17,6 @@
 	export let content = 'No Content'
 	export let buttons = ['minimize', 'maximize', 'close']
 
-	export let showContentsWhileDragging = false
-	export let showContentsWhileResizing = true
 	export let showTitleBar = true
 	export let showStatusBar = true
 	export let useTransform = false
@@ -58,9 +56,23 @@
 
 		pointer-events: auto;
 
-		&.ghost {
+		&:global(.ghost) {
 			background-color: transparent;
 			box-shadow: none;
+
+			border-width: 4px;
+			border-style: solid;
+
+			border-image: url(/assets/images/border-ghost.svg) 3% / 4px / 0 repeat;
+			image-rendering: pixelated;
+
+			pointer-events: none;
+
+			z-index: 1;
+		}
+
+		&:global(.ghost > *) {
+			visibility: hidden;
 		}
 
 		&.move {
