@@ -29,7 +29,8 @@
 		top: 0;
 
 		width: 100%;
-		height: 100%;
+		//height: 100%;
+		height: calc(100% - 28px);
 
 		pointer-events: none;
 	}

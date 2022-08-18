@@ -32,12 +32,12 @@
 <style lang="scss">
 	.icon {
 		position: relative;
-
-		max-width: 90px;
-
 		display: flex;
+		max-width: 90px;
 		justify-content: center;
 		align-items: center;
+		height: min-content;
+		padding: 2px;
 
 		color: #fff;
 
@@ -105,6 +105,7 @@
 
 		button {
 			position: relative;
+			width: 100%;
 
 			background-color: inherit;
 			color: inherit;

@@ -1,5 +1,5 @@
 // noinspection JSUnusedGlobalSymbols
 
-export { default as Menu } from '$lib/components/ContextMenu/Menu.svelte'
-export { default as MenuItem } from '$lib/components/ContextMenu/MenuItem.svelte'
-export { default as MenuSeparator } from '$lib/components/ContextMenu/MenuSeparator.svelte'
+export { default as ContextMenu } from '$lib/components/ContextMenu/ContextMenu.svelte'
+export { default as ContextMenuItem } from '$lib/components/ContextMenu/ContextMenuItem.svelte'
+export { default as ContextMenuSeparator } from '$lib/components/ContextMenu/ContextMenuSeparator.svelte'

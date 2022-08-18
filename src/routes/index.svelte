@@ -3,7 +3,7 @@
 	import { Icons, Icon } from '$lib/components/Icons'
 	import { TaskBar } from '$lib/components/TaskBar'
 	import { Windows, Window } from '$lib/components/Windows'
-	import { Menu, MenuItem, MenuSeparator } from '$lib/components/ContextMenu'
+	import { ContextMenu, ContextMenuItem, ContextMenuSeparator } from '$lib/components/ContextMenu'
 </script>
 
 <Desktop>
@@ -21,17 +21,17 @@
 		<Window title="Notepad2" status="Idle" x="150" y="150" width="170" height="100"><br />Some more content<br />is<br />here<br /><br /><br /><br /></Window>
 	</Windows>
 
-	<Menu>
-		<MenuItem>Arrange Icons</MenuItem>
-		<MenuItem>Line up Icons</MenuItem>
-		<MenuSeparator />
-		<MenuItem disabled>Paste</MenuItem>
-		<MenuItem disabled>Paste Shortcut</MenuItem>
-		<MenuSeparator />
-		<MenuItem>New</MenuItem>
-		<MenuSeparator />
-		<MenuItem>Properties</MenuItem>
-	</Menu>
+	<ContextMenu>
+		<ContextMenuItem>Arrange Icons</ContextMenuItem>
+		<ContextMenuItem>Line up Icons</ContextMenuItem>
+		<ContextMenuSeparator />
+		<ContextMenuItem disabled>Paste</ContextMenuItem>
+		<ContextMenuItem disabled>Paste Shortcut</ContextMenuItem>
+		<ContextMenuSeparator />
+		<ContextMenuItem>New</ContextMenuItem>
+		<ContextMenuSeparator />
+		<ContextMenuItem>Properties</ContextMenuItem>
+	</ContextMenu>
 </Desktop>
 
 <TaskBar />
