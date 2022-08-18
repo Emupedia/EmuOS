@@ -1,7 +1,7 @@
 // noinspection DuplicatedCode
 
 import interact from 'interactjs'
-import { addClassName } from '$lib/dom'
+import { addClass } from '$lib/dom'
 
 export const draggable = (el, options) => {
 	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
@@ -23,7 +23,7 @@ export const draggable = (el, options) => {
 			start: e => {
 				if (!options.showContentsWhileDragging) {
 					ghostElement = e.target.cloneNode(true)
-					addClassName(ghostElement, 'ghost')
+					addClass(ghostElement, 'ghost')
 					const container = document.querySelector('.desktop')
 					container?.appendChild(ghostElement)
 				}

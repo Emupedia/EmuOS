@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte'
 	import { interactable } from '$lib/interactable'
-	import { hasClassName, addClassName, removeClassName, isInBounds } from '$lib/dom'
+	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
 
 	onMount(() => {
 		const elements = [...document.querySelectorAll('.icon')]
@@ -24,7 +24,7 @@
 	}
 
 	function mouseDown(e) {
-		if (hasClassName(e.target, 'icons')) {
+		if (hasClass(e.target, 'icons')) {
 			const rects = [...icons.querySelectorAll('.selection')]
 
 			if (rects) {
@@ -71,13 +71,13 @@
 				if (isInBounds(rect, box)) {
 					inBounds.push(box)
 				} else {
-					removeClassName(box, 'selected')
+					removeClass(box, 'selected')
 				}
 			}
 
 			if (inBounds.length > 0) {
 				for (const box of inBounds) {
-					addClassName(box, 'selected')
+					addClass(box, 'selected')
 				}
 			}
 
@@ -86,6 +86,7 @@
 	}
 
 	function setMousePosition(e) {
+		// noinspection JSDeprecatedSymbols
 		e = e || window.event
 
 		if (e.pageX) {
@@ -106,13 +107,13 @@
 				if (isInBounds(rect, box)) {
 					inBounds.push(box)
 				} else {
-					removeClassName(box, 'selected')
+					removeClass(box, 'selected')
 				}
 			}
 
 			if (inBounds.length > 0) {
 				for (const box of inBounds) {
-					addClassName(box, 'selected')
+					addClass(box, 'selected')
 				}
 			}
 		}

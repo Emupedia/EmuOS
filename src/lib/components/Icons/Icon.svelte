@@ -3,11 +3,14 @@
 <script>
 	export let x = 0
 	export let y = 0
+	export let name = 'Icon'
 	export let title = ''
 	export let shortcut = false
+	export let useTransform = false
+	export let useTransform3D = true
 </script>
 
-<li class="icon" data-x={x} data-y={y}>
+<li class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
 	<button type="button" {title}>
 		<figure>
 			<picture>
@@ -24,7 +27,7 @@
 					<img width="48" height="48" alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
 				</picture>
 			{/if}
-			<figcaption><span><slot>Icon</slot></span></figcaption>
+			<figcaption><span><slot>{name}</slot></span></figcaption>
 		</figure>
 	</button>
 </li>
@@ -43,6 +46,25 @@
 
 		//box-shadow: none;
 		//transition: box-shadow 0.2s;
+
+		&.move {
+			left: (var(--x));
+			top: (var(--y));
+		}
+
+		&.transform {
+			left: 0;
+			top: 0;
+			-webkit-transform: translate(var(--x), var(--y));
+			transform: translate(var(--x), var(--y));
+		}
+
+		&.transform-3d {
+			left: 0;
+			top: 0;
+			-webkit-transform: translate3d(var(--x), var(--y), 0);
+			transform: translate3d(var(--x), var(--y), 0);
+		}
 
 		&:hover {
 			//-webkit-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);

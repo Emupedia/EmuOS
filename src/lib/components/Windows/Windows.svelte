@@ -3,8 +3,8 @@
 	import { draggable } from '$lib/draggable'
 	import { resizable } from '$lib/resizable'
 
-	const showContentsWhileDragging = true
-	const showContentsWhileResizing = true
+	const showContentsWhileDragging = false
+	const showContentsWhileResizing = false
 	const minWidth = 112
 	const minHeight = 27
 

@@ -1,41 +1,61 @@
 // noinspection DuplicatedCode
 
 import interact from 'interactjs'
+import { get, addClass, removeClass } from '$lib/dom'
 
 export const interactable = el => {
+	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
+
+	const move = target => (x, y) => {
+		target.style.setProperty('--x', x + 'px')
+		target.style.setProperty('--y', y + 'px')
+
+		return target
+	}
+
 	// noinspection JSCheckFunctionSignatures
 	interact(el).draggable({
 		listeners: {
-			move: e => {
-				const items = document.getElementsByClassName('selected')
-				const { target, dx, dy } = e
-
-				const parseDataAxis = target => axis => parseFloat(target.getAttribute(`data-${axis}`))
-
-				const translate = target => (x, y) => {
-					target.style.webkitTransform = 'translate(' + x + 'px, ' + y + 'px)'
-					target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-				}
-
-				const updateAttributes = target => (x, y) => {
-					target.setAttribute('data-x', x)
-					target.setAttribute('data-y', y)
-				}
+			start: e => {
+				const { target } = e
+				const items = get('.selected')
 
 				if (items.length > 0) {
 					for (const item of items) {
-						const x = parseDataAxis(item)('x') + dx
-						const y = parseDataAxis(item)('y') + dy
-
-						translate(item)(x, y)
-						updateAttributes(item)(x, y)
+						addClass(item, 'dragging')
 					}
 				} else {
-					const x = (parseDataAxis(target)('x') || 0) + dx
-					const y = (parseDataAxis(target)('y') || 0) + dy
+					addClass(target, 'dragging')
+				}
+			},
+			move: e => {
+				const { target, dx, dy } = e
+				const items = get('.selected')
 
-					translate(target)(x, y)
-					updateAttributes(target)(x, y)
+				if (items.length > 0) {
+					for (const item of items) {
+						const x = (parseAxis(item)('x') || 0) + dx
+						const y = (parseAxis(item)('y') || 0) + dy
+
+						move(item)(x, y)
+					}
+				} else {
+					const x = (parseAxis(target)('x') || 0) + dx
+					const y = (parseAxis(target)('y') || 0) + dy
+
+					move(target)(x, y)
+				}
+			},
+			end: e => {
+				const { target } = e
+				const items = get('.selected')
+
+				if (items.length > 0) {
+					for (const item of items) {
+						removeClass(item, 'dragging')
+					}
+				} else {
+					removeClass(target, 'dragging')
 				}
 			}
 		},

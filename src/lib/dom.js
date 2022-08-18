@@ -1,4 +1,45 @@
-export function hasClassName(el, className) {
+// noinspection JSUnusedGlobalSymbols
+
+export function get(selector) {
+	if (document.querySelector) {
+		return document.querySelector(selector)
+	} else {
+		if (selector.charAt(0) === '.') {
+			if (document.getElementsByClassName) {
+				return document.getElementsByClassName(selector.substr(1))[0]
+			}
+		}
+
+		if (selector.charAt(0) === '#') {
+			if (document.getElementById) {
+				return document.getElementById(selector.substr(1))
+			}
+		}
+
+		if (selector.charAt(0) !== '.' && selector.charAt(0) !== '#') {
+			if (document.getElementsByTagName) {
+				return document.getElementsByTagName(selector)[0]
+			}
+		}
+
+		return null
+	}
+}
+
+export function on(el, eventName, eventHandler) {
+	if (el) {
+		if (el.addEventListener) {
+			el.addEventListener(eventName, eventHandler, false)
+		} else {
+			// noinspection JSUnresolvedVariable
+			if (el.attachEvent) {
+				el.attachEvent('on' + eventName, eventHandler)
+			}
+		}
+	}
+}
+
+export function hasClass(el, className) {
 	if (el.classList) {
 		if (el.classList.contains(className)) {
 			return true
@@ -12,7 +53,7 @@ export function hasClassName(el, className) {
 	return false
 }
 
-export function addClassName(el, className) {
+export function addClass(el, className) {
 	if (el.classList) {
 		el.classList.add(className)
 	} else {
@@ -22,7 +63,7 @@ export function addClassName(el, className) {
 	}
 }
 
-export function removeClassName(el, className) {
+export function removeClass(el, className) {
 	if (el.classList) {
 		el.classList.remove(className)
 	} else {

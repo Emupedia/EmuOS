@@ -1,9 +1,11 @@
 <script>
+	export let name = 'MenuItem'
 	export let disabled = false
 	export let debug = false
+	export let onClick = () => {}
 </script>
 
-<li class="menu-item" class:disabled class:debug><slot>MenuItem</slot></li>
+<li class="menu-item  {$$props.class || ''}" class:disabled class:debug {...$$restProps} on:click={onClick}><slot>{name}</slot></li>
 
 <style lang="scss">
 	.menu-item {
