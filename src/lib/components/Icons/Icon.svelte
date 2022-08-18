@@ -90,7 +90,6 @@
 
 					&:after {
 						position: absolute;
-						display: block;
 						content: '';
 						left: 0;
 						top: 0;

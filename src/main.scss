@@ -21,12 +21,12 @@
 	--color-background-window-panel-3d-border4: #dfdfdf;
 }
 
-::selection {
+::-moz-selection {
 	background: var(--color-blue);
 	color: var(--color-white);
 }
 
-::-moz-selection {
+::selection {
 	background: var(--color-blue);
 	color: var(--color-white);
 }
