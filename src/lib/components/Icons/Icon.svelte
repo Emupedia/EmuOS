@@ -1,6 +1,8 @@
 <!--suppress CheckImageSize -->
 
 <script>
+	import { getAll, addClass, removeClass } from '$lib/dom'
+
 	export let x = 0
 	export let y = 0
 	export let name = 'Icon'
@@ -8,9 +10,21 @@
 	export let shortcut = false
 	export let useTransform = false
 	export let useTransform3D = true
+
+	let icon
+
+	function onClick() {
+		let unselect = getAll('.selected')
+
+		for (const item of unselect) {
+			removeClass(item, 'selected')
+		}
+
+		addClass(icon, 'selected')
+	}
 </script>
 
-<li class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
+<li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:click={onClick} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
 	<button type="button" {title}>
 		<figure>
 			<picture>
@@ -34,8 +48,6 @@
 
 <style lang="scss">
 	.icon {
-		position: relative;
-
 		display: flex;
 		max-width: 90px;
 		justify-content: center;
@@ -127,45 +139,10 @@
 			}
 		}
 
-		/*&:hover {
-			//-webkit-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
-			//-moz-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
-			//box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
-			z-index: 1;
-
-			button {
-				figure {
-					picture {
-						-webkit-filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
-						filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
-					}
-
-					figcaption {
-						span {
-							background-color: #000080;
-							//color: #fff;
-
-							&:after {
-								position: absolute;
-								display: block;
-								content: '';
-								left: 0;
-								top: 0;
-								width: 100%;
-								height: 100%;
-								outline: 1px dotted #ffff7f;
-								outline-offset: -1px;
-							}
-						}
-					}
-				}
-			}
-		}*/
-
 		&:global(.ghost) {
 			position: absolute;
+			top: 0;
 			left: 0;
-			right: 0;
 		}
 
 		&:global(.selected) {

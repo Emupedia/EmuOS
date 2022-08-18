@@ -19,8 +19,8 @@
 	</Icons>
 
 	<Windows>
-		<Window x="50" y="50" width="170" height="100" title="Notepad" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
-		<Window x="150" y="150" width="170" height="100" title="Notepad2" status="Idle" ><br />Some more content<br />is<br />here<br /><br /><br /><br /></Window>
+		<Window x="150" y="150" width="170" height="100" title="Notepad" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
+		<Window x="250" y="250" width="170" height="100" title="Notepad2" status="Idle" ><br />Some more content<br />is<br />here<br /><br /><br /><br /></Window>
 	</Windows>
 
 	<ContextMenu>

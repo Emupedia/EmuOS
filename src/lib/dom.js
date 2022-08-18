@@ -103,3 +103,9 @@ export function isInBounds(obj1, obj2) {
 
 	return (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y)
 }
+
+export function getOffset(el) {
+	let position = el.getBoundingClientRect()
+
+	return { left: position.left + window.scrollX, top: position.top + window.scrollY }
+}
