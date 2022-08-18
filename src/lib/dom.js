@@ -1,7 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
 export function get(selector) {
-	if (document.querySelector) {
+	if (document.querySelectorAll) {
+		return document.querySelectorAll(selector)
+	} else if (document.querySelector) {
 		return document.querySelector(selector)
 	} else {
 		if (selector.charAt(0) === '.') {
