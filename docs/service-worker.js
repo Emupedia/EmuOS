@@ -1,12 +1,12 @@
 const p = [
-  "/emuos/immutable/start-63d03580.js",
-  "/emuos/immutable/pages/__layout.svelte-31f15b8c.js",
-  "/emuos/immutable/assets/__layout-cc12f557.css",
-  "/emuos/immutable/pages/__error.svelte-9ef0de69.js",
-  "/emuos/immutable/pages/index.svelte-dfc21014.js",
-  "/emuos/immutable/assets/index-a460d2de.css",
-  "/emuos/immutable/pages/test.svelte-988ed218.js",
-  "/emuos/immutable/chunks/index-42dcaaa2.js"
+  "/emuos/immutable/start-f8fc2e85.js",
+  "/emuos/immutable/pages/__layout.svelte-3245127f.js",
+  "/emuos/immutable/assets/__layout-55836544.css",
+  "/emuos/immutable/pages/__error.svelte-4956739b.js",
+  "/emuos/immutable/pages/index.svelte-03c4f2d3.js",
+  "/emuos/immutable/assets/index-eb26aaa4.css",
+  "/emuos/immutable/pages/test.svelte-377af5fc.js",
+  "/emuos/immutable/chunks/index-aec48f7e.js"
 ], l = [
   "/.nojekyll",
   "/404error.html",
@@ -85,6 +85,8 @@ const p = [
   "/assets/fonts/emuos.ttf",
   "/assets/fonts/emuos.woff",
   "/assets/fonts/emuos.woff2",
+  "/assets/fonts/ms-bold.woff2",
+  "/assets/fonts/ms.woff2",
   "/assets/fonts/px_sans_nouveaux.eot",
   "/assets/fonts/px_sans_nouveaux.svg",
   "/assets/fonts/px_sans_nouveaux.ttf",
@@ -218,7 +220,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1660699621146", r = `cache${i}`, m = p.concat(l), d = new Set(m);
+], i = "1660836410907", r = `cache${i}`, m = p.concat(l), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {
