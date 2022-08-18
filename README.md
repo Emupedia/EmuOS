@@ -26,7 +26,7 @@ Similar organizations that do [digital preservation](https://en.wikipedia.org/wi
 <sub><img width="18" height="18" alt="" src="https://emupedia.net/beta/emuos/assets/images/icons/desktop/discord-48.png" /></sub> [Discord](https://discord.gg/wXtGQ4p)
 
 ## 👀 <sub>View a Live Demo</sub>
-[![This is currently under active development, and you must understand that some features are not finished.](https://emupedia.net/beta/emuos/assets/images/icons/under-development.svg)](#-view-a-live-demo)
+[![This is currently under active development, and you must understand that some features are not finished.](https://emupedia.net/images/under-development.svg)](#-view-a-live-demo)
 
 * <sub><img loading="lazy" width="18" height="18" alt="" src="https://emupedia.net/beta/emuos/assets/images/logos/emupedia/emupedia-logo.svg" /></sub> [https://emupedia.net/beta/emuos/](https://emupedia.net/beta/emuos/)
 * <sub><img loading="lazy" width="18" height="18" alt="" src="https://emupedia.net/beta/emuos/assets/images/logos/emupedia/emupedia-logo.svg" /></sub> [https://emupedia.org/beta/emuos/](https://emupedia.org/beta/emuos/)
@@ -38,6 +38,8 @@ Similar organizations that do [digital preservation](https://en.wikipedia.org/wi
 <summary>Click to reveal</summary>
 
 ---
+[![* application support may vary](https://emupedia.net/images/app-support-may-vary.svg)](#-browser-support)
+
 | Logo                                                                                                                                                                                    | Company               | Name              | Rendering Engine | Version         |
 | :---:                                                                                                                                                                                   | :---                  | :---              | :---             | :---:           |
 | <img loading="lazy" width="24" height="24" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11.svg" alt="Internet Explorer" /> | Microsoft             | Internet Explorer | Trident          | <sup>*</sup>11+ |
@@ -54,9 +56,6 @@ Similar organizations that do [digital preservation](https://en.wikipedia.org/wi
 | <img loading="lazy" width="24" height="24" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari.png" alt="Safari" />                                                    | Apple                 | Safari            | WebKit           | 8+              |
 | <img loading="lazy" width="24" height="24" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave.svg" alt="Brave" />                                                       | Brave Software        | Brave             | Blink            | 1+              |
 | <img loading="lazy" width="24" height="24" src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi.svg" alt="Vivaldi" />                                                 | Vivaldi Technologies  | Vivaldi           | Blink            | 1+              |
-
-[![* application support may vary](https://emupedia.net/beta/emuos/assets/images/icons/ie-notice.svg)](#-browser-support)
-
 ---
 </details>
 
@@ -64,9 +63,9 @@ Similar organizations that do [digital preservation](https://en.wikipedia.org/wi
 <details>
 <summary>Click to reveal</summary>
 
-This list it not always up to date
-
 ---
+[![This list it not always up to date.](https://emupedia.net/images/not-up-to-date.svg)](#-emulators-used)
+
 | Name                        | Website                                                                                                                           | Repository                                                                                                                                            | License                                                                                               |
 | :---                        | :---                                                                                                                              | :---                                                                                                                                                  | :---                                                                                                  |
 | MAME                        | [mamedev.org](https://www.mamedev.org)                                                                                            | [github.com/mamedev/mame](https://github.com/mamedev/mame)                                                                                            | [GPL-2.0](https://github.com/mamedev/mame/blob/master/LICENSE.md)                                     |
@@ -77,13 +76,13 @@ This list it not always up to date
 ---
 </details>
 
-## ⚙ <sub>Apps used</sub>
+## ⚙ <sub>Applications used</sub>
 <details>
 <summary>Click to reveal</summary>
 
-This list it not always up to date
-
 ---
+[![This list it not always up to date.](https://emupedia.net/images/not-up-to-date.svg)](#-applications-used)
+
 | Name                        | Website                                                                                                                           | Repository                                                                                                                                            | License                                                                                               |
 | :---                        | :---                                                                                                                              | :---                                                                                                                                                  | :---                                                                                                  |
 | Butterchurn                 | [butterchurnviz.com](https://butterchurnviz.com)                                                                                  | [github.com/jberg/butterchurn](https://github.com/jberg/butterchurn)                                                                                  | [MIT](https://github.com/jberg/butterchurn/blob/master/LICENSE)                                       |
@@ -104,20 +103,20 @@ This list it not always up to date
 <details>
 <summary>Click to reveal</summary>
 
-This list it not always up to date
-
 ---
+[![This list it not always up to date.](https://emupedia.net/images/not-up-to-date.svg)](#%EF%B8%8F-games-used)
+
 | Name                        | Website                                                                                                                           | Repository                                                                                                                                            | License                                                                                               |
 | :---                        | :---                                                                                                                              | :---                                                                                                                                                  | :---                                                                                                  |
-| ascii-patrol                | [ascii-patrol.com/area54/ascii-patrol-html5.html](https://ascii-patrol.com/area54/ascii-patrol-html5.html)                        | [github.com/msokalski/ascii-patrol](https://github.com/msokalski/ascii-patrol)                                                                        | [GPL-3.0](https://github.com/msokalski/ascii-patrol/blob/master/LICENSE)                              |
-| C&C - HTML5                 | [adityaravishankar.com/projects/games/command-and-conquer](http://www.adityaravishankar.com/projects/games/command-and-conquer/)  | [github.com/adityaravishankar/command-and-conquer](https://github.com/adityaravishankar/command-and-conquer)                                          | ❓                                                                                                    |
+| ascii-patrol                | [ascii-patrol.com](https://ascii-patrol.com/area54/ascii-patrol-html5.html)                                                       | [github.com/msokalski/ascii-patrol](https://github.com/msokalski/ascii-patrol)                                                                        | [GPL-3.0](https://github.com/msokalski/ascii-patrol/blob/master/LICENSE)                              |
+| C&C - HTML5                 | [adityaravishankar.com](http://www.adityaravishankar.com/projects/games/command-and-conquer/)                                     | [github.com/adityaravishankar/command-and-conquer](https://github.com/adityaravishankar/command-and-conquer)                                          | ❓                                                                                                    |
 | Cookie Clicker              | [orteil.dashnet.org/cookieclicker](https://orteil.dashnet.org/cookieclicker/)                                                     | [github.com/ozh/cookieclicker](https://github.com/ozh/cookieclicker)                                                                                  | ❓                                                                                                    |
 | d3wasm                      | [wasm.continuation-labs.com/d3demo](http://wasm.continuation-labs.com/d3demo/)                                                    | [github.com/gabrielcuvillier/d3wasm](https://github.com/gabrielcuvillier/d3wasm)                                                                      | [GPL-3.0](https://github.com/gabrielcuvillier/d3wasm/blob/master/COPYING.txt)                         |
 | Dark Reign - HTML5          | [qmegas.info/dark-reign-html5](https://qmegas.info/dark-reign-html5/)                                                             | [github.com/qmegas/Dark-Reign---HTML5-Version](https://github.com/qmegas/Dark-Reign---HTML5-Version)                                                  | [MIT](https://github.com/qmegas/Dark-Reign---HTML5-Version/blob/master/README.md#license)             |
 | Devilution for Web          | ❌                                                                                                                                | [github.com/d07RiV/devilution](https://github.com/d07RiV/devilution)                                                                                  | [Public Domain](https://github.com/d07RiV/devilution/blob/master/LICENSE)                             |
 | Devilution                  | ❌                                                                                                                                | [github.com/diasurgical/devilution](https://github.com/diasurgical/devilution)                                                                        | [Public Domain](https://github.com/diasurgical/devilution/blob/master/LICENSE)                        |
 | DiabloWeb                   | [d07riv.github.io/diabloweb](https://d07riv.github.io/diabloweb/)                                                                 | [github.com/d07RiV/diabloweb](https://github.com/d07RiV/diabloweb)                                                                                    | ❓                                                                                                    |
-| js-solitaire                | [radovanjanjic.com/js-solitaire](http://radovanjanjic.com/js-solitaire)                                                           | [github.com/uzi88/js-solitaire](https://github.com/uzi88/js-solitaire)                                                                                | ❓                                                                                                    |
+| js-solitaire                | [radovanjanjic.com/js-solitaire](http://radovanjanjic.com/js-solitaire)                                                           | [github.com/rjanjic/js-solitaire](https://github.com/rjanjic/js-solitaire)                                                                              | [MIT](https://github.com/rjanjic/js-solitaire/blob/master/LICENSE)                                  |
 | minesweeper                 | [jonziebell.com/minesweeper](http://jonziebell.com/minesweeper)                                                                   | [github.com/ziebelje/minesweeper](https://github.com/ziebelje/minesweeper)                                                                            | ❓                                                                                                    |
 | noa-engine                  | [andyhall.github.io/noa-testbed](https://andyhall.github.io/noa-testbed/)                                                         | [github.com/andyhall/noa](https://github.com/andyhall/noa)                                                                                            | [MIT](https://github.com/andyhall/noa/blob/master/LICENSE.txt)                                        |
 | Ogar3                       | [ogar3-demo.herokuapp.com](https://ogar3-demo.herokuapp.com/)                                                                     | [github.com/Faris90/Ogar3](https://github.com/Faris90/Ogar3)                                                                                          | [Apache-2.0](https://github.com/Faris90/Ogar3/blob/master/LICENSE.md)                                 |
@@ -126,7 +125,7 @@ This list it not always up to date
 | OpenTTD                     | [openttd.org](https://www.openttd.org/)                                                                                           | [github.com/OpenTTD/OpenTTD](https://github.com/OpenTTD/OpenTTD)                                                                                      | [GPL-2.0](https://github.com/OpenTTD/OpenTTD/blob/master/COPYING.md)                                  |
 | OpenXcom                    | [openxcom.org](https://openxcom.org/)                                                                                             | [github.com/OpenXcom/OpenXcom](https://github.com/OpenXcom/OpenXcom)                                                                                  | [GPL-3.0](https://github.com/OpenXcom/OpenXcom/blob/master/LICENSE.txt)                               |
 | Pac-Man - HTML5             | [pacman-e281c.firebaseapp.com](https://pacman-e281c.firebaseapp.com/)                                                             | [github.com/luciopanepinto/pacman](https://github.com/luciopanepinto/pacman)                                                                          | [GPL-3.0](https://github.com/luciopanepinto/pacman/blob/master/LICENSE)                               |
-| Pikachu Volleyball          | [gorisanson.github.io/pikachu-volleyball/en](https://gorisanson.github.io/pikachu-volleyball/en/)                                 | [github.com/gorisanson/pikachu-volleyball](https://github.com/gorisanson/pikachu-volleyball)                                                          | ❓                                                                                                    |
+| Pikachu Volleyball          | [gorisanson.github.io](https://gorisanson.github.io/pikachu-volleyball/en/)                                                       | [github.com/gorisanson/pikachu-volleyball](https://github.com/gorisanson/pikachu-volleyball)                                                          | ❓                                                                                                    |
 | RA2HTML5                    | [ra2html5.surge.sh](https://ra2html5.surge.sh/)                                                                                   | ❌                                                                                                                                                    | ❓                                                                                                     |
 | Quake2 PlayN                | [quake2playn.appspot.com](https://quake2playn.appspot.com/)                                                                       | [github.com/stefanhaustein/quake2-playn-port](https://github.com/stefanhaustein/quake2-playn-port)                                                    | [GPL-2.0](https://github.com/id-Software/Quake-2/blob/master/gnu.txt)                                 |
 | QuakeJS                     | [quakejs.com](http://www.quakejs.com/)                                                                                            | [github.com/inolen/quakejs](https://github.com/inolen/quakejs)                                                                                        | [GPL-2.0](https://github.com/id-Software/Quake-III-Arena/blob/master/COPYING.txt)                     |
@@ -137,7 +136,7 @@ This list it not always up to date
 | WebQuake                    | [webquake.quaddicted.com/Client](https://webquake.quaddicted.com/client/index.htm)                                                | [github.com/Triang3l/WebQuake](https://github.com/triang3l/webquake)                                                                                  | [GPL-2.0](https://github.com/triang3l/webquake/blob/master/GNU.md)                                    |
 | Wolfenstein 3D              | ❌                                                                                                                                | [github.com/id-Software/wolf3d-browser](https://github.com/id-Software/wolf3d-browser)                                                                | [GPL-2.0](https://github.com/id-Software/wolf3d-browser/blob/master/COPYING.txt)                      |
 | Wolfenstein 3D (Canvas)     | [users.atw.hu/wolf3d](http://users.atw.hu/wolf3d)                                                                                 | ❌                                                                                                                                                    | [GPL-2.0](http://users.atw.hu/wolf3d/COPYING.txt)                                                     |
-| Xash3D-Emscripten           | [icrazyblaze.github.io/Xash3D-Emscripten/xash-intro.html](https://icrazyblaze.github.io/Xash3D-Emscripten/xash-intro.html)        | [github.com/FWGS/xash3d](https://github.com/FWGS/xash3d)                                                                                              | [GPL-3.0](https://github.com/FWGS/xash3d/blob/master/COPYING)                                         |
+| Xash3D-Emscripten           | [icrazyblaze.github.io](https://icrazyblaze.github.io/Xash3D-Emscripten/xash-intro.html)                                          | [github.com/FWGS/xash3d](https://github.com/FWGS/xash3d)                                                                                              | [GPL-3.0](https://github.com/FWGS/xash3d/blob/master/COPYING)                                         |
 
 ⭐ Honorable mentions <sub><sup>(not included because a more faithfull alternative was used)</sup></sub>
 
@@ -153,9 +152,9 @@ This list it not always up to date
 <details>
 <summary>Click to reveal</summary>
 
-This list it not always up to date
-
 ---
+[![This list it not always up to date.](https://emupedia.net/images/not-up-to-date.svg)](#-demos-used)
+
 | Name                        | Website                                                                                                                           | Repository                                                                                                                                            | License                                                                                                 |
 | :---                        | :---                                                                                                                              | :---                                                                                                                                                  | :---                                                                                                    |
 | 3D Spatial Audio            | [howlerjs.com/#spatial](https://howlerjs.com/#spatial)                                                                            | [github.com/goldfire/howler.js](https://github.com/goldfire/howler.js/tree/master/examples/3d)                                                        | [MIT](https://github.com/goldfire/howler.js/blob/master/LICENSE.md)                                     |
@@ -171,9 +170,9 @@ This list it not always up to date
 <details>
 <summary>Click to reveal</summary>
 
-This list it not always up to date
-
 ---
+[![This list it not always up to date.](https://emupedia.net/images/not-up-to-date.svg)](#-libraries-used)
+
 | Name                        | Website                                                                                                                           | Repository                                                                                                   | License                                                                                       |
 | :---                        | :---                                                                                                                              | :---                                                                                                         | :---                                                                                          |
 | **Frontend**                |                                                                                                                                   |                                                                                                              |                                                                                               |
@@ -234,6 +233,7 @@ OS-like Desktops
 | AaronOS                     | [aaronos.dev](https://aaronos.dev/)                                                                                               | [github.com/MineAndCraft12/AaronOS](https://github.com/MineAndCraft12/AaronOS)                               | [EULA](https://github.com/MineAndCraft12/AaronOS/blob/master/eula.txt)                        |
 | daedalOS                    | [dustinbrett.com](https://dustinbrett.com/)                                                                                       | [github.com/DustinBrett/daedalOS](https://github.com/DustinBrett/daedalOS)                                   | [MIT](https://github.com/DustinBrett/daedalOS/blob/main/LICENSE)                              |
 | jQuery Desktop              | [desktop.sonspring.com](https://desktop.sonspring.com/)                                                                           | [github.com/nathansmith/jQuery-Desktop](https://github.com/nathansmith/jQuery-Desktop)                       | [GPL-3.0/MIT](https://github.com/nathansmith/jQuery-Desktop/blob/master/README.txt)           |
+| macos-web                   | [macos-web.app](https://macos-web.app/)                                                                                           | [github.com/puruvj/macos-web](https://github.com/puruvj/macos-web)                                           | [MIT](https://github.com/PuruVJ/macos-web/blob/main/LICENSE)                                  |
 | OS.js                       | [os-js.org](https://www.os-js.org/)                                                                                               | [github.com/os-js/OS.js](https://github.com/os-js/OS.js)                                                     | [BSD](https://github.com/os-js/OS.js/blob/master/LICENSE)                                     |
 | Packard Belle               | [packard-belle.netlify.com](https://packard-belle.netlify.com/)                                                                   | [github.com/padraigfl/packard-belle](https://github.com/padraigfl/packard-belle)                             | [MIT](https://github.com/padraigfl/packard-belle/blob/master/LICENSE)                         |
 | Rahul.io                    | [rahul.io](https://rahul.io/)                                                                                                     | [github.com/lolstring/window98-html-css-js](https://github.com/lolstring/window98-html-css-js)               | [MIT](https://github.com/lolstring/window98-html-css-js/blob/master/LICENSE)                  |
