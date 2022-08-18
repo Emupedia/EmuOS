@@ -1,13 +1,13 @@
 ﻿The font file in this archive was created using Fontstruct the free, online
 font-building tool.
-This font was created by “lou”.
+This font was created by “ETHproductions”.
 This font has a homepage where this archive and other versions may be found:
-https://fontstruct.com/fontstructions/show/1384862
+https://fontstruct.com/fontstructions/show/735108
 
 Try Fontstruct at https://fontstruct.com
 It’s easy and it’s fun.
 
-Fontstruct is copyright ©2017-2021 Rob Meek
+Fontstruct is copyright ©2012-2022 Rob Meek
 
 LEGAL NOTICE:
 In using this font you must comply with the licensing terms described in the
