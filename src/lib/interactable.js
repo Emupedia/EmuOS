@@ -13,8 +13,8 @@ export const interactable = (el, options) => {
 		return target
 	}
 
-	let ghostElement
-	let offset
+	let items = []
+	let ghostElements = []
 
 	// noinspection JSCheckFunctionSignatures
 	interact(el).draggable({
@@ -22,48 +22,41 @@ export const interactable = (el, options) => {
 			start: e => {
 				const { target } = e
 
-				let unselect = getAll('.selected')
-
-				for (const item of unselect) {
-					removeClass(item, 'selected')
-				}
-
-				addClass(target, 'selected')
-				const items = getAll('.selected')
+				items = getAll('.selected')
 
 				if (options.useGhost) {
-					offset = getOffset(target)
-					ghostElement = target.cloneNode(true)
-					ghostElement.style.setProperty('--x', (offset.left || 0) + 'px')
-					ghostElement.style.setProperty('--y', (offset.top || 0) + 'px')
-					addClass(ghostElement, 'ghost')
-					addClass(ghostElement, 'dragging')
-					removeClass(ghostElement, 'selected')
-					const container = getFirst('.icons')
-					container?.appendChild(ghostElement)
+					for (const item of items) {
+						ghostElements.push(item.cloneNode(true))
+						let current = [...ghostElements].pop()
+						let offset = getOffset(item)
+						current.style.setProperty('--x', (offset.left || 0) + 'px')
+						current.style.setProperty('--y', (offset.top || 0) + 'px')
+						removeClass(current, 'selected')
+						addClass(current, 'ghost')
+						addClass(current, 'dragging')
+						const container = getFirst('.icons')
+						container?.appendChild(current)
+					}
 				} else {
 					if (items.length > 1) {
 						for (const item of items) {
-							removeClass(item, 'selected')
 							addClass(item, 'dragging')
 						}
 					} else {
-						removeClass(target, 'selected')
 						addClass(target, 'dragging')
 					}
 				}
 			},
 			move: e => {
 				let target = e.target
-				const items = getAll('.selected')
 
-				if (options.useGhost && ghostElement) {
-					target = ghostElement
+				if (options.useGhost && ghostElements.length > 0) {
+					for (const item of ghostElements) {
+						const x = (parseAxis(item)('x') || 0) + e.dx
+						const y = (parseAxis(item)('y') || 0) + e.dy
 
-					const x = (parseAxis(target)('x') || 0) + e.dx
-					const y = (parseAxis(target)('y') || 0) + e.dy
-
-					move(target)(x, y)
+						move(item)(x, y)
+					}
 				} else {
 					if (items.length > 1) {
 						for (const item of items) {
@@ -82,13 +75,14 @@ export const interactable = (el, options) => {
 			},
 			end: e => {
 				let target = e.target
-				const items = getAll('.selected')
 
-				if (options.useGhost && ghostElement) {
-					move(target)((parseAxis(ghostElement)('x') - target.offsetLeft) || 0, (parseAxis(ghostElement)('y') - target.offsetTop) || 0)
-					ghostElement.remove()
+				if (options.useGhost && ghostElements.length > 0) {
+					for (const [i, item] of items.entries()) {
+						move(item)((parseAxis(ghostElements[i])('x') - item.offsetLeft) || 0, (parseAxis(ghostElements[i])('y') - item.offsetTop) || 0)
+						ghostElements[i].remove()
+					}
 				} else {
-					if (items.length > 0) {
+					if (items.length > 1) {
 						for (const item of items) {
 							removeClass(item, 'dragging')
 						}
@@ -96,6 +90,9 @@ export const interactable = (el, options) => {
 						removeClass(target, 'dragging')
 					}
 				}
+
+				items = []
+				ghostElements = []
 			}
 		},
 		modifiers: [

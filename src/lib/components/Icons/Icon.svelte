@@ -1,7 +1,7 @@
 <!--suppress CheckImageSize -->
 
 <script>
-	import { getAll, addClass, removeClass } from '$lib/dom'
+	import { getAll, hasClass, addClass, removeClass } from '$lib/dom'
 
 	export let x = 0
 	export let y = 0
@@ -10,21 +10,24 @@
 	export let shortcut = false
 	export let useTransform = false
 	export let useTransform3D = true
+	export let onClick = () => {}
 
 	let icon
 
-	function onClick() {
-		let unselect = getAll('.selected')
+	function onMouseDown() {
+		if (!hasClass(icon, 'selected')) {
+			let unselect = getAll('.selected')
 
-		for (const item of unselect) {
-			removeClass(item, 'selected')
+			for (const item of unselect) {
+				removeClass(item, 'selected')
+			}
+
+			addClass(icon, 'selected')
 		}
-
-		addClass(icon, 'selected')
 	}
 </script>
 
-<li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:click={onClick} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
+<li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:mousedown={onMouseDown} on:click={onClick} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
 	<button type="button" {title}>
 		<figure>
 			<picture>
