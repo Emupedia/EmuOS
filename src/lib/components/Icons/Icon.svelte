@@ -169,6 +169,11 @@
 								height: 100%;
 								outline: 1px dotted #ffff7f;
 								outline-offset: -1px;
+
+								@supports (mix-blend-mode: difference) {
+									mix-blend-mode: difference;
+									outline-color: #fff;
+								}
 							}
 						}
 					}

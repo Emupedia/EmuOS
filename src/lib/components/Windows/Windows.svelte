@@ -20,7 +20,7 @@
 	})
 </script>
 
-<nav class="windows"><slot /></nav>
+<nav class="windows {$$props.class || ''}" {...$$restProps}><slot /></nav>
 
 <style lang="scss">
 	nav {
