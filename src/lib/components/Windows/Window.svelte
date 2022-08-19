@@ -58,12 +58,14 @@
 
 		&:global(.ghost) {
 			background-color: transparent;
+			background-image: url(/assets/images/border-ghost.svg);
 			box-shadow: none;
 
-			border-width: 4px;
-			border-style: solid;
+			-webkit-mask: url(/assets/images/border-ghost-mask.svg) 0/100% 100%, linear-gradient(#fff,#fff);
+			-webkit-mask-composite: destination-out;
+			mask: url(/assets/images/border-ghost-mask.svg) 0/100% 100%, linear-gradient(#fff,#fff);
+			mask-composite: exclude;
 
-			border-image: url(/assets/images/border-ghost.svg) 3% / 4px / 0 repeat;
 			image-rendering: pixelated;
 
 			pointer-events: none;
