@@ -27,7 +27,7 @@ export const interactable = (el, options) => {
 				if (options.useGhost) {
 					for (const item of items) {
 						ghostElements.push(item.cloneNode(true))
-						let current = [...ghostElements].pop()
+						let current = ghostElements[ghostElements.length - 1]
 						let offset = getOffset(item)
 						current.style.setProperty('--x', (offset.left || 0) + 'px')
 						current.style.setProperty('--y', (offset.top || 0) + 'px')
@@ -41,9 +41,11 @@ export const interactable = (el, options) => {
 					if (items.length > 1) {
 						for (const item of items) {
 							addClass(item, 'dragging')
+							removeClass(item, 'selected')
 						}
 					} else {
 						addClass(target, 'dragging')
+						removeClass(target, 'selected')
 					}
 				}
 			},
@@ -85,9 +87,11 @@ export const interactable = (el, options) => {
 					if (items.length > 1) {
 						for (const item of items) {
 							removeClass(item, 'dragging')
+							addClass(item, 'selected')
 						}
 					} else {
 						removeClass(target, 'dragging')
+						addClass(target, 'selected')
 					}
 				}
 
