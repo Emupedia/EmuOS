@@ -56,15 +56,26 @@
 
 		pointer-events: auto;
 
+		//noinspection CssOverwrittenProperties
 		&:global(.ghost) {
 			background-color: transparent;
-			background-image: url(/assets/images/border-ghost.svg);
+			//background-image: url(/assets/images/border-ghost.svg);
+			//background-repeat: repeat;
+			//background-size: 90px 90px;
 			box-shadow: none;
 
-			-webkit-mask: url(/assets/images/border-ghost-mask.svg) 0/100% 100%, linear-gradient(#fff,#fff);
-			-webkit-mask-composite: destination-out;
-			mask: url(/assets/images/border-ghost-mask.svg) 0/100% 100%, linear-gradient(#fff,#fff);
-			mask-composite: exclude;
+			border-width: 4px;
+			border-style: solid;
+
+			border-image-source: url(/assets/images/border-ghost.svg);
+			border-image-width: 3px;
+			border-image-slice: 3%;
+			border-image-outset: 0;
+			border-image-repeat: repeat;
+			//-webkit-mask: url(/assets/images/border-ghost-mask.svg) 0/100% 100%, linear-gradient(#fff, #fff);
+			//-webkit-mask-composite: xor;
+			//mask: url(/assets/images/border-ghost-mask.svg) 0/100% 100%, linear-gradient(#fff, #fff);
+			//mask-composite: exclude;
 
 			image-rendering: pixelated;
 
