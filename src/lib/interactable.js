@@ -19,13 +19,12 @@ export const interactable = (el, options) => {
 	// noinspection JSCheckFunctionSignatures
 	interact(el).draggable({
 		listeners: {
-			start: e => {
-				const { target } = e
-
+			start: () => {
+				const container = getFirst('.icons')
 				items = getAll('.selected')
 
-				if (options.useGhost) {
-					for (const item of items) {
+				for (const item of items) {
+					if (options.useGhost) {
 						ghostElements.push(item.cloneNode(true))
 						let current = ghostElements[ghostElements.length - 1]
 						let offset = getOffset(item)
@@ -34,64 +33,33 @@ export const interactable = (el, options) => {
 						removeClass(current, 'selected')
 						addClass(current, 'ghost')
 						addClass(current, 'dragging')
-						const container = getFirst('.icons')
 						container?.appendChild(current)
-					}
-				} else {
-					if (items.length > 1) {
-						for (const item of items) {
-							addClass(item, 'dragging')
-							removeClass(item, 'selected')
-						}
 					} else {
-						addClass(target, 'dragging')
-						removeClass(target, 'selected')
+						addClass(item, 'dragging')
+						removeClass(item, 'selected')
 					}
 				}
 			},
 			move: e => {
-				let target = e.target
+				let elements = options.useGhost && ghostElements.length > 0 ? ghostElements : items
 
-				if (options.useGhost && ghostElements.length > 0) {
-					for (const item of ghostElements) {
-						const x = (parseAxis(item)('x') || 0) + e.dx
-						const y = (parseAxis(item)('y') || 0) + e.dy
+				for (const el of elements) {
+					const x = (parseAxis(el)('x') || 0) + e.dx
+					const y = (parseAxis(el)('y') || 0) + e.dy
 
-						move(item)(x, y)
-					}
-				} else {
-					if (items.length > 1) {
-						for (const item of items) {
-							const x = (parseAxis(item)('x') || 0) + e.dx
-							const y = (parseAxis(item)('y') || 0) + e.dy
-
-							move(item)(x, y)
-						}
-					} else {
-						const x = (parseAxis(target)('x') || 0) + e.dx
-						const y = (parseAxis(target)('y') || 0) + e.dy
-
-						move(target)(x, y)
-					}
+					move(el)(x, y)
 				}
 			},
-			end: e => {
-				let target = e.target
-
+			end: () => {
 				if (options.useGhost && ghostElements.length > 0) {
 					for (const [i, item] of items.entries()) {
 						move(item)((parseAxis(ghostElements[i])('x') - item.offsetLeft) || 0, (parseAxis(ghostElements[i])('y') - item.offsetTop) || 0)
 						ghostElements[i].remove()
 					}
 				} else {
-					if (items.length > 1) {
-						for (const item of items) {
-							removeClass(item, 'dragging')
-							addClass(item, 'selected')
-						}
-					} else {
-						removeClass(target, 'dragging')
-						addClass(target, 'selected')
+					for (const item of items) {
+						removeClass(item, 'dragging')
+						addClass(item, 'selected')
 					}
 				}
 

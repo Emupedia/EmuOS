@@ -31,10 +31,10 @@
 	<button type="button" {title}>
 		<figure>
 			<picture>
-				<source media="(min-resolution: 2.01x), (-webkit-min-device-pixel-ratio: 2.01)" srcset="/System/Icons/144x144/user.webp 3x" type="image/webp">
-				<source media="(min-resolution: 1.01x), (-webkit-min-device-pixel-ratio: 1.01)" srcset="/System/Icons/96x96/user.webp 2x" type="image/webp">
-				<source srcset="/System/Icons/48x48/user.webp" type="image/webp">
-				<img width="48" height="48" alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/System/Icons/48x48/user.png" srcset="/System/Icons/48x48/user.png, /System/Icons/96x96/user.png 2x, /System/Icons/144x144/user.png 3x">
+				<source media="(min-resolution: 2.01x), (-webkit-min-device-pixel-ratio: 2.01)" srcset="/assets/images/icons/overlay/shortcut.png 3x" type="image/webp">
+				<source media="(min-resolution: 1.01x), (-webkit-min-device-pixel-ratio: 1.01)" srcset="/assets/images/icons/overlay/shortcut.png 2x" type="image/webp">
+				<source srcset="/assets/images/icons/overlay/shortcut.png" type="image/png">
+				<img width="48" height="48" alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
 			</picture>
 			{#if shortcut}
 				<picture>
@@ -52,7 +52,7 @@
 <style lang="scss">
 	.icon {
 		display: flex;
-		max-width: 90px;
+		width: 70px;
 		justify-content: center;
 		align-items: center;
 		height: min-content;
