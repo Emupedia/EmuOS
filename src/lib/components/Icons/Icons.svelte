@@ -31,10 +31,10 @@
 		grid-template-columns: repeat(auto-fill, 70px);
 		grid-template-rows: repeat(auto-fill, 70px);
 		grid-auto-flow: column;
-		place-content: flex-start;
-		gap: 14px 1px;
+		//place-content: flex-start;
+		//gap: 14px 1px;
 
-		contain: strict;
+		//contain: strict;
 
 		overflow: hidden;
 		overflow-x: hidden;

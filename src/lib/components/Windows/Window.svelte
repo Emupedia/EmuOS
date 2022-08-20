@@ -81,7 +81,11 @@
 
 			pointer-events: none;
 
-			z-index: 1;
+			z-index: 2;
+
+			@supports (mix-blend-mode: difference) {
+				mix-blend-mode: difference;
+			}
 		}
 
 		&:global(.ghost > *) {

@@ -24,8 +24,7 @@ export const draggable = (el, options) => {
 				if (options.useGhostWhileDragging) {
 					ghostElement = e.target.cloneNode(true)
 					addClass(ghostElement, 'ghost')
-					const container = document.querySelector('.desktop')
-					container?.appendChild(ghostElement)
+					getFirst('.desktop')?.appendChild(ghostElement)
 				}
 			},
 			move: e => {
@@ -43,22 +42,14 @@ export const draggable = (el, options) => {
 			end: e => {
 				if (options.useGhostWhileDragging && ghostElement) {
 					move(e.target)(parseAxis(ghostElement)('x') || 0, parseAxis(ghostElement)('y') || 0)
-					ghostElement.remove()
+					ghostElement?.remove()
 				}
 			}
 		},
 		modifiers: [
-			interact.modifiers.restrict({
-				restriction: 'parent',
-				elementRect: {
-					top: 0,
-					left: 0,
-					bottom: 1,
-					right: 1
-				},
-				endOnly: false
-			})
+			interact.modifiers.restrictRect({ restriction: 'parent', endOnly: false })
 		],
+		autoScroll: false,
 		inertia: false
 	})
 

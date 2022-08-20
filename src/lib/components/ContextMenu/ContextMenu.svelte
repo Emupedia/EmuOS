@@ -18,37 +18,32 @@
 	const dispatch = createEventDispatcher()
 
 	$: (() => {
-		if (!menu) return
+		if (menu) {
+			const rect = menu.getBoundingClientRect()
 
-		const rect = menu.getBoundingClientRect()
+			if (x > window.innerWidth - rect.width) {
+				x -= rect.width
+			}
 
-		// x = Math.min(window.innerWidth - rect.width, x)
-		if (x > window.innerWidth - rect.width) {
-			x -= rect.width
+			y = Math.min(window.innerHeight - rect.height, y)
 		}
-
-		y = Math.min(window.innerHeight - rect.height, y)
 	})(x, y)
 
-	function onMenu(e) {
-		e.preventDefault()
-
+	function onContextMenu(e) {
 		x = e.clientX
 		y = e.clientY
 
 		show = true
-		return false
 	}
 
-	function onPageClick(e) {
+	function onMouseDown(e) {
 		if (e.target === menu || menu.contains(e.target)) return
 
 		show = false
-		dispatch('clickoutside')
 	}
 </script>
 
-<svelte:window on:contextmenu={onMenu} on:click={onPageClick} />
+<svelte:window on:contextmenu|preventDefault={onContextMenu} on:mousedown={onMouseDown} />
 
 <nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}px; --y: {y}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
 	<menu><slot>{content}</slot></menu>
@@ -56,7 +51,7 @@
 
 <style lang="scss">
 	.menu {
-		display: none;
+		visibility: hidden;
 		position: absolute;
 
 		left: (var(--x));
@@ -75,12 +70,14 @@
 
 		overflow: hidden;
 
+		z-index: 1;
+
 		menu, ul, ol {
 			list-style-type: none;
 		}
 
 		&.show {
-			display: block;
+			visibility: visible;
 		}
 
 		&.transform {

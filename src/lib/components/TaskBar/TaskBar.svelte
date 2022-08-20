@@ -11,9 +11,13 @@
 	aside {
 		&.taskbar {
 			position: absolute;
+
 			background-color: var(--color-background-taskbar);
 			color: #fff;
+
 			overflow: hidden;
+
+			z-index: 3;
 
 			&.top {
 				height: 27px;

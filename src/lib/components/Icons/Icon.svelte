@@ -5,6 +5,8 @@
 
 	export let x = 0
 	export let y = 0
+	export let width = 32
+	export let height = 32
 	export let name = 'Icon'
 	export let title = ''
 	export let shortcut = false
@@ -30,18 +32,18 @@
 <li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:mousedown={onMouseDown} on:click={onClick} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
 	<button type="button" {title}>
 		<figure>
-			<picture>
+			<picture style="width: {width}px; height: {height}px">
 				<source media="(min-resolution: 2.01x), (-webkit-min-device-pixel-ratio: 2.01)" srcset="/assets/images/icons/overlay/shortcut.png 3x" type="image/webp">
 				<source media="(min-resolution: 1.01x), (-webkit-min-device-pixel-ratio: 1.01)" srcset="/assets/images/icons/overlay/shortcut.png 2x" type="image/webp">
 				<source srcset="/assets/images/icons/overlay/shortcut.png" type="image/png">
-				<img width="48" height="48" alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
+				<img {width} {height} alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
 			</picture>
 			{#if shortcut}
-				<picture>
+				<picture style="width: {width}px; height: {height}px">
 					<source media="(min-resolution: 2.01x), (-webkit-min-device-pixel-ratio: 2.01)" srcset="/assets/images/icons/overlay/shortcut.png 3x" type="image/png">
 					<source media="(min-resolution: 1.01x), (-webkit-min-device-pixel-ratio: 1.01)" srcset="/assets/images/icons/overlay/shortcut.png 2x" type="image/png">
 					<source srcset="/assets/images/icons/overlay/shortcut.png" type="image/png">
-					<img width="48" height="48" alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
+					<img {width} {height} alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
 				</picture>
 			{/if}
 			<figcaption><span><slot>{name}</slot></span></figcaption>
@@ -55,6 +57,7 @@
 		width: 70px;
 		justify-content: center;
 		align-items: center;
+		flex-direction: column;
 		height: min-content;
 		padding: 2px;
 
@@ -82,8 +85,8 @@
 				place-items: center;
 
 				picture {
-					height: 48px;
-					width: 48px;
+					//height: 48px;
+					//width: 48px;
 
 					margin: 0 auto 4px;
 

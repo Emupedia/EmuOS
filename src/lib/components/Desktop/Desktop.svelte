@@ -1,5 +1,5 @@
 <script>
-	import { getAll, hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
+	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
 
 	export let debug = false
 
@@ -138,12 +138,6 @@
 			@supports (mix-blend-mode: difference) {
 				mix-blend-mode: difference;
 				outline-color: #fff;
-			}
-		}
-
-		:global(.ghost) {
-			@supports (mix-blend-mode: difference) {
-				mix-blend-mode: difference;
 			}
 		}
 	}

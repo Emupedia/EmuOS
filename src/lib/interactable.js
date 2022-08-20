@@ -54,7 +54,7 @@ export const interactable = (el, options) => {
 				if (options.useGhost && ghostElements.length > 0) {
 					for (const [i, item] of items.entries()) {
 						move(item)((parseAxis(ghostElements[i])('x') - item.offsetLeft) || 0, (parseAxis(ghostElements[i])('y') - item.offsetTop) || 0)
-						ghostElements[i].remove()
+						ghostElements[i]?.remove()
 					}
 				} else {
 					for (const item of items) {
@@ -68,17 +68,9 @@ export const interactable = (el, options) => {
 			}
 		},
 		modifiers: [
-			interact.modifiers.restrict({
-				restriction: 'parent',
-				elementRect: {
-					top: 0,
-					left: 0,
-					bottom: 1,
-					right: 1
-				},
-				endOnly: false
-			})
+			interact.modifiers.restrictRect({ restriction: 'parent', endOnly: false })
 		],
+		autoScroll: false,
 		inertia: false
 	})
 
