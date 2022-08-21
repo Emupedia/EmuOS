@@ -1199,11 +1199,13 @@
 			url: 'https://emuos.emupedia.net/emuos/version.json',
 			responseType: 'json'
 		});
+		console.log(result)
 	} else {
 		result = $sys.api.fetch({
 			url: '/emuos/version.json',
 			responseType: 'json'
 		});
+		console.log(result)
 	}
 
 	$sys.version = result.response.version + '';
