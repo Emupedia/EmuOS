@@ -4,6 +4,7 @@ import { persist, localStorage } from '$lib/persist'
 export const db = persist(writable({
 	locale: 'en',
 	settings: {},
+	version: 0,
 	user: null,
 	dev: false
 }), localStorage(), 'db')

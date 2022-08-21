@@ -1,4 +1,3 @@
-<!--suppress JSCheckFunctionSignatures -->
 <script>
 	import { onMount, onDestroy, createEventDispatcher } from 'svelte'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
@@ -22,14 +21,7 @@
 	$: build = `EmuOS v2.0 Alpha\u000D\u000ABuild ${version} ${new Date(parseInt(version)).toLocaleString()}`
 
 	onMount(() => {
-		checkVersion({
-			callback: ({ currentVersion, checkedVersion }) => {
-				console.log(version)
-				console.log(currentVersion)
-				console.log(checkedVersion)
-
-				version = currentVersion || version
-
+		checkVersion({ version, callback: ({ currentVersion, checkedVersion }) => {
 				if (currentVersion !== checkedVersion) {
 					dispatch('updated')
 				}

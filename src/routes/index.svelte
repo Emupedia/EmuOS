@@ -1,3 +1,22 @@
+<script context="module">
+	import { get } from 'svelte/store'
+	import { db } from '$lib/stores'
+	import { getVersion } from '$lib/api'
+
+	// export const ssr = false
+	// export const router = true
+	// export const hydrate = true
+	// export const prerender = true
+
+	export const load = async ({ fetch }) => {
+		let version = get(db)?.version || {}
+		let version_api = await getVersion(fetch).catch(error => console.error(error))
+		let version_data = await version_api?.json().catch(error => console.error(error))
+
+		return { props: { version: typeof version_data !== 'undefined' ? version_data?.version : version } }
+	}
+</script>
+
 <script>
 	import { Desktop } from '$lib/components/Desktop'
 	import { Icons, Icon } from '$lib/components/Icons'
@@ -8,6 +27,8 @@
 	import { Toasts, toast } from '$lib/components/Toasts'
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
 
+	export let version = 0
+
 	const onRefresh = () => location.reload()
 
 	const onUpdated = () => toast.open({ msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
@@ -15,7 +36,7 @@
 	const onClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
 </script>
 
-<Desktop on:updated={onUpdated}>
+<Desktop {version} on:updated={onUpdated}>
 	<Icons>
 		<Icon>My Computer</Icon>
 		<Icon>Network Neighborhood</Icon>

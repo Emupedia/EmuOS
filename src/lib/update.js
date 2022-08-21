@@ -10,28 +10,15 @@ let version_check_interval
 
 // noinspection JSUnusedGlobalSymbols
 export const checkVersion = options => {
+	currentVersion = options?.version || 0
+
 	// noinspection JSUnusedAssignment
 	clearInterval(version_check_interval)
 
 	if (typeof options?.clear === 'undefined') {
-		currentVersion = window?.$sys?.version + '' || 0
-		console.log(currentVersion)
-
-		if (currentVersion instanceof XMLHttpRequest) {
-			console.log(currentVersion)
-			currentVersion = currentVersion.response.version + ''
-			console.log(currentVersion)
-		}
-
-		if (typeof options?.callback === 'function') {
-			console.log(currentVersion)
-			// noinspection JSUnresolvedVariable
-			options?.callback({ currentVersion, checkedVersion: currentVersion })
-		}
-
 		version_check_interval = setInterval(async () => {
-			let version = await getVersion().catch(error => console.error(error))
-			let version_data = await version?.json().catch(error => console.error(error))
+			let version_api = await getVersion().catch(error => console.error(error))
+			let version_data = await version_api?.json().catch(error => console.error(error))
 
 			if (DEBUG) {
 				console.info(`Checking for new updates`)
