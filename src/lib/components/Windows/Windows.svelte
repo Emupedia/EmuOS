@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte'
+	import { getAll } from '$lib/dom'
 	import { draggable } from '$lib/draggable'
 	import { resizable } from '$lib/resizable'
 
@@ -9,7 +10,7 @@
 	const minHeight = 27
 
 	onMount(() => {
-		const elements = [...document.querySelectorAll('.window')]
+		const elements = [...getAll('.window')]
 
 		if (elements) {
 			for (const el of elements) {

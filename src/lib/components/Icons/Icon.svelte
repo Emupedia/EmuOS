@@ -1,18 +1,22 @@
 <!--suppress CheckImageSize -->
 
 <script>
-	import { getAll, hasClass, addClass, removeClass } from '$lib/dom'
+	import { getAll, hasClass, addClass, removeClass, addUnits } from '$lib/dom'
 
 	export let x = 0
 	export let y = 0
 	export let width = 32
 	export let height = 32
+
 	export let name = 'Icon'
 	export let title = ''
 	export let shortcut = false
 	export let useTransform = false
 	export let useTransform3D = true
 	export let onClick = () => {}
+
+	x = addUnits(x)
+	y = addUnits(y)
 
 	let icon
 
@@ -29,7 +33,7 @@
 	}
 </script>
 
-<li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:mousedown={onMouseDown} on:click={onClick} style="--x: {x}px; --y: {y}px;" {...$$restProps}>
+<li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:mousedown={onMouseDown} on:click={onClick} style="--x: {x}; --y: {y};" {...$$restProps}>
 	<button type="button" {title}>
 		<figure>
 			<picture style="width: {width}px; height: {height}px">

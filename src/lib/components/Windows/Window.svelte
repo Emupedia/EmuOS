@@ -6,18 +6,12 @@
 	import TitleBar from '$lib/components/Windows/TitleBar.svelte'
 	import StatusBar from '$lib/components/Windows/StatusBar.svelte'
 
-	const minWidth = 112
-	const minHeight = 27
-
 	export let x = 0
 	export let y = 0
+	export let minWidth = 112
+	export let minHeight = 27
 	export let width = minWidth
 	export let height = minHeight
-
-	x = addUnits(x)
-	y = addUnits(y)
-	width = addUnits(width)
-	height = addUnits(height)
 
 	export let title = 'Untitled Window'
 	export let status = 'No Status'
@@ -29,6 +23,13 @@
 	export let useTransform = false
 	export let useTransform3D = true
 	export let debug = false
+
+	x = addUnits(x)
+	y = addUnits(y)
+	minWidth = addUnits(minWidth)
+	minHeight = addUnits(minHeight)
+	width = addUnits(width)
+	height = addUnits(height)
 
 	let statusContent = status
 </script>

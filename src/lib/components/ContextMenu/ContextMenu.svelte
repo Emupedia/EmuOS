@@ -1,19 +1,29 @@
 <script>
 	import { createEventDispatcher } from 'svelte'
 	import { fade } from 'svelte/transition'
+	import { addUnits } from '$lib/dom'
 
 	export let x = 0
 	export let y = 0
+	export let minWidth = 118
+	export let minHeight = 22
+	export let width = minWidth
+	export let height = minHeight
+
 	export let content = 'No Content'
 	export let useTransform = false
 	export let useTransform3D = true
 	export let debug = false
 
+	x = addUnits(x)
+	y = addUnits(y)
+	minWidth = addUnits(minWidth)
+	minHeight = addUnits(minHeight)
+	width = addUnits(width)
+	height = addUnits(height)
+
 	let menu
 	let show = false
-
-	const minWidth = 118
-	const minHeight = 22
 
 	const dispatch = createEventDispatcher()
 
@@ -45,7 +55,7 @@
 
 <svelte:window on:contextmenu|preventDefault={onContextMenu} on:mousedown={onMouseDown} />
 
-<nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}px; --y: {y}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+<nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};" {...$$restProps}>
 	<menu><slot>{content}</slot></menu>
 </nav>
 
@@ -56,6 +66,8 @@
 
 		left: (var(--x));
 		top: (var(--y));
+		width: var(--width);
+		height: var(--height);
 		min-width: var(--min-width);
 		min-height: var(--min-height);
 
@@ -83,12 +95,14 @@
 		&.transform {
 			left: 0;
 			top: 0;
+			-webkit-transform: translate(var(--x), var(--y));
 			transform: translate(var(--x), var(--y));
 		}
 
 		&.transform-3d {
 			left: 0;
 			top: 0;
+			-webkit-transform: translate3d(var(--x), var(--y), 0);
 			transform: translate3d(var(--x), var(--y), 0);
 		}
 

@@ -1,6 +1,9 @@
-import { onDestroy } from 'svelte'
 import { getUpdates } from '$lib/api'
 
+const VERSION_CHECK_DELAY = 15 * 60 * 1000
+
+let currentVersion = 0
+let checkedVersion = 0
 let version_check_interval
 
 export const checkUpdates = options => {
@@ -8,6 +11,8 @@ export const checkUpdates = options => {
 	clearInterval(version_check_interval)
 
 	if (typeof options?.clear === 'undefined') {
+		currentVersion = window?.$sys?.version && window?.$sys?.version !== '' && window?.$sys?.version !== '{{ site.github.build_revision }}' ? window?.$sys?.version || 0 : 0
+
 		version_check_interval = setInterval(async () => {
 			let updates = await getUpdates().catch(error => console.error(error))
 			let updates_data = await updates?.json().catch(error => console.error(error))
@@ -15,16 +20,19 @@ export const checkUpdates = options => {
 			console.info(`Checking for new updates`)
 
 			// noinspection JSUnresolvedVariable
-			if (typeof updates_data?.sha !== 'undefined' && typeof window?.$sys?.version !== 'undefined') {
+			if (typeof updates_data?.sha !== 'undefined') {
 				// noinspection JSUnresolvedVariable
-				if (updates_data?.sha !== null && window?.$sys?.version !== null) {
+				if (updates_data?.sha !== null) {
 					// noinspection JSUnresolvedVariable
-					if (updates_data?.sha !== '' && window?.$sys?.version !== '' && window?.$sys?.version !== '{{ site.github.build_revision }}') {
+					if (updates_data?.sha !== '') {
 						// noinspection JSUnresolvedVariable
-						if (updates_data?.sha !== window?.$sys?.version) {
+						checkedVersion = updates_data?.sha || 0
+						// noinspection JSUnresolvedVariable
+						if (updates_data?.sha !== currentVersion) {
+							// noinspection JSUnresolvedVariable
+							console.info(`New update available build ${updates_data?.sha}`)
+
 							if (typeof options?.callback === 'function') {
-								// noinspection JSUnresolvedVariable
-								console.info(`New update available build ${updates_data?.sha}`)
 								options?.callback()
 							}
 						} else {
@@ -33,8 +41,8 @@ export const checkUpdates = options => {
 					}
 				}
 			}
-		}, options?.interval || 15 * 60 * 1000)
+		}, options?.interval || VERSION_CHECK_DELAY)
 	}
 
-	onDestroy(() => clearInterval(version_check_interval))
+	return { currentVersion, checkedVersion }
 }
