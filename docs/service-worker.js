@@ -1,5 +1,5 @@
 const p = [
-  "/emuos/immutable/start-efc26528.js",
+  "/emuos/immutable/start-a30b03e5.js",
   "/emuos/immutable/pages/__layout.svelte-511d2d8a.js",
   "/emuos/immutable/assets/__layout-6bd2fcff.css",
   "/emuos/immutable/pages/__error.svelte-371e0d69.js",
@@ -227,7 +227,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1661109438216", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
+], i = "1661109648659", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {
