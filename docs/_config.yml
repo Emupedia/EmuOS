@@ -1,3 +1,5 @@
 exclude:
-  - /CNAME
-  - /manifest.json
+  - CNAME
+  - manifest.json
+include:
+  - emuos
