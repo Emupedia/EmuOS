@@ -113,7 +113,7 @@ export function getOffset(el) {
 export function addUnits(val) {
 	val = val.toString()
 
-	if (!val.endsWith('cm') && !val.endsWith('mm') && !val.endsWith('Q') && !val.endsWith('in') && !val.endsWith('pc') && !val.endsWith('pt') && !val.endsWith('px') && !val.endsWith('em') && !val.endsWith('ex') && !val.endsWith('ch') && !val.endsWith('rem') && !val.endsWith('lh') && !val.endsWith('rlh') && !val.endsWith('vw') && !val.endsWith('vh') && !val.endsWith('vmin') && !val.endsWith('vmax') && !val.endsWith('vb') && !val.endsWith('vi') && !val.endsWith('svw') && !val.endsWith('svh') && !val.endsWith('lvw') && !val.endsWith('lvh')	&& !val.endsWith('dvw') && !val.endsWith('dvh')) {
+	if (val !== 'max-content' && val !== 'min-content' && val !== 'auto' && val !== 'inherit' && val !== 'initial' && val !== 'revert' && val !== 'revert-layer' && val !== 'unset' && !val.startsWith('fit-content') && !val.endsWith('cm') && !val.endsWith('mm') && !val.endsWith('Q') && !val.endsWith('in') && !val.endsWith('pc') && !val.endsWith('pt') && !val.endsWith('px') && !val.endsWith('em') && !val.endsWith('ex') && !val.endsWith('ch') && !val.endsWith('rem') && !val.endsWith('lh') && !val.endsWith('rlh') && !val.endsWith('vw') && !val.endsWith('vh') && !val.endsWith('vmin') && !val.endsWith('vmax') && !val.endsWith('vb') && !val.endsWith('vi') && !val.endsWith('svw') && !val.endsWith('svh') && !val.endsWith('lvw') && !val.endsWith('lvh')	&& !val.endsWith('dvw') && !val.endsWith('dvh')) {
 		val += 'px'
 	}
 

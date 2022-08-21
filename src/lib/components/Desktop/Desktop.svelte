@@ -1,11 +1,12 @@
 <script>
-	import { onMount, onDestroy } from 'svelte'
+	import { onMount, onDestroy, createEventDispatcher } from 'svelte'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
 	import { checkUpdates } from '$lib/update'
 
 	export let version = 0
 	export let debug = false
 
+	const dispatch = createEventDispatcher()
 	const mouse = {
 		x: 0,
 		y: 0,
@@ -17,7 +18,10 @@
 	let element
 	let build
 
-	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
+	$: {
+		build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
+		dispatch('updated')
+	}
 
 	onMount(() => {
 		version = checkUpdates()?.currentVersion || version

@@ -26,10 +26,10 @@
 
 	x = addUnits(x)
 	y = addUnits(y)
-	minWidth = addUnits(minWidth)
-	minHeight = addUnits(minHeight)
 	width = addUnits(width)
 	height = addUnits(height)
+	minWidth = addUnits(minWidth)
+	minHeight = addUnits(minHeight)
 
 	let statusContent = status
 </script>

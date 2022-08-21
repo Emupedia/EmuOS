@@ -1,5 +1,4 @@
 <script>
-	import { createEventDispatcher } from 'svelte'
 	import { fade } from 'svelte/transition'
 	import { addUnits } from '$lib/dom'
 
@@ -8,7 +7,7 @@
 	export let minWidth = 118
 	export let minHeight = 22
 	export let width = minWidth
-	export let height = minHeight
+	export let height = 'auto'
 
 	export let content = 'No Content'
 	export let useTransform = false
@@ -17,27 +16,24 @@
 
 	x = addUnits(x)
 	y = addUnits(y)
-	minWidth = addUnits(minWidth)
-	minHeight = addUnits(minHeight)
 	width = addUnits(width)
 	height = addUnits(height)
+	minWidth = addUnits(minWidth)
+	minHeight = addUnits(minHeight)
 
 	let menu
 	let show = false
 
-	const dispatch = createEventDispatcher()
+	$: if (menu) {
+		const rect = menu.getBoundingClientRect()
 
-	$: (() => {
-		if (menu) {
-			const rect = menu.getBoundingClientRect()
-
-			if (x > window.innerWidth - rect.width) {
-				x -= rect.width
-			}
-
-			y = Math.min(window.innerHeight - rect.height, y)
+		if (x > window.innerWidth - rect.width) {
+			x -= rect.width
 		}
-	})(x, y)
+
+		x = addUnits(x)
+		y = addUnits(Math.min(window.innerHeight - rect.height, y))
+	}
 
 	function onContextMenu(e) {
 		x = e.clientX
@@ -82,7 +78,7 @@
 
 		overflow: hidden;
 
-		z-index: 1;
+		z-index: 2;
 
 		menu, ul, ol {
 			list-style-type: none;
