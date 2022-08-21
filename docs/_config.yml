@@ -1,2 +1,6 @@
-include: [emuos/**/_*]
-keep_files: [emuos/**/_*]
+include:
+  - emuos/**
+  - emuos/**/
+  - emuos/**/_*
+keep_files:
+  - emuos/**
