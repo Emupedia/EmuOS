@@ -1,1 +1,1 @@
-docs/index.html
+index.html
