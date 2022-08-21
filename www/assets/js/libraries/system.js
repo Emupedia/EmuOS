@@ -1212,6 +1212,7 @@
 			url: 'https://emuos.emupedia.net/emuos/version.json',
 			responseType: 'json',
 			onsuccess: function(e, res) {
+				console.log(e, res)
 				$sys.version = res.version;
 			}
 		});
@@ -1220,6 +1221,7 @@
 			url: '/emuos/version.json',
 			responseType: 'json',
 			onsuccess: function(e, res) {
+				console.log(e, res)
 				$sys.version = res.version;
 			}
 		});
