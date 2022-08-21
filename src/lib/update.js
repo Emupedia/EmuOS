@@ -14,12 +14,12 @@ export const checkVersion = options => {
 	clearInterval(version_check_interval)
 
 	if (typeof options?.clear === 'undefined') {
-		currentVersion = window?.$sys?.version || 0
+		currentVersion = window?.$sys?.version + '' || 0
 		console.log(currentVersion)
 
 		if (currentVersion instanceof XMLHttpRequest) {
 			console.log(currentVersion)
-			currentVersion = currentVersion?.response?.version?.toString()
+			currentVersion = currentVersion.response.version + ''
 			console.log(currentVersion)
 		}
 
