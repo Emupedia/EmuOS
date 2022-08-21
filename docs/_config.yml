@@ -2,4 +2,5 @@ exclude:
   - CNAME
   - manifest.json
 include:
-  - emuos
+  - emuos/immutable/assets
+  - emuos/immutable/pages
