@@ -1,3 +1,4 @@
 include:
-  - emuos/immutable/assets/**/*_
-  - emuos/immutable/pages/**/*_
+  - emuos/immutable/assets/__layout-8a5c975e.css
+  - emuos/immutable/pages/__error.svelte-7f0c15d3.js
+  - emuos/immutable/pages/__layout.svelte-783abfef.js
