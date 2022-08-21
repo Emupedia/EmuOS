@@ -1,14 +1,13 @@
 const p = [
-  "/emuos/immutable/start-240097d1.js",
-  "/emuos/immutable/pages/__layout.svelte-300a7645.js",
+  "/emuos/immutable/start-8d99fd77.js",
+  "/emuos/immutable/pages/__layout.svelte-783abfef.js",
   "/emuos/immutable/assets/__layout-8a5c975e.css",
-  "/emuos/immutable/pages/__error.svelte-ea21a0fb.js",
-  "/emuos/immutable/pages/index.svelte-d921d92a.js",
-  "/emuos/immutable/assets/index-3f9044f2.css",
-  "/emuos/immutable/pages/test.svelte-2249f1d4.js",
-  "/emuos/immutable/chunks/index-3436a438.js"
+  "/emuos/immutable/pages/__error.svelte-7f0c15d3.js",
+  "/emuos/immutable/pages/index.svelte-e69886d8.js",
+  "/emuos/immutable/assets/index-f2091349.css",
+  "/emuos/immutable/pages/test.svelte-bfb8ccbe.js",
+  "/emuos/immutable/chunks/index-39174f01.js"
 ], l = [
-  "/.nojekyll",
   "/404error.html",
   "/CNAME",
   "/apple-touch-icon.png",
@@ -221,7 +220,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1661012966999", r = `cache${i}`, m = p.concat(l), d = new Set(m);
+], i = "1661041212118", r = `cache${i}`, m = p.concat(l), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {

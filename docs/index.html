@@ -1,3 +1,5 @@
+---
+---
 <!--
 
 
@@ -126,8 +128,8 @@
 		<link type="text/css" rel="stylesheet" href="assets/css/fonts.css" />
 
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="modulepreload" href="/emuos/immutable/start-240097d1.js">
-	<link rel="modulepreload" href="/emuos/immutable/chunks/index-3436a438.js">
+	<link rel="modulepreload" href="/emuos/immutable/start-8d99fd77.js">
+	<link rel="modulepreload" href="/emuos/immutable/chunks/index-39174f01.js">
 			<script>
 		if ('serviceWorker' in navigator) {
 			addEventListener('load', function () {
@@ -139,7 +141,7 @@
 	<body>
 		
 		<script type="module" data-sveltekit-hydrate="45h">
-		import { set_public_env, start } from "/emuos/immutable/start-240097d1.js";
+		import { set_public_env, start } from "/emuos/immutable/start-8d99fd77.js";
 
 		set_public_env({});
 
@@ -154,29 +156,8 @@
 		});
 	</script>
 
-		<svg class="offscreen" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<filter id="crispify">
-					<feComponentTransfer>
-						<feFuncA type="discrete" tableValues="0 1" />
-					</feComponentTransfer>
-				</filter>
-			</defs>
-		</svg>
-
 		<script type="text/javascript" src="assets/js/libraries/system.js"></script>
-		<!--suppress JSUnresolvedLibraryURL -->
-		<!--<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default,JSON,Blob,atob,Uint8ClampedArray,Uint8Array,Uint32Array,Uint16Array,Promise,Promise.any,fetch,URL,Map,MutationObserver,requestAnimationFrame,smoothscroll,~html5-elements,console.table,es5,es6,es7&flags=gated"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/babel-polyfill-7.12.1.min.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/remove.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/url-polyfill-v1.1.12.min.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/fetch-3.6.2.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/polyfill.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/shimport-2.0.5.min.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/promise-auto-4.2.8.min.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/css-vars-4.1.0.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/closest.js"></script>-->
-		<!--<script type="text/javascript" src="assets/js/libraries/smoothscroll.js"></script>-->
+		<script type="text/javascript">$sys.version = '{{ site.github.build_revision }}'</script>
 
 		<noscript>Your browser is too old or it does not support JavaScript!</noscript>
 	</body>
