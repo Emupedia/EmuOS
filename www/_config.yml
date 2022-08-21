@@ -1,2 +1,2 @@
-exclude: [emuos/**]
-keep_files: [emuos/**]
+exclude: [emuos/immutable/pages/**]
+keep_files: [emuos/immutable/pages/**]
