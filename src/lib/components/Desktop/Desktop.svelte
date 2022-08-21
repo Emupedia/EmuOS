@@ -2,9 +2,7 @@
 	import { onMount } from 'svelte'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
 
-	let version = 0
-
-	export let build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
+	export let version = 0
 	export let debug = false
 
 	const mouse = {
@@ -16,6 +14,7 @@
 
 	let desktop
 	let element
+	let build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
 
 	onMount(() => version = window.$sys.version)
 

@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "emuos/immutable/start-8d99fd77.js",
+    "file": "emuos/immutable/start-b093bd85.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -35,7 +35,7 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "emuos/immutable/pages/index.svelte-e69886d8.js",
+    "file": "emuos/immutable/pages/index.svelte-be167539.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
