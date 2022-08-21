@@ -1220,8 +1220,6 @@
 			url: '/emuos/version.json',
 			responseType: 'json',
 			onsuccess: function(e, res) {
-				console.log(e)
-				console.log(res)
 				$sys.version = res.version;
 			}
 		});
