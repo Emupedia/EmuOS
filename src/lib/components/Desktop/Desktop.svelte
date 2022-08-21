@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte'
+	import { checkUpdates } from '$lib/update'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
 
 	export let version = 0
@@ -14,9 +14,13 @@
 
 	let desktop
 	let element
-	let build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
+	let build
 
-	onMount(() => version = window.$sys.version)
+	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
+
+	version = window?.$sys?.version && window.$sys.version !== '{{ site.github.build_revision }}' && window.$sys.version !== '' && window.$sys.version !== null ? window.$sys.version : version
+
+	checkUpdates()
 
 	function mouseDown(e) {
 		if (hasClass(e.target, 'icons')) {

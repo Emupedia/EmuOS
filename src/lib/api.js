@@ -56,3 +56,4 @@ const fetchWithRetryDelay = async (resource, options = {}, f, n = GLOBAL_RETRIES
 }
 
 export const getSettings = (f, options) => fetchWithRetryDelay(`${f ? variables.API_ROOT : variables.API_ROOT}/settings`, options, f)
+export const getUpdates = (f, options) => fetchWithRetryDelay('https://api.github.com/repos/Emupedia/EmuOS/commits/main', options, f)

@@ -1,12 +1,12 @@
 const p = [
-  "/emuos/immutable/start-69b2e167.js",
-  "/emuos/immutable/pages/layout.svelte-783abfef.js",
+  "/emuos/immutable/start-098c60dd.js",
+  "/emuos/immutable/pages/layout.svelte-b956954f.js",
   "/emuos/immutable/assets/layout-8a5c975e.css",
-  "/emuos/immutable/pages/error.svelte-7f0c15d3.js",
-  "/emuos/immutable/pages/index.svelte-be167539.js",
+  "/emuos/immutable/pages/error.svelte-f7cdbc4c.js",
+  "/emuos/immutable/pages/index.svelte-c3fa0a82.js",
   "/emuos/immutable/assets/index-f2091349.css",
-  "/emuos/immutable/pages/test.svelte-bfb8ccbe.js",
-  "/emuos/immutable/chunks/index-39174f01.js"
+  "/emuos/immutable/pages/test.svelte-3148cc9b.js",
+  "/emuos/immutable/chunks/index-fa999612.js"
 ], l = [
   "/404error.html",
   "/CNAME",
@@ -221,7 +221,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1661050232283", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
+], i = "1661053690642", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {
