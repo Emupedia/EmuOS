@@ -1128,28 +1128,8 @@
 					xhr.status === 308 || // Permanent Redirect
 					xhr.status === 0 && root.client.cordova // Cordova quirk
 				) {
-					if (onsuccess) {
-						// noinspection ES6ConvertVarToLetConst
-						var res;
-
-						if (format === 'xml') {
-							// noinspection JSUnresolvedVariable
-							res = e.target.responseXML;
-						} else if (format === 'text' && responseType === 'text') {
-							// noinspection JSUnresolvedVariable
-							res = e.target.responseText;
-						} else if (format === 'json' && responseType === 'text') {
-							try {
-								// noinspection JSUnresolvedVariable
-								res = JSON.parse(e.target.response);
-							} catch(err) {
-								onerror && onerror(e);
-							}
-						} else if (responseType === 'json') {
-							res = e.target.response
-						}
-
-						onsuccess(e, res);
+					if (typeof onsuccess === 'function') {
+						onsuccess(e);
 					}
 				} else {
 					onerror && onerror(e);
@@ -1211,18 +1191,18 @@
 		$sys.api.fetch({
 			url: 'https://emuos.emupedia.net/emuos/version.json',
 			responseType: 'json',
-			onsuccess: function(e, res) {
-				console.log(e, res)
-				$sys.version = res.version;
+			onsuccess: function(e) {
+				console.log(e)
+				$sys.version = e.target.response.version;
 			}
 		});
 	} else {
 		$sys.version = $sys.api.fetch({
 			url: '/emuos/version.json',
 			responseType: 'json',
-			onsuccess: function(e, res) {
-				console.log(e, res)
-				$sys.version = res.version;
+			onsuccess: function(e) {
+				console.log(e)
+				$sys.version = e.target.response.version;
 			}
 		});
 	}
