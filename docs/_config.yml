@@ -1,0 +1,2 @@
+include: [emuos/**/_*]
+keep_files: [emuos/**/_*]
