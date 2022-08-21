@@ -23,9 +23,12 @@
 
 	onMount(() => {
 		checkVersion({
-			callback: ({ currentVersion }) => {
+			callback: ({ currentVersion, checkedVersion }) => {
 				version = currentVersion || version
-				dispatch('updated')
+
+				if (currentVersion !== checkedVersion) {
+					dispatch('updated')
+				}
 			}
 		})
 	})

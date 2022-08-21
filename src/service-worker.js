@@ -8,13 +8,17 @@ const to_cache = build.concat(files.filter(file => !file.startsWith('/_config.ym
 const staticAssets = new Set(to_cache)
 
 self.addEventListener('install', event => {
-	// noinspection JSUnresolvedFunction
-	event.waitUntil(
-		caches.open(ASSETS).then(cache => cache.addAll(to_cache)).then(() => {
-			// noinspection JSIgnoredPromiseFromCall
-			self.skipWaiting()
-		})
-	)
+	try {
+		// noinspection JSUnresolvedFunction
+		event.waitUntil(
+			caches.open(ASSETS).then(cache => cache.addAll(to_cache)).then(() => {
+				// noinspection JSIgnoredPromiseFromCall
+				self.skipWaiting()
+			})
+		)
+	} catch (err) {
+		console.error(err)
+	}
 })
 
 self.addEventListener('activate', event => {
