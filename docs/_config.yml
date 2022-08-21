@@ -1,7 +1,11 @@
 exclude:
   - /CNAME
-  - /404error.html
-keep_files: 
+  - /manifest.json
+include:
+  - /emuos/immutable/assets/__layout-8a5c975e.css
+  - /emuos/immutable/pages/__error.svelte-7f0c15d3.js
+  - /emuos/immutable/pages/__layout.svelte-783abfef.js
+keep_files:
   - /emuos/immutable/assets/__layout-8a5c975e.css
   - /emuos/immutable/pages/__error.svelte-7f0c15d3.js
   - /emuos/immutable/pages/__layout.svelte-783abfef.js
