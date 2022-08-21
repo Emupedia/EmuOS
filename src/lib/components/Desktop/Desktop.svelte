@@ -1,6 +1,10 @@
 <script>
+	import { onMount } from 'svelte'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
 
+	let version = 0
+
+	export let build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
 	export let debug = false
 
 	const mouse = {
@@ -12,6 +16,8 @@
 
 	let desktop
 	let element
+
+	onMount(() => version = window.$sys.version)
 
 	function mouseDown(e) {
 		if (hasClass(e.target, 'icons')) {
@@ -112,11 +118,16 @@
 
 <svelte:window on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove} />
 
-<main bind:this={desktop} class="desktop {$$props.class || ''}" class:debug {...$$restProps}><slot /></main>
+<main bind:this={desktop} class="desktop {$$props.class || ''}" class:debug {build} {...$$restProps}><slot /></main>
 
 <style lang="scss">
 	.desktop {
-		height: calc(100% - 28px);
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		width: 100%;
+		height: 100%;
 
 		background-color: var(--color-background-desktop);
 
@@ -139,6 +150,16 @@
 				mix-blend-mode: difference;
 				outline-color: #fff;
 			}
+		}
+
+		&:after {
+			position: absolute;
+			content: attr(build);
+			right: 0;
+			bottom: 28px;
+			color: #fff;
+			text-align: right;
+			white-space: pre;
 		}
 	}
 </style>
