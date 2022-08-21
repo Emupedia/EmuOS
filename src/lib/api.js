@@ -1,7 +1,7 @@
 import { variables } from '$lib/variables'
 
-const GLOBAL_TIMEOUT = 500
-const GLOBAL_RETRIES = 1
+const GLOBAL_TIMEOUT = 5000
+const GLOBAL_RETRIES = 3
 const GLOBAL_RETRY_DELAY = 100
 
 const delay = delay => new Promise(resolve => setTimeout(() => resolve(), delay))
