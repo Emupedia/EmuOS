@@ -16,6 +16,11 @@ export const checkVersion = options => {
 	if (typeof options?.clear === 'undefined') {
 		currentVersion = window?.$sys?.version || 0
 
+		if (currentVersion && typeof options?.callback === 'function') {
+			// noinspection JSUnresolvedVariable
+			options?.callback({ currentVersion, checkedVersion: currentVersion })
+		}
+
 		version_check_interval = setInterval(async () => {
 			let version = await getVersion().catch(error => console.error(error))
 			let version_data = await version?.json().catch(error => console.error(error))
