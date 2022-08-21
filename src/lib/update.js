@@ -2,7 +2,7 @@ import { getVersion } from '$lib/api'
 
 // noinspection PointlessArithmeticExpressionJS
 const VERSION_CHECK_DELAY = 1 * 60 * 1000
-const DEBUG = true
+const DEBUG = false
 
 let currentVersion = 0
 let checkedVersion = 0

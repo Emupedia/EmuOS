@@ -1,3 +1,4 @@
+<!--suppress JSCheckFunctionSignatures -->
 <script>
 	import { onMount, onDestroy, createEventDispatcher } from 'svelte'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
@@ -18,7 +19,7 @@
 	let element
 	let build
 
-	$: build = `EmuOS v2.0 Alpha\u000D\u000ABuild ${version} ${new Date(parseInt(version)).toLocaleString()}`
+	$: build = `EmuOS v2.0 Alpha\u000D\u000ABuild ${version}, ${new Date(parseInt(version)).toLocaleString()}`
 
 	onMount(() => {
 		checkVersion({ version, callback: ({ currentVersion, checkedVersion }) => {
