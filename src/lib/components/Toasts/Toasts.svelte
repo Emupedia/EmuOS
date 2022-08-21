@@ -17,7 +17,7 @@
 	const getCss = theme => Object.keys(theme).reduce((a, c) => `${a}${c}:${theme[c]};`, '')
 </script>
 
-<ul class="_toastContainer">
+<ul class="toasts">
 	{#each items as item(item.id)}
 		<li class={item.classes.join(' ')} in:fly={item.intro} out:fade animate:flip={{ duration: 200 }} style={getCss(item.theme)}>
 			<Toast {item} />
@@ -26,13 +26,13 @@
 </ul>
 
 <style lang="scss">
-	._toastContainer {
+	.toasts {
 		position: fixed;
 
-		top: var(--toastContainerTop, 1.5rem);
-		right: var(--toastContainerRight, 2rem);
-		bottom: var(--toastContainerBottom, auto);
-		left: var(--toastContainerLeft, auto);
+		top: var(--toastsTop, 1.5rem);
+		right: var(--toastsRight, 2rem);
+		bottom: var(--toastsBottom, auto);
+		left: var(--toastsLeft, auto);
 		margin: 0;
 		padding: 0;
 
@@ -40,6 +40,6 @@
 
 		pointer-events: none;
 
-		z-index: var(--toastContainerZIndex, auto);
+		z-index: var(--toastsZIndex, auto);
 	}
 </style>

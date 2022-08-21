@@ -69,8 +69,8 @@
 	})
 </script>
 
-<div class="_toastItem" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
-	<div role="status" class="_toastMsg" class:pe={item.component}>
+<div class="toast" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
+	<div role="status" class="toast-message" class:pe={item.component}>
 		{#if item.component}
 			<svelte:component this={item.component.src} {...getProps()} />
 		{:else}
@@ -79,15 +79,15 @@
 	</div>
 
 	{#if item.dismissable}
-		<div class="_toastBtn pe" role="button" tabindex="-1" on:click={close}>✕</div>
+		<button class="toast-button pe" role="button" type="button" tabindex="-1" on:click={close}>{@html item.close}</button>
 	{/if}
 
 	<!--suppress CheckEmptyScriptTag -->
-	<progress class="_toastBar" value={$progress} />
+	<progress class="toast-progress" value={$progress} />
 </div>
 
 <style lang="scss">
-	._toastItem {
+	.toast {
 		width: var(--toastWidth, 16rem);
 		height: var(--toastHeight, auto);
 		min-height: var(--toastMinHeight, 3.5rem);
@@ -107,33 +107,38 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
-	._toastMsg {
-		padding: var(--toastMsgPadding, 0.75rem 0.5rem);
+	.toast-message {
+		padding: var(--toastMessagePadding, 0.75rem 0.5rem);
 		flex: 1 1 0;
 	}
 
-	.pe, ._toastMsg :global(a) {
+	.pe, .toast-message :global(a) {
 		pointer-events: auto;
 	}
 
-	._toastBtn {
-		width: 2rem;
-		height: 100%;
+	.toast-button {
+		width: var(--toastButtonWidth, 2rem);
+		height: var(--toastButtonHeight, 100%);
 		font: 1rem sans-serif;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		outline: none;
+		background: var(--toastButtonBackground, rgba(66, 66, 66, 0.9));
+		color: var(--toastButtonColor, #fff);
+		box-shadow: var(--toastButtonBoxShadow, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
+		border: var(--toastButtonBorder, none);
+		border-radius: var(--toastButtonBorderRadius, 0);
 	}
 
-	._toastBar {
-		top: var(--toastBarTop, auto);
-		right: var(--toastBarRight, auto);
-		bottom: var(--toastBarBottom, 0);
-		left: var(--toastBarLeft, 0);
-		height: var(--toastBarHeight, 6px);
-		width: var(--toastBarWidth, 100%);
+	.toast-progress {
+		top: var(--toastProgressTop, auto);
+		right: var(--toastProgressRight, auto);
+		bottom: var(--toastProgressBottom, 0);
+		left: var(--toastProgressLeft, 0);
+		height: var(--toastProgressHeight, 6px);
+		width: var(--toastProgressWidth, 100%);
 		position: absolute;
 		display: block;
 		-webkit-appearance: none;
@@ -144,17 +149,15 @@
 		pointer-events: none;
 	}
 
-	._toastBar::-webkit-progress-bar {
+	.toast-progress::-webkit-progress-bar {
 		background: transparent;
 	}
 
-	/* `--toastProgressBackground` renamed to `--toastBarBackground`; override included for backward compatibility */
-
-	._toastBar::-webkit-progress-value {
-		background: var(--toastProgressBackground, var(--toastBarBackground, rgba(33, 150, 243, 0.75)));
+	.toast-progress::-webkit-progress-value {
+		background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
 	}
 
-	._toastBar::-moz-progress-bar {
-		background: var(--toastProgressBackground, var(--toastBarBackground, rgba(33, 150, 243, 0.75)));
+	.toast-progress::-moz-progress-bar {
+		background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
 	}
 </style>

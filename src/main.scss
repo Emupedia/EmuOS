@@ -1,3 +1,5 @@
+//@import '/assets/css/fonts.css';
+
 :root {
 	//color-scheme: dark;
 
@@ -20,7 +22,40 @@
 	--color-background-window-panel-3d-border3: #808080;
 	--color-background-window-panel-3d-border4: #dfdfdf;
 
+	--toastsTop: 10px;
+	--toastsRight: 10px;
+	--toastsBottom: auto;
+	--toastsLeft: auto;
+	--toastsZIndex: auto;
 
+	--toastWidth: 256px;
+	--toastHeight: auto;
+	--toastMinHeight: 56px;
+	--toastMargin: 0 0 8px 0;
+	--toastPadding: 0;
+	--toastBackground: var(--color-background-panel);
+	--toastColor: var(--color-black);
+	--toastBoxShadow: inset -1px -1px 0 #000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
+	--toastBorder: none;
+	--toastBorderRadius: 0;
+
+	--toastMessagePadding: 10px;
+
+	--toastButtonWidth: 16px;
+	--toastButtonHeight: 14px;
+	--toastButtonBackground: var(--color-background-panel);
+	--toastButtonColor: var(--color-black);
+	--toastButtonBoxShadow: inset -1px -1px 0 #000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
+	--toastButtonBorder: none;
+	--toastButtonBorderRadius: 0;
+
+	--toastProgressTop: auto;
+	--toastProgressRight: auto;
+	--toastProgressBottom: 0;
+	--toastProgressLeft: 0;
+	--toastProgressHeight: 6px;
+	--toastProgressWidth: 100%;
+	--toastProgressBackground: var(--color-blue);
 }
 
 ::-moz-selection {

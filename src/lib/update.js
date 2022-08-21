@@ -1,45 +1,54 @@
-import { getUpdates } from '$lib/api'
+import { getVersion } from '$lib/api'
 
-const VERSION_CHECK_DELAY = 15 * 60 * 1000
-const debug = false
+// noinspection PointlessArithmeticExpressionJS
+const VERSION_CHECK_DELAY = 1 * 60 * 1000
+const debug = true
 
 let currentVersion = 0
 let checkedVersion = 0
 let version_check_interval
 
-export const checkUpdates = options => {
+// noinspection JSUnusedGlobalSymbols
+export const checkVersion = options => {
 	// noinspection JSUnusedAssignment
 	clearInterval(version_check_interval)
 
 	if (typeof options?.clear === 'undefined') {
-		currentVersion = window?.$sys?.version && window?.$sys?.version !== '' && window?.$sys?.version !== '{{ site.github.build_revision }}' ? window?.$sys?.version || 0 : 0
+		currentVersion = window?.$sys?.version || 0
 
 		version_check_interval = setInterval(async () => {
-			let updates = await getUpdates().catch(error => console.error(error))
-			let updates_data = await updates?.json().catch(error => console.error(error))
+			let version = await getVersion().catch(error => console.error(error))
+			let version_data = await version?.json().catch(error => console.error(error))
 
 			if (debug) {
 				console.info(`Checking for new updates`)
 			}
 
 			// noinspection JSUnresolvedVariable
-			if (typeof updates_data?.sha !== 'undefined') {
+			if (typeof version_data?.version !== 'undefined') {
 				// noinspection JSUnresolvedVariable
-				if (updates_data?.sha !== null) {
+				if (version_data?.version !== null) {
 					// noinspection JSUnresolvedVariable
-					if (updates_data?.sha !== '') {
+					if (version_data?.version !== '') {
 						// noinspection JSUnresolvedVariable
-						checkedVersion = updates_data?.sha || 0
+						checkedVersion = version_data?.version || 0
+
+						if (debug) {
+							// noinspection JSUnresolvedVariable
+							console.info(`Current version ${currentVersion}`)
+							console.info(`Checked version ${checkedVersion}`)
+						}
+
 						// noinspection JSUnresolvedVariable
-						if (updates_data?.sha !== currentVersion) {
+						if (checkedVersion !== currentVersion) {
 							if (debug) {
 								// noinspection JSUnresolvedVariable
-								console.info(`New update available build ${updates_data?.sha}`)
+								console.info(`New update available build ${checkedVersion}`)
 							}
 
 							if (typeof options?.callback === 'function') {
 								// noinspection JSUnresolvedVariable
-								options?.callback(updates_data?.sha)
+								options?.callback({ currentVersion, checkedVersion })
 							}
 						} else if (debug) {
 							console.info('No new updates')

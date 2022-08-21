@@ -18,7 +18,8 @@ export const toast = (() => {
 		pausable: false,
 		dismissable: true,
 		reversed: false,
-		intro: { x: 256 }
+		intro: { x: 256 },
+		close: '✕'
 	}
 
 	let count = 0

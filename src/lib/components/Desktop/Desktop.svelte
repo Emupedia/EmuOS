@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy, createEventDispatcher } from 'svelte'
 	import { hasClass, addClass, removeClass, isInBounds } from '$lib/dom'
-	import { checkUpdates } from '$lib/update'
+	import { checkVersion } from '$lib/update'
 
 	export let version = 0
 	export let debug = false
@@ -18,11 +18,11 @@
 	let element
 	let build
 
-	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version.toString().slice(0, 6)}`
+	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
 
-	onMount(() => { version = checkUpdates({callback: () => { dispatch('updated') }})?.currentVersion || version })
+	onMount(() => { version = checkVersion({callback: () => { dispatch('updated') }})?.currentVersion || version })
 
-	onDestroy(() => checkUpdates({clear: true}))
+	onDestroy(() => checkVersion({clear: true}))
 
 	function mouseDown(e) {
 		if (hasClass(e.target, 'icons')) {
