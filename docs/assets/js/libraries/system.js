@@ -1193,7 +1193,7 @@
 			responseType: 'json',
 			onsuccess: function(e) {
 				console.log(e)
-				$sys.version = e.target.response.version;
+				$sys.version = e.target.response.version.toString() || $sys.version;
 			}
 		});
 	} else {
@@ -1202,7 +1202,7 @@
 			responseType: 'json',
 			onsuccess: function(e) {
 				console.log(e)
-				$sys.version = e.target.response.version;
+				$sys.version = e.target.response.version.toString() || $sys.version;
 			}
 		});
 	}

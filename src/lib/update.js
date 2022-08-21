@@ -16,7 +16,9 @@ export const checkVersion = options => {
 	if (typeof options?.clear === 'undefined') {
 		currentVersion = window?.$sys?.version || 0
 
-		console.log(currentVersion)
+		if (currentVersion instanceof XMLHttpRequest) {
+			currentVersion = currentVersion?.response?.version?.toString()
+		}
 
 		if (typeof options?.callback === 'function') {
 			// noinspection JSUnresolvedVariable
