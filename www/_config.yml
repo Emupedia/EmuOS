@@ -1,2 +1,2 @@
-include: [emuos/**]
+exclude: [emuos/**]
 keep_files: [emuos/**]
