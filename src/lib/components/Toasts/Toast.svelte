@@ -9,8 +9,6 @@
 	// noinspection JSUnusedAssignment
 	const progress = tweened(item.initial, { duration: item.duration, easing: linear })
 
-	const close = () => toast.close(item.id)
-
 	const click = () => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclick === 'function') {
@@ -20,6 +18,8 @@
 			close()
 		}
 	}
+
+	const close = () => toast.close(item.id)
 
 	const autoclose = () => {
 		if ($progress === 1 || $progress === 0) {
@@ -65,11 +65,6 @@
 		return props
 	}
 
-	// `progress` has been renamed to `next`; shim included for backward compatibility, to remove in next major
-	$: if (typeof item.progress !== 'undefined') {
-		item.next = item.progress
-	}
-
 	onDestroy(() => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclose === 'function') {
@@ -80,7 +75,7 @@
 </script>
 
 <div class="toast" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
-	<div role="status" class="toast-message" class:pe={item.component} on:click={click}>
+	<div role="status" class="toast-message" class:pe={item.component || typeof item.onclick === 'function'} on:click={click}>
 		{#if item.component}
 			<svelte:component this={item.component.src} {...getProps()} />
 		{:else}
