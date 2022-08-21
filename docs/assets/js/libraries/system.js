@@ -1195,21 +1195,29 @@
 
 	if (global.location.hostname === 'localhost' || global.location.hostname === '127.0.0.1') {
 		$sys.api.dumpsystem();
-		result = $sys.api.fetch({
+		$sys.api.fetch({
 			url: 'https://emuos.emupedia.net/emuos/version.json',
-			responseType: 'json'
+			responseType: 'json',
+			onsuccess: function(e) {
+				result = e.target;
+				console.log(result)
+				$sys.version = result.response.version + '';
+				console.log($sys.version);
+			}
 		});
-		console.log(result)
-	} else {
-		result = $sys.api.fetch({
-			url: '/emuos/version.json',
-			responseType: 'json'
-		});
-		console.log(result)
-	}
 
-	$sys.version = result.response.version + '';
-	console.log($sys.version);
+	} else {
+		$sys.api.fetch({
+			url: '/emuos/version.json',
+			responseType: 'json',
+			onsuccess: function(e) {
+				result = e.target;
+				console.log(result)
+				$sys.version = result.response.version + '';
+				console.log($sys.version);
+			}
+		});
+	}
 
 	var sysinit = $sys.api.get('#system');
 
