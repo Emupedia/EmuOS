@@ -58,6 +58,4 @@ export const checkVersion = options => {
 			}
 		}, options?.interval || VERSION_CHECK_DELAY)
 	}
-
-	return { currentVersion, checkedVersion }
 }

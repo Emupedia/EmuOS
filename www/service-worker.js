@@ -1,13 +1,5 @@
 const p = [
-  "/emuos/immutable/start-d1c510c8.js",
-  "/emuos/immutable/pages/__layout.svelte-511d2d8a.js",
-  "/emuos/immutable/assets/__layout-6bd2fcff.css",
-  "/emuos/immutable/pages/__error.svelte-371e0d69.js",
-  "/emuos/immutable/pages/index.svelte-04b0c481.js",
-  "/emuos/immutable/assets/index-877ab3e2.css",
-  "/emuos/immutable/pages/test.svelte-d77e58e8.js",
-  "/emuos/immutable/chunks/index-d6c24cf2.js",
-  "/emuos/immutable/chunks/index-5ed61ab4.js"
+
 ], l = [
   "/.nojekyll",
   "/404error.html",
@@ -226,9 +218,8 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/indexold.html",
-  "/manifest.webmanifest",
-  "/service-worker.js"
-], i = "1661110730324", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
+  "/manifest.webmanifest"
+], i = "1661109648659", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {
