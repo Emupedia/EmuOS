@@ -7,7 +7,8 @@
 	url(../fonts/emuos.woff2) format('woff2'),
 	url(../fonts/emuos.woff) format('woff'),
 	url(../fonts/emuos.ttf) format('truetype'),
-	url(../fonts/emuos.svg#emuos) format('svg');
+	url(../fonts/emuos.svg#emuos) format('svg'),
+	local('Microsoft Sans Serif');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -20,7 +21,8 @@
 	url(../fonts/emuos-pixelated.woff2) format('woff2'),
 	url(../fonts/emuos-pixelated.woff) format('woff'),
 	url(../fonts/emuos-pixelated.ttf) format('truetype'),
-	url(../fonts/emuos-pixelated.svg#emuos) format('svg');
+	url(../fonts/emuos-pixelated.svg#emuos) format('svg'),
+	local('Microsoft Sans Serif');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -33,7 +35,8 @@
 	url(../fonts/emuos-pixelated-bold.woff2) format('woff2'),
 	url(../fonts/emuos-pixelated-bold.woff) format('woff'),
 	url(../fonts/emuos-pixelated-bold.ttf) format('truetype'),
-	url(../fonts/emuos-pixelated-bold.svg#emuos) format('svg');
+	url(../fonts/emuos-pixelated-bold.svg#emuos) format('svg'),
+	local('Microsoft Sans Serif');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -83,12 +86,13 @@
 
 @font-face {
 	font-family: 'FIXEDSYS';
-	src: url(../fixedsys.eot);
-	src: url(../fixedsys.eot?#iefix) format('embedded-opentype'),
-	url(../fixedsys.woff2) format('woff2'),
-	url(../fixedsys.woff) format('woff'),
-	url(../fixedsys.ttf) format('truetype'),
-	url(../fixedsys.svg#fixedsys) format('svg');
+	src: url(../fonts/fixedsys.eot);
+	src: url(../fonts/fixedsys.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/fixedsys.woff2) format('woff2'),
+	url(../fonts/fixedsys.woff) format('woff'),
+	url(../fonts/fixedsys.ttf) format('truetype'),
+	url(../fonts/fixedsys.svg#fixedsys) format('svg'),
+	local('FIXEDSYS');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;

@@ -1,17 +1,17 @@
 const p = [
-  "/emuos/immutable/start-f83fdd22.js",
-  "/emuos/immutable/pages/layout.svelte-511d2d8a.js",
-  "/emuos/immutable/assets/layout-8a5c975e.css",
-  "/emuos/immutable/pages/error.svelte-371e0d69.js",
-  "/emuos/immutable/pages/index.svelte-9db24b4f.js",
-  "/emuos/immutable/assets/index-eccbe5bb.css",
+  "/emuos/immutable/start-7e56b1c1.js",
+  "/emuos/immutable/pages/__layout.svelte-511d2d8a.js",
+  "/emuos/immutable/assets/__layout-dccd0d2b.css",
+  "/emuos/immutable/pages/__error.svelte-371e0d69.js",
+  "/emuos/immutable/pages/index.svelte-338dc0e1.js",
+  "/emuos/immutable/assets/index-beff9e39.css",
   "/emuos/immutable/pages/test.svelte-d77e58e8.js",
   "/emuos/immutable/chunks/index-d6c24cf2.js",
   "/emuos/immutable/chunks/index-5ed61ab4.js"
 ], l = [
+  "/.nojekyll",
   "/404error.html",
   "/CNAME",
-  "/_config.yml",
   "/apple-touch-icon.png",
   "/assets/css/fonts.css",
   "/assets/css/libraries/bootstrap-4.5.0.css",
@@ -86,6 +86,11 @@ const p = [
   "/assets/fonts/emuos.ttf",
   "/assets/fonts/emuos.woff",
   "/assets/fonts/emuos.woff2",
+  "/assets/fonts/fixedsys.eot",
+  "/assets/fonts/fixedsys.svg",
+  "/assets/fonts/fixedsys.ttf",
+  "/assets/fonts/fixedsys.woff",
+  "/assets/fonts/fixedsys.woff2",
   "/assets/fonts/ms-bold.woff2",
   "/assets/fonts/ms.woff2",
   "/assets/fonts/px_sans_nouveaux.eot",
@@ -222,7 +227,7 @@ const p = [
   "/icons.html",
   "/indexold.html",
   "/manifest.webmanifest"
-], i = "1661091848068", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
+], i = "1661105715380", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
 self.addEventListener("install", (s) => {
   s.waitUntil(
     caches.open(r).then((e) => e.addAll(m)).then(() => {

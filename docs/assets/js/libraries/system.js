@@ -21,11 +21,7 @@
 		feature: {},
 		lib: global.$sys ? global.$sys.lib || {} : {},
 		info: {},
-		apps: {
-			emuchat: {
-				channels: []
-			}
-		}
+		version: 0
 	};
 
 	// region Platform
@@ -1039,7 +1035,7 @@
 
 	// noinspection DuplicatedCode
 	$sys.api.fetch = function(opts, onsuccess, onerror, onprogress) {
-		opts = typeof opts === 'string' ? {url: opts} : opts;
+		opts = typeof opts === 'string' ? { url: opts } : opts;
 
 		// noinspection ES6ConvertVarToLetConst
 		var data = opts.data;
@@ -1088,9 +1084,11 @@
 			// noinspection JSValidateTypes
 			xhr.withCredentials = 'true';
 		}
+
 		if (onerror && 'onerror' in xhr) {
 			xhr.onerror = onerror;
 		}
+
 		if (onprogress && xhr.upload && 'onprogress' in xhr.upload) {
 			if (data) {
 				xhr.upload.onprogress = function(e) {
@@ -1137,21 +1135,24 @@
 						if (format === 'xml') {
 							// noinspection JSUnresolvedVariable
 							res = e.target.responseXML;
-						} else if (format === 'text') {
+						} else if (format === 'text' && responseType === 'text') {
 							// noinspection JSUnresolvedVariable
 							res = e.target.responseText;
-						} else if (format === 'json') {
+						} else if (format === 'json' && responseType === 'text') {
 							try {
 								// noinspection JSUnresolvedVariable
 								res = JSON.parse(e.target.response);
 							} catch(err) {
-								onerror && onerror.call(xhr, e);
+								onerror && onerror(e);
 							}
+						} else if (responseType === 'json') {
+							res = e.target.response
 						}
-						onsuccess.call(xhr, e, res);
+
+						onsuccess(e, res);
 					}
 				} else {
-					onerror && onerror.call(xhr, e);
+					onerror && onerror(e);
 				}
 			}
 		};
@@ -1207,6 +1208,21 @@
 
 	if (global.location.hostname === 'localhost' || global.location.hostname === '127.0.0.1') {
 		$sys.api.dumpsystem();
+		$sys.api.fetch({
+			url: 'https://emuos.emupedia.net/emuos/version.json',
+			responseType: 'json',
+			onsuccess: function(e, res) {
+				$sys.version = res.version;
+			}
+		});
+	} else {
+		$sys.version = $sys.api.fetch({
+			url: '/emuos/version.json',
+			responseType: 'json',
+			onsuccess: function(e, res) {
+				$sys.version = res.version;
+			}
+		});
 	}
 
 	var sysinit = $sys.api.get('#system');

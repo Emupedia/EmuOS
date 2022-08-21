@@ -79,7 +79,7 @@
 	</div>
 
 	{#if item.dismissable}
-		<button class="toast-button pe" role="button" type="button" tabindex="-1" on:click={close}>{@html item.close}</button>
+		<button class="toast-button pe" type="button" tabindex="-1" on:click={close}>{@html item.close}</button>
 	{/if}
 
 	<!--suppress CheckEmptyScriptTag -->
