@@ -1,9 +1,3 @@
-exclude:
-  - emuos/**
-  - emuos/**/
-  - emuos/**/_*
-  - emuos/immutable/assets/**/*_
-  - emuos/immutable/pages/**/*_
-keep_files:
+include:
   - emuos/immutable/assets/**/*_
   - emuos/immutable/pages/**/*_
