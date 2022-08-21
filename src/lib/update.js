@@ -1,7 +1,5 @@
-// noinspection JSFileReferences
-
 import { onDestroy } from 'svelte'
-import { getUpdates } from '$lib/api.js'
+import { getUpdates } from '$lib/api'
 
 let version_check_interval
 

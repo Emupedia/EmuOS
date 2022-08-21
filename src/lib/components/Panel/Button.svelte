@@ -10,6 +10,7 @@
 	export let title = false
 	export let icon = false
 	export let type = ''
+	export let onClick = () => {}
 
 	let cls = false
 	let style = false
@@ -48,7 +49,7 @@
 	}
 </script>
 
-<button class={cls} class:icon={type === 'icon'} {style} type="button" {title} {...$$restProps}><slot /></button>
+<button class={cls} class:icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
 
 <style lang="scss">
 	button {

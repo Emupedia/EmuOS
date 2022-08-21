@@ -1,11 +1,17 @@
 <script>
 	import { Desktop } from '$lib/components/Desktop'
 	import { Icons, Icon } from '$lib/components/Icons'
+	import { Button } from '$lib/components/Panel'
 	import { TaskBar } from '$lib/components/TaskBar'
 	import { Windows, Window } from '$lib/components/Windows'
 	import { ContextMenu, ContextMenuItem, ContextMenuSeparator } from '$lib/components/ContextMenu'
+	import { Toasts, toast } from '$lib/components/Toasts'
 
 	const onRefresh = () => location.reload()
+
+	const onClick = () => {
+		toast.push({ msg: 'New update available, click here to reload', initial: 0 })
+	}
 </script>
 
 <Desktop>
@@ -20,8 +26,10 @@
 
 	<Windows>
 		<Window x="150" y="150" width="170" height="100" title="Notepad" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
-		<Window x="250" y="250" width="170" height="100" title="Notepad2" status="Idle" ><br />Some more content<br />is<br />here<br /><br /><br /><br /></Window>
+		<Window x="250" y="250" width="170" height="100" title="Notepad2" status="Idle" ><Button onClick={onClick}>EMIT TOAST</Button></Window>
 	</Windows>
+
+	<Toasts options={{}} />
 
 	<ContextMenu>
 		<ContextMenuItem>Arrange Icons</ContextMenuItem>

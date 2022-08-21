@@ -109,3 +109,13 @@ export function getOffset(el) {
 
 	return { left: position.left + window.scrollX, top: position.top + window.scrollY }
 }
+
+export function addUnits(val) {
+	val = val.toString()
+
+	if (!val.endsWith('cm') && !val.endsWith('mm') && !val.endsWith('Q') && !val.endsWith('in') && !val.endsWith('pc') && !val.endsWith('pt') && !val.endsWith('px') && !val.endsWith('em') && !val.endsWith('ex') && !val.endsWith('ch') && !val.endsWith('rem') && !val.endsWith('lh') && !val.endsWith('rlh') && !val.endsWith('vw') && !val.endsWith('vh') && !val.endsWith('vmin') && !val.endsWith('vmax') && !val.endsWith('vb') && !val.endsWith('vi') && !val.endsWith('svw') && !val.endsWith('svh') && !val.endsWith('lvw') && !val.endsWith('lvh')	&& !val.endsWith('dvw') && !val.endsWith('dvh')) {
+		val += 'px'
+	}
+
+	return val
+}

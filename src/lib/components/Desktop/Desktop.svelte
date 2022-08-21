@@ -18,7 +18,7 @@
 
 	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
 
-	version = window?.$sys?.version && window.$sys.version !== '{{ site.github.build_revision }}' && window.$sys.version !== '' && window.$sys.version !== null ? window.$sys.version : version
+	// version = window?.$sys?.version && window.$sys.version !== '{{ site.github.build_revision }}' && window?.$sys?.version !== '' && window?.$sys?.version !== null ? window?.$sys?.version : version
 
 	checkUpdates()
 

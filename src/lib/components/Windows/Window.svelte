@@ -1,4 +1,6 @@
 <script>
+	import { addUnits } from '$lib/dom'
+
 	import Panel from '$lib/components/Panel/Panel.svelte'
 	// import ResizeHandles from '$lib/components/Windows/ResizeHandles.svelte'
 	import TitleBar from '$lib/components/Windows/TitleBar.svelte'
@@ -11,6 +13,11 @@
 	export let y = 0
 	export let width = minWidth
 	export let height = minHeight
+
+	x = addUnits(x)
+	y = addUnits(y)
+	width = addUnits(width)
+	height = addUnits(height)
 
 	export let title = 'Untitled Window'
 	export let status = 'No Status'
@@ -26,7 +33,7 @@
 	let statusContent = status
 </script>
 
-<section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}px; --y: {y}px; --width: {width}px; --height: {height}px; --min-width: {minWidth}px; --min-height: {minHeight}px;" {...$$restProps}>
+<section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};" {...$$restProps}>
 	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
 	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}"><slot>{content}</slot></Panel>
 	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
