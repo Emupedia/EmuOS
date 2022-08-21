@@ -1,6 +1,7 @@
 import { getUpdates } from '$lib/api'
 
 const VERSION_CHECK_DELAY = 15 * 60 * 1000
+const debug = false
 
 let currentVersion = 0
 let checkedVersion = 0
@@ -17,7 +18,9 @@ export const checkUpdates = options => {
 			let updates = await getUpdates().catch(error => console.error(error))
 			let updates_data = await updates?.json().catch(error => console.error(error))
 
-			console.info(`Checking for new updates`)
+			if (debug) {
+				console.info(`Checking for new updates`)
+			}
 
 			// noinspection JSUnresolvedVariable
 			if (typeof updates_data?.sha !== 'undefined') {
@@ -29,13 +32,16 @@ export const checkUpdates = options => {
 						checkedVersion = updates_data?.sha || 0
 						// noinspection JSUnresolvedVariable
 						if (updates_data?.sha !== currentVersion) {
-							// noinspection JSUnresolvedVariable
-							console.info(`New update available build ${updates_data?.sha}`)
+							if (debug) {
+								// noinspection JSUnresolvedVariable
+								console.info(`New update available build ${updates_data?.sha}`)
+							}
 
 							if (typeof options?.callback === 'function') {
-								options?.callback()
+								// noinspection JSUnresolvedVariable
+								options?.callback(updates_data?.sha)
 							}
-						} else {
+						} else if (debug) {
 							console.info('No new updates')
 						}
 					}

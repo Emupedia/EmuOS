@@ -18,14 +18,9 @@
 	let element
 	let build
 
-	$: {
-		build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
-		dispatch('updated')
-	}
+	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version.toString().slice(0, 5)}`
 
-	onMount(() => {
-		version = checkUpdates()?.currentVersion || version
-	})
+	onMount(() => { version = checkUpdates({callback: () => { dispatch('updated') }})?.currentVersion || version })
 
 	onDestroy(() => checkUpdates({clear: true}))
 
