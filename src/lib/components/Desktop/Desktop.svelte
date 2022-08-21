@@ -24,6 +24,10 @@
 	onMount(() => {
 		checkVersion({
 			callback: ({ currentVersion, checkedVersion }) => {
+				console.log(version)
+				console.log(currentVersion)
+				console.log(checkedVersion)
+
 				version = currentVersion || version
 
 				if (currentVersion !== checkedVersion) {

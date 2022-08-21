@@ -16,7 +16,9 @@ export const checkVersion = options => {
 	if (typeof options?.clear === 'undefined') {
 		currentVersion = window?.$sys?.version || 0
 
-		if (currentVersion && typeof options?.callback === 'function') {
+		console.log(currentVersion)
+
+		if (typeof options?.callback === 'function') {
 			// noinspection JSUnresolvedVariable
 			options?.callback({ currentVersion, checkedVersion: currentVersion })
 		}
