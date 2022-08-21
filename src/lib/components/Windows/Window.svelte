@@ -12,6 +12,7 @@
 	export let minHeight = 27
 	export let width = minWidth
 	export let height = minHeight
+	export let padding = 1
 
 	export let title = 'Untitled Window'
 	export let status = 'No Status'
@@ -30,13 +31,14 @@
 	height = addUnits(height)
 	minWidth = addUnits(minWidth)
 	minHeight = addUnits(minHeight)
+	padding = addUnits(padding)
 
 	let statusContent = status
 </script>
 
-<section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};" {...$$restProps}>
+<section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};"  {...$$restProps}>
 	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
-	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}"><slot>{content}</slot></Panel>
+	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}" {padding}><slot>{content}</slot></Panel>
 	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
 	<!--<ResizeHandles class="resize-handles {debug ? 'debug' : ''}" />-->
 </section>

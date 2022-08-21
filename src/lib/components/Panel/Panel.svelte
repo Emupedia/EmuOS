@@ -1,9 +1,14 @@
 <script>
+	import { addUnits } from '$lib/dom'
+
+	export let padding = 1
 	export let debug = false
+
+	padding = addUnits(padding)
 </script>
 
 <article class="panel {$$props.class || ''}" class:debug {...$$restProps}>
-	<section class="content"><slot>Panel</slot></section>
+	<section class="content" style="--padding: {padding}"><slot>Panel</slot></section>
 </article>
 
 <style lang="scss">
@@ -31,7 +36,7 @@
 					border-top-color: #7b7b7b;
 					border-left-color: #7b7b7b;
 
-					padding: 1px;
+					padding: var(--padding);
 
 					overflow: auto;
 				}

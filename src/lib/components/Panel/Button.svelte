@@ -53,8 +53,8 @@
 
 <style lang="scss">
 	button {
-		width: 16px;
-		height: 14px;
+		//width: 16px;
+		//height: 14px;
 
 		background-color: var(--color-background-panel);
 		background-image: var(--icon);
@@ -62,7 +62,7 @@
 		background-repeat: no-repeat;
 		background-size: 13px 11px;
 
-		//padding: 1px;
+		padding: 6px 6px;
 		border: none;
 
 		user-select: none;
@@ -84,6 +84,9 @@
 		}
 
 		&.icon {
+			width: 16px;
+			height: 14px;
+			padding: 0;
 			text-indent: -99999px;
 		}
 
