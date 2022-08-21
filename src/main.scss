@@ -38,6 +38,7 @@
 	--toastBoxShadow: inset -1px -1px 0 #000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
 	--toastBorder: none;
 	--toastBorderRadius: 0;
+	--toastGap: 5px;
 
 	--toastMessagePadding: 10px;
 
@@ -48,13 +49,15 @@
 	--toastButtonBoxShadow: inset -1px -1px 0 #000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
 	--toastButtonBorder: none;
 	--toastButtonBorderRadius: 0;
+	--toastButtonMargin: 6px;
+	--toastButtonPadding: 0;
 
-	--toastProgressTop: auto;
+	--toastProgressTop: 2px;
 	--toastProgressRight: auto;
-	--toastProgressBottom: 0;
-	--toastProgressLeft: 0;
+	--toastProgressBottom: auto;
+	--toastProgressLeft: 2px;
 	--toastProgressHeight: 6px;
-	--toastProgressWidth: 100%;
+	--toastProgressWidth: calc(100% - 4px);
 	--toastProgressBackground: var(--color-blue);
 }
 

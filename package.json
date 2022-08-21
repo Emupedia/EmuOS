@@ -9,7 +9,7 @@
 	},
 	"license": "UNLICENSED",
 	"private": true,
-	"description": "Simulated Operating System used as frontend for Emupedia projects.",
+	"description": "EmuOS (Emulated Operating System) is used as a Frontend for Emupedia projects.",
 	"homepage": "https://emuos.emupedia.net",
 	"bugs": {
 		"url": "https://github.com/Emupedia/emuos/issues"

@@ -2,7 +2,7 @@ import { getVersion } from '$lib/api'
 
 // noinspection PointlessArithmeticExpressionJS
 const VERSION_CHECK_DELAY = 1 * 60 * 1000
-const debug = true
+const DEBUG = false
 
 let currentVersion = 0
 let checkedVersion = 0
@@ -20,7 +20,7 @@ export const checkVersion = options => {
 			let version = await getVersion().catch(error => console.error(error))
 			let version_data = await version?.json().catch(error => console.error(error))
 
-			if (debug) {
+			if (DEBUG) {
 				console.info(`Checking for new updates`)
 			}
 
@@ -33,7 +33,7 @@ export const checkVersion = options => {
 						// noinspection JSUnresolvedVariable
 						checkedVersion = version_data?.version || 0
 
-						if (debug) {
+						if (DEBUG) {
 							// noinspection JSUnresolvedVariable
 							console.info(`Current version ${currentVersion}`)
 							console.info(`Checked version ${checkedVersion}`)
@@ -41,7 +41,7 @@ export const checkVersion = options => {
 
 						// noinspection JSUnresolvedVariable
 						if (checkedVersion !== currentVersion) {
-							if (debug) {
+							if (DEBUG) {
 								// noinspection JSUnresolvedVariable
 								console.info(`New update available build ${checkedVersion}`)
 							}
@@ -50,7 +50,7 @@ export const checkVersion = options => {
 								// noinspection JSUnresolvedVariable
 								options?.callback({ currentVersion, checkedVersion })
 							}
-						} else if (debug) {
+						} else if (DEBUG) {
 							console.info('No new updates')
 						}
 					}

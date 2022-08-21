@@ -18,7 +18,7 @@
 	let element
 	let build
 
-	$: build = `Emupedia EmuOS\u000D\u000ABuild ${version}`
+	$: build = `EmuOS v2.0 Alpha\u000D\u000ABuild ${version} ${new Date(parseInt(version)).toLocaleString()}`
 
 	onMount(() => { version = checkVersion({callback: () => { dispatch('updated') }})?.currentVersion || version })
 

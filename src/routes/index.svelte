@@ -10,9 +10,9 @@
 
 	const onRefresh = () => location.reload()
 
-	const onUpdated = () => toast.push({ msg: 'New update available, click here to reload', initial: 0 })
+	const onUpdated = () => toast.open({ msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 
-	const onClick = () => toast.push({ msg: 'This is a toast!', initial: 0, pausable: true })
+	const onClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
 </script>
 
 <Desktop on:updated={onUpdated}>

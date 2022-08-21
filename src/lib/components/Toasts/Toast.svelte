@@ -9,7 +9,17 @@
 	// noinspection JSUnusedAssignment
 	const progress = tweened(item.initial, { duration: item.duration, easing: linear })
 
-	const close = () => toast.pop(item.id)
+	const close = () => toast.close(item.id)
+
+	const click = () => {
+		// noinspection JSUnresolvedVariable
+		if (typeof item.onclick === 'function') {
+			// noinspection JSUnresolvedFunction
+			item.onclick(item.id)
+		} else {
+			close()
+		}
+	}
 
 	const autoclose = () => {
 		if ($progress === 1 || $progress === 0) {
@@ -62,15 +72,15 @@
 
 	onDestroy(() => {
 		// noinspection JSUnresolvedVariable
-		if (typeof item.onpop === 'function') {
+		if (typeof item.onclose === 'function') {
 			// noinspection JSUnresolvedFunction
-			item.onpop(item.id)
+			item.onclose(item.id)
 		}
 	})
 </script>
 
 <div class="toast" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
-	<div role="status" class="toast-message" class:pe={item.component}>
+	<div role="status" class="toast-message" class:pe={item.component} on:click={click}>
 		{#if item.component}
 			<svelte:component this={item.component.src} {...getProps()} />
 		{:else}
@@ -100,6 +110,7 @@
 		border-radius: var(--toastBorderRadius, 0.125rem);
 		position: relative;
 		display: flex;
+		gap: var(--toastGap, 0);
 		flex-direction: row;
 		align-items: center;
 		overflow: hidden;
@@ -110,6 +121,7 @@
 	.toast-message {
 		padding: var(--toastMessagePadding, 0.75rem 0.5rem);
 		flex: 1 1 0;
+		cursor: pointer;
 	}
 
 	.pe, .toast-message :global(a) {
@@ -130,6 +142,8 @@
 		box-shadow: var(--toastButtonBoxShadow, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
 		border: var(--toastButtonBorder, none);
 		border-radius: var(--toastButtonBorderRadius, 0);
+		margin: var(--toastButtonMargin, 0);
+		padding: var(--toastButtonPadding, 0);
 	}
 
 	.toast-progress {

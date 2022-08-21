@@ -28,7 +28,7 @@ export const toast = (() => {
 
 	const _obj = obj => obj instanceof Object
 
-	const push = (msg, opts = {}) => {
+	const open = (msg, opts = {}) => {
 		const param = { target: 'default', ...(_obj(msg) ? msg : { ...opts, msg }) }
 
 		const conf = options[param.target] || {}
@@ -47,13 +47,13 @@ export const toast = (() => {
 		return count
 	}
 
-	const pop = id => {
+	const close = id => {
 		update((n) => {
 			if (!n.length || id === 0) return []
 
-			if (_obj(id)) return n.filter((i) => id(i))
+			if (_obj(id)) return n.filter(i => id(i))
 
-			const target = id || Math.max(...n.map((i) => i.id))
+			const target = id || Math.max(...n.map(i => i.id))
 
 			return n.filter(i => i.id !== target)
 		})
@@ -79,5 +79,5 @@ export const toast = (() => {
 		return options
 	}
 
-	return { subscribe, push, pop, set, _init }
+	return { subscribe, open, close, set, _init }
 })()
