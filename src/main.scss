@@ -52,6 +52,14 @@
 	--toastButtonMargin: 10px;
 	--toastButtonPadding: 0;
 
+	--toastButtonBackgroundActive: var(--color-background-panel);
+	--toastButtonColorActive: var(--color-black);
+	--toastButtonBoxShadowActive: inset -1px -1px 0 #fff, inset 1px 1px 0 #000, inset -2px -2px 0 #dfdfdf, inset 2px 2px 0 #808080;
+	--toastButtonBorderActive: none;
+	--toastButtonBorderRadiusActive: 0;
+	--toastButtonMarginActive: 10px;
+	--toastButtonPaddingActive: 0;
+
 	--toastProgressTop: 2px;
 	--toastProgressRight: auto;
 	--toastProgressBottom: auto;

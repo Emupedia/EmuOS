@@ -29,9 +29,11 @@
 
 	export let version = 0
 
+	let closeIcon = btoa(Close)
+
 	const onRefresh = () => location.reload()
 
-	const onUpdated = () => toast.open({ msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
+	const onUpdated = () => toast.open({ id: 1, msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 
 	const onClick = () => toast.open({ msg: 'This is a toast!', initial: 0, pausable: true })
 </script>
@@ -51,7 +53,7 @@
 		<Window x="140" y="200" width="170" height="100" padding="6" title="Notepad2" status="Idle" ><Button onClick={onClick}>Show Toast</Button></Window>
 	</Windows>
 
-	<Toasts options={{ close: '', theme: { '--toastButtonBackground': `var(--color-background-panel) url('data:image/svg+xml;base64,${btoa(Close)}') 0.75px 1px / 13px 11px no-repeat` } }} />
+	<Toasts options={{ close: '', theme: { '--toastButtonBackground': `var(--color-background-panel) url('data:image/svg+xml;base64,${closeIcon}') 0.75px 1px / 13px 11px no-repeat`, '--toastButtonBackgroundActive': `var(--color-background-panel) url('data:image/svg+xml;base64,${closeIcon}') 0.75px 1px / 13px 11px no-repeat` } }} />
 
 	<ContextMenu>
 		<ContextMenuItem>Arrange Icons</ContextMenuItem>

@@ -1,3 +1,4 @@
+<!--suppress JSUnusedAssignment -->
 <script>
 	import { onDestroy } from 'svelte'
 	import { tweened } from 'svelte/motion'
@@ -6,7 +7,6 @@
 
 	export let item
 
-	// noinspection JSUnusedAssignment
 	const progress = tweened(item.initial, { duration: item.duration, easing: linear })
 
 	const click = () => {
@@ -27,7 +27,6 @@
 		}
 	}
 
-	// noinspection JSUnusedAssignment
 	let next = item.initial
 	let prev = next
 	let paused = false
@@ -139,6 +138,16 @@
 		border-radius: var(--toastButtonBorderRadius, 0);
 		margin: var(--toastButtonMargin, 0);
 		padding: var(--toastButtonPadding, 0);
+
+		&:active {
+			background: var(--toastButtonBackgroundActive, rgba(66, 66, 66, 0.9));
+			color: var(--toastButtonColorActive, #fff);
+			box-shadow: var(--toastButtonBoxShadowActive, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
+			border: var(--toastButtonBorderActive, none);
+			border-radius: var(--toastButtonBorderRadiusActive, 0);
+			margin: var(--toastButtonMarginActive, 0);
+			padding: var(--toastButtonPaddingActive, 0);
+		}
 	}
 
 	.toast-progress {
@@ -156,17 +165,18 @@
 		border: none;
 		background: transparent;
 		pointer-events: none;
+
+		&::-webkit-progress-bar {
+			background: transparent;
+		}
+
+		&::-webkit-progress-value {
+			background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
+		}
+
+		&::-moz-progress-bar {
+			background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
+		}
 	}
 
-	.toast-progress::-webkit-progress-bar {
-		background: transparent;
-	}
-
-	.toast-progress::-webkit-progress-value {
-		background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
-	}
-
-	.toast-progress::-moz-progress-bar {
-		background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
-	}
 </style>

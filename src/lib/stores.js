@@ -38,16 +38,24 @@ export const toast = (() => {
 			...param,
 			theme: { ...conf.theme, ...param.theme },
 			classes: [...(conf.classes || []), ...(param.classes || [])],
-			id: ++count
+			id: param.id || ++count
 		}
 
-		update(n => (entry.reversed ? [...n, entry] : [entry, ...n]))
+		update(n => {
+			const idx = n.findIndex(i => i.id === param.id)
+
+			if (idx === -1) {
+				return entry.reversed ? [...n, entry] : [entry, ...n]
+			}
+
+			return n
+		})
 
 		return count
 	}
 
 	const close = id => {
-		update((n) => {
+		update(n => {
 			if (!n.length || id === 0) return []
 
 			if (id instanceof Object) return n.filter(i => id(i))
@@ -61,7 +69,7 @@ export const toast = (() => {
 	const set = (id, opts = {}) => {
 		const param = id instanceof Object ? { ...id } : { ...opts, id }
 
-		update((n) => {
+		update(n => {
 			const idx = n.findIndex(i => i.id === param.id)
 
 			if (idx > -1) {
