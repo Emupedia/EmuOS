@@ -178,5 +178,4 @@
 			background:  var(--toastProgressBackground, rgba(33, 150, 243, 0.75));
 		}
 	}
-
 </style>
