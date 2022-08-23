@@ -1,9 +1,9 @@
 const p = [
-  "/emuos/immutable/start-c06d7a54.js",
+  "/emuos/immutable/start-257536f2.js",
   "/emuos/immutable/pages/__layout.svelte-1496ce17.js",
   "/emuos/immutable/assets/__layout-7b4c4813.css",
   "/emuos/immutable/pages/__error.svelte-da1f0c2d.js",
-  "/emuos/immutable/pages/index.svelte-0c248142.js",
+  "/emuos/immutable/pages/index.svelte-eef22940.js",
   "/emuos/immutable/assets/index-75b04a90.css",
   "/emuos/immutable/pages/test.svelte-a1181730.js",
   "/emuos/immutable/chunks/index-dbbb060d.js",
@@ -223,7 +223,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661247416845", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
+], i = "1661247636608", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(

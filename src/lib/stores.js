@@ -46,6 +46,8 @@ export const toast = (() => {
 
 			if (idx === -1) {
 				return entry.reversed ? [...n, entry] : [entry, ...n]
+			} else if (idx > -1) {
+				n[idx] = { ...n[idx], ...entry }
 			}
 
 			return n
