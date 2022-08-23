@@ -8,7 +8,7 @@
 	export let options = {}
 	export let target = 'default'
 
-	$: toast._init(target, options)
+	$: toast.init(target, options)
 
 	let items
 

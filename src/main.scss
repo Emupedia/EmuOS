@@ -26,7 +26,7 @@
 	--toastsRight: 10px;
 	--toastsBottom: auto;
 	--toastsLeft: auto;
-	--toastsZIndex: auto;
+	--toastsZIndex: 2;
 
 	--toastWidth: 256px;
 	--toastHeight: auto;
@@ -46,7 +46,7 @@
 	--toastButtonHeight: 14px;
 	--toastButtonBackground: var(--color-background-panel);
 	--toastButtonColor: var(--color-black);
-	--toastButtonBoxShadow: inset -1px -1px 0 #000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
+	--toastButtonBoxShadow: inset -1px -1px 0 #000, inset 1px 1px 0 #fff, inset -2px -2px 0 #808080, inset 2px 2px 0 #dfdfdf;
 	--toastButtonBorder: none;
 	--toastButtonBorderRadius: 0;
 	--toastButtonMargin: 10px;

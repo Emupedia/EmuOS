@@ -33,7 +33,7 @@
 
 	const onUpdated = () => toast.open({ msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 
-	const onClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
+	const onClick = () => toast.open({ msg: 'This is a toast!', initial: 0, pausable: true })
 </script>
 
 <Desktop {version} on:updated={onUpdated}>
@@ -47,11 +47,11 @@
 	</Icons>
 
 	<Windows>
-		<Window x="150" y="150" width="170" height="100" title="Notepad" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
-		<Window x="250" y="250" width="170" height="100" padding="6" title="Notepad2" status="Idle" ><Button onClick={onClick}>Show Toast</Button></Window>
+		<Window x="100" y="80" width="170" height="100" title="Notepad" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
+		<Window x="140" y="200" width="170" height="100" padding="6" title="Notepad2" status="Idle" ><Button onClick={onClick}>Show Toast</Button></Window>
 	</Windows>
 
-	<Toasts options={{close: Close}} />
+	<Toasts options={{ close: '', theme: { '--toastButtonBackground': `var(--color-background-panel) url('data:image/svg+xml;base64,${btoa(Close)}') 0.75px 1px / 13px 11px no-repeat` } }} />
 
 	<ContextMenu>
 		<ContextMenuItem>Arrange Icons</ContextMenuItem>
