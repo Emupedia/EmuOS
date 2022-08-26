@@ -1,4 +1,6 @@
 <script>
+	import { getGlobal } from '$lib/dom'
+
 	import Minimize from '$lib/assets/images/icons/win9x-window-button-minimize.svg?raw'
 	import Maximize from '$lib/assets/images/icons/win9x-window-button-maximize.svg?raw'
 	import Restore from '$lib/assets/images/icons/win9x-window-button-restore.svg?raw'
@@ -12,6 +14,8 @@
 	export let type = ''
 	export let onClick = () => {}
 
+	const global = getGlobal()
+
 	let cls = false
 	let style = false
 	let iconSVG = ''
@@ -21,26 +25,26 @@
 
 	switch (icon) {
 		case 'Minimize':
-			iconSVG = btoa(Minimize)
+			iconSVG = global.btoa(Minimize)
 			break;
 		case 'Maximize':
-			iconSVG = btoa(Maximize)
+			iconSVG = global.btoa(Maximize)
 			break;
 		case 'Restore':
-			iconSVG = btoa(Restore)
+			iconSVG = global.btoa(Restore)
 			break;
 		case 'Close':
-			iconSVG = btoa(Close)
+			iconSVG = global.btoa(Close)
 			break;
 		case 'Help':
-			iconSVG = btoa(Help)
+			iconSVG = global.btoa(Help)
 			break;
 		case 'Fullscreen':
-			iconSVG = btoa(Fullscreen)
+			iconSVG = global.btoa(Fullscreen)
 			break;
 		case 'NewTab':
 			cls = 'new-tab'
-			iconSVG = btoa(NewTab)
+			iconSVG = global.btoa(NewTab)
 			break;
 	}
 

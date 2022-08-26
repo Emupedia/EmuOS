@@ -1,9 +1,10 @@
 // noinspection NpmUsedModulesInstalled
 
 import { sveltekit } from '@sveltejs/kit/vite'
-import legacy from '@vitejs/plugin-legacy'
+// import legacy from '@vitejs/plugin-legacy'
 
 const isProd = process.env.NODE_ENV === 'production'
+const legacy = () => {}
 const useBabel = false
 const sourceMapsInProduction = false
 

@@ -2,7 +2,6 @@
 	import { get } from 'svelte/store'
 	import { db } from '$lib/stores'
 	import { getVersion } from '$lib/api'
-	import { getGlobal } from '$lib/dom'
 
 	// export const ssr = false
 	// export const router = true
@@ -26,6 +25,8 @@
 	import { Windows, Window } from '$lib/components/Windows'
 	import { ContextMenu, ContextMenuItem, ContextMenuSeparator } from '$lib/components/ContextMenu'
 	import { Toasts, toast } from '$lib/components/Toasts'
+	import { getGlobal } from '$lib/dom'
+
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
 
 	const global = getGlobal()
