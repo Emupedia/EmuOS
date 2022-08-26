@@ -1,4 +1,4 @@
-// noinspection NpmUsedModulesInstalled
+// noinspection NpmUsedModulesInstalled,JSUnusedGlobalSymbols
 
 import { sveltekit } from '@sveltejs/kit/vite'
 // import legacy from '@vitejs/plugin-legacy'
@@ -6,7 +6,7 @@ import { sveltekit } from '@sveltejs/kit/vite'
 const isProd = process.env.NODE_ENV === 'production'
 const legacy = () => {}
 const useBabel = false
-const sourceMapsInProduction = false
+const sourceMapsInProduction = true
 
 /** @type {import('vite').UserConfig} */
 const config = {
