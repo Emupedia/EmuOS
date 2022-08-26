@@ -2,6 +2,13 @@
 	import { browser } from '$app/env'
 	import '../main.scss'
 
+	export let data = {}
+	export let errors = {}
+
+	console.log('+layout.svelte')
+	console.log(data)
+	console.log(errors)
+
 	if (browser) {
 		console.log('%c                                 \n' +
 			'                                 \n' +

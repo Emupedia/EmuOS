@@ -25,25 +25,32 @@
 
 	switch (icon) {
 		case 'Minimize':
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(Minimize)
 			break;
 		case 'Maximize':
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(Maximize)
 			break;
 		case 'Restore':
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(Restore)
 			break;
 		case 'Close':
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(Close)
 			break;
 		case 'Help':
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(Help)
 			break;
 		case 'Fullscreen':
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(Fullscreen)
 			break;
 		case 'NewTab':
 			cls = 'new-tab'
+			// noinspection JSDeprecatedSymbols
 			iconSVG = global.btoa(NewTab)
 			break;
 	}

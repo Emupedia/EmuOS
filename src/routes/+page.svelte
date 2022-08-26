@@ -1,21 +1,4 @@
-<script context="module">
-	import { get } from 'svelte/store'
-	import { db } from '$lib/stores'
-	import { getVersion } from '$lib/api'
-
-	// export const ssr = false
-	// export const router = true
-	// export const hydrate = true
-	// export const prerender = true
-
-	export const load = async ({ fetch }) => {
-		let version = get(db)?.version || {}
-		let version_api = await getVersion(fetch).catch(error => console.error(error))
-		let version_data = await version_api?.json().catch(error => console.error(error))
-
-		return { props: { version: typeof version_data !== 'undefined' ? version_data?.version : version } }
-	}
-</script>
+<!--suppress JSUnusedAssignment -->
 
 <script>
 	import { Desktop } from '$lib/components/Desktop'
@@ -29,10 +12,19 @@
 
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
 
+	export let data = {}
+	export let errors = {}
+
+	console.log('+page.svelte')
+	console.log(data)
+	console.log(errors)
+
 	const global = getGlobal()
 
-	export let version = 0
+	let version = 0
+	$: ({ version = 0 } = data)
 
+	// noinspection JSDeprecatedSymbols
 	let closeIcon = global.btoa(Close)
 
 	const onRefresh = () => global.location.reload()
