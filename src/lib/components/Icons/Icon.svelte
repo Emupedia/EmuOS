@@ -37,10 +37,10 @@
 	<button type="button" {title}>
 		<figure>
 			<picture style="width: {width}px; height: {height}px">
-				<source media="(min-resolution: 2.01x), (-webkit-min-device-pixel-ratio: 2.01)" srcset="/assets/images/icons/overlay/shortcut.png 3x" type="image/webp">
-				<source media="(min-resolution: 1.01x), (-webkit-min-device-pixel-ratio: 1.01)" srcset="/assets/images/icons/overlay/shortcut.png 2x" type="image/webp">
-				<source srcset="/assets/images/icons/overlay/shortcut.png" type="image/png">
-				<img {width} {height} alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
+				<source media="(min-resolution: 2.01x), (-webkit-min-device-pixel-ratio: 2.01)" srcset="/assets/images/icons/default.png 3x" type="image/webp">
+				<source media="(min-resolution: 1.01x), (-webkit-min-device-pixel-ratio: 1.01)" srcset="/assets/images/icons/default.png 2x" type="image/webp">
+				<source srcset="/assets/images/icons/default.png" type="image/png">
+				<img {width} {height} alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/default.png" srcset="/assets/images/icons/default.png, /assets/images/icons/default.png 2x, /assets/images/icons/default.png 3x">
 			</picture>
 			{#if shortcut}
 				<picture style="width: {width}px; height: {height}px">
@@ -94,7 +94,7 @@
 
 					margin: 0 auto 4px;
 
-					background-color: #000;
+					//background-color: #000;
 
 					&:not(:first-of-type) {
 						position: absolute;

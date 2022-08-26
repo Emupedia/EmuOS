@@ -1,23 +1,23 @@
 const p = [
-  "/emuos/immutable/start-44e8aa96.js",
-  "/emuos/immutable/components/pages/_layout.svelte-c6b97caf.js",
+  "/emuos/immutable/start-dcd819cc.js",
+  "/emuos/immutable/components/pages/_layout.svelte-6b0930c0.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-285dffea.js",
-  "/emuos/immutable/components/pages/_page.svelte-bed3c67f.js",
-  "/emuos/immutable/assets/+page-abea580a.css",
-  "/emuos/immutable/components/pages/test/_page.svelte-0704d060.js",
+  "/emuos/immutable/components/pages/_error.svelte-ac92520c.js",
+  "/emuos/immutable/components/pages/_page.svelte-0a6f09bb.js",
+  "/emuos/immutable/assets/+page-8b7bea0a.css",
+  "/emuos/immutable/components/pages/test/_page.svelte-ab6eb307.js",
   "/emuos/immutable/modules/pages/_layout.js-e28fe54c.js",
-  "/emuos/immutable/modules/pages/_page.js-27d928c8.js",
-  "/emuos/immutable/chunks/singletons-8a970e50.js",
-  "/emuos/immutable/chunks/index-c43397dc.js",
-  "/emuos/immutable/chunks/index-47084bf0.js",
+  "/emuos/immutable/modules/pages/_page.js-e59b1afe.js",
+  "/emuos/immutable/chunks/singletons-d4a098e8.js",
+  "/emuos/immutable/chunks/index-4a5c5fd9.js",
+  "/emuos/immutable/chunks/index-d050104e.js",
   "/emuos/immutable/chunks/_layout-03b21987.js",
-  "/emuos/immutable/chunks/db-ed07c5fa.js",
-  "/emuos/immutable/chunks/_page-66f38c31.js",
-  "/emuos/immutable/chunks/0-cc99f27e.js",
-  "/emuos/immutable/chunks/1-5712c1c8.js",
-  "/emuos/immutable/chunks/2-a5756601.js",
-  "/emuos/immutable/chunks/3-2c4cba0d.js"
+  "/emuos/immutable/chunks/db-cfe3cfb3.js",
+  "/emuos/immutable/chunks/_page-20b866f1.js",
+  "/emuos/immutable/chunks/0-b33ba44e.js",
+  "/emuos/immutable/chunks/1-81d01c78.js",
+  "/emuos/immutable/chunks/2-40c065ad.js",
+  "/emuos/immutable/chunks/3-4802a4c7.js"
 ], l = [
   "/.nojekyll",
   "/apple-touch-icon.png",
@@ -113,6 +113,7 @@ const p = [
   "/assets/images/corner-resize.gif",
   "/assets/images/corner-resize.png",
   "/assets/images/corner-resize.svg",
+  "/assets/images/icons/default.png",
   "/assets/images/icons/overlay/shortcut.png",
   "/assets/images/logos/emupedia/empuedia-360-transparent.gif",
   "/assets/images/logos/emupedia/emupedia-360-gray.gif",
@@ -233,7 +234,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661551070981", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
+], i = "1661554065465", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(

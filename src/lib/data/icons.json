@@ -1,0 +1,16 @@
+[{
+	"name": "My Computer"
+} , {
+	"name": "Network Neighborhood"
+} , {
+	"name": "Recycle Bin"
+} , {
+	"name": "(C)",
+	"shortcut": true
+} , {
+	"name": "Control Panel",
+	"shortcut": true
+} , {
+	"name": "System",
+	"shortcut": true
+}]

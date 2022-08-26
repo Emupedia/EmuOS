@@ -1,13 +1,22 @@
 import { writable } from 'svelte/store'
 import { persist, createLocalStorage } from '$lib/stores/persist'
+import { icons } from '$lib/data'
+import { variables } from '$lib/variables'
 
-export const db = persist(writable({
+const initial = {
 	locale: 'en',
+	desktop: { icons },
 	settings: {},
 	version: 0,
 	user: null,
 	dev: false
-}), createLocalStorage(), 'db')
+}
+
+if (variables.GLOBAL_DEBUG) {
+	console.log(initial)
+}
+
+export const db = persist(writable(initial), createLocalStorage(), 'db')
 
 export const toast = (() => {
 	const { subscribe, update } = writable([])

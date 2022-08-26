@@ -1,4 +1,4 @@
-<!--suppress JSUnusedAssignment -->
+<!--suppress JSUnusedAssignment, JSUnresolvedVariable -->
 
 <script>
 	import { Desktop } from '$lib/components/Desktop'
@@ -27,6 +27,8 @@
 		if (Object.keys(errors).length > 0) {
 			console.log(errors)
 		}
+
+		console.log($db.desktop.icons)
 	}
 
 	const global = getGlobal()
@@ -46,12 +48,9 @@
 
 <Desktop {version} on:updated={onUpdated}>
 	<Icons>
-		<Icon>My Computer</Icon>
-		<Icon>Network Neighborhood</Icon>
-		<Icon>Recycle Bin</Icon>
-		<Icon shortcut>(C)</Icon>
-		<Icon shortcut>Control Panel</Icon>
-		<Icon shortcut>System</Icon>
+		{#each $db.desktop.icons as icon, i(icon.name)}
+			<Icon shortcut={icon.shortcut}>{icon.name}</Icon>
+		{/each}
 	</Icons>
 
 	<Windows>
