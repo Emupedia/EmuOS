@@ -1,24 +1,24 @@
-const l = [
-  "/emuos/immutable/start-8081af30.js",
+const p = [
+  "/emuos/immutable/start-f29a6ebf.js",
   "/emuos/immutable/components/pages/_layout.svelte-2e82c754.js",
   "/emuos/immutable/assets/+layout-5293a378.css",
-  "/emuos/immutable/components/pages/_error.svelte-07fdddfb.js",
-  "/emuos/immutable/components/pages/_page.svelte-8af59549.js",
+  "/emuos/immutable/components/pages/_error.svelte-e3c93f76.js",
+  "/emuos/immutable/components/pages/_page.svelte-e7b977e5.js",
   "/emuos/immutable/assets/+page-1a8d508e.css",
   "/emuos/immutable/components/pages/test/_page.svelte-0704d060.js",
   "/emuos/immutable/modules/pages/_layout.js-83de520d.js",
   "/emuos/immutable/modules/pages/_page.js-0bf9b3c1.js",
-  "/emuos/immutable/chunks/singletons-943c02d5.js",
+  "/emuos/immutable/chunks/singletons-729ff805.js",
   "/emuos/immutable/chunks/index-c43397dc.js",
   "/emuos/immutable/chunks/index-47084bf0.js",
   "/emuos/immutable/chunks/_layout-c89646bb.js",
   "/emuos/immutable/chunks/stores-06c76951.js",
   "/emuos/immutable/chunks/_page-d3134950.js",
   "/emuos/immutable/chunks/0-05797ab4.js",
-  "/emuos/immutable/chunks/1-210787b6.js",
-  "/emuos/immutable/chunks/2-8702f044.js",
+  "/emuos/immutable/chunks/1-f6bfd388.js",
+  "/emuos/immutable/chunks/2-c1fe3b04.js",
   "/emuos/immutable/chunks/3-2c4cba0d.js"
-], i = [
+], l = [
   "/.nojekyll",
   "/apple-touch-icon.png",
   "/assets/css/fonts.css",
@@ -233,13 +233,13 @@ const l = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], m = "1661539181525", r = `cache${m}`;
-console.log(i);
-const n = l.concat(i.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(n);
+], m = "1661539494143", r = `cache${m}`, t = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json")));
+console.log(t);
+const u = new Set(t);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(
-      caches.open(r).then((e) => e.addAll(n)).then(() => {
+      caches.open(r).then((e) => e.addAll(t)).then(() => {
         self.skipWaiting();
       })
     );
@@ -275,6 +275,6 @@ async function d(s) {
 self.addEventListener("fetch", (s) => {
   if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
-  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && u.has(e.pathname), p = s.request.cache === "only-if-cached" && !t;
-  a && !o && !p && s.respondWith((async () => t && await caches.match(s.request) || d(s.request))());
+  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, i = e.host === self.location.host && u.has(e.pathname), n = s.request.cache === "only-if-cached" && !i;
+  a && !o && !n && s.respondWith((async () => i && await caches.match(s.request) || d(s.request))());
 });
