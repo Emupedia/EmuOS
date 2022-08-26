@@ -1,22 +1,22 @@
 const p = [
-  "/emuos/immutable/start-f29a6ebf.js",
+  "/emuos/immutable/start-2bb12196.js",
   "/emuos/immutable/components/pages/_layout.svelte-2e82c754.js",
-  "/emuos/immutable/assets/+layout-5293a378.css",
-  "/emuos/immutable/components/pages/_error.svelte-e3c93f76.js",
-  "/emuos/immutable/components/pages/_page.svelte-e7b977e5.js",
-  "/emuos/immutable/assets/+page-1a8d508e.css",
+  "/emuos/immutable/assets/+layout-7c802733.css",
+  "/emuos/immutable/components/pages/_error.svelte-1617a217.js",
+  "/emuos/immutable/components/pages/_page.svelte-2fa1f5ac.js",
+  "/emuos/immutable/assets/+page-abea580a.css",
   "/emuos/immutable/components/pages/test/_page.svelte-0704d060.js",
   "/emuos/immutable/modules/pages/_layout.js-83de520d.js",
   "/emuos/immutable/modules/pages/_page.js-0bf9b3c1.js",
-  "/emuos/immutable/chunks/singletons-729ff805.js",
+  "/emuos/immutable/chunks/singletons-86c04b4f.js",
   "/emuos/immutable/chunks/index-c43397dc.js",
   "/emuos/immutable/chunks/index-47084bf0.js",
   "/emuos/immutable/chunks/_layout-c89646bb.js",
   "/emuos/immutable/chunks/stores-06c76951.js",
   "/emuos/immutable/chunks/_page-d3134950.js",
   "/emuos/immutable/chunks/0-05797ab4.js",
-  "/emuos/immutable/chunks/1-f6bfd388.js",
-  "/emuos/immutable/chunks/2-c1fe3b04.js",
+  "/emuos/immutable/chunks/1-dd6ba112.js",
+  "/emuos/immutable/chunks/2-56cc9e65.js",
   "/emuos/immutable/chunks/3-2c4cba0d.js"
 ], l = [
   "/.nojekyll",
@@ -233,7 +233,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], m = "1661539494143", r = `cache${m}`, t = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json")));
+], m = "1661539860060", r = `cache${m}`, t = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json")));
 console.log(t);
 const u = new Set(t);
 self.addEventListener("install", (s) => {

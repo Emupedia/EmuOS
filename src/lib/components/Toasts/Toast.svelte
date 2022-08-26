@@ -108,8 +108,7 @@
 		flex-direction: row;
 		align-items: center;
 		overflow: hidden;
-		will-change: transform, opacity;
-		-webkit-tap-highlight-color: transparent;
+		//will-change: transform, opacity;
 	}
 
 	.toast-message {
