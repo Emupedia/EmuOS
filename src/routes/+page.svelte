@@ -27,14 +27,14 @@
 		if (Object.keys(errors).length > 0) {
 			console.log(errors)
 		}
-
-		console.log($db?.desktop?.icons)
 	}
 
 	const global = getGlobal()
 
 	let version = 0
 	$: version = data?.version || version
+	let icons = {}
+	$: icons = $db?.desktop?.icons || icons
 
 	// noinspection JSDeprecatedSymbols
 	let closeIcon = global?.btoa(Close)
@@ -48,7 +48,7 @@
 
 <Desktop {version} on:updated={onUpdated}>
 	<Icons>
-		{#each $db?.desktop?.icons as icon, i(icon?.name)}
+		{#each icons as icon, i(icon?.name)}
 			<Icon shortcut={icon?.shortcut}>{icon?.name}</Icon>
 		{/each}
 	</Icons>
