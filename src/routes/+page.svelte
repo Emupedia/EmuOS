@@ -33,10 +33,10 @@
 	const global = getGlobal()
 
 	let version = 0
-	$: version = data?.version || version
+	version = data?.version || version
 
-	let icons = {}
-	$: icons = Object.keys($db?.desktop?.icons).length > 0 ? $db?.desktop?.icons : iconsData || icons
+	let icons = []
+	icons = $db?.desktop?.icons?.length > 0 ? $db?.desktop?.icons : iconsData || icons
 
 	db.set({ ...$db, desktop: { icons }, version })
 

@@ -5,7 +5,7 @@ import { variables } from '$lib/variables'
 
 const initial = {
 	locale: 'en',
-	desktop: { icons: icons || {} },
+	desktop: { icons: icons || [] },
 	settings: {},
 	version: 0,
 	user: null,
