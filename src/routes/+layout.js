@@ -1,7 +1,8 @@
-import { redirect, error } from '@sveltejs/kit'
+// import { redirect, error } from '@sveltejs/kit'
 
-export const load = async () => {
+export const load = async (e) => {
 	console.log('+layout.js')
-	console.log(redirect)
-	console.log(error)
+	console.log(e)
+	// console.log(redirect)
+	// console.log(error)
 }

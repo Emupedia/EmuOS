@@ -2,7 +2,7 @@ import { createRequire } from 'module'
 const require	= createRequire(import.meta.url)
 const fs		= require('fs')
 const replace	= require('replace-in-file')
-const manifest	= require('../docs/manifest.json')
+const manifest	= require('../docs/vite-manifest.json')
 const fixjekyll = false
 
 try {

@@ -1,16 +1,25 @@
 const l = [
-  "/emuos/immutable/start-0f0b6e17.js",
-  "/emuos/immutable/pages/__layout.svelte-1496ce17.js",
-  "/emuos/immutable/assets/__layout-7b4c4813.css",
-  "/emuos/immutable/pages/__error.svelte-da1f0c2d.js",
-  "/emuos/immutable/pages/index.svelte-1e089ad1.js",
-  "/emuos/immutable/assets/index-75b04a90.css",
-  "/emuos/immutable/pages/test.svelte-a1181730.js",
-  "/emuos/immutable/chunks/index-dbbb060d.js",
-  "/emuos/immutable/chunks/index-41d351a1.js"
+  "/emuos/immutable/start-8081af30.js",
+  "/emuos/immutable/components/pages/_layout.svelte-2e82c754.js",
+  "/emuos/immutable/assets/+layout-5293a378.css",
+  "/emuos/immutable/components/pages/_error.svelte-07fdddfb.js",
+  "/emuos/immutable/components/pages/_page.svelte-8af59549.js",
+  "/emuos/immutable/assets/+page-1a8d508e.css",
+  "/emuos/immutable/components/pages/test/_page.svelte-0704d060.js",
+  "/emuos/immutable/modules/pages/_layout.js-83de520d.js",
+  "/emuos/immutable/modules/pages/_page.js-0bf9b3c1.js",
+  "/emuos/immutable/chunks/singletons-943c02d5.js",
+  "/emuos/immutable/chunks/index-c43397dc.js",
+  "/emuos/immutable/chunks/index-47084bf0.js",
+  "/emuos/immutable/chunks/_layout-c89646bb.js",
+  "/emuos/immutable/chunks/stores-06c76951.js",
+  "/emuos/immutable/chunks/_page-d3134950.js",
+  "/emuos/immutable/chunks/0-05797ab4.js",
+  "/emuos/immutable/chunks/1-210787b6.js",
+  "/emuos/immutable/chunks/2-8702f044.js",
+  "/emuos/immutable/chunks/3-2c4cba0d.js"
 ], i = [
   "/.nojekyll",
-  "/CNAME",
   "/apple-touch-icon.png",
   "/assets/css/fonts.css",
   "/assets/css/libraries/bootstrap-4.5.0.css",
@@ -220,16 +229,17 @@ const l = [
   "/assets/videos/monkey.jpg",
   "/assets/videos/monkey.mp4",
   "/assets/videos/monkey.ogg",
+  "/CNAME",
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], r = "1661531028933", m = `cache${r}`;
+], m = "1661539181525", r = `cache${m}`;
 console.log(i);
-const n = l.concat(i.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(n);
+const n = l.concat(i.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(n);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(
-      caches.open(m).then((e) => e.addAll(n)).then(() => {
+      caches.open(r).then((e) => e.addAll(n)).then(() => {
         self.skipWaiting();
       })
     );
@@ -242,7 +252,7 @@ self.addEventListener("activate", (s) => {
     s.waitUntil(
       caches.keys().then(async (e) => {
         for (const a of e)
-          a !== m && await caches.delete(a);
+          a !== r && await caches.delete(a);
         await self.clients.claim();
       })
     );
@@ -250,8 +260,8 @@ self.addEventListener("activate", (s) => {
     console.error(e);
   }
 });
-async function g(s) {
-  const e = await caches.open(`offline${r}`);
+async function d(s) {
+  const e = await caches.open(`offline${m}`);
   try {
     const a = await fetch(s);
     return await e.put(s, a.clone()), a;
@@ -265,6 +275,6 @@ async function g(s) {
 self.addEventListener("fetch", (s) => {
   if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
-  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && d.has(e.pathname), p = s.request.cache === "only-if-cached" && !t;
-  a && !o && !p && s.respondWith((async () => t && await caches.match(s.request) || g(s.request))());
+  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && u.has(e.pathname), p = s.request.cache === "only-if-cached" && !t;
+  a && !o && !p && s.respondWith((async () => t && await caches.match(s.request) || d(s.request))());
 });

@@ -25,14 +25,14 @@
 	},
 	"scripts": {
 		"dev": "vite dev --port 5000",
-		"build:sveltekit": "vite build",
+		"build": "vite build",
 		"post:build": "node scripts/post-build",
+		"package": "svelte-kit package",
+		"preview": "vite preview",
 		"set:build:website": "replace-in-files --ignore-case --no-glob --string=\"BUILD_WEBSITE=false\" --replacement=\"BUILD_WEBSITE=true\" ./.env",
 		"set:build:desktop": "replace-in-files --ignore-case --no-glob --string=\"BUILD_WEBSITE=true\" --replacement=\"BUILD_WEBSITE=false\" ./.env",
-		"build:website": "run-s set:build:website build:sveltekit post:build",
-		"build:desktop": "run-s set:build:desktop build:sveltekit",
-		"package": "svelte-kit package",
-		"preview": "vite preview"
+		"build:website": "run-s set:build:website build post:build",
+		"build:desktop": "run-s set:build:desktop build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "1.0.0-next.39",

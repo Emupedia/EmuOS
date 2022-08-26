@@ -16,8 +16,14 @@
 	export let errors = {}
 
 	console.log('+page.svelte')
-	console.log(data)
-	console.log(errors)
+
+	if (Object.keys(data).length > 0) {
+		console.log(data)
+	}
+
+	if (Object.keys(errors).length > 0) {
+		console.log(errors)
+	}
 
 	const global = getGlobal()
 

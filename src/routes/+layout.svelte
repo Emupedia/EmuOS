@@ -6,8 +6,14 @@
 	export let errors = {}
 
 	console.log('+layout.svelte')
-	console.log(data)
-	console.log(errors)
+
+	if (Object.keys(data).length > 0) {
+		console.log(data)
+	}
+
+	if (Object.keys(errors).length > 0) {
+		console.log(errors)
+	}
 
 	if (browser) {
 		console.log('%c                                 \n' +
