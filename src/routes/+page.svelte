@@ -33,8 +33,11 @@
 
 	let version = 0
 	$: version = data?.version || version
+
 	let icons = {}
 	$: icons = $db?.desktop?.icons || icons
+
+	db.set({ ...$db, desktop: { icons }, version })
 
 	// noinspection JSDeprecatedSymbols
 	let closeIcon = global?.btoa(Close)
