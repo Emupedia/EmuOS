@@ -43,7 +43,7 @@
 
 	const onUpdated = () => toast.open({ id: 1, msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 
-	const onClick = () => toast.open({ msg: 'This is a toast!', initial: 0, pausable: true })
+	const onClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
 </script>
 
 <Desktop {version} on:updated={onUpdated}>
