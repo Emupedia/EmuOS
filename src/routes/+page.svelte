@@ -11,6 +11,7 @@
 	import { getGlobal } from '$lib/dom'
 	import { db, toast } from '$lib/stores'
 	import { variables } from '$lib/variables'
+	import { icons as iconsData } from '$lib/data'
 
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
 
@@ -35,7 +36,7 @@
 	$: version = data?.version || version
 
 	let icons = {}
-	$: icons = $db?.desktop?.icons || icons
+	$: icons = $db?.desktop?.icons || iconsData || icons
 
 	db.set({ ...$db, desktop: { icons }, version })
 
