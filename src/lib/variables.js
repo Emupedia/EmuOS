@@ -6,6 +6,6 @@ export const variables = {
 	GLOBAL_DEBUG: import.meta.env.VITE_GLOBAL_DEBUG === 'true'
 }
 
-if (variables.GLOBAL_DEBUG) {
+if (variables?.GLOBAL_DEBUG) {
 	console.log(variables)
 }

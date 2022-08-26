@@ -1,22 +1,23 @@
 const p = [
-  "/emuos/immutable/start-3bacd28b.js",
-  "/emuos/immutable/components/pages/_layout.svelte-6b0930c0.js",
+  "/emuos/immutable/start-ecdbceb5.js",
+  "/emuos/immutable/components/pages/_layout.svelte-228c4c71.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-05237b63.js",
-  "/emuos/immutable/components/pages/_page.svelte-94a5191a.js",
+  "/emuos/immutable/components/pages/_error.svelte-fe61c77f.js",
+  "/emuos/immutable/components/pages/_page.svelte-aa4eca10.js",
   "/emuos/immutable/assets/+page-8b7bea0a.css",
   "/emuos/immutable/components/pages/test/_page.svelte-ab6eb307.js",
-  "/emuos/immutable/modules/pages/_layout.js-e28fe54c.js",
-  "/emuos/immutable/modules/pages/_page.js-e59b1afe.js",
-  "/emuos/immutable/chunks/singletons-9c2b8200.js",
+  "/emuos/immutable/modules/pages/_layout.js-eff2ad23.js",
+  "/emuos/immutable/modules/pages/_page.js-12634ada.js",
+  "/emuos/immutable/chunks/singletons-0222a39b.js",
   "/emuos/immutable/chunks/index-4a5c5fd9.js",
   "/emuos/immutable/chunks/index-d050104e.js",
-  "/emuos/immutable/chunks/_layout-03b21987.js",
-  "/emuos/immutable/chunks/db-cfe3cfb3.js",
-  "/emuos/immutable/chunks/_page-20b866f1.js",
-  "/emuos/immutable/chunks/0-b33ba44e.js",
-  "/emuos/immutable/chunks/1-8b3724e7.js",
-  "/emuos/immutable/chunks/2-d3a14338.js",
+  "/emuos/immutable/chunks/variables-055bf2ca.js",
+  "/emuos/immutable/chunks/_layout-e6849da6.js",
+  "/emuos/immutable/chunks/db-50ff4754.js",
+  "/emuos/immutable/chunks/_page-0b52c2a5.js",
+  "/emuos/immutable/chunks/0-40fc1566.js",
+  "/emuos/immutable/chunks/1-ac0a22d7.js",
+  "/emuos/immutable/chunks/2-6f48f0e0.js",
   "/emuos/immutable/chunks/3-4802a4c7.js"
 ], l = [
   "/.nojekyll",
@@ -234,7 +235,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661554661769", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
+], i = "1661555005183", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(

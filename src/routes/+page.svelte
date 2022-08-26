@@ -17,7 +17,7 @@
 	export let data = {}
 	export let errors = {}
 
-	if (variables.GLOBAL_DEBUG) {
+	if (variables?.GLOBAL_DEBUG) {
 		console.log('+page.svelte')
 
 		if (Object.keys(data).length > 0) {
@@ -28,7 +28,7 @@
 			console.log(errors)
 		}
 
-		console.log($db.desktop.icons)
+		console.log($db?.desktop?.icons)
 	}
 
 	const global = getGlobal()
@@ -37,9 +37,9 @@
 	$: version = data?.version || version
 
 	// noinspection JSDeprecatedSymbols
-	let closeIcon = global.btoa(Close)
+	let closeIcon = global?.btoa(Close)
 
-	const onRefresh = () => global.location.reload()
+	const onRefresh = () => global?.location?.reload()
 
 	const onUpdated = () => toast.open({ id: 1, msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 
@@ -48,8 +48,8 @@
 
 <Desktop {version} on:updated={onUpdated}>
 	<Icons>
-		{#each $db.desktop.icons as icon, i(icon.name)}
-			<Icon shortcut={icon.shortcut}>{icon.name}</Icon>
+		{#each $db?.desktop?.icons as icon, i(icon?.name)}
+			<Icon shortcut={icon?.shortcut}>{icon?.name}</Icon>
 		{/each}
 	</Icons>
 

@@ -5,7 +5,7 @@
 	export let data = {}
 	export let errors = {}
 
-	if (variables.GLOBAL_DEBUG) {
+	if (variables?.GLOBAL_DEBUG) {
 		console.log('+error.svelte')
 
 		if (Object.keys(data).length > 0) {

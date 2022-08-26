@@ -5,14 +5,14 @@ import { variables } from '$lib/variables'
 
 const initial = {
 	locale: 'en',
-	desktop: { icons },
+	desktop: { icons: icons || {} },
 	settings: {},
 	version: 0,
 	user: null,
 	dev: false
 }
 
-if (variables.GLOBAL_DEBUG) {
+if (variables?.GLOBAL_DEBUG) {
 	console.log(initial)
 }
 

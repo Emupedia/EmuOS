@@ -8,7 +8,7 @@ import { variables } from '$lib/variables'
 // export const prerender = true
 
 export const load = async (e) => {
-	if (variables.GLOBAL_DEBUG) {
+	if (variables?.GLOBAL_DEBUG) {
 		console.log('+page.js')
 	}
 
