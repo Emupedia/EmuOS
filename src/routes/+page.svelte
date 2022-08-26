@@ -7,8 +7,9 @@
 	import { TaskBar } from '$lib/components/TaskBar'
 	import { Windows, Window } from '$lib/components/Windows'
 	import { ContextMenu, ContextMenuItem, ContextMenuSeparator } from '$lib/components/ContextMenu'
-	import { Toasts, toast } from '$lib/components/Toasts'
+	import { Toasts } from '$lib/components/Toasts'
 	import { getGlobal } from '$lib/dom'
+	import { db, toast } from '$lib/stores'
 	import { variables } from '$lib/variables'
 
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
@@ -31,7 +32,8 @@
 	const global = getGlobal()
 
 	let version = 0
-	$: ({ version = 0 } = data)
+
+	$: version = data?.version || $db?.version || version
 
 	// noinspection JSDeprecatedSymbols
 	let closeIcon = global.btoa(Close)

@@ -54,7 +54,7 @@ let noWarnings = true
 const alreadyWarnFor = []
 
 const warnUser = message => {
-	const isProduction = (typeof process !== 'undefined' && process.env?.NODE_ENV === 'production')
+	const isProduction = typeof process !== 'undefined' && process.env?.NODE_ENV === 'production'
 
 	if (!noWarnings && alreadyWarnFor.indexOf(message) === -1 && !isProduction) {
 		if (typeof window === 'undefined') {
@@ -70,9 +70,7 @@ const warnUser = message => {
  * Add a log to indicate that the requested Storage have not been found.
  * @param {string} storageName
  */
-const warnStorageNotFound = storageName => {
-	warnUser(`Unable to find the ${storageName}. No data will be persisted.`)
-}
+const warnStorageNotFound = storageName => warnUser(`Unable to find the ${storageName}. No data will be persisted.`)
 
 /*
 /**
@@ -131,14 +129,10 @@ export function persist(store, storage, key) {
 	}
 
 	if (storage.addListener) {
-		storage.addListener(key, newValue => {
-			store.set(newValue)
-		})
+		storage.addListener(key, newValue => store.set(newValue))
 	}
 
-	store.subscribe(value => {
-		storage.setValue(key, value)
-	})
+	store.subscribe(value => storage.setValue(key, value))
 
 	return {
 		...store,
@@ -184,9 +178,7 @@ function getBrowserStorage(browserStorage, listenExternalChanges = false) {
 		const eventKey = event.key
 
 		if (event.storageArea === browserStorage) {
-			listeners.filter(({ key }) => key === eventKey).forEach(({ listener }) => {
-				listener(deserialize(event.newValue))
-			})
+			listeners.filter(({ key }) => key === eventKey).forEach(({ listener }) => listener(deserialize(event.newValue)))
 		}
 	}
 

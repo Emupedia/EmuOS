@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import { persist, createLocalStorage } from '$lib/persist'
+import { persist, createLocalStorage } from '$lib/stores/persist'
 
 export const db = persist(writable({
 	locale: 'en',

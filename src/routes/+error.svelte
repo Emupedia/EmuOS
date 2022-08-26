@@ -2,8 +2,20 @@
 	import { page } from '$app/stores'
 	import { variables } from '$lib/variables'
 
+	export let data = {}
+	export let errors = {}
+
 	if (variables.GLOBAL_DEBUG) {
 		console.log('+error.svelte')
+
+		if (Object.keys(data).length > 0) {
+			console.log(data)
+		}
+
+		if (Object.keys(errors).length > 0) {
+			console.log(errors)
+		}
+
 		console.log($page)
 	}
 </script>
