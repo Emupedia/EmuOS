@@ -9,20 +9,23 @@
 	import { ContextMenu, ContextMenuItem, ContextMenuSeparator } from '$lib/components/ContextMenu'
 	import { Toasts, toast } from '$lib/components/Toasts'
 	import { getGlobal } from '$lib/dom'
+	import { variables } from '$lib/variables'
 
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
 
 	export let data = {}
 	export let errors = {}
 
-	console.log('+page.svelte')
+	if (variables.GLOBAL_DEBUG) {
+		console.log('+page.svelte')
 
-	if (Object.keys(data).length > 0) {
-		console.log(data)
-	}
+		if (Object.keys(data).length > 0) {
+			console.log(data)
+		}
 
-	if (Object.keys(errors).length > 0) {
-		console.log(errors)
+		if (Object.keys(errors).length > 0) {
+			console.log(errors)
+		}
 	}
 
 	const global = getGlobal()

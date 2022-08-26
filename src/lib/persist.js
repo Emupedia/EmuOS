@@ -42,7 +42,7 @@ export function disableWarnings() { noWarnings = true }
  * If set to true, no warning will be emitted if the requested Storage is not found.
  * This option can be useful when the lib is used on a server.
  */
-let noWarnings = false
+let noWarnings = true
 /**
  * The chosen behavior when no encryption library is available
  */
@@ -70,7 +70,7 @@ const warnUser = message => {
  * Add a log to indicate that the requested Storage have not been found.
  * @param {string} storageName
  */
-const warnStorageNotFound = (storageName) => {
+const warnStorageNotFound = storageName => {
 	warnUser(`Unable to find the ${storageName}. No data will be persisted.`)
 }
 

@@ -1,8 +1,11 @@
 <script>
 	import { page } from '$app/stores'
+	import { variables } from '$lib/variables'
 
-	console.log('+error.svelte')
-	console.log($page)
+	if (variables.GLOBAL_DEBUG) {
+		console.log('+error.svelte')
+		console.log($page)
+	}
 </script>
 
 <svelte:head>

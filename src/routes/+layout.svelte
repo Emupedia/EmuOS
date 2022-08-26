@@ -1,18 +1,22 @@
 <script>
 	import { browser } from '$app/env'
+	import { variables } from '$lib/variables'
+
 	import '../main.scss'
 
 	export let data = {}
 	export let errors = {}
 
-	console.log('+layout.svelte')
+	if (variables.GLOBAL_DEBUG) {
+		console.log('+layout.svelte')
 
-	if (Object.keys(data).length > 0) {
-		console.log(data)
-	}
+		if (Object.keys(data).length > 0) {
+			console.log(data)
+		}
 
-	if (Object.keys(errors).length > 0) {
-		console.log(errors)
+		if (Object.keys(errors).length > 0) {
+			console.log(errors)
+		}
 	}
 
 	if (browser) {

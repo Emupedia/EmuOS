@@ -1,22 +1,22 @@
 const p = [
-  "/emuos/immutable/start-2bb12196.js",
-  "/emuos/immutable/components/pages/_layout.svelte-2e82c754.js",
+  "/emuos/immutable/start-2bb932a5.js",
+  "/emuos/immutable/components/pages/_layout.svelte-c6b97caf.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-1617a217.js",
-  "/emuos/immutable/components/pages/_page.svelte-2fa1f5ac.js",
+  "/emuos/immutable/components/pages/_error.svelte-5d0681c7.js",
+  "/emuos/immutable/components/pages/_page.svelte-7190da5b.js",
   "/emuos/immutable/assets/+page-abea580a.css",
   "/emuos/immutable/components/pages/test/_page.svelte-0704d060.js",
-  "/emuos/immutable/modules/pages/_layout.js-83de520d.js",
-  "/emuos/immutable/modules/pages/_page.js-0bf9b3c1.js",
-  "/emuos/immutable/chunks/singletons-86c04b4f.js",
+  "/emuos/immutable/modules/pages/_layout.js-e28fe54c.js",
+  "/emuos/immutable/modules/pages/_page.js-3f9ca53d.js",
+  "/emuos/immutable/chunks/singletons-ec7f179e.js",
   "/emuos/immutable/chunks/index-c43397dc.js",
   "/emuos/immutable/chunks/index-47084bf0.js",
-  "/emuos/immutable/chunks/_layout-c89646bb.js",
-  "/emuos/immutable/chunks/stores-06c76951.js",
-  "/emuos/immutable/chunks/_page-d3134950.js",
-  "/emuos/immutable/chunks/0-05797ab4.js",
-  "/emuos/immutable/chunks/1-dd6ba112.js",
-  "/emuos/immutable/chunks/2-56cc9e65.js",
+  "/emuos/immutable/chunks/_layout-03b21987.js",
+  "/emuos/immutable/chunks/stores-e1d5ae8a.js",
+  "/emuos/immutable/chunks/_page-9e0eec92.js",
+  "/emuos/immutable/chunks/0-cc99f27e.js",
+  "/emuos/immutable/chunks/1-94ca57b4.js",
+  "/emuos/immutable/chunks/2-3c3ab9e7.js",
   "/emuos/immutable/chunks/3-2c4cba0d.js"
 ], l = [
   "/.nojekyll",
@@ -233,13 +233,11 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], m = "1661539860060", r = `cache${m}`, t = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json")));
-console.log(t);
-const u = new Set(t);
+], i = "1661541306195", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(
-      caches.open(r).then((e) => e.addAll(t)).then(() => {
+      caches.open(m).then((e) => e.addAll(r)).then(() => {
         self.skipWaiting();
       })
     );
@@ -252,7 +250,7 @@ self.addEventListener("activate", (s) => {
     s.waitUntil(
       caches.keys().then(async (e) => {
         for (const a of e)
-          a !== r && await caches.delete(a);
+          a !== m && await caches.delete(a);
         await self.clients.claim();
       })
     );
@@ -261,7 +259,7 @@ self.addEventListener("activate", (s) => {
   }
 });
 async function d(s) {
-  const e = await caches.open(`offline${m}`);
+  const e = await caches.open(`offline${i}`);
   try {
     const a = await fetch(s);
     return await e.put(s, a.clone()), a;
@@ -275,6 +273,6 @@ async function d(s) {
 self.addEventListener("fetch", (s) => {
   if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
-  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, i = e.host === self.location.host && u.has(e.pathname), n = s.request.cache === "only-if-cached" && !i;
-  a && !o && !n && s.respondWith((async () => i && await caches.match(s.request) || d(s.request))());
+  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && u.has(e.pathname), n = s.request.cache === "only-if-cached" && !t;
+  a && !o && !n && s.respondWith((async () => t && await caches.match(s.request) || d(s.request))());
 });
