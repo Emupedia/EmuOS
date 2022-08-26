@@ -2,6 +2,7 @@
 	import { get } from 'svelte/store'
 	import { db } from '$lib/stores'
 	import { getVersion } from '$lib/api'
+	import { getGlobal } from '$lib/dom'
 
 	// export const ssr = false
 	// export const router = true
@@ -27,11 +28,13 @@
 	import { Toasts, toast } from '$lib/components/Toasts'
 	import Close from '$lib/assets/images/icons/win9x-window-button-close.svg?raw'
 
+	const global = getGlobal()
+
 	export let version = 0
 
-	let closeIcon = btoa(Close)
+	let closeIcon = global.btoa(Close)
 
-	const onRefresh = () => location.reload()
+	const onRefresh = () => global.location.reload()
 
 	const onUpdated = () => toast.open({ id: 1, msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 

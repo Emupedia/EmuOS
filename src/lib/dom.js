@@ -1,6 +1,15 @@
 // noinspection JSUnusedGlobalSymbols
 
-export function getFirst(selector) {
+export const getGlobal = () => {
+	if (typeof globalThis === 'object' && globalThis) return globalThis
+	if (typeof window === 'object' && window) return window
+	if (typeof global === 'object' && global) return global
+	if (typeof self === 'object' && self) return self
+
+	return (function() { return this; })() || Function('return this')()
+}
+
+export const getFirst = selector => {
 	if (document.querySelector) {
 		return document.querySelector(selector)
 	} else {
@@ -26,7 +35,7 @@ export function getFirst(selector) {
 	}
 }
 
-export function getAll(selector) {
+export const getAll = selector => {
 	if (document.querySelectorAll) {
 		return document.querySelectorAll(selector)
 	} else {
@@ -52,7 +61,7 @@ export function getAll(selector) {
 	}
 }
 
-export function on(el, eventName, eventHandler) {
+export const on = (el, eventName, eventHandler) => {
 	if (el) {
 		if (el.addEventListener) {
 			el.addEventListener(eventName, eventHandler, false)
@@ -65,7 +74,7 @@ export function on(el, eventName, eventHandler) {
 	}
 }
 
-export function hasClass(el, className) {
+export const hasClass = (el, className) => {
 	if (el.classList) {
 		if (el.classList.contains(className)) {
 			return true
@@ -79,7 +88,7 @@ export function hasClass(el, className) {
 	return false
 }
 
-export function addClass(el, className) {
+export const addClass = (el, className) => {
 	if (el.classList) {
 		el.classList.add(className)
 	} else {
@@ -89,7 +98,7 @@ export function addClass(el, className) {
 	}
 }
 
-export function removeClass(el, className) {
+export const removeClass = (el, className) => {
 	if (el.classList) {
 		el.classList.remove(className)
 	} else {
@@ -97,20 +106,20 @@ export function removeClass(el, className) {
 	}
 }
 
-export function isInBounds(obj1, obj2) {
+export const isInBounds = (obj1, obj2) => {
 	const a = obj1.getBoundingClientRect()
 	const b = obj2.getBoundingClientRect()
 
 	return (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y)
 }
 
-export function getOffset(el) {
-	let position = el.getBoundingClientRect()
+export const getOffset = el => {
+	const position = el.getBoundingClientRect()
 
 	return { left: position.left + window.scrollX, top: position.top + window.scrollY }
 }
 
-export function addUnits(val) {
+export const addUnits = val => {
 	val = val.toString()
 
 	if (val !== 'max-content' && val !== 'min-content' && val !== 'auto' && val !== 'inherit' && val !== 'initial' && val !== 'revert' && val !== 'revert-layer' && val !== 'unset' && !val.startsWith('fit-content') && !val.endsWith('cm') && !val.endsWith('mm') && !val.endsWith('Q') && !val.endsWith('in') && !val.endsWith('pc') && !val.endsWith('pt') && !val.endsWith('px') && !val.endsWith('em') && !val.endsWith('ex') && !val.endsWith('ch') && !val.endsWith('rem') && !val.endsWith('lh') && !val.endsWith('rlh') && !val.endsWith('vw') && !val.endsWith('vh') && !val.endsWith('vmin') && !val.endsWith('vmax') && !val.endsWith('vb') && !val.endsWith('vi') && !val.endsWith('svw') && !val.endsWith('svh') && !val.endsWith('lvw') && !val.endsWith('lvh')	&& !val.endsWith('dvw') && !val.endsWith('dvh')) {

@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import { persist, localStorage } from '$lib/persist'
+import { persist, createLocalStorage } from '$lib/persist'
 
 export const db = persist(writable({
 	locale: 'en',
@@ -7,7 +7,7 @@ export const db = persist(writable({
 	version: 0,
 	user: null,
 	dev: false
-}), localStorage(), 'db')
+}), createLocalStorage(), 'db')
 
 export const toast = (() => {
 	const { subscribe, update } = writable([])

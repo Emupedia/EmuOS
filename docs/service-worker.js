@@ -1,14 +1,14 @@
-const p = [
-  "/emuos/immutable/start-463d91cf.js",
+const l = [
+  "/emuos/immutable/start-ee76f8e5.js",
   "/emuos/immutable/pages/__layout.svelte-1496ce17.js",
   "/emuos/immutable/assets/__layout-7b4c4813.css",
   "/emuos/immutable/pages/__error.svelte-da1f0c2d.js",
-  "/emuos/immutable/pages/index.svelte-f0c214bc.js",
+  "/emuos/immutable/pages/index.svelte-4dbcc462.js",
   "/emuos/immutable/assets/index-75b04a90.css",
   "/emuos/immutable/pages/test.svelte-a1181730.js",
   "/emuos/immutable/chunks/index-dbbb060d.js",
   "/emuos/immutable/chunks/index-41d351a1.js"
-], l = [
+], i = [
   "/.nojekyll",
   "/CNAME",
   "/apple-touch-icon.png",
@@ -223,11 +223,13 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661251706068", r = `cache${i}`, m = p.concat(l.filter((s) => !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(m);
+], r = "1661525083331", m = `cache${r}`;
+console.log(i);
+const n = l.concat(i.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/manifest.json"))), d = new Set(n);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(
-      caches.open(r).then((e) => e.addAll(m)).then(() => {
+      caches.open(m).then((e) => e.addAll(n)).then(() => {
         self.skipWaiting();
       })
     );
@@ -236,29 +238,33 @@ self.addEventListener("install", (s) => {
   }
 });
 self.addEventListener("activate", (s) => {
-  s.waitUntil(
-    caches.keys().then(async (e) => {
-      for (const a of e)
-        a !== r && await caches.delete(a);
-      await self.clients.claim();
-    })
-  );
+  try {
+    s.waitUntil(
+      caches.keys().then(async (e) => {
+        for (const a of e)
+          a !== m && await caches.delete(a);
+        await self.clients.claim();
+      })
+    );
+  } catch (e) {
+    console.error(e);
+  }
 });
 async function g(s) {
-  const e = await caches.open(`offline${i}`);
+  const e = await caches.open(`offline${r}`);
   try {
     const a = await fetch(s);
     return await e.put(s, a.clone()), a;
   } catch (a) {
+    console.error(a);
     const o = await e.match(s);
     if (o)
       return o;
-    throw a;
   }
 }
 self.addEventListener("fetch", (s) => {
   if (s.request.method !== "GET" || s.request.headers.has("range"))
     return;
-  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && d.has(e.pathname), n = s.request.cache === "only-if-cached" && !t;
-  a && !o && !n && s.respondWith((async () => t && await caches.match(s.request) || g(s.request))());
+  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && d.has(e.pathname), p = s.request.cache === "only-if-cached" && !t;
+  a && !o && !p && s.respondWith((async () => t && await caches.match(s.request) || g(s.request))());
 });

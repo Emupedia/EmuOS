@@ -1,16 +1,42 @@
-import adapter from '@sveltejs/adapter-static'
+// noinspection JSValidateTypes,JSUnusedGlobalSymbols
+
+import adapterWeb from '@sveltejs/adapter-static'
+import adapterDesktop from './scripts/svelte-adapter-neutralino.js'
 import preprocess from 'svelte-preprocess'
+import 'dotenv/config'
 
 const isProd = process.env.NODE_ENV === 'production'
+const isWeb = process.env.BUILD_WEBSITE === 'true'
+
+const adapterWebInstace = adapterWeb({
+	pages: 'docs',
+	assets: 'docs',
+	fallback: 'index.html'
+})
+
+const adapterDesktopInstace = adapterDesktop({
+	name: 'EmuOS v2.0',
+	applicationId: 'net.emupedia.emuos',
+	icon: 'favicon.ico',
+	window: {
+		width: 800,
+		height: 500,
+		minWidth: 400,
+		minHeight: 200,
+		resizable: true,
+		maximize: true
+	},
+	output: 'build',
+	versions: {
+		client: '3.1.0',
+		binary: '4.2.0'
+	}
+})
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			pages: 'docs',
-			assets: 'docs',
-			fallback: 'index.html'
-		}),
+		adapter: isWeb ? adapterWebInstace : adapterDesktopInstace,
 		appDir: 'emuos',
 		files: {
 			assets: 'www',
