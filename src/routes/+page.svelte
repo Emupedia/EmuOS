@@ -36,7 +36,7 @@
 	$: version = data?.version || version
 
 	let icons = {}
-	$: icons = Object.keys($db?.desktop?.icons).length > 0 ? $db?.desktop?.icons || iconsData || icons : icons
+	$: icons = Object.keys($db?.desktop?.icons).length > 0 ? $db?.desktop?.icons : iconsData || icons
 
 	db.set({ ...$db, desktop: { icons }, version })
 
