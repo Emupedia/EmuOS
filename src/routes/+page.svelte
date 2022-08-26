@@ -32,8 +32,7 @@
 	const global = getGlobal()
 
 	let version = 0
-
-	$: version = data?.version || $db?.version || version
+	$: version = data?.version || version
 
 	// noinspection JSDeprecatedSymbols
 	let closeIcon = global.btoa(Close)

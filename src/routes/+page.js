@@ -12,8 +12,12 @@ export const load = async (e) => {
 		console.log('+page.js')
 	}
 
+	const $db = get(db)
 	const version_api = await getVersion(e.fetch).catch(error => console.error(error))
 	const version_data = await version_api?.json().catch(error => console.error(error))
+	const version = version_data?.version || $db?.version || 0
 
-	return { version: typeof version_data !== 'undefined' ? version_data?.version || 0 : get(db)?.version || 0 }
+	db.set({ ...$db, version })
+
+	return { version }
 }
