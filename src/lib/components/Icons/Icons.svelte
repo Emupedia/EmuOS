@@ -1,21 +1,3 @@
-<script>
-	import { onMount } from 'svelte'
-	import { interactable } from '$lib/interactable'
-	import { getAll } from '$lib/dom'
-
-	const useGhost = true
-
-	onMount(() => {
-		const elements = [...getAll('.icon')]
-
-		if (elements) {
-			for (const el of elements) {
-				interactable(el, { useGhost })
-			}
-		}
-	})
-</script>
-
 <ul class="icons {$$props.class || ''}" {...$$restProps}><slot /></ul>
 
 <style lang="scss">

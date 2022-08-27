@@ -1,23 +1,23 @@
 const p = [
-  "/emuos/immutable/start-b2447365.js",
+  "/emuos/immutable/start-fd39f6ff.js",
   "/emuos/immutable/components/pages/_layout.svelte-228c4c71.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-b5687b1f.js",
-  "/emuos/immutable/components/pages/_page.svelte-11031f99.js",
+  "/emuos/immutable/components/pages/_error.svelte-50a938bd.js",
+  "/emuos/immutable/components/pages/_page.svelte-927dfe41.js",
   "/emuos/immutable/assets/+page-8b7bea0a.css",
   "/emuos/immutable/components/pages/test/_page.svelte-ab6eb307.js",
   "/emuos/immutable/modules/pages/_layout.js-eff2ad23.js",
-  "/emuos/immutable/modules/pages/_page.js-614e4cfc.js",
-  "/emuos/immutable/chunks/singletons-b5a9eb06.js",
+  "/emuos/immutable/modules/pages/_page.js-6d97d724.js",
+  "/emuos/immutable/chunks/singletons-5091fddd.js",
   "/emuos/immutable/chunks/index-4a5c5fd9.js",
   "/emuos/immutable/chunks/index-d050104e.js",
   "/emuos/immutable/chunks/variables-055bf2ca.js",
   "/emuos/immutable/chunks/_layout-e6849da6.js",
-  "/emuos/immutable/chunks/db-a8c3e8af.js",
-  "/emuos/immutable/chunks/_page-195a2f8f.js",
+  "/emuos/immutable/chunks/db-977606ff.js",
+  "/emuos/immutable/chunks/_page-f5a05d92.js",
   "/emuos/immutable/chunks/0-40fc1566.js",
-  "/emuos/immutable/chunks/1-49931b51.js",
-  "/emuos/immutable/chunks/2-060901a0.js",
+  "/emuos/immutable/chunks/1-1ae3103f.js",
+  "/emuos/immutable/chunks/2-ed0ae82e.js",
   "/emuos/immutable/chunks/3-4802a4c7.js"
 ], l = [
   "/.nojekyll",
@@ -235,7 +235,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661557556637", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
+], i = "1661570955650", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(

@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { writable } from 'svelte/store'
 import { persist, createLocalStorage } from '$lib/stores/persist'
 import { icons } from '$lib/data'
@@ -17,6 +19,21 @@ if (variables?.GLOBAL_DEBUG) {
 }
 
 export const db = persist(writable(initial), createLocalStorage(), 'db')
+
+const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
+
+export const setCoordinates = (e, el, name) => {
+	db.update(data => {
+		data.desktop.icons.forEach(icon => {
+			if (icon.name === name) {
+				icon.x = parseAxis(el)('x') || 0
+				icon.y = parseAxis(el)('y') || 0
+			}
+		})
+
+		return data
+	})
+}
 
 export const toast = (() => {
 	const { subscribe, update } = writable([])

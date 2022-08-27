@@ -1,6 +1,8 @@
 <!--suppress JSUnusedAssignment, JSUnresolvedVariable -->
 
 <script>
+	import { onMount, afterUpdate } from 'svelte'
+
 	import { Desktop } from '$lib/components/Desktop'
 	import { Icons, Icon } from '$lib/components/Icons'
 	import { Button } from '$lib/components/Panel'
@@ -8,6 +10,7 @@
 	import { Windows, Window } from '$lib/components/Windows'
 	import { ContextMenu, ContextMenuItem, ContextMenuSeparator } from '$lib/components/ContextMenu'
 	import { Toasts } from '$lib/components/Toasts'
+
 	import { getGlobal } from '$lib/dom'
 	import { db, toast } from '$lib/stores'
 	import { variables } from '$lib/variables'
@@ -29,6 +32,16 @@
 			console.log(errors)
 		}
 	}
+
+	onMount(() => {
+		console.log('onMount')
+		// db.set({ ...$db, desktop: { icons }, version })
+	})
+
+	afterUpdate(() => {
+		console.log('afterUpdate')
+		// db.set({ ...$db, desktop: { icons }, version })
+	})
 
 	const global = getGlobal()
 
@@ -53,7 +66,9 @@
 <Desktop {version} on:updated={onUpdated}>
 	<Icons>
 		{#each icons as icon, i(icon?.name)}
-			<Icon shortcut={icon?.shortcut}>{icon?.name}</Icon>
+			<Icon x={icon?.x} y={icon?.y} shortcut={icon?.shortcut}>
+				<svelte:fragment slot="name">{icon?.name}</svelte:fragment>
+			</Icon>
 		{/each}
 	</Icons>
 

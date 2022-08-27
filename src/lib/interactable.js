@@ -1,4 +1,4 @@
-// noinspection DuplicatedCode
+// noinspection DuplicatedCode,JSUnusedGlobalSymbols,JSUnresolvedFunction,JSUnresolvedVariable,JSCheckFunctionSignatures
 
 import interact from 'interactjs'
 import { getFirst, getAll, getOffset, addClass, removeClass } from '$lib/dom'
@@ -19,7 +19,7 @@ export const interactable = (el, options) => {
 	// noinspection JSCheckFunctionSignatures
 	interact(el).draggable({
 		listeners: {
-			start: () => {
+			start: e => {
 				const container = getFirst('.icons')
 				items = getAll('.selected')
 
@@ -39,6 +39,10 @@ export const interactable = (el, options) => {
 						removeClass(item, 'selected')
 					}
 				}
+
+				if (typeof options.onStart === 'function') {
+					options.onStart(e)
+				}
 			},
 			move: e => {
 				let elements = options.useGhost && ghostElements.length > 0 ? ghostElements : items
@@ -49,8 +53,12 @@ export const interactable = (el, options) => {
 
 					move(el)(x, y)
 				}
+
+				if (typeof options.onMove === 'function') {
+					options.onMove(e)
+				}
 			},
-			end: () => {
+			end: e => {
 				if (options.useGhost && ghostElements.length > 0) {
 					for (const [i, item] of items.entries()) {
 						move(item)((parseAxis(ghostElements[i])('x') - item.offsetLeft) || 0, (parseAxis(ghostElements[i])('y') - item.offsetTop) || 0)
@@ -65,6 +73,10 @@ export const interactable = (el, options) => {
 
 				items = []
 				ghostElements = []
+
+				if (typeof options.onEnd === 'function') {
+					options.onEnd(e)
+				}
 			}
 		},
 		modifiers: [

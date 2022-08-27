@@ -1,6 +1,9 @@
-<!--suppress CheckImageSize -->
+<!--suppress CheckImageSize, JSUnusedAssignment -->
 
 <script>
+	import { onMount } from 'svelte'
+	import { db, setCoordinates } from '$lib/stores'
+	import { interactable } from '$lib/interactable'
 	import { getAll, hasClass, addClass, removeClass, addUnits } from '$lib/dom'
 
 	export let x = 0
@@ -13,12 +16,24 @@
 	export let shortcut = false
 	export let useTransform = false
 	export let useTransform3D = true
+
 	export let onClick = () => {}
 
-	x = addUnits(x)
-	y = addUnits(y)
+	const useGhost = true
 
 	let icon
+	let slot
+
+	if (x) x = addUnits(x)
+	if (y) y = addUnits(y)
+
+	onMount(() => {
+		name = slot.innerText
+		let iconData = $db?.desktop?.icons.find(icon => icon.name === name)
+		x = addUnits(iconData.x)
+		y = addUnits(iconData.y)
+		interactable(icon, { useGhost, onEnd: onMouseUp })
+	})
 
 	function onMouseDown() {
 		if (!hasClass(icon, 'selected')) {
@@ -30,6 +45,10 @@
 
 			addClass(icon, 'selected')
 		}
+	}
+
+	function onMouseUp(e) {
+		setCoordinates(e, icon, name)
 	}
 </script>
 
@@ -50,7 +69,7 @@
 					<img {width} {height} alt="" loading="eager" decoding="async" draggable="false" fetchpriority="high" src="/assets/images/icons/overlay/shortcut.png" srcset="/assets/images/icons/overlay/shortcut.png, /assets/images/icons/overlay/shortcut.png 2x, /assets/images/icons/overlay/shortcut.png 3x">
 				</picture>
 			{/if}
-			<figcaption><span><slot>{name}</slot></span></figcaption>
+			<figcaption><span bind:this={slot}><slot name="name">{name}</slot></span></figcaption>
 		</figure>
 	</button>
 </li>
