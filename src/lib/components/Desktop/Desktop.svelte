@@ -19,7 +19,7 @@
 	let element
 	let build
 
-	$: build = `EmuOS v2.0 Alpha\u000D\u000ABuild ${version}, ${new Date(parseInt(version)).toLocaleString()}`
+	$: build = `EmuOS v2.0 Alpha\u000D\u000ABuild ${version}\u000D\u000A${new Date(parseInt(version)).toLocaleString()}`
 
 	onMount(() => {
 		checkVersion({ version, callback: ({ currentVersion, checkedVersion }) => {
@@ -173,6 +173,7 @@
 			color: #fff;
 			text-align: right;
 			white-space: pre;
+			pointer-events: none;
 		}
 	}
 </style>
