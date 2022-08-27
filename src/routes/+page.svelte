@@ -60,7 +60,12 @@
 
 	const onUpdated = () => toast.open({ id: 1, msg: 'New update available, click here to reload', initial: 0, onclick: onRefresh })
 
-	const onClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
+	const onShowToastClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
+
+	const onResetIconsClick = () => {
+		icons = iconsData
+		db.set({ ...$db, desktop: { icons } })
+	}
 </script>
 
 <Desktop {version} on:updated={onUpdated}>
@@ -73,8 +78,8 @@
 	</Icons>
 
 	<Windows>
-		<Window x="100" y="80" width="170" height="100" title="Notepad" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
-		<Window x="140" y="200" width="170" height="100" padding="6" title="Notepad2" status="Idle" ><Button onClick={onClick}>Show Toast</Button></Window>
+		<Window x="100" y="80" width="170" height="100" padding="3" title="Notepad" showStatusBar="true" isContentEditable="true" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></Window>
+		<Window x="140" y="200" width="170" height="100" padding="6" title="Tools"><Button onClick={onShowToastClick}>Show Toast</Button> <Button onClick={onResetIconsClick}>Reset Icons</Button></Window>
 	</Windows>
 
 	<Toasts options={{ close: '', theme: { '--toastButtonBackground': `var(--color-background-panel) url('data:image/svg+xml;base64,${closeIcon}') 0.75px 1px / 13px 11px no-repeat`, '--toastButtonBackgroundActive': `var(--color-background-panel) url('data:image/svg+xml;base64,${closeIcon}') 0.75px 1px / 13px 11px no-repeat` } }} />

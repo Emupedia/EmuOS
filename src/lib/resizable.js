@@ -11,7 +11,7 @@ export const resizable = (el, options) => {
 
 	const resize = target => (width, height) => {
 		setProperty(target, 'width', width)
-		setProperty(target, 'width', height)
+		setProperty(target, 'height', height)
 	}
 
 	// noinspection JSCheckFunctionSignatures,JSUnresolvedVariable

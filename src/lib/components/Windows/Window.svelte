@@ -20,7 +20,8 @@
 	export let buttons = ['minimize', 'maximize', 'close']
 
 	export let showTitleBar = true
-	export let showStatusBar = true
+	export let showStatusBar = false
+	export let isContentEditable = false
 	export let useTransform = false
 	export let useTransform3D = true
 	export let debug = false
@@ -38,7 +39,7 @@
 
 <section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};"  {...$$restProps}>
 	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
-	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}" {padding}><slot>{content}</slot></Panel>
+	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}" {isContentEditable} {padding}><slot>{content}</slot></Panel>
 	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
 	<!--<ResizeHandles class="resize-handles {debug ? 'debug' : ''}" />-->
 </section>

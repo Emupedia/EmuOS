@@ -2,13 +2,14 @@
 	import { addUnits } from '$lib/dom'
 
 	export let padding = 1
+	export let isContentEditable = false
 	export let debug = false
 
 	padding = addUnits(padding)
 </script>
 
 <article class="panel {$$props.class || ''}" class:debug {...$$restProps}>
-	<section class="content" style="--padding: {padding}"><slot>Panel</slot></section>
+	<section class="content" style="--padding: {padding}" contenteditable={isContentEditable}><slot>Panel</slot></section>
 </article>
 
 <style lang="scss">
@@ -43,17 +44,25 @@
 			}
 
 			&.has-title-bar {
-				height: calc(100% - 16px);
-
 				section {
 					&.content {
-						margin-top: 16px;
+						height: calc(100% - 18px);
+						margin-top: 18px;
+					}
+				}
+			}
+
+			&.has-title-bar.has-status-bar {
+				section {
+					&.content {
+						height: calc(100% - 18px);
+						margin-top: 18px;
 					}
 				}
 			}
 
 			&.has-status-bar {
-				padding-bottom: 16px;
+				padding-bottom: 18px;
 			}
 
 			&.debug {
