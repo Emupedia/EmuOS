@@ -1,14 +1,12 @@
-// noinspection DuplicatedCode
+// noinspection DuplicatedCode,JSUnusedGlobalSymbols
 
 import interact from 'interactjs'
-import { getFirst, addClass } from '$lib/dom'
+import { getFirst, addClass, getProperty, setProperty } from '$lib/dom'
 
 export const draggable = (el, options) => {
-	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
-
 	const move = target => (x, y) => {
-		target.style.setProperty('--x', x + 'px')
-		target.style.setProperty('--y', y + 'px')
+		setProperty(target, 'x', x)
+		setProperty(target, 'y', y)
 
 		return target
 	}
@@ -34,14 +32,14 @@ export const draggable = (el, options) => {
 					target = ghostElement
 				}
 
-				const x = (parseAxis(target)('x') || 0) + e.dx
-				const y = (parseAxis(target)('y') || 0) + e.dy
+				const x = (getProperty(target, 'x') || 0) + e.dx
+				const y = (getProperty(target, 'y') || 0) + e.dy
 
 				move(target)(x, y)
 			},
 			end: e => {
 				if (options.useGhostWhileDragging && ghostElement) {
-					move(e.target)(parseAxis(ghostElement)('x') || 0, parseAxis(ghostElement)('y') || 0)
+					move(e.target)(getProperty(ghostElement, 'x') || 0, getProperty(ghostElement, 'y') || 0)
 					ghostElement?.remove()
 				}
 			}

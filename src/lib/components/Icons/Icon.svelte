@@ -2,7 +2,7 @@
 
 <script>
 	import { onMount } from 'svelte'
-	import { db, setCoordinates } from '$lib/stores'
+	import { db, setIconCoordinates } from '$lib/stores'
 	import { interactable } from '$lib/interactable'
 	import { getAll, hasClass, addClass, removeClass, addUnits } from '$lib/dom'
 
@@ -47,8 +47,8 @@
 		}
 	}
 
-	function onMouseUp(e) {
-		setCoordinates(e, icon, name)
+	function onMouseUp(e, icons) {
+		setIconCoordinates([icon, ...icons])
 	}
 </script>
 

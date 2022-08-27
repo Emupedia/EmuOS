@@ -119,15 +119,19 @@ export const getOffset = el => {
 	return { left: position.left + window.scrollX, top: position.top + window.scrollY }
 }
 
-export const addUnits = val => {
-	val = val?.toString() || 0
+export const addUnits = value => {
+	value = value?.toString() || 0
 
-	if (typeof val === 'string' && val !== '') {
-		if (val !== 'max-content' && val !== 'min-content' && val !== 'auto' && val !== 'inherit' && val !== 'initial' && val !== 'revert' && val !== 'revert-layer' && val !== 'unset' && !val.startsWith('fit-content') && !val.endsWith('cm') && !val.endsWith('mm') && !val.endsWith('Q') && !val.endsWith('in') && !val.endsWith('pc') && !val.endsWith('pt') && !val.endsWith('px') && !val.endsWith('em') && !val.endsWith('ex') && !val.endsWith('ch') && !val.endsWith('rem') && !val.endsWith('lh') && !val.endsWith('rlh') && !val.endsWith('vw') && !val.endsWith('vh') && !val.endsWith('vmin') && !val.endsWith('vmax') && !val.endsWith('vb') && !val.endsWith('vi') && !val.endsWith('svw') && !val.endsWith('svh') && !val.endsWith('lvw') && !val.endsWith('lvh')	&& !val.endsWith('dvw') && !val.endsWith('dvh')) {
-			val += 'px'
+	if (typeof value === 'string' && value !== '') {
+		if (value !== 'max-content' && value !== 'min-content' && value !== 'auto' && value !== 'inherit' && value !== 'initial' && value !== 'revert' && value !== 'revert-layer' && value !== 'unset' && !value.startsWith('fit-content') && !value.endsWith('cm') && !value.endsWith('mm') && !value.endsWith('Q') && !value.endsWith('in') && !value.endsWith('pc') && !value.endsWith('pt') && !value.endsWith('px') && !value.endsWith('em') && !value.endsWith('ex') && !value.endsWith('ch') && !value.endsWith('rem') && !value.endsWith('lh') && !value.endsWith('rlh') && !value.endsWith('vw') && !value.endsWith('vh') && !value.endsWith('vmin') && !value.endsWith('vmax') && !value.endsWith('vb') && !value.endsWith('vi') && !value.endsWith('svw') && !value.endsWith('svh') && !value.endsWith('lvw') && !value.endsWith('lvh')	&& !value.endsWith('dvw') && !value.endsWith('dvh')) {
+			value += 'px'
 		}
 	}
 
 
-	return val
+	return value
 }
+
+export const getProperty = (target, property) => parseFloat(getComputedStyle(target)?.getPropertyValue(`--${property}`))
+
+export const setProperty = (target, property, value) => target?.style?.setProperty(`--${property}`, addUnits(value))

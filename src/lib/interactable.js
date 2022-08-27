@@ -1,14 +1,12 @@
 // noinspection DuplicatedCode,JSUnusedGlobalSymbols,JSUnresolvedFunction,JSUnresolvedVariable,JSCheckFunctionSignatures
 
 import interact from 'interactjs'
-import { getFirst, getAll, getOffset, addClass, removeClass } from '$lib/dom'
+import { getFirst, getAll, getOffset, getProperty, setProperty, addClass, removeClass } from '$lib/dom'
 
 export const interactable = (el, options) => {
-	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
-
 	const move = target => (x, y) => {
-		target.style.setProperty('--x', x + 'px')
-		target.style.setProperty('--y', y + 'px')
+		setProperty(target, 'x', x)
+		setProperty(target, 'y', y)
 
 		return target
 	}
@@ -28,8 +26,8 @@ export const interactable = (el, options) => {
 						ghostElements.push(item.cloneNode(true))
 						let current = ghostElements[ghostElements.length - 1]
 						let offset = getOffset(item)
-						current.style.setProperty('--x', (offset.left || 0) + 'px')
-						current.style.setProperty('--y', (offset.top || 0) + 'px')
+						setProperty(current, 'x', offset.left || 0)
+						setProperty(current, 'y', offset.top || 0)
 						removeClass(current, 'selected')
 						addClass(current, 'ghost')
 						addClass(current, 'dragging')
@@ -48,8 +46,8 @@ export const interactable = (el, options) => {
 				let elements = options.useGhost && ghostElements.length > 0 ? ghostElements : items
 
 				for (const el of elements) {
-					const x = (parseAxis(el)('x') || 0) + e.dx
-					const y = (parseAxis(el)('y') || 0) + e.dy
+					const x = (getProperty(el, 'x') || 0) + e.dx
+					const y = (getProperty(el, 'y') || 0) + e.dy
 
 					move(el)(x, y)
 				}
@@ -61,7 +59,7 @@ export const interactable = (el, options) => {
 			end: e => {
 				if (options.useGhost && ghostElements.length > 0) {
 					for (const [i, item] of items.entries()) {
-						move(item)((parseAxis(ghostElements[i])('x') - item.offsetLeft) || 0, (parseAxis(ghostElements[i])('y') - item.offsetTop) || 0)
+						move(item)((getProperty(ghostElements[i], 'x') - item.offsetLeft) || 0, (getProperty(ghostElements[i], 'y') - item.offsetTop) || 0)
 						ghostElements[i]?.remove()
 					}
 				} else {
@@ -71,12 +69,12 @@ export const interactable = (el, options) => {
 					}
 				}
 
+				if (typeof options.onEnd === 'function') {
+					options.onEnd(e, items)
+				}
+
 				items = []
 				ghostElements = []
-
-				if (typeof options.onEnd === 'function') {
-					options.onEnd(e)
-				}
 			}
 		},
 		modifiers: [

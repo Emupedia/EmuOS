@@ -1,6 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { writable } from 'svelte/store'
+import { getProperty } from '$lib/dom'
 import { persist, createLocalStorage } from '$lib/stores/persist'
 import { icons } from '$lib/data'
 import { variables } from '$lib/variables'
@@ -20,16 +21,18 @@ if (variables?.GLOBAL_DEBUG) {
 
 export const db = persist(writable(initial), createLocalStorage(), 'db')
 
-const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
-
-export const setCoordinates = (e, el, name) => {
+export const setIconCoordinates = icons => {
 	db.update(data => {
-		data.desktop.icons.forEach(icon => {
-			if (icon.name === name) {
-				icon.x = parseAxis(el)('x') || 0
-				icon.y = parseAxis(el)('y') || 0
-			}
-		})
+		if (typeof icons !== 'undefined' && icons.length > 0) {
+			icons.forEach(el => {
+				data.desktop.icons.forEach(icon => {
+					if (icon.name === el.innerText) {
+						icon.x = getProperty(el, 'x') || 0
+						icon.y = getProperty(el, 'y') || 0
+					}
+				})
+			})
+		}
 
 		return data
 	})

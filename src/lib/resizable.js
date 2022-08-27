@@ -1,18 +1,17 @@
-// noinspection DuplicatedCode
+// noinspection DuplicatedCode,JSUnusedGlobalSymbols
 
 import interact from 'interactjs'
+import { getProperty, setProperty } from '$lib/dom'
 
 export const resizable = (el, options) => {
-	const parseAxis = target => axis => parseFloat(getComputedStyle(target).getPropertyValue(`--${axis}`))
-
 	const move = target => (x, y) => {
-		target.style.setProperty('--x', x + 'px')
-		target.style.setProperty('--y', y + 'px')
+		setProperty(target, 'x', x)
+		setProperty(target, 'y', y)
 	}
 
 	const resize = target => (width, height) => {
-		target.style.setProperty('--width', width + 'px')
-		target.style.setProperty('--height', height + 'px')
+		setProperty(target, 'width', width)
+		setProperty(target, 'width', height)
 	}
 
 	// noinspection JSCheckFunctionSignatures,JSUnresolvedVariable
@@ -23,8 +22,8 @@ export const resizable = (el, options) => {
 		listeners: {
 			move: e => {
 				const { target } = e
-				const x = (parseAxis(target)('x') || 0) + e.deltaRect.left
-				const y = (parseAxis(target)('y') || 0) + e.deltaRect.top
+				const x = (getProperty(target, 'x') || 0) + e.deltaRect.left
+				const y = (getProperty(target, 'y') || 0) + e.deltaRect.top
 
 				move(target)(x, y)
 				resize(target)(e.rect.width, e.rect.height)
