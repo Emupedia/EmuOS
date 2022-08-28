@@ -48,12 +48,12 @@ const defaultOptions = {
 	},
 	output: 'build',
 	versions: {
-		client: '3.1.0',
-		binary: '4.2.0'
+		client: '3.6.0',
+		binary: '4.7.0'
 	}
 }
 
-const cliVersion = '^9.1.1'
+const cliVersion = '^9.3.1'
 
 /**
  * @param {AdapterOptions} options
@@ -72,49 +72,46 @@ export default function (options = defaultOptions) {
 			builder.rimraf(tmpPath)
 			builder.mkdirp(join(tmpPath, 'build'))
 
-			writeFileSync(
-				join(tmpPath, 'neutralino.config.json'),
-				JSON.stringify({
-					applicationId: options.applicationId,
-					defaultMode: 'window',
-					port: options.port,
-					url: '/',
-					documentRoot: 'build/',
-					enableServer: true,
-					enableNativeAPI: true,
-					logging: {
-						enabled: true,
-						writeToLogFile: true
-					},
-					nativeBlockList: [],
-					modes: {
-						window: {
-							title: options.name,
-							width: options.window.width,
-							height: options.window.height,
-							minWidth: options.window.minWidth,
-							minHeight: options.window.minHeight,
-							fullScreen: false,
-							alwaysOnTop: false,
-							icon: '/build/' + options.icon,
-							enableInspector: false,
-							borderless: false,
-							maximize: options.window.maximize,
-							hidden: false,
-							resizable: options.window.resizable,
-							exitProcessOnClose: true
-						}
-					},
-					cli: {
-						binaryName: options.name,
-						resourcesPath: '/build/',
-						extensionsPath: '/',
-						clientLibrary: '/build/neutralino.js',
-						binaryVersion: options.versions.binary,
-						clientVersion: options.versions.client
+			writeFileSync(join(tmpPath, 'neutralino.config.json'), JSON.stringify({
+				applicationId: options.applicationId,
+				defaultMode: 'window',
+				port: options.port,
+				url: '/',
+				documentRoot: 'build/',
+				enableServer: true,
+				enableNativeAPI: true,
+				logging: {
+					enabled: true,
+					writeToLogFile: true
+				},
+				nativeBlockList: [],
+				modes: {
+					window: {
+						title: options.name,
+						width: options.window.width,
+						height: options.window.height,
+						minWidth: options.window.minWidth,
+						minHeight: options.window.minHeight,
+						fullScreen: false,
+						alwaysOnTop: false,
+						icon: '/build/' + options.icon,
+						enableInspector: false,
+						borderless: false,
+						maximize: options.window.maximize,
+						hidden: false,
+						resizable: options.window.resizable,
+						exitProcessOnClose: true
 					}
-				})
-			)
+				},
+				cli: {
+					binaryName: options.name,
+					resourcesPath: '/build/',
+					extensionsPath: '/',
+					clientLibrary: '/build/neutralino.js',
+					binaryVersion: options.versions.binary,
+					clientVersion: options.versions.client
+				}
+			}))
 
 			console.log(c`{yellow Building} Generating static build`)
 
@@ -125,10 +122,12 @@ export default function (options = defaultOptions) {
 
 			await adapter.adapt(builder)
 
+			console.log(c`{yellow Patching} Patching Neutralinojs filenames`)
+			console.log(execSync(`npm run post:build -- -fixneutralino`, { cwd: tmpPath }).toString('utf8'))
 			console.log(c`{yellow Building} Downloading Neutralinojs dependencies`)
-			execSync(`npx --quiet "@neutralinojs/neu@${cliVersion}" update`, { cwd: tmpPath })
+			console.log(execSync(`npx --quiet "@neutralinojs/neu@${cliVersion}" update`, { cwd: tmpPath }).toString('utf8'))
 			console.log(c`{yellow Building} Building Generating Neutralinojs release`)
-			execSync(`npx --quiet "@neutralinojs/neu@${cliVersion}" build --release`, { cwd: tmpPath })
+			console.log(execSync(`npx --quiet "@neutralinojs/neu@${cliVersion}" build --release`, { cwd: tmpPath }).toString('utf8'))
 
 			console.log(c`{yellow Building} Finalising...`)
 			builder.mkdirp(options.output)

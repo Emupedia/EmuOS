@@ -24,13 +24,9 @@ const adapterDesktopInstace = adapterDesktop({
 		minWidth: 400,
 		minHeight: 200,
 		resizable: true,
-		maximize: true
+		maximize: false
 	},
-	output: 'build',
-	versions: {
-		client: '3.1.0',
-		binary: '4.2.0'
-	}
+	output: 'build'
 })
 
 /** @type {import('@sveltejs/kit').Config} */
