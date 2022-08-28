@@ -42,7 +42,7 @@ const config = {
 	},
 	extensions: ['.svelte'],
 	kit: {
-		adapter: BuildWeb ? adapterWebInstace : (BuildDesktop ? adapterDesktopInstace : undefined) ,
+		adapter: BuildWeb ? adapterWebInstace : (BuildDesktop ? adapterDesktopInstace : undefined),
 		alias: {},
 		appDir: 'emuos',
 		csp: {
@@ -87,7 +87,7 @@ const config = {
 			origin: 'http://sveltekit-prerender'
 		},
 		serviceWorker: {
-			register: isProduction && (BuildDesktop || BuildDesktop),
+			register: isProduction && (BuildWeb || BuildDesktop),
 			files: filepath => !/\.DS_Store/.test(filepath) && !/\.nojekyll/.test(filepath) && !/_config\.yml/.test(filepath) && !/CNAME/.test(filepath) && !/vite-manifest\.json/.test(filepath)
 		},
 		trailingSlash: 'never',
@@ -120,12 +120,13 @@ const config = {
 			return
 		}
 
-		if (BuildWeb && code === 'missing-custom-element-compile-options') {
+		if ((BuildWeb || BuildDesktop) && code === 'missing-custom-element-compile-options') {
 			return
 		}
 
-		if (code === 'css-unused-selector')
+		if (code === 'css-unused-selector') {
 			return
+		}
 
 		handler(warning)
 	}
