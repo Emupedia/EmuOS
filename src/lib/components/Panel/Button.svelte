@@ -60,7 +60,7 @@
 	}
 </script>
 
-<button class={cls} class:icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
+<button class={cls} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
 
 <style lang="scss">
 	button {
@@ -94,7 +94,7 @@
 			box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #000, inset -2px -2px 0 #dfdfdf, inset 2px 2px 0 #808080;
 		}
 
-		&.icon {
+		&.button-icon {
 			width: 16px;
 			height: 14px;
 			padding: 0;
