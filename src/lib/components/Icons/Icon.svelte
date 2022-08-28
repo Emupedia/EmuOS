@@ -27,29 +27,28 @@
 
 	beforeUpdate(() => {
 		console.log('Icon.beforeUpdate')
+
+		if (x) x = addUnits(x || 0)
+		if (y) y = addUnits(y || 0)
 	})
 
 	onMount(() => {
 		console.log('Icon.onMount')
-		name = slot.innerText
-		// let iconData = $db.desktop.icons.find(icon => icon.name === name)
-		// x = addUnits(iconData?.x || 0)
-		// y = addUnits(iconData?.y || 0)
+
+		if (typeof name === 'undefined') {
+			name = slot.innerText
+		}
+
 		interactable(icon, { useGhost, onEnd: onMouseUp })
 	})
 
 	afterUpdate(() => {
 		console.log('Icon.afterUpdate')
-		if (x) x = addUnits(x || 0)
-		if (y) y = addUnits(y || 0)
 	})
 
 	onDestroy(() => {
 		console.log('Icon.onDestroy')
 	})
-
-	if (x) x = addUnits(x || 0)
-	if (y) y = addUnits(y || 0)
 
 	function onMouseDown() {
 		console.log('Icon.onMouseDown')

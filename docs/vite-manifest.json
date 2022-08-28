@@ -1,11 +1,11 @@
 {
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "emuos/immutable/start-72598c4c.js",
+    "file": "emuos/immutable/start-81d828c1.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-680f6188.js",
-      "_singletons-0321017a.js",
+      "_singletons-88baba1b.js",
       "_index-add64223.js"
     ],
     "dynamicImports": [
@@ -28,18 +28,18 @@
     ]
   },
   "src/routes/+error.svelte": {
-    "file": "emuos/immutable/components/pages/_error.svelte-883ebf4b.js",
+    "file": "emuos/immutable/components/pages/_error.svelte-84dc2e95.js",
     "src": "src/routes/+error.svelte",
     "isEntry": true,
     "imports": [
       "_index-680f6188.js",
-      "_singletons-0321017a.js",
+      "_singletons-88baba1b.js",
       "_variables-055bf2ca.js",
       "_index-add64223.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "emuos/immutable/components/pages/_page.svelte-2fea30c7.js",
+    "file": "emuos/immutable/components/pages/_page.svelte-9a8de212.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -79,8 +79,8 @@
       "__page-57fd7800.js"
     ]
   },
-  "_singletons-0321017a.js": {
-    "file": "emuos/immutable/chunks/singletons-0321017a.js",
+  "_singletons-88baba1b.js": {
+    "file": "emuos/immutable/chunks/singletons-88baba1b.js",
     "imports": [
       "_index-add64223.js"
     ]
@@ -128,19 +128,19 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "emuos/immutable/chunks/1-6d06a287.js",
+    "file": "emuos/immutable/chunks/1-3a51ee8f.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
       "src/routes/+error.svelte",
       "_index-680f6188.js",
-      "_singletons-0321017a.js",
+      "_singletons-88baba1b.js",
       "_index-add64223.js",
       "_variables-055bf2ca.js"
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "emuos/immutable/chunks/2-3ccaf84b.js",
+    "file": "emuos/immutable/chunks/2-cff307c8.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [

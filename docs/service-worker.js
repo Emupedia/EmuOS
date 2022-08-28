@@ -1,14 +1,14 @@
 const p = [
-  "/emuos/immutable/start-72598c4c.js",
+  "/emuos/immutable/start-81d828c1.js",
   "/emuos/immutable/components/pages/_layout.svelte-e2d044c7.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-883ebf4b.js",
-  "/emuos/immutable/components/pages/_page.svelte-2fea30c7.js",
+  "/emuos/immutable/components/pages/_error.svelte-84dc2e95.js",
+  "/emuos/immutable/components/pages/_page.svelte-9a8de212.js",
   "/emuos/immutable/assets/+page-0a1ca267.css",
   "/emuos/immutable/components/pages/test/_page.svelte-499756e8.js",
   "/emuos/immutable/modules/pages/_layout.js-eff2ad23.js",
   "/emuos/immutable/modules/pages/_page.js-45e602fd.js",
-  "/emuos/immutable/chunks/singletons-0321017a.js",
+  "/emuos/immutable/chunks/singletons-88baba1b.js",
   "/emuos/immutable/chunks/index-680f6188.js",
   "/emuos/immutable/chunks/index-add64223.js",
   "/emuos/immutable/chunks/variables-055bf2ca.js",
@@ -16,8 +16,8 @@ const p = [
   "/emuos/immutable/chunks/api-d829b9a3.js",
   "/emuos/immutable/chunks/_page-57fd7800.js",
   "/emuos/immutable/chunks/0-ad59499c.js",
-  "/emuos/immutable/chunks/1-6d06a287.js",
-  "/emuos/immutable/chunks/2-3ccaf84b.js",
+  "/emuos/immutable/chunks/1-3a51ee8f.js",
+  "/emuos/immutable/chunks/2-cff307c8.js",
   "/emuos/immutable/chunks/3-0fd7df28.js"
 ], l = [
   "/.nojekyll",
@@ -235,7 +235,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661675310744", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
+], i = "1661703614409", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
 self.addEventListener("install", (s) => {
   try {
     s.waitUntil(

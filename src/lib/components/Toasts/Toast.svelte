@@ -73,6 +73,8 @@
 	})
 </script>
 
+<svelte:options tag="emuos-toast" />
+
 <div class="toast" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
 	<div role="status" class="toast-message" class:pe={item.component || typeof item.onclick === 'function'} on:click={click}>
 		{#if item.component}

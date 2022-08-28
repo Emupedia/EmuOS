@@ -17,6 +17,8 @@
 	const getCss = theme => Object.keys(theme).reduce((a, c) => `${a}${c}:${theme[c]};`, '')
 </script>
 
+<svelte:options tag="emuos-toasts" />
+
 <ul class="toasts">
 	{#each items as item(item.id)}
 		<li class={item.classes.join(' ')} in:fly={item.intro} out:fade animate:flip={{ duration: 200 }} style={getCss(item.theme)}>
