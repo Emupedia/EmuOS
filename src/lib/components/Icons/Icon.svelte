@@ -82,6 +82,8 @@
 	}
 </script>
 
+<svelte:options tag={null} />
+
 <li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:mousedown={onMouseDown} on:click={onClick} style="--x: {x}; --y: {y};" {...$$restProps}>
 	<button type="button" {title}>
 		<figure>

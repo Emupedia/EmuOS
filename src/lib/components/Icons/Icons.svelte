@@ -1,3 +1,5 @@
+<svelte:options tag={null} />
+
 <ul class="icons {$$props.class || ''}" {...$$restProps}><slot /></ul>
 
 <style lang="scss">

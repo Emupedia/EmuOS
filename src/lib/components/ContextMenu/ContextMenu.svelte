@@ -49,6 +49,8 @@
 	}
 </script>
 
+<svelte:options tag={null} />
+
 <svelte:window on:contextmenu|preventDefault={onContextMenu} on:mousedown={onMouseDown} />
 
 <nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};" {...$$restProps}>

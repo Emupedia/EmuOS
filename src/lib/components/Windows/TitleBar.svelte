@@ -5,6 +5,8 @@
 	export let onMouseDown = () => {}
 </script>
 
+<svelte:options tag={null} />
+
 <header class="title-bar {$$props.class || ''}" on:mousedown={onMouseDown} {...$$restProps}>
 	<slot>TitleBar</slot>
 	<nav>{#if buttons.includes('help')}<Button type="icon" icon="Help" />{/if}{#if buttons.includes('fullscreen')}<Button type="icon" icon="Fullscreen" />{/if}{#if buttons.includes('newtab')}<Button type="icon" icon="NewTab" />{/if}{#if buttons.includes('minimize')}<Button type="icon" icon="Minimize" />{/if}{#if buttons.includes('maximize')}<Button type="icon" icon="Maximize" />{/if}{#if buttons.includes('close')}<Button type="icon" icon="Close" />{/if}</nav>

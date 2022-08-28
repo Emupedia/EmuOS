@@ -1,3 +1,5 @@
+<svelte:options tag={null} />
+
 <li class="menu-separator {$$props.class || ''}" {...$$restProps}><hr /></li>
 
 <style lang="scss">

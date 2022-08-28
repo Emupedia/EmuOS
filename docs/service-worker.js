@@ -1,14 +1,14 @@
 const p = [
-  "/emuos/immutable/start-57e20c77.js",
+  "/emuos/immutable/start-82ed83ea.js",
   "/emuos/immutable/components/pages/_layout.svelte-e2d044c7.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-60f14447.js",
-  "/emuos/immutable/components/pages/_page.svelte-63ca6fcc.js",
+  "/emuos/immutable/components/pages/_error.svelte-43d9ef49.js",
+  "/emuos/immutable/components/pages/_page.svelte-478a071f.js",
   "/emuos/immutable/assets/+page-38ee56ee.css",
   "/emuos/immutable/components/pages/test/_page.svelte-499756e8.js",
   "/emuos/immutable/modules/pages/_layout.js-eff2ad23.js",
   "/emuos/immutable/modules/pages/_page.js-45e602fd.js",
-  "/emuos/immutable/chunks/singletons-b5ef12ab.js",
+  "/emuos/immutable/chunks/singletons-6e339a70.js",
   "/emuos/immutable/chunks/index-680f6188.js",
   "/emuos/immutable/chunks/index-add64223.js",
   "/emuos/immutable/chunks/variables-055bf2ca.js",
@@ -16,11 +16,10 @@ const p = [
   "/emuos/immutable/chunks/api-d829b9a3.js",
   "/emuos/immutable/chunks/_page-57fd7800.js",
   "/emuos/immutable/chunks/0-ad59499c.js",
-  "/emuos/immutable/chunks/1-3e5826c8.js",
-  "/emuos/immutable/chunks/2-15a4d791.js",
+  "/emuos/immutable/chunks/1-d9d61492.js",
+  "/emuos/immutable/chunks/2-ff74d834.js",
   "/emuos/immutable/chunks/3-0fd7df28.js"
 ], l = [
-  "/.nojekyll",
   "/apple-touch-icon.png",
   "/assets/css/fonts.css",
   "/assets/css/libraries/bootstrap-4.5.0.css",
@@ -231,50 +230,49 @@ const p = [
   "/assets/videos/monkey.jpg",
   "/assets/videos/monkey.mp4",
   "/assets/videos/monkey.ogg",
-  "/CNAME",
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661717694837", m = `cache${i}`, r = p.concat(l.filter((s) => !s.startsWith("/.nojekyll") && !s.startsWith("/_config.yml") && !s.startsWith("/CNAME") && !s.startsWith("/vite-manifest.json"))), u = new Set(r);
-self.addEventListener("install", (s) => {
+], i = "1661719824384", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+self.addEventListener("install", (e) => {
   try {
-    s.waitUntil(
-      caches.open(m).then((e) => e.addAll(r)).then(() => {
+    e.waitUntil(
+      caches.open(m).then((s) => s.addAll(r)).then(() => {
         self.skipWaiting();
       })
     );
-  } catch (e) {
-    console.error(e);
+  } catch (s) {
+    console.error(s);
   }
 });
-self.addEventListener("activate", (s) => {
+self.addEventListener("activate", (e) => {
   try {
-    s.waitUntil(
-      caches.keys().then(async (e) => {
-        for (const a of e)
+    e.waitUntil(
+      caches.keys().then(async (s) => {
+        for (const a of s)
           a !== m && await caches.delete(a);
         await self.clients.claim();
       })
     );
-  } catch (e) {
-    console.error(e);
+  } catch (s) {
+    console.error(s);
   }
 });
-async function d(s) {
-  const e = await caches.open(`offline${i}`);
+async function d(e) {
+  const s = await caches.open(`offline${i}`);
   try {
-    const a = await fetch(s);
-    return await e.put(s, a.clone()), a;
+    const a = await fetch(e);
+    return await s.put(e, a.clone()), a;
   } catch (a) {
     console.error(a);
-    const o = await e.match(s);
+    const o = await s.match(e);
     if (o)
       return o;
   }
 }
-self.addEventListener("fetch", (s) => {
-  if (s.request.method !== "GET" || s.request.headers.has("range"))
+self.addEventListener("fetch", (e) => {
+  if (e.request.method !== "GET" || e.request.headers.has("range"))
     return;
-  const e = new URL(s.request.url), a = e.protocol.startsWith("http"), o = e.hostname === self.location.hostname && e.port !== self.location.port, t = e.host === self.location.host && u.has(e.pathname), n = s.request.cache === "only-if-cached" && !t;
-  a && !o && !n && s.respondWith((async () => t && await caches.match(s.request) || d(s.request))());
+  const s = new URL(e.request.url), a = s.protocol.startsWith("http"), o = s.hostname === self.location.hostname && s.port !== self.location.port, t = s.host === self.location.host && u.has(s.pathname), n = e.request.cache === "only-if-cached" && !t;
+  a && !o && !n && e.respondWith((async () => t && await caches.match(e.request) || d(e.request))());
 });

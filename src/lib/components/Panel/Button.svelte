@@ -60,6 +60,8 @@
 	}
 </script>
 
+<svelte:options tag={null} />
+
 <button class={cls} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
 
 <style lang="scss">

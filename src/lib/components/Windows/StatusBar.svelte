@@ -2,6 +2,8 @@
 	export let debug = false
 </script>
 
+<svelte:options tag={null} />
+
 <footer class="status-bar {$$props.class || ''}" class:debug {...$$restProps}><slot>StatusBar</slot></footer>
 
 <style lang="scss">

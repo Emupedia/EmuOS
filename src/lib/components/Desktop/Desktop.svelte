@@ -129,6 +129,8 @@
 	}
 </script>
 
+<svelte:options tag={null} />
+
 <svelte:window on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove} />
 
 <main bind:this={desktop} class="desktop {$$props.class || ''}" class:debug {build} {...$$restProps}><slot /></main>

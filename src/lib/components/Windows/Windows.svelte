@@ -21,6 +21,8 @@
 	})
 </script>
 
+<svelte:options tag={null} />
+
 <nav class="windows {$$props.class || ''}" {...$$restProps}><slot /></nav>
 
 <style lang="scss">

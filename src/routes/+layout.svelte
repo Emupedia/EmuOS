@@ -40,6 +40,8 @@
 	}
 </script>
 
+<svelte:options tag={null} />
+
 <svelte:head>
 	<title>EmuOS v2.0</title>
 </svelte:head>

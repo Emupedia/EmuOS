@@ -8,6 +8,8 @@
 	padding = addUnits(padding)
 </script>
 
+<svelte:options tag={null} />
+
 <article class="panel {$$props.class || ''}" class:debug {...$$restProps}>
 	<section class="content" style="--padding: {padding}" contenteditable={isContentEditable}><slot>Panel</slot></section>
 </article>

@@ -5,6 +5,8 @@
 	export let onClick = () => {}
 </script>
 
+<svelte:options tag={null} />
+
 <li class="menu-item  {$$props.class || ''}" class:disabled class:debug {...$$restProps} on:click={onClick}><slot>{name}</slot></li>
 
 <style lang="scss">

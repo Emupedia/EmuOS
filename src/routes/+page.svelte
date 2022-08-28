@@ -78,6 +78,8 @@
 	const onResetIconsClick = () => ($db.desktop.icons = iconsData)
 </script>
 
+<svelte:options tag={null} />
+
 <Desktop {version} on:updated={onUpdated}>
 	<Icons>
 		{#each icons as icon, i(icon?.name)}

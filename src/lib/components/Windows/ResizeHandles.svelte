@@ -2,6 +2,8 @@
 
 </script>
 
+<svelte:options tag={null} />
+
 <div class="resize-handles {$$props.class || ''}" {...$$restProps}>
 	<div class="top"></div>
 	<div class="left"></div>
