@@ -1,7 +1,7 @@
 <!--suppress JSUnusedAssignment, JSUnresolvedVariable -->
 
 <script>
-	import { onMount, afterUpdate } from 'svelte'
+	import { beforeUpdate, onMount, afterUpdate, onDestroy } from 'svelte'
 
 	import { Desktop } from '$lib/components/Desktop'
 	import { Icons, Icon } from '$lib/components/Icons'
@@ -33,25 +33,38 @@
 		}
 	}
 
-	onMount(() => {
-		console.log('onMount')
-		// db.set({ ...$db, desktop: { icons }, version })
-	})
-
-	afterUpdate(() => {
-		console.log('afterUpdate')
-		// db.set({ ...$db, desktop: { icons }, version })
-	})
+	let version
+	let icons
 
 	const global = getGlobal()
 
-	let version = 0
-	version = data?.version || version
+	beforeUpdate(() => {
+		console.log('Page.beforeUpdate')
+	})
 
-	let icons = []
-	icons = $db?.desktop?.icons?.length > 0 ? $db?.desktop?.icons : iconsData || icons
+	onMount(() => {
+		console.log('Page.onMount')
+	})
 
-	db.set({ ...$db, desktop: { icons }, version })
+	afterUpdate(() => {
+		console.log('Page.afterUpdate')
+	})
+
+	onDestroy(() => {
+		console.log('Page.onDestroy')
+		unsubscribe()
+	})
+
+	const unsubscribe = db.subscribe(db => {
+		console.log('Updated DB')
+		console.log(db)
+		version = db?.version || 0
+		icons = db?.desktop?.icons || iconsData
+	})
+
+	if (data?.version !== 0) {
+		$db.version = data?.version
+	}
 
 	// noinspection JSDeprecatedSymbols
 	let closeIcon = global?.btoa(Close)
@@ -62,10 +75,7 @@
 
 	const onShowToastClick = () => toast.open({ msg: 'This is a toast!', pausable: true })
 
-	const onResetIconsClick = () => {
-		icons = iconsData
-		db.set({ ...$db, desktop: { icons } })
-	}
+	const onResetIconsClick = () => ($db.desktop.icons = iconsData)
 </script>
 
 <Desktop {version} on:updated={onUpdated}>

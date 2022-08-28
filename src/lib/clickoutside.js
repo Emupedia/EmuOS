@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 const clickOutside = (el, _options = {}) => {
 	const options = { include: [], onClickOutside: () => {}, ..._options }
 

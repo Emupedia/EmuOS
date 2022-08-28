@@ -1,16 +1,9 @@
-// noinspection DuplicatedCode,JSUnusedGlobalSymbols,JSUnresolvedFunction,JSUnresolvedVariable,JSCheckFunctionSignatures
+// noinspection JSUnusedGlobalSymbols
 
 import interact from 'interactjs'
-import { getFirst, getAll, getOffset, getProperty, setProperty, addClass, removeClass } from '$lib/dom'
+import { getFirst, getAll, getOffset, addClass, removeClass, getProperty, setProperty, move } from '$lib/dom'
 
 export const interactable = (el, options) => {
-	const move = target => (x, y) => {
-		setProperty(target, 'x', x)
-		setProperty(target, 'y', y)
-
-		return target
-	}
-
 	let items = []
 	let ghostElements = []
 
@@ -39,7 +32,8 @@ export const interactable = (el, options) => {
 				}
 
 				if (typeof options.onStart === 'function') {
-					options.onStart(e)
+					// noinspection JSCheckFunctionSignatures
+					options.onStart(e, items)
 				}
 			},
 			move: e => {
@@ -49,17 +43,19 @@ export const interactable = (el, options) => {
 					const x = (getProperty(el, 'x') || 0) + e.dx
 					const y = (getProperty(el, 'y') || 0) + e.dy
 
-					move(el)(x, y)
+					move(el, x, y)
 				}
 
+				// noinspection JSUnresolvedVariable
 				if (typeof options.onMove === 'function') {
-					options.onMove(e)
+					// noinspection JSUnresolvedFunction
+					options.onMove(e, items)
 				}
 			},
 			end: e => {
 				if (options.useGhost && ghostElements.length > 0) {
 					for (const [i, item] of items.entries()) {
-						move(item)((getProperty(ghostElements[i], 'x') - item.offsetLeft) || 0, (getProperty(ghostElements[i], 'y') - item.offsetTop) || 0)
+						move(item, (getProperty(ghostElements[i], 'x') - item.offsetLeft) || 0, (getProperty(ghostElements[i], 'y') - item.offsetTop) || 0)
 						ghostElements[i]?.remove()
 					}
 				} else {

@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { getVersion } from '$lib/api'
 
 // noinspection PointlessArithmeticExpressionJS
@@ -8,11 +10,9 @@ let currentVersion = 0
 let checkedVersion = 0
 let version_check_interval
 
-// noinspection JSUnusedGlobalSymbols
 export const checkVersion = options => {
 	currentVersion = options?.version || 0
 
-	// noinspection JSUnusedAssignment
 	clearInterval(version_check_interval)
 
 	if (typeof options?.clear === 'undefined') {

@@ -1,16 +1,9 @@
 // noinspection DuplicatedCode,JSUnusedGlobalSymbols
 
 import interact from 'interactjs'
-import { getFirst, addClass, getProperty, setProperty } from '$lib/dom'
+import { getFirst, addClass, getProperty, move } from '$lib/dom'
 
 export const draggable = (el, options) => {
-	const move = target => (x, y) => {
-		setProperty(target, 'x', x)
-		setProperty(target, 'y', y)
-
-		return target
-	}
-
 	let ghostElement
 
 	// noinspection JSCheckFunctionSignatures
@@ -35,11 +28,11 @@ export const draggable = (el, options) => {
 				const x = (getProperty(target, 'x') || 0) + e.dx
 				const y = (getProperty(target, 'y') || 0) + e.dy
 
-				move(target)(x, y)
+				move(target, x, y)
 			},
 			end: e => {
 				if (options.useGhostWhileDragging && ghostElement) {
-					move(e.target)(getProperty(ghostElement, 'x') || 0, getProperty(ghostElement, 'y') || 0)
+					move(e.target, getProperty(ghostElement, 'x') || 0, getProperty(ghostElement, 'y') || 0)
 					ghostElement?.remove()
 				}
 			}

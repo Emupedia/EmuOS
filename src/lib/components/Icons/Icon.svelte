@@ -1,10 +1,10 @@
 <!--suppress CheckImageSize, JSUnusedAssignment -->
 
 <script>
-	import { onMount } from 'svelte'
-	import { db, setIconCoordinates } from '$lib/stores'
+	import { beforeUpdate, onMount, afterUpdate, onDestroy } from 'svelte'
+	import { db } from '$lib/stores'
 	import { interactable } from '$lib/interactable'
-	import { getAll, hasClass, addClass, removeClass, addUnits } from '$lib/dom'
+	import { getAll, hasClass, addClass, removeClass, addUnits, getProperty } from '$lib/dom'
 
 	export let x = 0
 	export let y = 0
@@ -16,26 +16,44 @@
 	export let shortcut = false
 	export let useTransform = false
 	export let useTransform3D = true
+	export let useGhost = true
 
-	export let onClick = () => {}
-
-	const useGhost = true
+	export let onClick = () => {
+		console.log('Icon.onClick')
+	}
 
 	let icon
 	let slot
 
-	if (x) x = addUnits(x)
-	if (y) y = addUnits(y)
+	beforeUpdate(() => {
+		console.log('Icon.beforeUpdate')
+	})
 
 	onMount(() => {
+		console.log('Icon.onMount')
 		name = slot.innerText
-		let iconData = $db?.desktop?.icons.find(icon => icon.name === name)
-		x = addUnits(iconData.x)
-		y = addUnits(iconData.y)
+		// let iconData = $db.desktop.icons.find(icon => icon.name === name)
+		// x = addUnits(iconData?.x || 0)
+		// y = addUnits(iconData?.y || 0)
 		interactable(icon, { useGhost, onEnd: onMouseUp })
 	})
 
+	afterUpdate(() => {
+		console.log('Icon.afterUpdate')
+		if (x) x = addUnits(x || 0)
+		if (y) y = addUnits(y || 0)
+	})
+
+	onDestroy(() => {
+		console.log('Icon.onDestroy')
+	})
+
+	if (x) x = addUnits(x || 0)
+	if (y) y = addUnits(y || 0)
+
 	function onMouseDown() {
+		console.log('Icon.onMouseDown')
+
 		if (!hasClass(icon, 'selected')) {
 			let unselect = getAll('.selected')
 
@@ -48,7 +66,20 @@
 	}
 
 	function onMouseUp(e, icons) {
-		setIconCoordinates([icon, ...icons])
+		console.log('Icon.onMouseUp')
+
+		if (typeof icons !== 'undefined' && icons?.length > 0) {
+			icons?.forEach(el => {
+				$db.desktop.icons.forEach((icon, i) => {
+					if (icon.name === el.innerText) {
+						icon.x = getProperty(el, 'x') || 0
+						icon.y = getProperty(el, 'y') || 0
+
+						$db.desktop.icons[i] = icon
+					}
+				})
+			})
+		}
 	}
 </script>
 

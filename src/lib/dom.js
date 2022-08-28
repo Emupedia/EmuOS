@@ -132,6 +132,24 @@ export const addUnits = value => {
 	return value
 }
 
-export const getProperty = (target, property) => parseFloat(getComputedStyle(target)?.getPropertyValue(`--${property}`))
+export const getProperty = (el, property) => parseFloat(getComputedStyle(el)?.getPropertyValue(`--${property}`))
 
-export const setProperty = (target, property, value) => target?.style?.setProperty(`--${property}`, addUnits(value))
+export const setProperty = (el, property, value) => {
+	el?.style?.setProperty(`--${property}`, addUnits(value))
+
+	return el
+}
+
+export const move = (el, x, y) => {
+	setProperty(el, 'x', x)
+	setProperty(el, 'y', y)
+
+	return el
+}
+
+export const resize = (el, width, height) => {
+	setProperty(el, 'width', width)
+	setProperty(el, 'height', height)
+
+	return el
+}
