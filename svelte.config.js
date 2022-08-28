@@ -43,65 +43,66 @@ const config = {
 	extensions: ['.svelte'],
 	kit: {
 		adapter: BuildWeb ? adapterWebInstace : (BuildDesktop ? adapterDesktopInstace : undefined),
-		alias: {},
+		// alias: {},
 		appDir: 'emuos',
-		csp: {
-			mode: 'auto',
-			directives: {}
-		},
-		env: {
-			dir: process.cwd(),
-			publicPrefix: 'PUBLIC_'
-		},
-		browser: {
-			hydrate: true,
-			router: true
-		},
+		// csp: {
+		// 	mode: 'auto',
+		// 	directives: {}
+		// },
+		// env: {
+		// 	dir: process.cwd(),
+		// 	publicPrefix: 'PUBLIC_'
+		// },
+		// browser: {
+		// 	hydrate: true,
+		// 	router: true
+		// },
 		files: {
 			assets: 'www',
-			hooks: 'src/hooks',
-			lib: 'src/lib',
-			params: 'src/params',
-			routes: 'src/routes',
-			serviceWorker: 'src/service-worker',
+			// hooks: 'src/hooks',
+			// lib: 'src/lib',
+			// params: 'src/params',
+			// routes: 'src/routes',
+			// serviceWorker: 'src/service-worker',
 			template: 'src/index.html'
 		},
-		inlineStyleThreshold: 0,
+		// inlineStyleThreshold: 0,
 		methodOverride: {
-			parameter: '_method',
+			// parameter: '_method',
 			allowed: ['PUT', 'PATCH', 'DELETE', 'OPTIONS']
 		},
-		moduleExtensions: ['.js', '.ts'],
-		outDir: '.svelte-kit',
-		paths: {
-			assets: '',
-			base: ''
-		},
-		prerender: {
-			concurrency: 1,
-			crawl: true,
-			default: false,
-			enabled: true,
-			entries: ['*'],
-			onError: 'fail',
-			origin: 'http://sveltekit-prerender'
-		},
+		// moduleExtensions: ['.js', '.ts'],
+		// outDir: '.svelte-kit',
+		// paths: {
+		// 	assets: '',
+		// 	base: ''
+		// },
+		// prerender: {
+			// concurrency: 1,
+			// crawl: true,
+			// default: false,
+			// enabled: true,
+			// entries: ['*'],
+			// onError: 'fail',
+			// origin: 'http://sveltekit-prerender'
+		// },
 		serviceWorker: {
 			register: isProduction && (BuildWeb || BuildDesktop),
+			// TODO: move this to env variable
 			files: filepath => !/\.DS_Store/.test(filepath) && !/\.nojekyll/.test(filepath) && !/_config\.yml/.test(filepath) && !/CNAME/.test(filepath) && !/vite-manifest\.json/.test(filepath)
 		},
-		trailingSlash: 'never',
-		version: {
-			name: Date.now().toString(),
-			pollInterval: 0
-		}
+		// trailingSlash: 'never',
+		// version: {
+		// 	name: Date.now().toString(),
+		// 	pollInterval: 0
+		// }
 	},
-	package: {
-		dir: 'package',
-		emitTypes: true,
-		exports: filepath => !/^_|\/_|\.d\.ts$/.test(filepath),
-		files: () => true
-	},
+	// package: {
+		// dir: 'package',
+		// emitTypes: true,
+		// exports: filepath => !/^_|\/_|\.d\.ts$/.test(filepath),
+		// files: () => true
+	// },
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: [

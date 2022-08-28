@@ -123,15 +123,22 @@
 		<link rel="apple-touch-startup-image" href="assets/images/logos/emupedia/emupedia-logo-256.png" />
 		<link type="text/css" rel="stylesheet" href="assets/css/fonts.css" />
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="modulepreload" href="/emuos/immutable/start-82ed83ea.js">
+	<link rel="modulepreload" href="/emuos/immutable/start-45926dd5.js">
 	<link rel="modulepreload" href="/emuos/immutable/chunks/index-680f6188.js">
-	<link rel="modulepreload" href="/emuos/immutable/chunks/singletons-6e339a70.js">
+	<link rel="modulepreload" href="/emuos/immutable/chunks/singletons-6a8ae871.js">
 	<link rel="modulepreload" href="/emuos/immutable/chunks/index-add64223.js">
+			<script>
+		if ('serviceWorker' in navigator) {
+			addEventListener('load', function () {
+				navigator.serviceWorker.register('/service-worker.js');
+			});
+		}
+	</script>
 	</head>
 	<body>
 		
 		<script type="module" data-sveltekit-hydrate="45h">
-		import { set_public_env, start } from "/emuos/immutable/start-82ed83ea.js";
+		import { set_public_env, start } from "/emuos/immutable/start-45926dd5.js";
 
 		set_public_env({});
 
