@@ -44,7 +44,8 @@ const defaultOptions = {
 		minWidth: 400,
 		minHeight: 200,
 		resizable: true,
-		maximize: true
+		maximize: false,
+		enableInspector: false
 	},
 	output: 'build',
 	versions: {
@@ -66,7 +67,10 @@ export default function (options = defaultOptions) {
 			options = { ...defaultOptions, ...options }
 			options.window = { ...defaultOptions.window, ...options.window }
 			options.versions = { ...defaultOptions.versions, ...options.versions }
-			console.log(c`{cyan INFO} Using Neutralinojs with version:\n\t- Client: {gray ${options.versions.client}}\n\t- Binary: {gray ${options.versions.binary}}\n\tCLI: {gray ${cliVersion}}`)
+			console.log(c`{cyan INFO} Using Neutralinojs with version:`)
+			console.log(c`	- Client: {gray ${options.versions.client}}`)
+			console.log(c`	- Binary: {gray ${options.versions.binary}}`)
+			console.log(c`	- CLI: {gray ${cliVersion}}`)
 
 			const tmpPath = builder.getBuildDirectory('neutralino')
 			builder.rimraf(tmpPath)
@@ -95,7 +99,7 @@ export default function (options = defaultOptions) {
 						fullScreen: false,
 						alwaysOnTop: false,
 						icon: '/build/' + options.icon,
-						enableInspector: false,
+						enableInspector: options.window.enableInspector,
 						borderless: false,
 						maximize: options.window.maximize,
 						hidden: false,

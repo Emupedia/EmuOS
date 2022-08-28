@@ -24,7 +24,8 @@ const adapterDesktopInstace = adapterDesktop({
 		minWidth: 400,
 		minHeight: 200,
 		resizable: true,
-		maximize: false
+		maximize: false,
+		enableInspector: true
 	},
 	output: 'build'
 })
