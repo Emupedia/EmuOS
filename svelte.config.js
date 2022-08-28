@@ -6,7 +6,9 @@ import preprocess from 'svelte-preprocess'
 import 'dotenv/config'
 
 const isProd = process.env.NODE_ENV === 'production'
+const isComponents = process.env.BUILD_COMPONENTS === 'true'
 const isWeb = process.env.BUILD_WEBSITE === 'true'
+const isDesktop = process.env.BUILD_DESKTOP === 'true'
 
 const adapterWebInstace = adapterWeb({
 	pages: 'docs',
@@ -32,8 +34,12 @@ const adapterDesktopInstace = adapterDesktop({
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	compilerOptions: {
+		dev: !isProd,
+		customElement: isComponents && !isWeb && !isDesktop
+	},
 	kit: {
-		adapter: isWeb ? adapterWebInstace : adapterDesktopInstace,
+		adapter: isWeb ? adapterWebInstace : (isDesktop ? adapterDesktopInstace : adapterWebInstace) ,
 		appDir: 'emuos',
 		files: {
 			assets: 'www',
@@ -46,11 +52,15 @@ const config = {
 			default: false
 		},
 		serviceWorker: {
-			register: isProd
+			register: isProd && (isWeb || isDesktop)
 		}
 	},
 	onwarn: (warning, handler) => {
 		const { code } = warning
+
+		if (isWeb && code === 'missing-custom-element-compile-options') {
+			return
+		}
 
 		if (code === 'css-unused-selector')
 			return

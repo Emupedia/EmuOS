@@ -29,10 +29,15 @@
 		"post:build": "node scripts/post-build",
 		"package": "svelte-kit package",
 		"preview": "vite preview",
-		"set:build:website": "replace-in-files --ignore-case --no-glob --string=\"BUILD_WEBSITE=false\" --replacement=\"BUILD_WEBSITE=true\" ./.env",
-		"set:build:desktop": "replace-in-files --ignore-case --no-glob --string=\"BUILD_WEBSITE=true\" --replacement=\"BUILD_WEBSITE=false\" ./.env",
-		"build:website": "run-s set:build:website build post:build",
-		"build:desktop": "run-s set:build:desktop build"
+		"set:build:components:on": "replace-in-files --ignore-case --no-glob --string=\"BUILD_COMPONENTS=false\" --replacement=\"BUILD_COMPONENTS=true\" ./.env",
+		"set:build:components:off": "replace-in-files --ignore-case --no-glob --string=\"BUILD_COMPONENTS=true\" --replacement=\"BUILD_COMPONENTS=false\" ./.env",
+		"set:build:website:on": "replace-in-files --ignore-case --no-glob --string=\"BUILD_WEBSITE=false\" --replacement=\"BUILD_WEBSITE=true\" ./.env",
+		"set:build:website:off": "replace-in-files --ignore-case --no-glob --string=\"BUILD_WEBSITE=true\" --replacement=\"BUILD_WEBSITE=false\" ./.env",
+		"set:build:desktop:on": "replace-in-files --ignore-case --no-glob --string=\"BUILD_DESKTOP=false\" --replacement=\"BUILD_DESKTOP=true\" ./.env",
+		"set:build:desktop:off": "replace-in-files --ignore-case --no-glob --string=\"BUILD_DESKTOP=true\" --replacement=\"BUILD_DESKTOP=false\" ./.env",
+		"build:components": "run-s set:build:components:on set:build:website:off set:build:desktop:off build",
+		"build:website": "run-s set:build:components:off set:build:website:on set:build:desktop:off build post:build",
+		"build:desktop": "run-s set:build:components:off set:build:website:off set:build:desktop:on build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "1.0.0-next.39",
