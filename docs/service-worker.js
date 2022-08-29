@@ -1,24 +1,24 @@
 const p = [
-  "/emuos/immutable/start-088f5425.js",
-  "/emuos/immutable/components/pages/_layout.svelte-ded4e2d5.js",
+  "/emuos/immutable/start-8995690a.js",
+  "/emuos/immutable/components/pages/_layout.svelte-5b848ea5.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-2f8014c2.js",
-  "/emuos/immutable/components/pages/_page.svelte-810b49a5.js",
-  "/emuos/immutable/assets/+page-38ee56ee.css",
-  "/emuos/immutable/components/pages/test/_page.svelte-499756e8.js",
+  "/emuos/immutable/components/pages/_error.svelte-04eff882.js",
+  "/emuos/immutable/components/pages/_page.svelte-ea574c78.js",
+  "/emuos/immutable/assets/+page-4ee7b845.css",
+  "/emuos/immutable/components/pages/test/_page.svelte-94cdf08e.js",
   "/emuos/immutable/modules/pages/_layout.js-7167e1cc.js",
   "/emuos/immutable/modules/pages/_page.js-15ca0a08.js",
-  "/emuos/immutable/chunks/singletons-5b5ae5cf.js",
-  "/emuos/immutable/chunks/index-680f6188.js",
-  "/emuos/immutable/chunks/index-add64223.js",
+  "/emuos/immutable/chunks/singletons-b4000746.js",
+  "/emuos/immutable/chunks/index-6d9a8673.js",
+  "/emuos/immutable/chunks/index-43e2534b.js",
   "/emuos/immutable/chunks/variables-e861a5a8.js",
   "/emuos/immutable/chunks/_layout-482429eb.js",
   "/emuos/immutable/chunks/api-94399851.js",
   "/emuos/immutable/chunks/_page-78de4f5c.js",
-  "/emuos/immutable/chunks/0-8db88758.js",
-  "/emuos/immutable/chunks/1-10ce15c8.js",
-  "/emuos/immutable/chunks/2-0bb1af74.js",
-  "/emuos/immutable/chunks/3-0fd7df28.js"
+  "/emuos/immutable/chunks/0-04d8e8c7.js",
+  "/emuos/immutable/chunks/1-fff164b1.js",
+  "/emuos/immutable/chunks/2-b52e614a.js",
+  "/emuos/immutable/chunks/3-86b31a1e.js"
 ], l = [
   "/apple-touch-icon.png",
   "/assets/css/fonts.css",
@@ -233,7 +233,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661795164920", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+], i = "1661803301902", m = `cache${i}`, r = p.concat(l), u = new Set(r);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(

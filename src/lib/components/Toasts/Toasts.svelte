@@ -3,7 +3,7 @@
 <script>
 	import { fade, fly } from 'svelte/transition'
 	import { flip } from 'svelte/animate'
-	import { toast } from '$lib/stores'
+	import { toast } from '$lib/stores/toast'
 
 	import Toast from '$lib/components/Toasts/Toast.svelte'
 
@@ -24,7 +24,8 @@
 <ul class="toasts">
 	{#each items as item(item.id)}
 		<li class={item.classes.join(' ')} in:fly={item.intro} out:fade animate:flip={{ duration: 200 }} style={getCss(item.theme)}>
-			<Toast {item} />
+			<!--suppress CheckEmptyScriptTag -->
+			<emuos-toast {item} />
 		</li>
 	{/each}
 </ul>

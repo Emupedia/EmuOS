@@ -6,7 +6,7 @@
 	import { onDestroy } from 'svelte'
 	import { tweened } from 'svelte/motion'
 	import { linear } from 'svelte/easing'
-	import { toast, toastDefaults } from '$lib/stores'
+	import { toast, toastDefaults } from '$lib/stores/toast'
 
 	export let item = toastDefaults
 
@@ -118,16 +118,20 @@
 		align-items: center;
 		overflow: hidden;
 		//will-change: transform, opacity;
+
+		&.pe {
+			pointer-events: auto;
+		}
 	}
 
 	.toast-message {
 		padding: var(--toastMessagePadding, 0.75rem 0.5rem);
 		flex: 1 1 0;
 		cursor: pointer;
-	}
 
-	.pe, .toast-message :global(a) {
-		pointer-events: auto;
+		& > a {
+			pointer-events: auto;
+		}
 	}
 
 	.toast-button {
@@ -155,6 +159,10 @@
 			border-radius: var(--toastButtonBorderRadiusActive, 0);
 			margin: var(--toastButtonMarginActive, 0);
 			padding: var(--toastButtonPaddingActive, 0);
+		}
+
+		&.pe {
+			pointer-events: auto;
 		}
 	}
 

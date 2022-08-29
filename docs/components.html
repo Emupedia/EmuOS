@@ -5,7 +5,68 @@
 		<link rel="icon" type="image/svg+xml" href="assets/images/logos/emupedia/emupedia-logo.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>EmuOS v2.0 - Components</title>
-		<script type="module" crossorigin src="/emuos/components/main.3732ae76.js"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@200..900&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				color-scheme: dark;
+
+				--toastsTop: 1.5rem;
+				--toastsRight: 2rem;
+				--toastsBottom: auto;
+				--toastsLeft: auto;
+				--toastsZIndex: auto;
+
+				--toastWidth: 16rem;
+				--toastHeight: auto;
+				--toastMinHeight: 3.5rem;
+				--toastMargin: 0 0 0.5rem 0;
+				--toastPadding: 0;
+				--toastBackground: rgba(66, 66, 66, 0.9);
+				--toastColor: #fff;
+				--toastBoxShadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+				--toastBorder: none;
+				--toastBorderRadius: 0.125rem;
+				--toastGap: 0;
+
+				--toastMessagePadding: 0.75rem 0.5rem;
+
+				--toastButtonWidth: 2rem;
+				--toastButtonHeight: 100%;
+				--toastButtonBackground: rgba(66, 66, 66, 0.9);
+				--toastButtonColor: #fff;
+				--toastButtonBoxShadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+				--toastButtonBorder: none;
+				--toastButtonBorderRadius: 0;
+				--toastButtonMargin: 0;
+				--toastButtonPadding: 0;
+
+				--toastButtonBackgroundActive: rgba(66, 66, 66, 0.9);
+				--toastButtonColorActive: #fff;
+				--toastButtonBoxShadowActive: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+				--toastButtonBorderActive: none;
+				--toastButtonBorderRadiusActive: 0;
+				--toastButtonMarginActive: 0;
+				--toastButtonPaddingActive: 0;
+
+				--toastProgressTop: auto;
+				--toastProgressRight: auto;
+				--toastProgressBottom: 0;
+				--toastProgressLeft: 0;
+				--toastProgressHeight: 6px;
+				--toastProgressWidth: 100%;
+				--toastProgressBackground: rgba(33, 150, 243, 0.75);
+			}
+
+			body {
+				font-family: 'Ubuntu', sans-serif;
+			}
+
+			a {
+				pointer-events: auto;
+			}
+		</style>
+		<script type="module" crossorigin src="/emuos/components/main.ed6349e0.js"></script>
 	</head>
 	<body>
 		<my-counter id="counter"></my-counter>

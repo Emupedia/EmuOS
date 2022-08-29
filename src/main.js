@@ -9,7 +9,7 @@ const toasts = document.getElementsByTagName('emuos-toasts')[0]
 
 counter.addEventListener('click', () => {
 	// noinspection JSCheckFunctionSignatures
-	counter.setAttribute('count', count++)
+	counter.setAttribute('count', ++count)
 	// noinspection JSUnresolvedVariable
-	toasts.toast.open({ msg: `You clicked ${count} times`, initial: 1, pausable: true })
+	toasts.toast.open({ msg: `You clicked ${count} times`, pausable: true })
 })
