@@ -42,10 +42,16 @@ const SvelteConfig = {
 	build: {
 		outDir: 'components',
 		assetsDir: 'emuos/components',
+		sourcemap: true,
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'components.html')
 			}
+		}
+	},
+	resolve:{
+		alias:{
+			'$lib' : resolve(__dirname, 'src/lib')
 		}
 	},
 	plugins: [

@@ -1,24 +1,41 @@
-<!--suppress JSUnusedAssignment -->
+<!--suppress JSUnresolvedVariable -->
+
+<svelte:options tag="emuos-toast" />
+
 <script>
 	import { onDestroy } from 'svelte'
 	import { tweened } from 'svelte/motion'
 	import { linear } from 'svelte/easing'
 	import { toast } from '$lib/stores'
 
-	export let item
+	export let item = {
+		duration: 4000,
+		initial: 1,
+		next: 0,
+		pausable: false,
+		dismissable: true,
+		reversed: false,
+		intro: { x: 256 },
+		close: '✕',
+		msg: 'test'
+	}
+
+	// noinspection JSUnusedAssignment
+	console.log(item)
 
 	const progress = tweened(item.initial, { duration: item.duration, easing: linear })
 
 	const click = () => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclick === 'function') {
-			// noinspection JSUnresolvedFunction
+			// noinspection JSUnresolvedFunction,JSUnresolvedVariable
 			item.onclick(item.id)
 		} else {
 			close()
 		}
 	}
 
+	// noinspection JSUnresolvedVariable
 	const close = () => toast.close(item.id)
 
 	const autoclose = () => {
@@ -55,9 +72,11 @@
 	}
 
 	const getProps = () => {
+		// noinspection JSUnresolvedVariable
 		const { props = {}, sendIdTo } = item.component
 
 		if (sendIdTo) {
+			// noinspection JSUnresolvedVariable
 			props[sendIdTo] = item.id
 		}
 
@@ -67,13 +86,11 @@
 	onDestroy(() => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclose === 'function') {
-			// noinspection JSUnresolvedFunction
+			// noinspection JSUnresolvedFunction,JSUnresolvedVariable
 			item.onclose(item.id)
 		}
 	})
 </script>
-
-<svelte:options tag="emuos-toast" />
 
 <div class="toast" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
 	<div role="status" class="toast-message" class:pe={item.component || typeof item.onclick === 'function'} on:click={click}>

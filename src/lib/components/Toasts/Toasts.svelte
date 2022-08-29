@@ -1,3 +1,5 @@
+<svelte:options tag="emuos-toasts" />
+
 <script>
 	import { fade, fly } from 'svelte/transition'
 	import { flip } from 'svelte/animate'
@@ -16,8 +18,6 @@
 
 	const getCss = theme => Object.keys(theme).reduce((a, c) => `${a}${c}:${theme[c]};`, '')
 </script>
-
-<svelte:options tag="emuos-toasts" />
 
 <ul class="toasts">
 	{#each items as item(item.id)}
