@@ -45,7 +45,7 @@
 		"set:build:desktop:on": "replace-in-files --ignore-case --no-glob --string=\"BUILD_DESKTOP=false\" --replacement=\"BUILD_DESKTOP=true\" ./.env",
 		"set:build:desktop:off": "replace-in-files --ignore-case --no-glob --string=\"BUILD_DESKTOP=true\" --replacement=\"BUILD_DESKTOP=false\" ./.env",
 		"build:components": "run-s set:debug:on set:build:components:on set:build:website:off set:build:desktop:off build post:build",
-		"build:website": "run-s set:debug:off set:build:components:off set:build:website:on set:build:desktop:off build post:build",
+		"build:website": "run-s set:debug:on set:build:components:off set:build:website:on set:build:desktop:off build post:build",
 		"build:desktop": "run-s set:debug:on set:build:components:off set:build:website:off set:build:desktop:on build"
 	},
 	"devDependencies": {
