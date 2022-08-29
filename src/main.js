@@ -6,6 +6,14 @@ import { toast } from './lib/stores/db'
 
 window.toast = toast
 
-toast.open({ msg: 'This is a toast!', pausable: true })
-
 export { toast }
+
+let count = 0
+
+const counter = document.getElementById('counter')
+
+counter.addEventListener('click', () => {
+	// noinspection JSCheckFunctionSignatures
+	counter.setAttribute('count', count++)
+	toast.open({ msg: `You clicked ${count} times`, initial: 0, pausable: true })
+})

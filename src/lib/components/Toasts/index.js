@@ -6,6 +6,6 @@
 // Alternatives: svelte-toasts https://github.com/mzohaibqc/svelte-toasts
 // DEMO https://mzohaibqc.github.io/svelte-toasts/
 
+export { toast, toastDefaults } from '$lib/stores'
 export { default as Toasts } from '$lib/components/Toasts/Toasts.svelte'
 export { default as Toast } from '$lib/components/Toasts/Toast.svelte'
-export { toast } from '$lib/stores'

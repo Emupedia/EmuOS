@@ -6,19 +6,9 @@
 	import { onDestroy } from 'svelte'
 	import { tweened } from 'svelte/motion'
 	import { linear } from 'svelte/easing'
-	import { toast } from '$lib/stores'
+	import { toast, toastDefaults } from '$lib/stores'
 
-	export let item = {
-		duration: 4000,
-		initial: 1,
-		next: 0,
-		pausable: false,
-		dismissable: true,
-		reversed: false,
-		intro: { x: 256 },
-		close: '✕',
-		msg: 'test'
-	}
+	export let item = toastDefaults
 
 	// noinspection JSUnusedAssignment
 	console.log(item)

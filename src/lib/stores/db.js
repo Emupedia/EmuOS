@@ -20,19 +20,19 @@ if (variables?.GLOBAL_DEBUG) {
 
 export const db = persist(writable(initial), createLocalStorage(), 'db')
 
+export const toastDefaults = {
+	duration: 4000,
+	initial: 1,
+	next: 0,
+	pausable: false,
+	dismissable: true,
+	reversed: false,
+	intro: { x: 256 },
+	close: '✕'
+}
+
 export const toast = (() => {
 	const { subscribe, update } = writable([])
-
-	const defaults = {
-		duration: 4000,
-		initial: 1,
-		next: 0,
-		pausable: false,
-		dismissable: true,
-		reversed: false,
-		intro: { x: 256 },
-		close: '✕'
-	}
 
 	let count = 0
 
@@ -44,7 +44,7 @@ export const toast = (() => {
 		const conf = options[param.target] || {}
 
 		const entry = {
-			...defaults,
+			...toastDefaults,
 			...conf,
 			...param,
 			theme: { ...conf.theme, ...param.theme },
