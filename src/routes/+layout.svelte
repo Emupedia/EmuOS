@@ -10,11 +10,11 @@
 	if (variables?.GLOBAL_DEBUG) {
 		console.log('+layout.svelte')
 
-		if (Object.keys(data).length > 0) {
+		if (data && Object.keys(data).length > 0) {
 			console.log(data)
 		}
 
-		if (Object.keys(errors).length > 0) {
+		if (errors && Object.keys(errors).length > 0) {
 			console.log(errors)
 		}
 	}

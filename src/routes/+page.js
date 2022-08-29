@@ -5,7 +5,7 @@ import { variables } from '$lib/variables'
 // export const hydrate = true
 // export const prerender = true
 
-export const load = async (e) => {
+export const load = async e => {
 	if (variables?.GLOBAL_DEBUG) {
 		console.log('+page.js')
 	}

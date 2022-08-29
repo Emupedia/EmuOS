@@ -4,6 +4,7 @@
 	import { fade, fly } from 'svelte/transition'
 	import { flip } from 'svelte/animate'
 	import { toast } from '$lib/stores/toast'
+	import { variables } from '$lib/variables'
 
 	import Toast from '$lib/components/Toasts/Toast.svelte'
 
@@ -11,8 +12,6 @@
 	export let target = 'default'
 
 	export { toast }
-
-	const useWebComponents = true
 
 	$: toast.init(target, options)
 
@@ -26,7 +25,7 @@
 <ul class="toasts">
 	{#each items as item(item.id)}
 		<li class={item.classes.join(' ')} in:fly={item.intro} out:fade animate:flip={{ duration: 200 }} style={getCss(item.theme)}>
-			{#if useWebComponents}
+			{#if variables.USE_WEBCOMPONENTS}
 				<emuos-toast {item}></emuos-toast>
 			{:else}
 				<Toast {item} />

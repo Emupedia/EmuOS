@@ -8,11 +8,11 @@
 	if (variables?.GLOBAL_DEBUG) {
 		console.log('+error.svelte')
 
-		if (Object.keys(data).length > 0) {
+		if (data && Object.keys(data).length > 0) {
 			console.log(data)
 		}
 
-		if (Object.keys(errors).length > 0) {
+		if (errors && Object.keys(errors).length > 0) {
 			console.log(errors)
 		}
 
