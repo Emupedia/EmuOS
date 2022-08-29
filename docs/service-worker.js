@@ -1,14 +1,14 @@
 const p = [
-  "/emuos/immutable/start-9db33533.js",
+  "/emuos/immutable/start-088f5425.js",
   "/emuos/immutable/components/pages/_layout.svelte-ded4e2d5.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-3daecbff.js",
-  "/emuos/immutable/components/pages/_page.svelte-c5faf55a.js",
+  "/emuos/immutable/components/pages/_error.svelte-2f8014c2.js",
+  "/emuos/immutable/components/pages/_page.svelte-810b49a5.js",
   "/emuos/immutable/assets/+page-38ee56ee.css",
   "/emuos/immutable/components/pages/test/_page.svelte-499756e8.js",
   "/emuos/immutable/modules/pages/_layout.js-7167e1cc.js",
   "/emuos/immutable/modules/pages/_page.js-15ca0a08.js",
-  "/emuos/immutable/chunks/singletons-f07da62e.js",
+  "/emuos/immutable/chunks/singletons-5b5ae5cf.js",
   "/emuos/immutable/chunks/index-680f6188.js",
   "/emuos/immutable/chunks/index-add64223.js",
   "/emuos/immutable/chunks/variables-e861a5a8.js",
@@ -16,8 +16,8 @@ const p = [
   "/emuos/immutable/chunks/api-94399851.js",
   "/emuos/immutable/chunks/_page-78de4f5c.js",
   "/emuos/immutable/chunks/0-8db88758.js",
-  "/emuos/immutable/chunks/1-c898ccd6.js",
-  "/emuos/immutable/chunks/2-6d057a6c.js",
+  "/emuos/immutable/chunks/1-10ce15c8.js",
+  "/emuos/immutable/chunks/2-0bb1af74.js",
   "/emuos/immutable/chunks/3-0fd7df28.js"
 ], l = [
   "/apple-touch-icon.png",
@@ -233,7 +233,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661792959274", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+], i = "1661795164920", m = `cache${i}`, r = p.concat(l), u = new Set(r);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(

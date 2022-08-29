@@ -22,7 +22,7 @@ export const db = persist(writable(initial), createLocalStorage(), 'db')
 
 export const toastDefaults = {
 	duration: 4000,
-	initial: 1,
+	initial: 0,
 	next: 0,
 	pausable: false,
 	dismissable: true,

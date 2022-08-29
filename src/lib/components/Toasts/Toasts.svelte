@@ -10,6 +10,8 @@
 	export let options = {}
 	export let target = 'default'
 
+	export { toast }
+
 	$: toast.init(target, options)
 
 	let items
