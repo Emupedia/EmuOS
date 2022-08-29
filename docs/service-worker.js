@@ -1,14 +1,14 @@
 const p = [
-  "/emuos/immutable/start-45926dd5.js",
+  "/emuos/immutable/start-0793f959.js",
   "/emuos/immutable/components/pages/_layout.svelte-e2d044c7.js",
   "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-fc24d533.js",
+  "/emuos/immutable/components/pages/_error.svelte-fc9beade.js",
   "/emuos/immutable/components/pages/_page.svelte-478a071f.js",
   "/emuos/immutable/assets/+page-38ee56ee.css",
   "/emuos/immutable/components/pages/test/_page.svelte-499756e8.js",
   "/emuos/immutable/modules/pages/_layout.js-eff2ad23.js",
   "/emuos/immutable/modules/pages/_page.js-45e602fd.js",
-  "/emuos/immutable/chunks/singletons-6a8ae871.js",
+  "/emuos/immutable/chunks/singletons-9901f80b.js",
   "/emuos/immutable/chunks/index-680f6188.js",
   "/emuos/immutable/chunks/index-add64223.js",
   "/emuos/immutable/chunks/variables-055bf2ca.js",
@@ -16,7 +16,7 @@ const p = [
   "/emuos/immutable/chunks/api-d829b9a3.js",
   "/emuos/immutable/chunks/_page-57fd7800.js",
   "/emuos/immutable/chunks/0-ad59499c.js",
-  "/emuos/immutable/chunks/1-c39f96dc.js",
+  "/emuos/immutable/chunks/1-613c6621.js",
   "/emuos/immutable/chunks/2-ff74d834.js",
   "/emuos/immutable/chunks/3-0fd7df28.js"
 ], l = [
@@ -233,7 +233,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661721756771", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+], i = "1661755085266", m = `cache${i}`, r = p.concat(l), u = new Set(r);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(
