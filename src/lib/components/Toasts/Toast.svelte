@@ -3,29 +3,26 @@
 <svelte:options tag="emuos-toast" />
 
 <script>
-	import { onDestroy } from 'svelte'
+	import { onMount, onDestroy } from 'svelte'
 	import { tweened } from 'svelte/motion'
 	import { linear } from 'svelte/easing'
 	import { toast, toastDefaults } from '$lib/stores/toast'
 
 	export let item = toastDefaults
 
-	// noinspection JSUnusedAssignment
+	console.log('init')
 	console.log(item)
-
-	const progress = tweened(item.initial, { duration: item.duration, easing: linear })
 
 	const click = () => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclick === 'function') {
 			// noinspection JSUnresolvedFunction,JSUnresolvedVariable
 			item.onclick(item.id)
-		} else {
+		} else if (item.dismissable) {
 			close()
 		}
 	}
 
-	// noinspection JSUnresolvedVariable
 	const close = () => toast.close(item.id)
 
 	const autoclose = () => {
@@ -34,14 +31,17 @@
 		}
 	}
 
+	let progress = tweened(item.initial, { duration: item.duration, easing: linear })
 	let next = item.initial
 	let prev = next
 	let paused = false
+	let mounted = false
 
-	$: if (next !== item.next) {
+	$: if (next !== item.next && mounted) {
 		next = item.next
 		prev = $progress
 		paused = false
+
 		progress.set(next).then(autoclose)
 	}
 
@@ -73,6 +73,13 @@
 		return props
 	}
 
+	onMount(() => {
+		progress = tweened(item.initial, { duration: item.duration, easing: linear })
+		next = item.initial
+		prev = next
+		mounted = true
+	})
+
 	onDestroy(() => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclose === 'function') {
@@ -82,7 +89,7 @@
 	})
 </script>
 
-<div class="toast" class:pe={item.pausable} on:mouseenter={pause} on:mouseleave={resume}>
+<div class="toast" class:pe={item.pausable || item.dismissable || typeof item.onclick === 'function'} on:mouseenter={pause} on:mouseleave={resume}>
 	<div role="status" class="toast-message" class:pe={item.component || typeof item.onclick === 'function'} on:click={click}>
 		{#if item.component}
 			<svelte:component this={item.component.src} {...getProps()} />
@@ -95,8 +102,7 @@
 		<button class="toast-button pe" type="button" tabindex="-1" on:click={close}>{@html item.close}</button>
 	{/if}
 
-	<!--suppress CheckEmptyScriptTag -->
-	<progress class="toast-progress" value={$progress} />
+	<progress class="toast-progress" value={$progress}></progress>
 </div>
 
 <style lang="scss">

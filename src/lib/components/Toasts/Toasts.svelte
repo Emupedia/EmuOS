@@ -12,6 +12,8 @@
 
 	export { toast }
 
+	const useWebComponents = true
+
 	$: toast.init(target, options)
 
 	let items
@@ -24,8 +26,11 @@
 <ul class="toasts">
 	{#each items as item(item.id)}
 		<li class={item.classes.join(' ')} in:fly={item.intro} out:fade animate:flip={{ duration: 200 }} style={getCss(item.theme)}>
-			<!--suppress CheckEmptyScriptTag -->
-			<emuos-toast {item} />
+			{#if useWebComponents}
+				<emuos-toast {item}></emuos-toast>
+			{:else}
+				<Toast {item} />
+			{/if}
 		</li>
 	{/each}
 </ul>

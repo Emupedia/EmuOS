@@ -11,5 +11,5 @@ counter.addEventListener('click', () => {
 	// noinspection JSCheckFunctionSignatures
 	counter.setAttribute('count', ++count)
 	// noinspection JSUnresolvedVariable
-	toasts.toast.open({ msg: `You clicked ${count} times`, initial: 1, pausable: true })
+	toasts.toast.open({ msg: `You clicked ${count} times`, initial: 1, next: 0, pausable: true, dismissable: true })
 })
