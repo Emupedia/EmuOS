@@ -3,8 +3,8 @@
 import { resolve } from 'path'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { sveltekit } from '@sveltejs/kit/vite'
-import sveltePreprocess from 'svelte-preprocess'
-import autoprefixer from 'autoprefixer'
+// import sveltePreprocess from 'svelte-preprocess'
+// import autoprefixer from 'autoprefixer'
 import legacy from '@vitejs/plugin-legacy'
 import 'dotenv/config'
 
@@ -34,12 +34,13 @@ const SvelteKitConfig = {
 		}
 	}
 }
+
 /** @type {import('vite').UserConfig} */
 const SvelteConfig = {
 	plugins: [
 		svelte({
-			emitCss: true,
-			preprocess: sveltePreprocess(),
+			// emitCss: true,
+			// preprocess: sveltePreprocess(),
 			compilerOptions: {
 				customElement: true
 			}
@@ -60,11 +61,11 @@ const SvelteConfig = {
 		}
 	},
 	css: {
-		postcss: {
+		/*postcss: {
 			plugins: [
 				autoprefixer()
 			]
-		},
+		},*/
 		preprocessorOptions: {
 			scss: {
 				additionalData: '@use "src/variables.scss" as *;'

@@ -1,23 +1,24 @@
 const p = [
-  "/emuos/immutable/start-aed86ddc.js",
-  "/emuos/immutable/components/pages/_layout.svelte-6f14b8f4.js",
-  "/emuos/immutable/assets/+layout-7c802733.css",
-  "/emuos/immutable/components/pages/_error.svelte-47b33d7c.js",
-  "/emuos/immutable/components/pages/_page.svelte-3d86227b.js",
-  "/emuos/immutable/assets/+page-4ee7b845.css",
+  "/emuos/immutable/start-78b89c12.js",
+  "/emuos/immutable/components/pages/_layout.svelte-1dbe2f4d.js",
+  "/emuos/immutable/assets/_layout-7c802733.css",
+  "/emuos/immutable/components/pages/_error.svelte-3affafef.js",
+  "/emuos/immutable/components/pages/_page.svelte-0f22b378.js",
+  "/emuos/immutable/assets/_page-4ee7b845.css",
   "/emuos/immutable/components/pages/test/_page.svelte-03f51a49.js",
-  "/emuos/immutable/modules/pages/_layout.js-018f419c.js",
-  "/emuos/immutable/modules/pages/_page.js-4b72698b.js",
-  "/emuos/immutable/chunks/singletons-4716b44c.js",
+  "/emuos/immutable/modules/pages/_layout.js-592d3b54.js",
+  "/emuos/immutable/modules/pages/_page.js-ae520d68.js",
+  "/emuos/immutable/chunks/singletons-fd81d780.js",
+  "/emuos/immutable/chunks/env-public-68bb7357.js",
   "/emuos/immutable/chunks/index-a73070ad.js",
   "/emuos/immutable/chunks/index-6fa7900d.js",
-  "/emuos/immutable/chunks/variables-2366cbc7.js",
-  "/emuos/immutable/chunks/_layout-47cd7dbf.js",
-  "/emuos/immutable/chunks/api-7d38f89a.js",
-  "/emuos/immutable/chunks/_page-49c1b6e5.js",
-  "/emuos/immutable/chunks/0-d6cbc689.js",
-  "/emuos/immutable/chunks/1-a982ddc2.js",
-  "/emuos/immutable/chunks/2-83656172.js",
+  "/emuos/immutable/chunks/variables-3121b6e0.js",
+  "/emuos/immutable/chunks/_layout-937e89b2.js",
+  "/emuos/immutable/chunks/api-04bc0b82.js",
+  "/emuos/immutable/chunks/_page-98645f32.js",
+  "/emuos/immutable/chunks/0-558d54a9.js",
+  "/emuos/immutable/chunks/1-8cf80d94.js",
+  "/emuos/immutable/chunks/2-f1cf872d.js",
   "/emuos/immutable/chunks/3-02484da4.js"
 ], l = [
   "/apple-touch-icon.png",
@@ -233,7 +234,7 @@ const p = [
   "/favicon.ico",
   "/icons.html",
   "/manifest.webmanifest"
-], i = "1661812849405", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+], i = "1661849062687", m = `cache${i}`, r = p.concat(l), u = new Set(r);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(

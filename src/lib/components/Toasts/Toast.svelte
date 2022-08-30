@@ -10,9 +10,6 @@
 
 	export let item = toastDefaults
 
-	console.log('init')
-	console.log(item)
-
 	const click = () => {
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclick === 'function') {

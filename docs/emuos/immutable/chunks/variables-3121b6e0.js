@@ -1,0 +1,2 @@
+import{e as E}from"./env-public-68bb7357.js";var e,L,B,t,r;const o={MODE:"production",DEV:!1,PROD:!0,BASE_URL:"./",GLOBAL_DEBUG:((e={BASE_URL:"./",MODE:"production",DEV:!1,PROD:!0}.VITE_GLOBAL_DEBUG)==null?void 0:e.toLowerCase())==="true"||((B=(L=E)==null?void 0:L.PUBLIC_GLOBAL_DEBUG)==null?void 0:B.toLowerCase())==="true",USE_WEBCOMPONENTS:((r=(t=E)==null?void 0:t.PUBLIC_USE_WEBCOMPONENTS)==null?void 0:r.toLowerCase())==="true"};o!=null&&o.GLOBAL_DEBUG&&console.log(o);export{o as v};
+//# sourceMappingURL=variables-3121b6e0.js.map
