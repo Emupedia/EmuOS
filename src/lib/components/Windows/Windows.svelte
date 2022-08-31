@@ -1,3 +1,5 @@
+<svelte:options tag="emuos-windows" />
+
 <script>
 	import { onMount } from 'svelte'
 	import { getAll } from '$lib/dom'
@@ -20,8 +22,6 @@
 		}
 	})
 </script>
-
-<svelte:options tag={null} />
 
 <nav class="windows {$$props.class || ''}" {...$$restProps}><slot /></nav>
 

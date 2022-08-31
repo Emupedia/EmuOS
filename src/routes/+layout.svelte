@@ -1,3 +1,5 @@
+<svelte:options tag={null} />
+
 <script>
 	import { browser } from '$app/environment'
 	import { variables } from '$lib/variables'
@@ -39,8 +41,6 @@
 		console.log('%cUnless you understand exactly what you are doing, close this window and stay safe.', 'font-size: 16px; color: #00A478;')
 	}
 </script>
-
-<svelte:options tag={null} />
 
 <svelte:head>
 	<title>EmuOS v2.0</title>

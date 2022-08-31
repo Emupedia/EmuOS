@@ -1,11 +1,8 @@
 // noinspection DuplicatedCode
 
-import { createRequire } from 'module'
 import { resolve } from 'path'
-
-const require		= createRequire(import.meta.url)
-const fs			= require('fs-extra')
-const replace		= require('replace-in-file')
+import fs from 'fs-extra'
+import replace from 'replace-in-file'
 
 let fixjekyll		= process.argv.indexOf('-fixjekyll') > -1
 let fixneutralino	= process.argv.indexOf('-fixneutralino') > -1

@@ -1,3 +1,5 @@
+<svelte:options tag="emuos-button" />
+
 <script>
 	import { getGlobal } from '$lib/dom'
 
@@ -59,8 +61,6 @@
 		style = `--icon: url('data:image/svg+xml;base64,${iconSVG}');`
 	}
 </script>
-
-<svelte:options tag={null} />
 
 <button class={cls} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
 

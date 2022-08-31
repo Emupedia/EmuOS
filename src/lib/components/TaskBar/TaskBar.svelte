@@ -1,9 +1,9 @@
+<svelte:options tag="emuos-taskbar" />
+
 <script>
 	export let type = 'bottom'
 	export let debug = false
 </script>
-
-<svelte:options tag={null} />
 
 <aside class="taskbar {type}" class:debug>
 	<nav><slot>TaskBar</slot></nav>

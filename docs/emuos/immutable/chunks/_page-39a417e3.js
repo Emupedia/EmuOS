@@ -1,0 +1,2 @@
+import{g as a}from"./api-68a3f8d0.js";import{v as c}from"./variables-0e6a6a31.js";const n=async s=>{var t;(t=c)!=null&&t.GLOBAL_DEBUG&&console.log("+page.js");const o=await a(s.fetch).catch(r=>console.error(r)),e=await(o==null?void 0:o.json().catch(r=>console.error(r)));return{version:(e==null?void 0:e.version)||0}},g=Object.freeze(Object.defineProperty({__proto__:null,load:n},Symbol.toStringTag,{value:"Module"}));export{g as _,n as l};
+//# sourceMappingURL=_page-39a417e3.js.map

@@ -1,8 +1,4 @@
-<script>
-
-</script>
-
-<svelte:options tag={null} />
+<svelte:options tag="emuos-resize-handlers" />
 
 <div class="resize-handles {$$props.class || ''}" {...$$restProps}>
 	<div class="top"></div>

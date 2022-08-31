@@ -1,12 +1,11 @@
 {
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "emuos/immutable/start-78b89c12.js",
+    "file": "emuos/immutable/start-73264b8e.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-a73070ad.js",
-      "_singletons-fd81d780.js",
-      "_env-public-68bb7357.js",
+      "_singletons-35a384cc.js",
       "_index-6fa7900d.js"
     ],
     "dynamicImports": [
@@ -17,47 +16,44 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "emuos/immutable/components/pages/_layout.svelte-1dbe2f4d.js",
+    "file": "emuos/immutable/components/pages/_layout.svelte-f711453a.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
       "_index-a73070ad.js",
-      "_variables-3121b6e0.js",
-      "_env-public-68bb7357.js"
+      "_variables-0e6a6a31.js"
     ],
     "css": [
-      "emuos/immutable/assets/_layout-7c802733.css"
+      "emuos/immutable/assets/_layout-9691a738.css"
     ]
   },
   "src/routes/+error.svelte": {
-    "file": "emuos/immutable/components/pages/_error.svelte-3affafef.js",
+    "file": "emuos/immutable/components/pages/_error.svelte-40949ea1.js",
     "src": "src/routes/+error.svelte",
     "isEntry": true,
     "imports": [
       "_index-a73070ad.js",
-      "_singletons-fd81d780.js",
-      "_variables-3121b6e0.js",
-      "_index-6fa7900d.js",
-      "_env-public-68bb7357.js"
+      "_singletons-35a384cc.js",
+      "_variables-0e6a6a31.js",
+      "_index-6fa7900d.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "emuos/immutable/components/pages/_page.svelte-0f22b378.js",
+    "file": "emuos/immutable/components/pages/_page.svelte-bf978bf8.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-a73070ad.js",
-      "_api-04bc0b82.js",
+      "_api-68a3f8d0.js",
       "_index-6fa7900d.js",
-      "_variables-3121b6e0.js",
-      "_env-public-68bb7357.js"
+      "_variables-0e6a6a31.js"
     ],
     "css": [
-      "emuos/immutable/assets/_page-4ee7b845.css"
+      "emuos/immutable/assets/_page-5679ddfb.css"
     ]
   },
   "src/routes/test/+page.svelte": {
-    "file": "emuos/immutable/components/pages/test/_page.svelte-03f51a49.js",
+    "file": "emuos/immutable/components/pages/test/_page.svelte-7df291ff.js",
     "src": "src/routes/test/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -65,34 +61,29 @@
     ]
   },
   "src/routes/+layout.js": {
-    "file": "emuos/immutable/modules/pages/_layout.js-592d3b54.js",
+    "file": "emuos/immutable/modules/pages/_layout.js-ce9c55dc.js",
     "src": "src/routes/+layout.js",
     "isEntry": true,
     "imports": [
-      "_variables-3121b6e0.js",
-      "__layout-937e89b2.js",
-      "_env-public-68bb7357.js"
+      "_variables-0e6a6a31.js",
+      "__layout-d9a45e1d.js"
     ]
   },
   "src/routes/+page.js": {
-    "file": "emuos/immutable/modules/pages/_page.js-ae520d68.js",
+    "file": "emuos/immutable/modules/pages/_page.js-519fe5d5.js",
     "src": "src/routes/+page.js",
     "isEntry": true,
     "imports": [
-      "_api-04bc0b82.js",
-      "_variables-3121b6e0.js",
-      "__page-98645f32.js",
-      "_env-public-68bb7357.js"
+      "_api-68a3f8d0.js",
+      "_variables-0e6a6a31.js",
+      "__page-39a417e3.js"
     ]
   },
-  "_singletons-fd81d780.js": {
-    "file": "emuos/immutable/chunks/singletons-fd81d780.js",
+  "_singletons-35a384cc.js": {
+    "file": "emuos/immutable/chunks/singletons-35a384cc.js",
     "imports": [
       "_index-6fa7900d.js"
     ]
-  },
-  "_env-public-68bb7357.js": {
-    "file": "emuos/immutable/chunks/env-public-68bb7357.js"
   },
   "_index-a73070ad.js": {
     "file": "emuos/immutable/chunks/index-a73070ad.js"
@@ -103,72 +94,66 @@
       "_index-a73070ad.js"
     ]
   },
-  "_variables-3121b6e0.js": {
-    "file": "emuos/immutable/chunks/variables-3121b6e0.js",
+  "_variables-0e6a6a31.js": {
+    "file": "emuos/immutable/chunks/variables-0e6a6a31.js"
+  },
+  "__layout-d9a45e1d.js": {
+    "file": "emuos/immutable/chunks/_layout-d9a45e1d.js",
     "imports": [
-      "_env-public-68bb7357.js"
+      "_variables-0e6a6a31.js"
     ]
   },
-  "__layout-937e89b2.js": {
-    "file": "emuos/immutable/chunks/_layout-937e89b2.js",
+  "_api-68a3f8d0.js": {
+    "file": "emuos/immutable/chunks/api-68a3f8d0.js",
     "imports": [
-      "_variables-3121b6e0.js"
+      "_variables-0e6a6a31.js"
     ]
   },
-  "_api-04bc0b82.js": {
-    "file": "emuos/immutable/chunks/api-04bc0b82.js",
+  "__page-39a417e3.js": {
+    "file": "emuos/immutable/chunks/_page-39a417e3.js",
     "imports": [
-      "_variables-3121b6e0.js"
-    ]
-  },
-  "__page-98645f32.js": {
-    "file": "emuos/immutable/chunks/_page-98645f32.js",
-    "imports": [
-      "_api-04bc0b82.js",
-      "_variables-3121b6e0.js"
+      "_api-68a3f8d0.js",
+      "_variables-0e6a6a31.js"
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "emuos/immutable/chunks/0-558d54a9.js",
+    "file": "emuos/immutable/chunks/0-65f89648.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
-      "__layout-937e89b2.js",
+      "__layout-d9a45e1d.js",
       "src/routes/+layout.svelte",
-      "_variables-3121b6e0.js",
-      "_env-public-68bb7357.js",
+      "_variables-0e6a6a31.js",
       "_index-a73070ad.js"
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "emuos/immutable/chunks/1-8cf80d94.js",
+    "file": "emuos/immutable/chunks/1-6cb75d87.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
       "src/routes/+error.svelte",
       "_index-a73070ad.js",
-      "_singletons-fd81d780.js",
+      "_singletons-35a384cc.js",
       "_index-6fa7900d.js",
-      "_variables-3121b6e0.js",
-      "_env-public-68bb7357.js"
+      "_variables-0e6a6a31.js"
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "emuos/immutable/chunks/2-f1cf872d.js",
+    "file": "emuos/immutable/chunks/2-a00f9164.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
-      "__page-98645f32.js",
+      "__page-39a417e3.js",
       "src/routes/+page.svelte",
-      "_api-04bc0b82.js",
-      "_variables-3121b6e0.js",
-      "_env-public-68bb7357.js",
+      "_api-68a3f8d0.js",
+      "_variables-0e6a6a31.js",
       "_index-a73070ad.js",
       "_index-6fa7900d.js"
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "emuos/immutable/chunks/3-02484da4.js",
+    "file": "emuos/immutable/chunks/3-c610db73.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -177,11 +162,11 @@
     ]
   },
   "src/routes/+layout.css": {
-    "file": "emuos/immutable/assets/_layout-7c802733.css",
+    "file": "emuos/immutable/assets/_layout-9691a738.css",
     "src": "src/routes/+layout.css"
   },
   "src/routes/+page.css": {
-    "file": "emuos/immutable/assets/_page-4ee7b845.css",
+    "file": "emuos/immutable/assets/_page-5679ddfb.css",
     "src": "src/routes/+page.css"
   }
 }

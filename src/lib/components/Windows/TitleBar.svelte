@@ -1,11 +1,11 @@
+<svelte:options tag="emuos-titlebar" />
+
 <script>
 	import Button from '$lib/components/Panel/Button.svelte'
 
 	export let buttons = ['minimize', 'maximize', 'close']
 	export let onMouseDown = () => {}
 </script>
-
-<svelte:options tag={null} />
 
 <header class="title-bar {$$props.class || ''}" on:mousedown={onMouseDown} {...$$restProps}>
 	<slot>TitleBar</slot>

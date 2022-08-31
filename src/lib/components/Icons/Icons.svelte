@@ -1,4 +1,4 @@
-<svelte:options tag={null} />
+<svelte:options tag="emuos-icons" />
 
 <ul class="icons {$$props.class || ''}" {...$$restProps}><slot /></ul>
 
@@ -19,6 +19,9 @@
 		//gap: 14px 1px;
 
 		//contain: strict;
+
+		padding: 0;
+		margin: 0;
 
 		overflow: hidden;
 		overflow-x: hidden;

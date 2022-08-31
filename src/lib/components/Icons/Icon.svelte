@@ -1,5 +1,7 @@
 <!--suppress CheckImageSize, JSUnusedAssignment -->
 
+<svelte:options tag="emuos-icon" />
+
 <script>
 	import { beforeUpdate, onMount, afterUpdate, onDestroy } from 'svelte'
 	import { db } from '$lib/stores'
@@ -36,6 +38,8 @@
 		console.log('Icon.onMount')
 
 		if (typeof name === 'undefined') {
+			name = slot.innerText
+		} else if (name === 'Icon') {
 			name = slot.innerText
 		}
 
@@ -81,8 +85,6 @@
 		}
 	}
 </script>
-
-<svelte:options tag={null} />
 
 <li bind:this={icon} class="icon {$$props.class || ''}" class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} on:mousedown={onMouseDown} on:click={onClick} style="--x: {x}; --y: {y};" {...$$restProps}>
 	<button type="button" {title}>

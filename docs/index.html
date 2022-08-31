@@ -124,11 +124,10 @@
 		<link rel="apple-touch-startup-image" href="assets/images/logos/emupedia/emupedia-logo-256.png" />
 		<link type="text/css" rel="stylesheet" href="assets/css/fonts.css" />
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="modulepreload" href="/emuos/immutable/start-78b89c12.js">
+	<link rel="modulepreload" href="/emuos/immutable/start-73264b8e.js">
 	<link rel="modulepreload" href="/emuos/immutable/chunks/index-a73070ad.js">
-	<link rel="modulepreload" href="/emuos/immutable/chunks/singletons-fd81d780.js">
+	<link rel="modulepreload" href="/emuos/immutable/chunks/singletons-35a384cc.js">
 	<link rel="modulepreload" href="/emuos/immutable/chunks/index-6fa7900d.js">
-	<link rel="modulepreload" href="/emuos/immutable/chunks/env-public-68bb7357.js">
 			<script>
 		if ('serviceWorker' in navigator) {
 			addEventListener('load', function () {
@@ -140,17 +139,14 @@
 	<body>
 		
 		<script type="module" data-sveltekit-hydrate="45h">
-		import { set_public_env, start } from "/emuos/immutable/start-78b89c12.js";
-
-		set_public_env({"PUBLIC_GLOBAL_DEBUG":"true","PUBLIC_USE_WEBCOMPONENTS":"false"});
+		import { start } from "/emuos/immutable/start-73264b8e.js";
 
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
+			env: {},
+			hydrate: null,
 			paths: {"base":"","assets":""},
-			route: true,
-			spa: true,
-			trailing_slash: "never",
-			hydrate: null
+			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
+			trailing_slash: "never"
 		});
 	</script>
 		<script type="text/javascript" src="assets/js/libraries/system.js"></script>

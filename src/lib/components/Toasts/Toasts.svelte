@@ -25,7 +25,7 @@
 <ul class="toasts">
 	{#each items as item(item.id)}
 		<li class={item.classes.join(' ')} in:fly={item.intro} out:fade animate:flip={{ duration: 200 }} style={getCss(item.theme)}>
-			{#if variables.USE_WEBCOMPONENTS}
+			{#if variables?.USE_WEBCOMPONENTS}
 				<emuos-toast {item}></emuos-toast>
 			{:else}
 				<Toast {item} />

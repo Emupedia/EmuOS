@@ -1,4 +1,4 @@
-<svelte:options tag={null} />
+<svelte:options tag="emuos-contextmenu-separator" />
 
 <li class="menu-separator {$$props.class || ''}" {...$$restProps}><hr /></li>
 

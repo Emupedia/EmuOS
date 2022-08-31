@@ -1,3 +1,5 @@
+<svelte:options tag="emuos-desktop" />
+
 <!--suppress JSCheckFunctionSignatures -->
 <script>
 	import { onMount, onDestroy, createEventDispatcher } from 'svelte'
@@ -128,8 +130,6 @@
 		}
 	}
 </script>
-
-<svelte:options tag={null} />
 
 <svelte:window on:mouseup={mouseUp} on:mousedown={mouseDown} on:mousemove={mouseMove} />
 

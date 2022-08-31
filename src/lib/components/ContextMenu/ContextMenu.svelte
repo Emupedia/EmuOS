@@ -1,3 +1,5 @@
+<svelte:options tag="emuos-contextmenu" />
+
 <script>
 	import { fade } from 'svelte/transition'
 	import { addUnits } from '$lib/dom'
@@ -49,8 +51,6 @@
 	}
 </script>
 
-<svelte:options tag={null} />
-
 <svelte:window on:contextmenu|preventDefault={onContextMenu} on:mousedown={onMouseDown} />
 
 <nav bind:this={menu} transition:fade={{ duration: 100 }} class="menu {$$props.class || ''}" class:show class:transform={useTransform} class:transform-3d={useTransform3D} class:debug style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};" {...$$restProps}>
@@ -76,6 +76,7 @@
 		box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #c0c0c0, inset -2px -2px 0 #808080, inset 2px 2px 0 #fff;
 
 		padding: 3px;
+
 		//text-align: center;
 
 		overflow: hidden;
@@ -84,6 +85,8 @@
 
 		menu, ul, ol {
 			list-style-type: none;
+			margin: 0;
+			padding: 0;
 		}
 
 		&.show {

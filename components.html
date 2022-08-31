@@ -1,75 +1,235 @@
 <!DOCTYPE html>
+
+<!--suppress CheckEmptyScriptTag -->
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="assets/images/logos/emupedia/emupedia-logo.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>EmuOS v2.0 - Components</title>
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@200..900&display=swap" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="assets/css/fonts.css" />
+		<!--suppress CssInvalidPropertyValue, CssUnusedSymbol, CssOverwrittenProperties, CssUnresolvedCustomProperty -->
 		<style>
 			:root {
-				color-scheme: dark;
-
-				--toastsTop: 1.5rem;
-				--toastsRight: 2rem;
+				--color-black: #000;
+				--color-white: #fff;
+				--color-gray: silver;
+				--color-cyan: teal;
+				--color-blue: navy;
+				--color-debug: #adff2f44;
+				--color-debug-muted: #80808044;
+				--color-background-desktop: var(--color-cyan);
+				--color-background-taskbar: var(--color-gray);
+				--color-background-panel: var(--color-gray);
+				--color-background-window-panel: var(--color-background-panel);
+				--color-background-window-panel-3d-border1: var(--color-black);
+				--color-background-window-panel-3d-border2: var(--color-white);
+				--color-background-window-panel-3d-border3: grey;
+				--color-background-window-panel-3d-border4: #dfdfdf;
+				--toastsTop: 10px;
+				--toastsRight: 10px;
 				--toastsBottom: auto;
 				--toastsLeft: auto;
-				--toastsZIndex: auto;
-
-				--toastWidth: 16rem;
+				--toastsZIndex: 2;
+				--toastWidth: 256px;
 				--toastHeight: auto;
-				--toastMinHeight: 3.5rem;
-				--toastMargin: 0 0 0.5rem 0;
+				--toastMinHeight: 56px;
+				--toastMargin: 0 0 8px 0;
 				--toastPadding: 0;
-				--toastBackground: rgba(66, 66, 66, 0.9);
-				--toastColor: #fff;
-				--toastBoxShadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+				--toastBackground: var(--color-background-panel);
+				--toastColor: var(--color-black);
+				--toastBoxShadow: inset -1px -1px 0 #000,inset 1px 1px 0 #dfdfdf,inset -2px -2px 0 grey,inset 2px 2px 0 #fff;
 				--toastBorder: none;
-				--toastBorderRadius: 0.3rem;
-				--toastGap: 0;
-
-				--toastMessagePadding: 0.75rem 0.5rem;
-
-				--toastButtonWidth: 1.5rem;
-				--toastButtonHeight: 1.5rem;
-				--toastButtonBackground: rgba(33, 33, 33, 0.9);
-				--toastButtonColor: #fff;
-				--toastButtonBoxShadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+				--toastBorderRadius: 0;
+				--toastGap: 5px;
+				--toastMessagePadding: 10px;
+				--toastButtonWidth: 16px;
+				--toastButtonHeight: 14px;
+				--toastButtonBackground: var(--color-background-panel);
+				--toastButtonColor: var(--color-black);
+				--toastButtonBoxShadow: inset -1px -1px 0 #000,inset 1px 1px 0 #fff,inset -2px -2px 0 grey,inset 2px 2px 0 #dfdfdf;
 				--toastButtonBorder: none;
-				--toastButtonBorderRadius: 0.5rem;
-				--toastButtonMargin: 0.5rem;
+				--toastButtonBorderRadius: 0;
+				--toastButtonMargin: 10px;
 				--toastButtonPadding: 0;
-
-				--toastButtonBackgroundActive: rgba(255, 255, 255, 0.3);
-				--toastButtonColorActive: #fff;
-				--toastButtonBoxShadowActive: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+				--toastButtonBackgroundActive: var(--color-background-panel);
+				--toastButtonColorActive: var(--color-black);
+				--toastButtonBoxShadowActive: inset -1px -1px 0 #fff,inset 1px 1px 0 #000,inset -2px -2px 0 #dfdfdf,inset 2px 2px 0 grey;
 				--toastButtonBorderActive: none;
-				--toastButtonBorderRadiusActive: 0.5rem;
-				--toastButtonMarginActive: 0.5rem;
+				--toastButtonBorderRadiusActive: 0;
+				--toastButtonMarginActive: 10px;
 				--toastButtonPaddingActive: 0;
-
-				--toastProgressTop: auto;
+				--toastProgressTop: 2px;
 				--toastProgressRight: auto;
-				--toastProgressBottom: 0;
-				--toastProgressLeft: 0;
+				--toastProgressBottom: auto;
+				--toastProgressLeft: 2px;
 				--toastProgressHeight: 6px;
-				--toastProgressWidth: 100%;
-				--toastProgressBackground: rgba(33, 150, 243, 0.75);
+				--toastProgressWidth: calc(100% - 4px);
+				--toastProgressBackground: var(--color-blue)
+			}
+
+			::-moz-selection {
+				background: var(--color-blue);
+				color: var(--color-white)
+			}
+
+			::selection {
+				background: var(--color-blue);
+				color: var(--color-white)
+			}
+
+			::-webkit-scrollbar,::-webkit-scrollbar-button,::-webkit-scrollbar-thumb {
+				height: 16px;
+				width: 16px
+			}
+
+			::-webkit-scrollbar-button,::-webkit-scrollbar-thumb {
+				background: var(--color-background-panel);
+				border-bottom: 1px solid #000;
+				border-left: 1px solid var(--color-background-panel);
+				border-right: 1px solid #000;
+				border-top: 1px solid var(--color-background-panel);
+				box-shadow: 1px 1px 0 var(--color-white) inset,-1px -1px #707070 inset
+			}
+
+			::-webkit-scrollbar-button:hover:active {
+				border: 1px solid #7b7b7b;
+				box-shadow: none
+			}
+
+			::-webkit-scrollbar-corner {
+				background: var(--color-background-panel)
+			}
+
+			::-webkit-scrollbar-button {
+				background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAYCAYAAAC8/X7cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTM0A1t6AAAAxUlEQVRYR+3T0QrDIBBEUT/dP2/ZMAODyZrZQINQDyy05irmIW37V733D35Oud2r4lIxAUsptvibY3g1SFJOQ3pu5QVisJTTmENITrTFUkrbmNm5NO7Bck5jwqMTbTl4lNJ2djaNfcCjnBPrweMgSbGbnU/aBizfc+LjxASSVOUFCEvrcC+15OW3bWvuh7nkBxyXqryA1TK8mjtOQ5VzQ6nX2N30tHX6UN5TibV9ssdR7Q9OrAePc8ftQqV9VeUFtu03WvsCS61PICoBlBoAAAAASUVORK5CYII=);
+				background-position: 50%;
+				background-repeat: no-repeat;
+				image-rendering: pixelated
+			}
+
+			::-webkit-scrollbar-button:horizontal:decrement:disabled {
+				background-position: -23px 1px
+			}
+
+			::-webkit-scrollbar-button:horizontal:increment:disabled {
+				background-position: -35px 1px
+			}
+
+			::-webkit-scrollbar-button:vertical:decrement:disabled {
+				background-position: -11px 1px
+			}
+
+			::-webkit-scrollbar-button:vertical:increment:disabled {
+				background-position: 1px 1px
+			}
+
+			::-webkit-scrollbar-button:horizontal:decrement {
+				background-position: -23px -11px
+			}
+
+			::-webkit-scrollbar-button:horizontal:increment {
+				background-position: -35px -11px
+			}
+
+			::-webkit-scrollbar-button:vertical:decrement {
+				background-position: -11px -11px
+			}
+
+			::-webkit-scrollbar-button:vertical:increment {
+				background-position: 1px -11px
+			}
+
+			::-webkit-scrollbar-button:horizontal:end:decrement,::-webkit-scrollbar-button:horizontal:start:increment,::-webkit-scrollbar-button:vertical:end:decrement,::-webkit-scrollbar-button:vertical:start:increment {
+				display: none
+			}
+
+			::-webkit-scrollbar {
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEW9vb3///8EwsWUAAAADElEQVQI12NoYHAAAAHEAMFJRSpJAAAAAElFTkSuQmCC) repeat;
+				image-rendering: pixelated
+			}
+
+			::-webkit-scrollbar-track-piece:active {
+				background: var(--color-black)
+			}
+
+			*,:after,:before {
+				text-rendering: optimizeLegibility;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-touch-callout: none;
+				border: 0;
+				box-sizing: border-box;
+				font-variant-numeric: tabular-nums;
+				margin: 0;
+				outline: 0;
+				padding: 0;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none
+			}
+
+			body,html {
+				height: 100%
 			}
 
 			body {
-				font-family: 'Ubuntu', sans-serif;
+				margin: 0;
+				overflow: hidden;
+				padding: 0
 			}
 
-			a {
-				pointer-events: auto;
+			body,button,input,label,option,select,textarea {
+				text-rendering: optimizeLegibility;
+				-webkit-text-size-adjust: none;
+				-moz-text-size-adjust: none;
+				text-size-adjust: none;
+				-webkit-font-smoothing: none;
+				-moz-osx-font-smoothing: grayscale;
+				font-smooth: never;
+				font-family: EmuOS Pixelated,"Microsoft Sans Serif",Arial,sans-serif;
+				font-size: 11px
 			}
 		</style>
 	</head>
 	<body>
-		<my-counter></my-counter>
-		<emuos-toasts></emuos-toasts>
+
+		<emuos-desktop>
+			<emuos-icons>
+				<emuos-icon>1</emuos-icon>
+				<emuos-icon>2</emuos-icon>
+				<emuos-icon>3</emuos-icon>
+				<emuos-icon>4</emuos-icon>
+				<emuos-icon>5</emuos-icon>
+				<emuos-icon>6</emuos-icon>
+			</emuos-icons>
+
+			<emuos-windows>
+				<emuos-window x="100" y="80" width="170" height="100" padding="3" title="Notepad" showStatusBar="true" isContentEditable="true" status="Idle" ><br />Some content<br />is<br />here<br /><br /><br /><br /></emuos-window>
+				<emuos-window x="140" y="200" width="170" height="100" padding="6" title="Tools"><emuos-button>Show Toast</emuos-button> <emuos-button>Reset Icons</emuos-button></emuos-window>
+				<emuos-window x="160" y="370" width="170" height="100" padding="6" showTitleBar="false">No TitleBar, No StatusBar, Not Editable</emuos-window>
+			</emuos-windows>
+
+			<emuos-toasts></emuos-toasts>
+
+			<emuos-contextmenu>
+				<emuos-contextmenu-item>Arrange Icons</emuos-contextmenu-item>
+				<emuos-contextmenu-item>Line up Icons</emuos-contextmenu-item>
+				<emuos-contextmenu-separator></emuos-contextmenu-separator>
+				<emuos-contextmenu-item onClick={onRefresh}>Refresh</emuos-contextmenu-item>
+				<emuos-contextmenu-separator></emuos-contextmenu-separator>
+				<emuos-contextmenu-item disabled>Paste</emuos-contextmenu-item>
+				<emuos-contextmenu-item disabled>Paste Shortcut</emuos-contextmenu-item>
+				<emuos-contextmenu-separator></emuos-contextmenu-separator>
+				<emuos-contextmenu-item>New</emuos-contextmenu-item>
+				<emuos-contextmenu-separator></emuos-contextmenu-separator>
+				<emuos-contextmenu-item>Properties</emuos-contextmenu-item>
+			</emuos-contextmenu>
+
+		</emuos-desktop>
+
+		<emuos-taskbar></emuos-taskbar>
+
 		<script type="module" src="src/main.js"></script>
 	</body>
 </html>

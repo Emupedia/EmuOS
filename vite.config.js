@@ -39,8 +39,6 @@ const SvelteKitConfig = {
 const SvelteConfig = {
 	plugins: [
 		svelte({
-			// emitCss: true,
-			// preprocess: sveltePreprocess(),
 			compilerOptions: {
 				customElement: true
 			}
@@ -61,11 +59,6 @@ const SvelteConfig = {
 		}
 	},
 	css: {
-		/*postcss: {
-			plugins: [
-				autoprefixer()
-			]
-		},*/
 		preprocessorOptions: {
 			scss: {
 				additionalData: '@use "src/variables.scss" as *;'

@@ -1,3 +1,5 @@
+<svelte:options tag={null} />
+
 <script>
 	import { page } from '$app/stores'
 	import { variables } from '$lib/variables'
@@ -19,8 +21,6 @@
 		console.log($page)
 	}
 </script>
-
-<svelte:options tag={null} />
 
 <svelte:head>
 	<title>EmuOS v2.0 - Error!</title>

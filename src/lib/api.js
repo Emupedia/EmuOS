@@ -58,4 +58,4 @@ const fetchWithRetryDelay = async (resource, options = {}, f, n = GLOBAL_RETRIES
 }
 
 export const getSettings = (f, options) => fetchWithRetryDelay(`/settings`, options, f)
-export const getVersion = (f, options) => fetchWithRetryDelay( variables.DEV ? 'https://emuos.emupedia.net/emuos/version.json' : '/emuos/version.json', options, f)
+export const getVersion = (f, options) => fetchWithRetryDelay( variables?.DEV ? 'https://emuos.emupedia.net/emuos/version.json' : '/emuos/version.json', options, f)

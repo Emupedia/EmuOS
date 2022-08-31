@@ -64,7 +64,7 @@ const config = {
 			// params: 'src/params',
 			// routes: 'src/routes',
 			// serviceWorker: 'src/service-worker',
-			template: 'src/index.html'
+			appTemplate: 'src/index.html'
 		},
 		// inlineStyleThreshold: 0,
 		methodOverride: {

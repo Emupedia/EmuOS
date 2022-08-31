@@ -1,5 +1,7 @@
 <!--suppress JSUnusedAssignment, JSUnresolvedVariable -->
 
+<svelte:options tag={null} />
+
 <script>
 	import { beforeUpdate, onMount, afterUpdate, onDestroy } from 'svelte'
 
@@ -77,8 +79,6 @@
 
 	const onResetIconsClick = () => ($db.desktop.icons = iconsData)
 </script>
-
-<svelte:options tag={null} />
 
 <Desktop {version} on:updated={onUpdated}>
 	<Icons>
