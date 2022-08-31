@@ -77,15 +77,15 @@ const config = {
 		// 	assets: '',
 		// 	base: ''
 		// },
-		// prerender: {
+		prerender: {
 			// concurrency: 1,
 			// crawl: true,
 			// default: false,
 			// enabled: true,
-			// entries: ['*'],
+			entries: [],
 			// onError: 'fail',
 			// origin: 'http://sveltekit-prerender'
-		// },
+		},
 		serviceWorker: {
 			register: isProduction && (BuildWeb || BuildDesktop),
 			// TODO: move this to env variable

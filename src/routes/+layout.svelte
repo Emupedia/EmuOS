@@ -42,8 +42,6 @@
 	}
 </script>
 
-<svelte:head>
-	<title>EmuOS v2.0</title>
-</svelte:head>
-
-<slot />
+<div data-sveltekit-prefetch>
+	<slot />
+</div>
