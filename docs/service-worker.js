@@ -1,14 +1,14 @@
 const p = [
-  "/emuos/immutable/start-73264b8e.js",
+  "/emuos/immutable/start-115e750b.js",
   "/emuos/immutable/components/pages/_layout.svelte-f711453a.js",
   "/emuos/immutable/assets/_layout-9691a738.css",
-  "/emuos/immutable/components/pages/_error.svelte-40949ea1.js",
+  "/emuos/immutable/components/pages/_error.svelte-3df94445.js",
   "/emuos/immutable/components/pages/_page.svelte-bf978bf8.js",
   "/emuos/immutable/assets/_page-5679ddfb.css",
   "/emuos/immutable/components/pages/test/_page.svelte-7df291ff.js",
   "/emuos/immutable/modules/pages/_layout.js-ce9c55dc.js",
   "/emuos/immutable/modules/pages/_page.js-519fe5d5.js",
-  "/emuos/immutable/chunks/singletons-35a384cc.js",
+  "/emuos/immutable/chunks/singletons-dbb987d7.js",
   "/emuos/immutable/chunks/index-a73070ad.js",
   "/emuos/immutable/chunks/index-6fa7900d.js",
   "/emuos/immutable/chunks/variables-0e6a6a31.js",
@@ -16,7 +16,7 @@ const p = [
   "/emuos/immutable/chunks/api-68a3f8d0.js",
   "/emuos/immutable/chunks/_page-39a417e3.js",
   "/emuos/immutable/chunks/0-65f89648.js",
-  "/emuos/immutable/chunks/1-6cb75d87.js",
+  "/emuos/immutable/chunks/1-c9f43b8e.js",
   "/emuos/immutable/chunks/2-a00f9164.js",
   "/emuos/immutable/chunks/3-c610db73.js"
 ], l = [
@@ -238,7 +238,7 @@ const p = [
   "/toast/emuos/components/main.3c3d8e99.js",
   "/toast/emuos/components/main.3c3d8e99.js.map",
   "/toast/index.html"
-], i = "1661905376920", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+], i = "1661906694872", m = `cache${i}`, r = p.concat(l), u = new Set(r);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(
