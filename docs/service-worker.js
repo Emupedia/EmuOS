@@ -1,8 +1,8 @@
 const p = [
-  "/emuos/immutable/start-375587ef.js",
-  "/emuos/immutable/components/pages/_layout.svelte-956ae046.js",
+  "/emuos/immutable/start-c441ba31.js",
+  "/emuos/immutable/components/pages/_layout.svelte-87757464.js",
   "/emuos/immutable/assets/_layout-9691a738.css",
-  "/emuos/immutable/components/pages/_error.svelte-c0c62b31.js",
+  "/emuos/immutable/components/pages/_error.svelte-0d3049bd.js",
   "/emuos/immutable/assets/_error-e64a80db.css",
   "/emuos/immutable/components/pages/_page.svelte-def174f4.js",
   "/emuos/immutable/assets/_page-5679ddfb.css",
@@ -11,7 +11,7 @@ const p = [
   "/emuos/immutable/modules/pages/_page.js-519fe5d5.js",
   "/emuos/immutable/modules/pages/bsod/_page.js-df399da5.js",
   "/emuos/immutable/modules/pages/_fallthrough_/_page.js-37688f2a.js",
-  "/emuos/immutable/chunks/singletons-8a7bd4ad.js",
+  "/emuos/immutable/chunks/singletons-8194c4ab.js",
   "/emuos/immutable/chunks/index-3fd632d2.js",
   "/emuos/immutable/chunks/index-eacc6778.js",
   "/emuos/immutable/chunks/index-428dfb05.js",
@@ -21,8 +21,8 @@ const p = [
   "/emuos/immutable/chunks/_page-39a417e3.js",
   "/emuos/immutable/chunks/_page-3556cae6.js",
   "/emuos/immutable/chunks/_page-efe1fc70.js",
-  "/emuos/immutable/chunks/0-217f5039.js",
-  "/emuos/immutable/chunks/1-494b7bed.js",
+  "/emuos/immutable/chunks/0-20668027.js",
+  "/emuos/immutable/chunks/1-906d86ad.js",
   "/emuos/immutable/chunks/2-cd393fa8.js",
   "/emuos/immutable/chunks/3-5f267abe.js",
   "/emuos/immutable/chunks/4-ec5d1966.js",
@@ -246,7 +246,7 @@ const p = [
   "/toast/components/main.3c3d8e99.js",
   "/toast/components/main.3c3d8e99.js.map",
   "/toast/index.html"
-], i = "1661972333969", m = `cache${i}`, r = p.concat(l), u = new Set(r);
+], i = "1661974501546", m = `cache${i}`, r = p.concat(l), u = new Set(r);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(

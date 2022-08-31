@@ -1,11 +1,11 @@
 {
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "emuos/immutable/start-375587ef.js",
+    "file": "emuos/immutable/start-c441ba31.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-3fd632d2.js",
-      "_singletons-8a7bd4ad.js",
+      "_singletons-8194c4ab.js",
       "_index-eacc6778.js",
       "_index-428dfb05.js"
     ],
@@ -19,7 +19,7 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "emuos/immutable/components/pages/_layout.svelte-956ae046.js",
+    "file": "emuos/immutable/components/pages/_layout.svelte-87757464.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
@@ -31,12 +31,12 @@
     ]
   },
   "src/routes/+error.svelte": {
-    "file": "emuos/immutable/components/pages/_error.svelte-c0c62b31.js",
+    "file": "emuos/immutable/components/pages/_error.svelte-0d3049bd.js",
     "src": "src/routes/+error.svelte",
     "isEntry": true,
     "imports": [
       "_index-3fd632d2.js",
-      "_singletons-8a7bd4ad.js",
+      "_singletons-8194c4ab.js",
       "_variables-0e6a6a31.js",
       "_index-428dfb05.js"
     ],
@@ -105,8 +105,8 @@
       "__page-efe1fc70.js"
     ]
   },
-  "_singletons-8a7bd4ad.js": {
-    "file": "emuos/immutable/chunks/singletons-8a7bd4ad.js",
+  "_singletons-8194c4ab.js": {
+    "file": "emuos/immutable/chunks/singletons-8194c4ab.js",
     "imports": [
       "_index-428dfb05.js"
     ]
@@ -160,7 +160,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "emuos/immutable/chunks/0-217f5039.js",
+    "file": "emuos/immutable/chunks/0-20668027.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -171,13 +171,13 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "emuos/immutable/chunks/1-494b7bed.js",
+    "file": "emuos/immutable/chunks/1-906d86ad.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
       "src/routes/+error.svelte",
       "_index-3fd632d2.js",
-      "_singletons-8a7bd4ad.js",
+      "_singletons-8194c4ab.js",
       "_index-428dfb05.js",
       "_variables-0e6a6a31.js"
     ]
