@@ -1,10 +1,10 @@
 {
 	"id": "emuos",
-	"name": "EmuOS",
+	"name": "EmuOS v2.0",
 	"short_name": "EmuOS",
 	"dir": "auto",
 	"lang": "en-US",
-	"description": "Simulated Operating System used as frontend for Emupedia projects.",
+	"description": "EmuOS (Emulated Operating System) is used as a Frontend for Emupedia projects.",
 	"categories": ["entertainment", "education" ,"emupedia", "emulation", "emulator", "emularity", "virtual-desktop", "virtual", "desktop", "windows-desktop", "virtual-machine", "mame" ,"dosbox", "dosgame", "retrogaming", "retrocomputing", "preserve-games", "video-games", "games", "win95", "win98", "winxp"],
 	"display": "fullscreen",
 	"orientation": "landscape",
@@ -109,8 +109,8 @@
 		"purpose": "any"
 	}],
 	"shortcuts": [{
-		"name": "EmuOS",
-		"description": "Simulated Operating System used as frontend for Emupedia projects.",
+		"name": "EmuOS v2.0",
+		"description": "EmuOS (Emulated Operating System) is used as a Frontend for Emupedia projects.",
 		"url": "/",
 		"icons": [{
 			"src": "assets/images/logos/emupedia/emupedia-logo-256.png",

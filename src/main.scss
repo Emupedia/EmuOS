@@ -74,6 +74,12 @@
 	color: var(--color-white);
 }
 
+// noinspection CssInvalidPseudoSelector
+::-webkit-selection {
+	background: var(--color-blue);
+	color: var(--color-white);
+}
+
 ::selection {
 	background: var(--color-blue);
 	color: var(--color-white);
@@ -168,6 +174,11 @@
 	border: 0;
 	outline: 0;
 	text-rendering: optimizeLegibility;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: grayscale;
+	font-smooth: never;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
