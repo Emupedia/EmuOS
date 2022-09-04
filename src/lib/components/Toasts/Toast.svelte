@@ -71,6 +71,8 @@
 	}
 
 	onMount(() => {
+		console.log('Toast.onMount')
+
 		progress = tweened(item.initial, { duration: item.duration, easing: linear })
 		next = item.initial
 		prev = next
@@ -78,6 +80,8 @@
 	})
 
 	onDestroy(() => {
+		console.log('Toast.onDestroy')
+
 		// noinspection JSUnresolvedVariable
 		if (typeof item.onclose === 'function') {
 			// noinspection JSUnresolvedFunction,JSUnresolvedVariable

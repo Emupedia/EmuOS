@@ -1,13 +1,24 @@
 <svelte:options tag="emuos-panel" />
 
 <script>
+	import { onMount } from 'svelte'
 	import { addUnits } from '$lib/dom'
 
 	export let padding = 1
 	export let isContentEditable = false
 	export let debug = false
 
-	padding = addUnits(padding)
+	let mounted = false
+
+	$: if (mounted) {
+		padding = addUnits(padding)
+	}
+
+	onMount(() => {
+		console.log('Panel.onMount')
+
+		mounted = true
+	})
 </script>
 
 <article class="panel {$$props.class || ''}" class:debug {...$$restProps}>

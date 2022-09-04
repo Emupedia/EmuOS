@@ -1,6 +1,7 @@
 <svelte:options tag="emuos-button" />
 
 <script>
+	import { onMount } from 'svelte'
 	import { getGlobal } from '$lib/dom'
 
 	import Minimize from '$lib/assets/images/icons/win9x-window-button-minimize.svg?raw'
@@ -16,53 +17,62 @@
 	export let type = ''
 	export let onClick = () => {}
 
-	const global = getGlobal()
-
 	let cls = false
 	let style = false
 	let iconSVG = ''
+	let mounted = false
 
-	icon ? cls = icon.toLowerCase() : ''
-	!title ? title = icon : ''
+	const global = getGlobal()
 
-	switch (icon) {
-		case 'Minimize':
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(Minimize)
-			break;
-		case 'Maximize':
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(Maximize)
-			break;
-		case 'Restore':
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(Restore)
-			break;
-		case 'Close':
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(Close)
-			break;
-		case 'Help':
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(Help)
-			break;
-		case 'Fullscreen':
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(Fullscreen)
-			break;
-		case 'NewTab':
-			cls = 'new-tab'
-			// noinspection JSDeprecatedSymbols
-			iconSVG = global.btoa(NewTab)
-			break;
+	$: if (mounted) {
+		icon ? cls = icon.toLowerCase() : ''
+		!title ? title = icon : ''
+
+		switch (icon) {
+			case 'Minimize':
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(Minimize)
+				break;
+			case 'Maximize':
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(Maximize)
+				break;
+			case 'Restore':
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(Restore)
+				break;
+			case 'Close':
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(Close)
+				break;
+			case 'Help':
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(Help)
+				break;
+			case 'Fullscreen':
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(Fullscreen)
+				break;
+			case 'NewTab':
+				cls = 'new-tab'
+				// noinspection JSDeprecatedSymbols
+				iconSVG = global.btoa(NewTab)
+				break;
+		}
+
+		if (icon) {
+			style = `--icon: url('data:image/svg+xml;base64,${iconSVG}');`
+		}
 	}
 
-	if (icon) {
-		style = `--icon: url('data:image/svg+xml;base64,${iconSVG}');`
-	}
+	onMount(() => {
+		console.log('Button.onMount')
+
+		mounted = true
+	})
 </script>
 
-<button class={cls} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
+<button class={cls ? cls : ''} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
 
 <style lang="scss">
 	button {

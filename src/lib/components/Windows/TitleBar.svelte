@@ -1,15 +1,34 @@
 <svelte:options tag="emuos-titlebar" />
 
 <script>
+	import { onMount } from 'svelte'
+	import { variables } from '$lib/variables'
 	import Button from '$lib/components/Panel/Button.svelte'
 
 	export let buttons = ['minimize', 'maximize', 'close']
 	export let onMouseDown = () => {}
+
+	let mounted = false
+
+	$: if (mounted) {
+		buttons = ['minimize', 'maximize', 'close']
+	}
+
+	onMount(() => {
+		console.log('TitleBar.onMount')
+
+		mounted = true
+	})
 </script>
 
 <header class="title-bar {$$props.class || ''}" on:mousedown={onMouseDown} {...$$restProps}>
 	<slot>TitleBar</slot>
-	<nav>{#if buttons.includes('help')}<Button type="icon" icon="Help" />{/if}{#if buttons.includes('fullscreen')}<Button type="icon" icon="Fullscreen" />{/if}{#if buttons.includes('newtab')}<Button type="icon" icon="NewTab" />{/if}{#if buttons.includes('minimize')}<Button type="icon" icon="Minimize" />{/if}{#if buttons.includes('maximize')}<Button type="icon" icon="Maximize" />{/if}{#if buttons.includes('close')}<Button type="icon" icon="Close" />{/if}</nav>
+
+	{#if variables?.USE_WEBCOMPONENTS}
+		<nav>{#if buttons.includes('help')}<emuos-button type="icon" icon="Help"></emuos-button>{/if}{#if buttons.includes('fullscreen')}<emuos-button type="icon" icon="Fullscreen"></emuos-button>{/if}{#if buttons.includes('newtab')}<Button type="icon" icon="NewTab" />{/if}{#if buttons.includes('minimize')}<emuos-button type="icon" icon="Minimize"></emuos-button>{/if}{#if buttons.includes('maximize')}<emuos-button type="icon" icon="Maximize"></emuos-button>{/if}{#if buttons.includes('close')}<emuos-button type="icon" icon="Close"></emuos-button>{/if}</nav>
+	{:else}
+		<nav>{#if buttons.includes('help')}<Button type="icon" icon="Help" />{/if}{#if buttons.includes('fullscreen')}<Button type="icon" icon="Fullscreen" />{/if}{#if buttons.includes('newtab')}<Button type="icon" icon="NewTab" />{/if}{#if buttons.includes('minimize')}<Button type="icon" icon="Minimize" />{/if}{#if buttons.includes('maximize')}<Button type="icon" icon="Maximize" />{/if}{#if buttons.includes('close')}<Button type="icon" icon="Close" />{/if}</nav>
+	{/if}
 </header>
 
 <style lang="scss">

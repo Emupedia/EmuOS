@@ -1,6 +1,8 @@
 <svelte:options tag="emuos-window" />
 
 <script>
+	import { onMount } from 'svelte'
+	import { variables } from '$lib/variables'
 	import { addUnits } from '$lib/dom'
 
 	import Panel from '$lib/components/Panel/Panel.svelte'
@@ -28,22 +30,39 @@
 	export let useTransform3D = true
 	export let debug = false
 
-	x = addUnits(x)
-	y = addUnits(y)
-	width = addUnits(width)
-	height = addUnits(height)
-	minWidth = addUnits(minWidth)
-	minHeight = addUnits(minHeight)
-	padding = addUnits(padding)
+	let statusContent
+	let mounted = false
 
-	let statusContent = status
+	$: if (mounted) {
+		x = addUnits(x)
+		y = addUnits(y)
+		width = addUnits(width)
+		height = addUnits(height)
+		minWidth = addUnits(minWidth)
+		minHeight = addUnits(minHeight)
+		padding = addUnits(padding)
+		statusContent = status
+	}
+
+	onMount(() => {
+		console.log('Window.onMount')
+
+		mounted = true
+	})
 </script>
 
 <section class="window {$$props.class || ''}" class:debug class:move={!useTransform && !useTransform3D} class:transform={useTransform} class:transform-3d={useTransform3D} style="--x: {x}; --y: {y}; --width: {width}; --height: {height}; --min-width: {minWidth}; --min-height: {minHeight};"  {...$$restProps}>
-	{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
-	<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}" {isContentEditable} {padding}><slot>{content}</slot></Panel>
-	{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
-	<!--<ResizeHandles class="resize-handles {debug ? 'debug' : ''}" />-->
+	{#if variables?.USE_WEBCOMPONENTS}
+		{#if showTitleBar}<emuos-titlebar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</emuos-titlebar>{/if}
+		<emuos-panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}" {isContentEditable} {padding}><slot>{content}</slot></emuos-panel>
+		{#if showStatusBar}<emuos-statusbar class="status-bar {debug ? 'debug' : ''}">{statusContent}</emuos-statusbar>{/if}
+		<!--<emuos-resize-handles class="resize-handles {debug ? 'debug' : ''}"></emuos-resize-handles>-->
+	{:else}
+		{#if showTitleBar}<TitleBar class="title-bar {debug ? 'debug' : ''}" {buttons}>{title}</TitleBar>{/if}
+		<Panel class="panel {showTitleBar ? 'has-title-bar' : ''} {showStatusBar ? 'has-status-bar' : ''} {debug ? 'debug' : ''}" {isContentEditable} {padding}><slot>{content}</slot></Panel>
+		{#if showStatusBar}<StatusBar class="status-bar {debug ? 'debug' : ''}">{statusContent}</StatusBar>{/if}
+		<!--<ResizeHandles class="resize-handles {debug ? 'debug' : ''}" />-->
+	{/if}
 </section>
 
 <style lang="scss">
