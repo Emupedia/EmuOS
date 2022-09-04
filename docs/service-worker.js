@@ -1,22 +1,22 @@
 const p = [
-  "/emuos/immutable/start-a00f4288.js",
-  "/emuos/immutable/components/pages/_layout.svelte-87757464.js",
+  "/emuos/immutable/start-fce5688e.js",
+  "/emuos/immutable/components/pages/_layout.svelte-9e337bdd.js",
   "/emuos/immutable/assets/_layout-9bc0d80a.css",
-  "/emuos/immutable/components/pages/_error.svelte-eed338a8.js",
+  "/emuos/immutable/components/pages/_error.svelte-7ed342c7.js",
   "/emuos/immutable/assets/_error-88586626.css",
-  "/emuos/immutable/components/pages/_page.svelte-def174f4.js",
+  "/emuos/immutable/components/pages/_page.svelte-3db03951.js",
   "/emuos/immutable/assets/_page-5679ddfb.css",
-  "/emuos/immutable/components/pages/boot/_page.svelte-59b3a2fd.js",
-  "/emuos/immutable/components/pages/test/_page.svelte-b9cc80aa.js",
+  "/emuos/immutable/components/pages/boot/_page.svelte-40ec8e0f.js",
+  "/emuos/immutable/components/pages/test/_page.svelte-22d49e60.js",
   "/emuos/immutable/modules/pages/_layout.js-d898e3b0.js",
   "/emuos/immutable/modules/pages/_page.js-519fe5d5.js",
   "/emuos/immutable/modules/pages/boot/_fallthrough_/_page.js-14636162.js",
   "/emuos/immutable/modules/pages/bsod/_page.js-df399da5.js",
   "/emuos/immutable/modules/pages/_fallthrough_/_page.js-37688f2a.js",
-  "/emuos/immutable/chunks/singletons-d15a6c93.js",
-  "/emuos/immutable/chunks/index-3fd632d2.js",
+  "/emuos/immutable/chunks/singletons-344d1157.js",
+  "/emuos/immutable/chunks/index-a611c1df.js",
   "/emuos/immutable/chunks/index-eacc6778.js",
-  "/emuos/immutable/chunks/index-428dfb05.js",
+  "/emuos/immutable/chunks/index-9a292e52.js",
   "/emuos/immutable/chunks/variables-0e6a6a31.js",
   "/emuos/immutable/chunks/_layout-702bcf48.js",
   "/emuos/immutable/chunks/api-68a3f8d0.js",
@@ -24,13 +24,13 @@ const p = [
   "/emuos/immutable/chunks/_page-da2d5a9b.js",
   "/emuos/immutable/chunks/_page-3556cae6.js",
   "/emuos/immutable/chunks/_page-efe1fc70.js",
-  "/emuos/immutable/chunks/0-20668027.js",
-  "/emuos/immutable/chunks/1-1b9d2d37.js",
-  "/emuos/immutable/chunks/2-cd393fa8.js",
-  "/emuos/immutable/chunks/3-4615cf8d.js",
+  "/emuos/immutable/chunks/0-f3015901.js",
+  "/emuos/immutable/chunks/1-26334c9a.js",
+  "/emuos/immutable/chunks/2-17196dcb.js",
+  "/emuos/immutable/chunks/3-4f436237.js",
   "/emuos/immutable/chunks/4-9023c7b5.js",
   "/emuos/immutable/chunks/5-e5c2924f.js",
-  "/emuos/immutable/chunks/6-3b6c4ece.js",
+  "/emuos/immutable/chunks/6-b3c927b3.js",
   "/emuos/immutable/chunks/7-84bd78f9.js"
 ], u = [
   "/apple-touch-icon.png",
@@ -251,7 +251,7 @@ const p = [
   "/toast/components/main.3c3d8e99.js",
   "/toast/components/main.3c3d8e99.js.map",
   "/toast/index.html"
-], i = "1662004672422", m = `cache${i}`, n = p.concat(u), l = new Set(n);
+], i = "1662254272274", m = `cache${i}`, n = p.concat(u), l = new Set(n);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(
