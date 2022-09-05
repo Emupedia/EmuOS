@@ -12,51 +12,53 @@
 	import Fullscreen from '$lib/assets/images/icons/emuos-fullscreen.svg?raw'
 	import NewTab from '$lib/assets/images/icons/emuos-new-tab.svg?raw'
 
-	export let title = false
-	export let icon = false
+	export let title = null
+	export let icon = null
 	export let type = ''
-	export let onClick = () => {}
+	export let onClick = () => {
+		console.log('Button.onClick')
+	}
 
-	let cls = false
-	let style = false
+	let cls = null
+	let style = null
 	let iconSVG = ''
 	let mounted = false
 
 	const global = getGlobal()
 
 	$: if (mounted) {
-		icon ? cls = icon.toLowerCase() : ''
-		!title ? title = icon : ''
+		icon ? cls = icon?.toLowerCase() : null
+		!title ? title = icon : null
 
 		switch (icon) {
 			case 'Minimize':
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(Minimize)
+				iconSVG = global?.btoa(Minimize)
 				break;
 			case 'Maximize':
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(Maximize)
+				iconSVG = global?.btoa(Maximize)
 				break;
 			case 'Restore':
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(Restore)
+				iconSVG = global?.btoa(Restore)
 				break;
 			case 'Close':
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(Close)
+				iconSVG = global?.btoa(Close)
 				break;
 			case 'Help':
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(Help)
+				iconSVG = global?.btoa(Help)
 				break;
 			case 'Fullscreen':
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(Fullscreen)
+				iconSVG = global?.btoa(Fullscreen)
 				break;
 			case 'NewTab':
 				cls = 'new-tab'
 				// noinspection JSDeprecatedSymbols
-				iconSVG = global.btoa(NewTab)
+				iconSVG = global?.btoa(NewTab)
 				break;
 		}
 
@@ -72,7 +74,7 @@
 	})
 </script>
 
-<button class={cls ? cls : ''} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
+<button class={cls} class:button-icon={type === 'icon'} {style} type="button" {title} on:click={onClick} {...$$restProps}><slot /></button>
 
 <style lang="scss">
 	button {

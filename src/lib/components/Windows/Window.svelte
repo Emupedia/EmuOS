@@ -47,6 +47,27 @@
 	onMount(() => {
 		console.log('Window.onMount')
 
+		console.log('title')
+		console.log(title)
+		console.log('status')
+		console.log(status)
+		console.log('content')
+		console.log(content)
+		console.log('buttons')
+		console.log(buttons)
+		console.log('showTitleBar')
+		console.log(showTitleBar)
+		console.log('showStatusBar')
+		console.log(showStatusBar)
+		console.log('isContentEditable')
+		console.log(isContentEditable)
+		console.log('useTransform')
+		console.log(useTransform)
+		console.log('useTransform3D')
+		console.log(useTransform3D)
+		console.log('debug')
+		console.log(debug)
+
 		mounted = true
 	})
 </script>

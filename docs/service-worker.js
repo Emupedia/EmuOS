@@ -1,10 +1,10 @@
 const p = [
-  "/emuos/immutable/start-ec159d16.js",
+  "/emuos/immutable/start-54d348aa.js",
   "/emuos/immutable/components/pages/_layout.svelte-4870e944.js",
   "/emuos/immutable/assets/_layout-9bc0d80a.css",
-  "/emuos/immutable/components/pages/_error.svelte-14f09f33.js",
+  "/emuos/immutable/components/pages/_error.svelte-6ed26ffc.js",
   "/emuos/immutable/assets/_error-88586626.css",
-  "/emuos/immutable/components/pages/_page.svelte-944734c2.js",
+  "/emuos/immutable/components/pages/_page.svelte-8be21aba.js",
   "/emuos/immutable/assets/_page-5679ddfb.css",
   "/emuos/immutable/components/pages/boot/_page.svelte-b30fc10c.js",
   "/emuos/immutable/components/pages/test/_page.svelte-412999ef.js",
@@ -13,7 +13,7 @@ const p = [
   "/emuos/immutable/modules/pages/boot/_fallthrough_/_page.js-14636162.js",
   "/emuos/immutable/modules/pages/bsod/_page.js-df399da5.js",
   "/emuos/immutable/modules/pages/_fallthrough_/_page.js-37688f2a.js",
-  "/emuos/immutable/chunks/singletons-384f1da2.js",
+  "/emuos/immutable/chunks/singletons-7b53d451.js",
   "/emuos/immutable/chunks/index-3e4a7eb0.js",
   "/emuos/immutable/chunks/index-eacc6778.js",
   "/emuos/immutable/chunks/index-45c76ac1.js",
@@ -25,8 +25,8 @@ const p = [
   "/emuos/immutable/chunks/_page-3556cae6.js",
   "/emuos/immutable/chunks/_page-efe1fc70.js",
   "/emuos/immutable/chunks/0-147f24f1.js",
-  "/emuos/immutable/chunks/1-7b7eb811.js",
-  "/emuos/immutable/chunks/2-609bf728.js",
+  "/emuos/immutable/chunks/1-726899ea.js",
+  "/emuos/immutable/chunks/2-2592ddc1.js",
   "/emuos/immutable/chunks/3-19d9d6e2.js",
   "/emuos/immutable/chunks/4-9023c7b5.js",
   "/emuos/immutable/chunks/5-e5c2924f.js",
@@ -251,7 +251,7 @@ const p = [
   "/toast/components/main.3c3d8e99.js",
   "/toast/components/main.3c3d8e99.js.map",
   "/toast/index.html"
-], i = "1662257358191", m = `cache${i}`, n = p.concat(u), l = new Set(n);
+], i = "1662381287840", m = `cache${i}`, n = p.concat(u), l = new Set(n);
 self.addEventListener("install", (e) => {
   try {
     e.waitUntil(

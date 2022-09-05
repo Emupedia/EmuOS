@@ -17,6 +17,8 @@
 	onMount(() => {
 		console.log('Panel.onMount')
 
+		console.log(isContentEditable)
+
 		mounted = true
 	})
 </script>
