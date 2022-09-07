@@ -67,10 +67,6 @@ const config = {
 			appTemplate: 'src/index.html'
 		},
 		// inlineStyleThreshold: 0,
-		methodOverride: {
-			// parameter: '_method',
-			allowed: ['PUT', 'PATCH', 'DELETE', 'OPTIONS']
-		},
 		// moduleExtensions: ['.js', '.ts'],
 		// outDir: '.svelte-kit',
 		// paths: {
