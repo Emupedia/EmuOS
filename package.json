@@ -46,12 +46,12 @@
 		"build:desktop": "run-s set:debug:on set:components:off set:build:components:off set:build:website:off set:build:desktop:on build"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "1.0.0-next.42",
-		"@sveltejs/kit": "1.0.0-next.474",
+		"@sveltejs/adapter-static": "1.0.0-next.43",
+		"@sveltejs/kit": "1.0.0-next.481",
 		"@sveltejs/package": "^1.0.0-next.3",
 		"@sveltejs/vite-plugin-svelte": "^1.0.5",
 		"@vitejs/plugin-legacy": "^2.1.0",
-		"autoprefixer": "^10.4.8",
+		"autoprefixer": "^10.4.10",
 		"cross-env": "^7.0.3",
 		"cssnano": "^5.1.13",
 		"dotenv": "^16.0.2",
@@ -61,9 +61,9 @@
 		"postcss-load-config": "^4.0.1",
 		"replace-in-file": "^6.3.5",
 		"replace-in-files-cli": "^2.0.0",
-		"sass": "^1.54.8",
+		"sass": "^1.54.9",
 		"serve": "^14.0.1",
-		"svelte": "^3.50.0",
+		"svelte": "^3.50.1",
 		"svelte-preprocess": "^4.10.7",
 		"tailwindcss": "^3.1.8",
 		"vite": "^3.1.0"
