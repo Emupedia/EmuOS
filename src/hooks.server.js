@@ -48,11 +48,15 @@ export const handleFetch = async ({ request, fetch }) => {
 	return fetch(request)
 }
 
-export const handleError = ({ error, event }) => {
+export const handleError = ({ error, event, status }) => {
 	console.log(event)
+	console.log(status)
+
 	console.error(error)
 
-	return {
-		message: error.message
+	if (status === 500) {
+		console.log(error.stack);
 	}
+
+	return { message: status === 404 ? 'Not Found' : 'Internal Error' }
 }
